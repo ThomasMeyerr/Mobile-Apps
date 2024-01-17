@@ -24,12 +24,22 @@ struct CircleChoice: View {
     }
 
     var body: some View {
-        Circle()
-            .fill(self.isLongPress ?
-                  Color.red :
-                    (self.isLongPress ? Color.green : Color.blue))
-            .frame(width: 100, height: 100, alignment: .center)
-            .gesture(longPress)
+        ZStack {
+            Color.black.ignoresSafeArea()
+            
+            Rectangle()
+                .ignoresSafeArea()
+                .onTapGesture { location in
+                    print("Tapped \(location)")
+                }
+            
+            Circle()
+                .fill(self.isLongPress ?
+                      Color.red :
+                        (self.isLongPress ? Color.green : Color.blue))
+                .frame(width: 100, height: 100, alignment: .center)
+                .gesture(longPress)
+        }
     }
 }
 
