@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct Game: View {
-    
     @State private var opacity = 0.0
     @State private var currentIndex = 0
     @State private var loopCount = 0

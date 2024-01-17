@@ -14,6 +14,7 @@ struct ContentView: View {
                 .tabItem {
                     Label("✊✋✌", systemImage: "hand.raised.fill")
                 }
+            
             CircleChoice()
                 .tabItem {
                     Label("Circle", systemImage: "circle.fill")
