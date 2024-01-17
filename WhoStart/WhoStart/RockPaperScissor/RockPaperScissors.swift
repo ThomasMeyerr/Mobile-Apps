@@ -30,7 +30,7 @@ struct RockPaperScissors: View {
                 }
             }
         }
-        .accentColor(Color.white)
+        .accentColor(Color.primary)
     }
 }
 

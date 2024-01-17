@@ -12,27 +12,33 @@ struct Result: View {
     let AI: String
 
     var body: some View {
-        if yours == "Rock" && AI == "Scissor" || yours == "Paper" && AI == "Rock" || yours == "Scissor" && AI == "Paper" {
-            NavigationLink(destination: RockPaperScissors()) {
-                Image("Win")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-            }
-        } else if yours == "Rock" && AI == "Paper" || yours == "Paper" && AI == "Scissor" || yours == "Scissor" && AI == "Rock" {
-            NavigationLink(destination: RockPaperScissors()) {
-                Image("Loose")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-            }
-        } else {
-            NavigationLink(destination: RockPaperScissors()) {
-                Image("Par")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+        ZStack {
+            if yours == "Rock" && AI == "Scissor" || yours == "Paper" && AI == "Rock" || yours == "Scissor" && AI == "Paper" {
+                RadialGradient(colors: [.green, .secondary], center: .center, startRadius: 20, endRadius: 500)
+                NavigationLink(destination: RockPaperScissors()) {
+                    Image("Win")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                }
+            } else if yours == "Rock" && AI == "Paper" || yours == "Paper" && AI == "Scissor" || yours == "Scissor" && AI == "Rock" {
+                RadialGradient(colors: [.secondary, .white], center: .center, startRadius: 20, endRadius: 500)
+                NavigationLink(destination: RockPaperScissors()) {
+                    Image("Loose")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                }
+            } else {
+                RadialGradient(colors: [.secondary, .white], center: .center, startRadius: 20, endRadius: 500)
+                NavigationLink(destination: RockPaperScissors()) {
+                    Image("Par")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 200, height: 200)
+                }
             }
         }
+        .ignoresSafeArea()
     }
 }

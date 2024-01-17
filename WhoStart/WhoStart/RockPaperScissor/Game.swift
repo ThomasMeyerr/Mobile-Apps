@@ -29,7 +29,7 @@ struct Game: View {
                     }
                 
                 Text("VS")
-                    .foregroundColor(.white)
+                    .foregroundColor(.secondary)
                     .font(Font.system(size:50, weight: .bold))
                 
                 Image(choice)
