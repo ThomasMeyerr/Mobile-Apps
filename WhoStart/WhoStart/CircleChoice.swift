@@ -19,8 +19,10 @@ struct CircleChoice: View {
 
     var body: some View {
         ZStack {
+            Color.black.ignoresSafeArea()
+            
             Rectangle()
-                .ignoresSafeArea()
+                .fill(.black)
                 .onTapGesture { location in
                     print("X = \(location.x) and Y = \(location.y)")
                     let newCircle = CircleModel(x: location.x, y: location.y)
