@@ -8,11 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     var body: some View {
-        VStack {
-            Text("Test")
-            Text("Test2")
-        }
+        Text("Let's go")
     }
 }
 
