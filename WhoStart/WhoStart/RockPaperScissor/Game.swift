@@ -37,6 +37,7 @@ struct Game: View {
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 200, height: 200, alignment: .center)
             }
+            
             if self.loopCount == 5 {
                 Result(yours: choice, AI: images[self.currentIndex])
             }

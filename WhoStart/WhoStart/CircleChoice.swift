@@ -8,27 +8,28 @@
 import SwiftUI
 
 struct CircleChoice: View {
+
+    @GestureState private var isLongPress = false
+    @State private var pressEnd = false
     
-    @State private var shapes: [AnyView] = []
-    
-    var body: some View {
-        ZStack {
-            Rectangle()
-                .fill(Color.black)
-                .ignoresSafeArea()
-            
-            ForEach(shapes.indices, id: \.self) {
-                shapes[$0]
+    var longPress: some Gesture {
+        LongPressGesture(minimumDuration: 3)
+            .updating(self.$isLongPress) { currentState, gestureState, transaction in
+                gestureState = currentState
+                transaction.animation = Animation.easeIn(duration: 2.0)
             }
-        }
-        .contentShape(Rectangle())
-        .onTapGesture {
-            shapes.append(AnyView(
-            Circle()
-                .fill(Color.red)
-                .frame(width: 100, height: 100)
-            ))
-        }
+            .onEnded { finished in
+                self.pressEnd = finished
+            }
+    }
+
+    var body: some View {
+        Circle()
+            .fill(self.isLongPress ?
+                  Color.red :
+                    (self.isLongPress ? Color.green : Color.blue))
+            .frame(width: 100, height: 100, alignment: .center)
+            .gesture(longPress)
     }
 }
 
