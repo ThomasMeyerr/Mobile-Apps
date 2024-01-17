@@ -7,38 +7,32 @@
 
 import SwiftUI
 
-struct CircleChoice: View {
+struct CircleModel: Identifiable {
+    var id = UUID()
+    var x: CGFloat
+    var y: CGFloat
+}
 
-    @GestureState private var isLongPress = false
-    @State private var pressEnd = false
+struct CircleChoice: View {
     
-    var longPress: some Gesture {
-        LongPressGesture(minimumDuration: 3)
-            .updating(self.$isLongPress) { currentState, gestureState, transaction in
-                gestureState = currentState
-                transaction.animation = Animation.easeIn(duration: 2.0)
-            }
-            .onEnded { finished in
-                self.pressEnd = finished
-            }
-    }
+    @State private var circles: [CircleModel] = []
 
     var body: some View {
         ZStack {
-            Color.black.ignoresSafeArea()
-            
             Rectangle()
-                .ignoresSafeArea()
+                .background(Color.black.ignoresSafeArea())
                 .onTapGesture { location in
-                    print("Tapped \(location)")
+                    print("X = \(location.x) and Y = \(location.y)")
+                    let newCircle = CircleModel(x: location.x, y: location.y)
+                    circles.append(newCircle)
                 }
             
-            Circle()
-                .fill(self.isLongPress ?
-                      Color.red :
-                        (self.isLongPress ? Color.green : Color.blue))
-                .frame(width: 100, height: 100, alignment: .center)
-                .gesture(longPress)
+            ForEach(circles) { circle in
+                Circle()
+                    .fill(Color.red)
+                    .frame(width: 100, height: 100)
+                    .position(x: circle.x, y: circle.y)
+            }
         }
     }
 }
