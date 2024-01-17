@@ -11,6 +11,7 @@ struct Game: View {
     @State private var opacity = 0.0
     @State private var currentIndex = 0
     @State private var loopCount = 0
+    @State private var index = 0
     
     var choice = ""
     let images = ["Rock", "Paper", "Scissor"]
@@ -36,7 +37,7 @@ struct Game: View {
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 200, height: 200, alignment: .center)
             }
-            if self.loopCount == 3 {
+            if self.loopCount == 5 {
                 Result(yours: choice, AI: images[self.currentIndex])
             }
         }
@@ -44,28 +45,28 @@ struct Game: View {
     
     private func animateImageChange() {
         DispatchQueue.main.async {
-            withAnimation(.easeIn(duration: 1.0)) {
+            withAnimation(.easeIn(duration: 0.5)) {
                 self.opacity = 1.0
             }
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            withAnimation(.easeOut(duration: 1.0)) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            withAnimation(.easeOut(duration: 0.5)) {
                 self.opacity = 0.0
             }
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            withAnimation(.easeOut(duration: 1.0)) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+            withAnimation(.easeOut(duration: 0.5)) {
                 self.currentIndex = Int.random(in: 0..<self.images.count)
                 self.opacity = 1.0
             }
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.1) {
-           self.loopCount += 1
-           if self.loopCount < 3 {
-               self.animateImageChange()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.loopCount += 1
+            if self.loopCount < 5 {
+                self.animateImageChange()
            }
        }
     }
