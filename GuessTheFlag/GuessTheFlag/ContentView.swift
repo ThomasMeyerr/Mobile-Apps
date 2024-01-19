@@ -10,13 +10,17 @@ import SwiftUI
 struct ContentView: View {
     
     var body: some View {
-        ZStack {
-            LinearGradient(colors: [.blue, .black], startPoint: .top, endPoint: .bottom)
-                .ignoresSafeArea()
-            
-            VStack(spacing: 20) {
-                HStack(spacing: 20) {
-                    Game(countries: easy)
+        NavigationStack {
+            ZStack {
+                LinearGradient(colors: [.blue, .black], startPoint: .top, endPoint: .bottom)
+                    .ignoresSafeArea()
+                
+                VStack(spacing: 20) {
+                    HStack(spacing: 20) {
+                        NavigationLink(destination: Game(countries: easy), label: {
+                            Image("France")
+                        })
+                    }
                 }
             }
         }
