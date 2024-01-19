@@ -15,12 +15,32 @@ struct ContentView: View {
                 LinearGradient(colors: [.blue, .black], startPoint: .top, endPoint: .bottom)
                     .ignoresSafeArea()
                 
-                VStack(spacing: 20) {
-                    HStack(spacing: 20) {
-                        NavigationLink(destination: Game(countries: easy), label: {
-                            Image("France")
-                        })
+                VStack {
+                    Spacer()
+                    
+                    Text("Choose a difficulty :")
+                        .font(.largeTitle.bold())
+                        .foregroundColor(.white)
+                    
+                    Spacer()
+                    
+                    VStack {
+                        ForEach(difficulties, id: \.self) { difficulty in
+                            NavigationLink(destination: Game(countries: difficulty), label: {
+                                VStack {
+                                    Text("difficulty")
+                                        .font(.subheadline.weight(.semibold))
+                                        .foregroundColor(.white)
+                                    
+                                    Image("US")
+                                        .clipShape(.rect(cornerRadius: 10))
+                                        .shadow(radius: 5)
+                                }
+                            })
+                        }
                     }
+                    
+                    Spacer()
                 }
             }
         }
