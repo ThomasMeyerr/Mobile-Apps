@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     @State private var countries = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Spain", "UK", "Ukraine", "US"].shuffled()
-    @State private var correctAnswer = Int.random(in: 0...2)
+    @State private var correctAnswer = Int.random(in: 0...3)
     @State private var showingScore = false
     @State private var scoreTitle = String()
     
@@ -37,17 +37,16 @@ struct ContentView: View {
                             .font(.largeTitle.weight(.semibold))
                     }
                     
-                    ForEach(0..<3) { number in
+                    ForEach(0..<4) { number in
                         Button {
                             self.flagTapped(number)
                         }   label: {
                             Image(self.countries[number])
-                                .clipShape(.capsule)
+                                .clipShape(.rect(cornerRadius: 10))
                                 .shadow(radius: 5)
                         }
                     }
                     
-                    Spacer()
                     Spacer()
                     
                     Text("Score ???")
@@ -82,7 +81,7 @@ struct ContentView: View {
     
     func askQuestion() {
         self.countries.shuffle()
-        self.correctAnswer = Int.random(in: 0...2)
+        self.correctAnswer = Int.random(in: 0...3)
     }
 }
 
