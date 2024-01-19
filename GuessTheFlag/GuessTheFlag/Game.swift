@@ -110,7 +110,3 @@ struct Game: View {
         self.partyScore = 0
     }
 }
-
-#Preview {
-    Game(countries: easy)
-}

@@ -7,12 +7,8 @@
 
 import Foundation
 
-let difficulties = [easy, medium, hard, expert]
-
-let easy = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Spain", "UK", "Ukraine", "US"].shuffled()
-
+/* ------- FLAGS ------- */
+let europe = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Spain", "UK", "Ukraine", "US"].shuffled()
 let medium = [String]()
-
 let hard = [String]()
-
 let expert = [String]()

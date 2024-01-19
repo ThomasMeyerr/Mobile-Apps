@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @State private var index = 0
+    
     var body: some View {
         NavigationStack {
             ZStack {
@@ -16,31 +18,11 @@ struct ContentView: View {
                     .ignoresSafeArea()
                 
                 VStack {
-                    Spacer()
-                    
                     Text("Choose a difficulty :")
                         .font(.largeTitle.bold())
                         .foregroundColor(.white)
                     
-                    Spacer()
-                    
-                    VStack {
-                        ForEach(difficulties, id: \.self) { difficulty in
-                            NavigationLink(destination: Game(countries: difficulty), label: {
-                                VStack {
-                                    Text("difficulty")
-                                        .font(.subheadline.weight(.semibold))
-                                        .foregroundColor(.white)
-                                    
-                                    Image("US")
-                                        .clipShape(.rect(cornerRadius: 10))
-                                        .shadow(radius: 5)
-                                }
-                            })
-                        }
-                    }
-                    
-                    Spacer()
+                    Menu()
                 }
             }
         }
