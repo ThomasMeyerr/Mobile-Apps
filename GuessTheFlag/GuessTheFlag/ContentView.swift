@@ -18,7 +18,7 @@ struct ContentView: View {
                     .ignoresSafeArea()
                 
                 VStack {
-                    Text("Choose a difficulty :")
+                    Text("Choose a continent :")
                         .font(.largeTitle.bold())
                         .foregroundColor(.white)
                     
