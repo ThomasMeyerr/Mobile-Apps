@@ -17,6 +17,7 @@ struct Game: View {
     @State private var scoreTitle = String()
     @State private var score = 0
     @State private var partyScore = 0;
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         ZStack {
@@ -72,7 +73,10 @@ struct Game: View {
             Text("Your score is \(self.score)")
         }
         .alert("Finish!", isPresented: self.$endingGame) {
-            Button("Restart", action: reset)
+            Button("Restart", role: .cancel, action: reset)
+            Button("Menu", role: .destructive) {
+                self.presentationMode.wrappedValue.dismiss()
+            }
         } message : {
             Text("Your final score is \(self.score) good answers for \(self.partyScore) !")
                 .font(.title2.weight(.semibold))
@@ -104,7 +108,6 @@ struct Game: View {
     func reset() {
         self.score = 0
         self.partyScore = 0
-        askQuestion()
     }
 }
 
