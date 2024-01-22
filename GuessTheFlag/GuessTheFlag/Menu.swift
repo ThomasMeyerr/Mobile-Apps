@@ -13,11 +13,13 @@ struct Menu: View {
             VStack {
                 NavigationLink(destination: Game(countries: europe), label: {
                     VStack {
-                        Text("Europe")
+                        Text("Europa")
                             .font(.subheadline.weight(.heavy))
                             .foregroundColor(.white)
                         
-                        Image("France")
+                        Image("Europa")
+                            .resizable()
+                            .scaledToFit()
                             .clipShape(.rect(cornerRadius: 10))
                             .shadow(radius: 5)
                     }
@@ -30,7 +32,7 @@ struct Menu: View {
                                 .font(.subheadline.weight(.heavy))
                                 .foregroundColor(.white)
                             
-                            Image("France")
+                            Image("Africa")
                                 .resizable()
                                 .scaledToFit()
                                 .clipShape(.rect(cornerRadius: 10))
@@ -44,7 +46,7 @@ struct Menu: View {
                                 .font(.subheadline.weight(.heavy))
                                 .foregroundColor(.white)
                             
-                            Image("France")
+                            Image("Asia")
                                 .resizable()
                                 .scaledToFit()
                                 .clipShape(.rect(cornerRadius: 10))
@@ -60,7 +62,7 @@ struct Menu: View {
                                 .font(.subheadline.weight(.heavy))
                                 .foregroundColor(.white)
                             
-                            Image("France")
+                            Image("America")
                                 .resizable()
                                 .scaledToFit()
                                 .clipShape(.rect(cornerRadius: 10))
@@ -74,7 +76,7 @@ struct Menu: View {
                                 .font(.subheadline.weight(.heavy))
                                 .foregroundColor(.white)
                             
-                            Image("France")
+                            Image("Oceania")
                                 .resizable()
                                 .scaledToFit()
                                 .clipShape(.rect(cornerRadius: 10))
