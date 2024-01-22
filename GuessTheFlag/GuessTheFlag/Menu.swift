@@ -16,86 +16,32 @@ struct Menu: View {
         NavigationStack {
             if horizontal() {
                 HStack {
-                    NavigationLink(destination: Game(countries: Europa), label: {
-                        VStack {
-                            Text("Europa")
-                                .font(.subheadline.weight(.heavy))
-                                .foregroundColor(.white)
-                            
-                            Image("Europa")
-                                .resizable()
-                                .scaledToFit()
-                                .clipShape(.rect(cornerRadius: 10))
-                                .shadow(radius: 5)
-                        }
-                    })
-                    
-                    NavigationLink(destination: Game(countries: Africa), label: {
-                        VStack {
-                            Text("Africa")
-                                .font(.subheadline.weight(.heavy))
-                                .foregroundColor(.white)
-                            
-                            Image("Africa")
-                                .resizable()
-                                .scaledToFit()
-                                .clipShape(.rect(cornerRadius: 10))
-                                .shadow(radius: 5)
-                        }
-                    })
-                    
-                    NavigationLink(destination: Game(countries: Asia), label: {
-                        VStack {
-                            Text("Asia")
-                                .font(.subheadline.weight(.heavy))
-                                .foregroundColor(.white)
-                            
-                            Image("Asia")
-                                .resizable()
-                                .scaledToFit()
-                                .clipShape(.rect(cornerRadius: 10))
-                                .shadow(radius: 5)
-                        }
-                    })
-                    
-                    NavigationLink(destination: Game(countries: America), label: {
-                        VStack {
-                            Text("America")
-                                .font(.subheadline.weight(.heavy))
-                                .foregroundColor(.white)
-                            
-                            Image("America")
-                                .resizable()
-                                .scaledToFit()
-                                .clipShape(.rect(cornerRadius: 10))
-                                .shadow(radius: 5)
-                        }
-                    })
-                    
-                    NavigationLink(destination: Game(countries: Oceania), label: {
-                        VStack {
-                            Text("Oceania")
-                                .font(.subheadline.weight(.heavy))
-                                .foregroundColor(.white)
-                            
-                            Image("Oceania")
-                                .resizable()
-                                .scaledToFit()
-                                .clipShape(.rect(cornerRadius: 10))
-                                .shadow(radius: 5)
-                        }
-                    })
+                    ForEach(Array(continents.keys), id: \.self) { name in
+                        NavigationLink(destination: Game(countries: continents[name] ?? [String]()), label: {
+                            VStack {
+                                Text(name)
+                                    .font(.subheadline.weight(.heavy))
+                                    .foregroundColor(.white)
+                                
+                                Image(name)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .clipShape(.rect(cornerRadius: 10))
+                                    .shadow(radius: 5)
+                            }
+                        })
+                    }
                 }
                 .padding()
             } else {
                 VStack {
-                    NavigationLink(destination: Game(countries: Europa), label: {
+                    NavigationLink(destination: Game(countries: Europe), label: {
                         VStack {
-                            Text("Europa")
+                            Text("Europe")
                                 .font(.subheadline.weight(.heavy))
                                 .foregroundColor(.white)
                             
-                            Image("Europa")
+                            Image("Europe")
                                 .resizable()
                                 .scaledToFit()
                                 .clipShape(.rect(cornerRadius: 10))
@@ -104,7 +50,7 @@ struct Menu: View {
                     })
                     
                     HStack(spacing: 10) {
-                        NavigationLink(destination: Game(countries: Europa), label: {
+                        NavigationLink(destination: Game(countries: Africa), label: {
                             VStack {
                                 Text("Africa")
                                     .font(.subheadline.weight(.heavy))
@@ -118,7 +64,7 @@ struct Menu: View {
                             }
                         })
                         
-                        NavigationLink(destination: Game(countries: Europa), label: {
+                        NavigationLink(destination: Game(countries: Asia), label: {
                             VStack {
                                 Text("Asia")
                                     .font(.subheadline.weight(.heavy))
@@ -134,7 +80,7 @@ struct Menu: View {
                     }
                     
                     HStack(spacing: 10) {
-                        NavigationLink(destination: Game(countries: Europa), label: {
+                        NavigationLink(destination: Game(countries: America), label: {
                             VStack {
                                 Text("America")
                                     .font(.subheadline.weight(.heavy))
@@ -148,7 +94,7 @@ struct Menu: View {
                             }
                         })
                         
-                        NavigationLink(destination: Game(countries: Europa), label: {
+                        NavigationLink(destination: Game(countries: Oceania), label: {
                             VStack {
                                 Text("Oceania")
                                     .font(.subheadline.weight(.heavy))
