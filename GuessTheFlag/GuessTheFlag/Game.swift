@@ -162,5 +162,5 @@ struct Game: View {
 }
 
 #Preview {
-    Game(countries: europe)
+    Game(countries: Europa)
 }
