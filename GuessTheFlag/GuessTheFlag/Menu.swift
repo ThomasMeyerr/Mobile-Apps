@@ -89,7 +89,3 @@ struct Menu: View {
         }
     }
 }
-
-#Preview {
-    Menu()
-}
