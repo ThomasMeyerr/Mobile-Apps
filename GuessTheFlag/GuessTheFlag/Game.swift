@@ -42,13 +42,35 @@ struct Game: View {
                             .font(.largeTitle.weight(.semibold))
                     }
                     
-                    ForEach(0..<4) { number in
-                        Button {
-                            self.flagTapped(number)
-                        }   label: {
-                            Image(self.countries[number])
-                                .clipShape(.rect(cornerRadius: 10))
-                                .shadow(radius: 5)
+                    HStack {
+                        ForEach(0..<2) { number in
+                            Button {
+                                self.flagTapped(number)
+                            }   label: {
+                                Image(self.countries[number])
+                                    .resizable()
+                                    .frame(width: 180, height: 180)
+                                    .scaledToFit()
+                                    .clipShape(.circle)
+                                    .overlay(Circle().stroke(Color.white, lineWidth: 2))
+                                    .shadow(radius: 5)
+                            }
+                        }
+                    }
+                    
+                    HStack {
+                        ForEach(2..<4) { number in
+                            Button {
+                                self.flagTapped(number)
+                            }   label: {
+                                Image(self.countries[number])
+                                    .resizable()
+                                    .frame(width: 180, height: 180)
+                                    .scaledToFit()
+                                    .clipShape(.circle)
+                                    .overlay(Circle().stroke(Color.white, lineWidth: 2))
+                                    .shadow(radius: 5)
+                            }
                         }
                     }
                     
@@ -109,4 +131,8 @@ struct Game: View {
         self.score = 0
         self.partyScore = 0
     }
+}
+
+#Preview {
+    Game(countries: europe)
 }
