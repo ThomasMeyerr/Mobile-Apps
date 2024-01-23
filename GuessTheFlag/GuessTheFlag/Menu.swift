@@ -7,6 +7,26 @@
 
 import SwiftUI
 
+/* ------- IMAGE COMPOSITION ------- */
+struct ContinentImage: View {
+    
+    var name: String
+    
+    var body: some View {
+        VStack {
+            Text(name)
+                .font(.subheadline.weight(.heavy))
+                .foregroundColor(.white)
+            
+            Image(name)
+                .resizable()
+                .scaledToFit()
+                .clipShape(.rect(cornerRadius: 10))
+                .shadow(radius: 5)
+        }
+    }
+}
+
 struct Menu: View {
     
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
@@ -18,17 +38,7 @@ struct Menu: View {
                 HStack {
                     ForEach(Array(continents.keys), id: \.self) { name in
                         NavigationLink(destination: Game(countries: continents[name] ?? [String]()), label: {
-                            VStack {
-                                Text(name)
-                                    .font(.subheadline.weight(.heavy))
-                                    .foregroundColor(.white)
-                                
-                                Image(name)
-                                    .resizable()
-                                    .scaledToFit()
-                                    .clipShape(.rect(cornerRadius: 10))
-                                    .shadow(radius: 5)
-                            }
+                            ContinentImage(name: name)
                         })
                     }
                 }
@@ -36,76 +46,26 @@ struct Menu: View {
             } else {
                 VStack {
                     NavigationLink(destination: Game(countries: Europe), label: {
-                        VStack {
-                            Text("Europe")
-                                .font(.subheadline.weight(.heavy))
-                                .foregroundColor(.white)
-                            
-                            Image("Europe")
-                                .resizable()
-                                .scaledToFit()
-                                .clipShape(.rect(cornerRadius: 10))
-                                .shadow(radius: 5)
-                        }
+                        ContinentImage(name: "Europe")
                     })
                     
                     HStack(spacing: 10) {
                         NavigationLink(destination: Game(countries: Africa), label: {
-                            VStack {
-                                Text("Africa")
-                                    .font(.subheadline.weight(.heavy))
-                                    .foregroundColor(.white)
-                                
-                                Image("Africa")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .clipShape(.rect(cornerRadius: 10))
-                                    .shadow(radius: 5)
-                            }
+                            ContinentImage(name: "Africa")
                         })
                         
                         NavigationLink(destination: Game(countries: Asia), label: {
-                            VStack {
-                                Text("Asia")
-                                    .font(.subheadline.weight(.heavy))
-                                    .foregroundColor(.white)
-                                
-                                Image("Asia")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .clipShape(.rect(cornerRadius: 10))
-                                    .shadow(radius: 5)
-                            }
+                            ContinentImage(name: "Asia")
                         })
                     }
                     
                     HStack(spacing: 10) {
                         NavigationLink(destination: Game(countries: America), label: {
-                            VStack {
-                                Text("America")
-                                    .font(.subheadline.weight(.heavy))
-                                    .foregroundColor(.white)
-                                
-                                Image("America")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .clipShape(.rect(cornerRadius: 10))
-                                    .shadow(radius: 5)
-                            }
+                            ContinentImage(name: "America")
                         })
                         
                         NavigationLink(destination: Game(countries: Oceania), label: {
-                            VStack {
-                                Text("Oceania")
-                                    .font(.subheadline.weight(.heavy))
-                                    .foregroundColor(.white)
-                                
-                                Image("Oceania")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .clipShape(.rect(cornerRadius: 10))
-                                    .shadow(radius: 5)
-                            }
+                            ContinentImage(name: "Oceania")
                         })
                     }
                 }
