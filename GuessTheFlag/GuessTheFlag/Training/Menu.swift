@@ -33,7 +33,7 @@ struct Menu: View {
                         }
                         .padding()
                     } else {
-                        VStack {
+                        VStack(spacing: 20) {
                             NavigationLink(destination: Game(countries: Europe), label: {
                                 ContinentImage(name: "Europe")
                             })
