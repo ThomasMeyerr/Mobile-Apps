@@ -12,11 +12,8 @@ struct Game: View {
     @State var countries: [String]
 
     @State private var correctAnswer = Int.random(in: 0...3)
-    @State private var showingScore = false
-    @State private var endingGame = false
-    @State private var scoreTitle = String()
     @State private var score = 0
-    @State private var partyScore = 0;
+    @State private var endingGame = false
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     @Environment(\.verticalSizeClass) var verticalSizeClass
@@ -78,7 +75,7 @@ struct Game: View {
                     
                     Spacer()
                     
-                    Text("Score: \(self.score)/\(self.partyScore)")
+                    Text("Score: \(self.score)")
                         .foregroundStyle(.secondary)
                         .font(.title.bold())
                     
@@ -91,37 +88,26 @@ struct Game: View {
             }
             .padding()
         }
-        .alert(self.scoreTitle, isPresented: self.$showingScore) {
-            Button("Continue", action: askQuestion)
-        } message : {
-            Text("Your score is \(self.score)")
-        }
         .alert("Finish!", isPresented: self.$endingGame) {
-            Button("Restart", role: .cancel, action: reset)
-            Button("Menu", role: .destructive) {
-                self.presentationMode.wrappedValue.dismiss()
-            }
-        } message : {
-            Text("Your final score is \(self.score) good answers for \(self.partyScore) !")
-                .font(.title2.weight(.semibold))
-                .foregroundColor(.green)
-        }
+                    Button("Restart", role: .cancel, action: reset)
+                    Button("Menu", role: .destructive) {
+                        self.presentationMode.wrappedValue.dismiss()
+                    }
+                } message : {
+                    Text("Your final score is \(self.score) !")
+                        .font(.title2.weight(.semibold))
+                        .foregroundColor(.green)
+                }
     }
     
     func flagTapped(_ number: Int) {
         if number == self.correctAnswer {
-            self.scoreTitle = "Correct"
             self.score += 1
         } else {
-            self.scoreTitle = "Wrong, it was the flag of  \(self.countries[number])"
-        }
-        
-        self.partyScore += 1
-        self.showingScore = true
-        
-        if self.partyScore == 8 {
             self.endingGame = true
+            return;
         }
+        askQuestion()
     }
     
     func askQuestion() {
@@ -131,7 +117,8 @@ struct Game: View {
     
     func reset() {
         self.score = 0
-        self.partyScore = 0
+        self.endingGame = false
+        askQuestion()
     }
     
     func horizontal() -> Bool {
