@@ -8,22 +8,24 @@
 import SwiftUI
 
 struct ContentView: View {
-    
-    @State private var index = 0
-    
+        
     var body: some View {
         NavigationStack {
-            ZStack {
-                LinearGradient(colors: [.blue, .black], startPoint: .top, endPoint: .bottom)
-                    .ignoresSafeArea()
+            TabView {
+                Menu()
+                    .tabItem {
+                        Label("Training", systemImage:"tray.and.arrow.down.fill")
+                    }
                 
-                VStack {
-                    Text("Choose a continent :")
-                        .font(.largeTitle.bold())
-                        .foregroundColor(.white)
+                Ranked()
+                    .tabItem {
+                        Label("Ranked", systemImage:"tray.and.arrow.down.fill")
+                    }
                     
-                    Menu()
-                }
+                Leaderboard()
+                    .tabItem {
+                        Label("Leaderboard", systemImage:"tray.and.arrow.down.fill")
+                    }
             }
         }
         .accentColor(.white)

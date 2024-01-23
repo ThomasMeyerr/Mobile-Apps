@@ -14,6 +14,8 @@
 		1685CA162B5E969000A5371A /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1685CA152B5E969000A5371A /* Menu.swift */; };
 		1685CA182B5E96A700A5371A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1685CA172B5E96A700A5371A /* ContentView.swift */; };
 		16945D142B5A7CF900CA3B4D /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16945D132B5A7CF900CA3B4D /* Data.swift */; };
+		16D5ECB52B5FBD9500CAA7F1 /* Ranked.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D5ECB42B5FBD9500CAA7F1 /* Ranked.swift */; };
+		16D5ECB72B5FBDE200CAA7F1 /* Leaderboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D5ECB62B5FBDE200CAA7F1 /* Leaderboard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		1685CA172B5E96A700A5371A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		16945D132B5A7CF900CA3B4D /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		16D5ECAF2B5FBA7200CAA7F1 /* Ideas.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Ideas.md; sourceTree = "<group>"; };
+		16D5ECB42B5FBD9500CAA7F1 /* Ranked.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ranked.swift; sourceTree = "<group>"; };
+		16D5ECB62B5FBDE200CAA7F1 /* Leaderboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Leaderboard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,11 +63,12 @@
 			isa = PBXGroup;
 			children = (
 				161DEB952B57BE4200573732 /* GuessTheFlagApp.swift */,
-				16945D132B5A7CF900CA3B4D /* Data.swift */,
 				16D5ECAF2B5FBA7200CAA7F1 /* Ideas.md */,
-				1685CA152B5E969000A5371A /* Menu.swift */,
 				1685CA172B5E96A700A5371A /* ContentView.swift */,
-				1685CA132B5E967A00A5371A /* Game.swift */,
+				16945D132B5A7CF900CA3B4D /* Data.swift */,
+				16D5ECB32B5FBBE700CAA7F1 /* Leaderboard */,
+				16D5ECB22B5FBBD700CAA7F1 /* Ranked */,
+				16D5ECB02B5FBB6300CAA7F1 /* Training */,
 				161DEB992B57BE4500573732 /* Assets.xcassets */,
 				161DEB9B2B57BE4500573732 /* Preview Content */,
 			);
@@ -76,6 +81,31 @@
 				161DEB9C2B57BE4500573732 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		16D5ECB02B5FBB6300CAA7F1 /* Training */ = {
+			isa = PBXGroup;
+			children = (
+				1685CA152B5E969000A5371A /* Menu.swift */,
+				1685CA132B5E967A00A5371A /* Game.swift */,
+			);
+			path = Training;
+			sourceTree = "<group>";
+		};
+		16D5ECB22B5FBBD700CAA7F1 /* Ranked */ = {
+			isa = PBXGroup;
+			children = (
+				16D5ECB42B5FBD9500CAA7F1 /* Ranked.swift */,
+			);
+			path = Ranked;
+			sourceTree = "<group>";
+		};
+		16D5ECB32B5FBBE700CAA7F1 /* Leaderboard */ = {
+			isa = PBXGroup;
+			children = (
+				16D5ECB62B5FBDE200CAA7F1 /* Leaderboard.swift */,
+			);
+			path = Leaderboard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,7 +181,9 @@
 				1685CA142B5E967A00A5371A /* Game.swift in Sources */,
 				1685CA182B5E96A700A5371A /* ContentView.swift in Sources */,
 				161DEB962B57BE4200573732 /* GuessTheFlagApp.swift in Sources */,
+				16D5ECB72B5FBDE200CAA7F1 /* Leaderboard.swift in Sources */,
 				16945D142B5A7CF900CA3B4D /* Data.swift in Sources */,
+				16D5ECB52B5FBD9500CAA7F1 /* Ranked.swift in Sources */,
 				1685CA162B5E969000A5371A /* Menu.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
