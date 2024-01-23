@@ -89,15 +89,18 @@ struct Game: View {
             .padding()
         }
         .alert("Finish!", isPresented: self.$endingGame) {
-                    Button("Restart", role: .cancel, action: reset)
-                    Button("Menu", role: .destructive) {
-                        self.presentationMode.wrappedValue.dismiss()
-                    }
-                } message : {
-                    Text("Your final score is \(self.score) !")
-                        .font(.title2.weight(.semibold))
-                        .foregroundColor(.green)
-                }
+            Button("Restart", role: .cancel, action: reset)
+            Button("Menu", role: .destructive) {
+                self.presentationMode.wrappedValue.dismiss()
+            }
+        } message : {
+            Text("Your final score is \(self.score) !")
+                .font(.title2.weight(.semibold))
+                .foregroundColor(.green)
+        }
+        .onAppear {
+            askQuestion()
+        }
     }
     
     func flagTapped(_ number: Int) {
@@ -111,7 +114,7 @@ struct Game: View {
     }
     
     func askQuestion() {
-        countries.shuffle()
+        self.countries.shuffle()
         self.correctAnswer = Int.random(in: 0...3)
     }
     
