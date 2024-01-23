@@ -7,26 +7,6 @@
 
 import SwiftUI
 
-/* ------- IMAGE COMPOSITION ------- */
-struct ContinentImage: View {
-    
-    var name: String
-    
-    var body: some View {
-        VStack {
-            Text(name)
-                .font(.subheadline.weight(.heavy))
-                .foregroundColor(.white)
-            
-            Image(name)
-                .resizable()
-                .scaledToFit()
-                .clipShape(.rect(cornerRadius: 10))
-                .shadow(radius: 5)
-        }
-    }
-}
-
 struct Menu: View {
     
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
