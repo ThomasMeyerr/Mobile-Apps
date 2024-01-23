@@ -30,7 +30,7 @@ struct Game: View {
                     .font(.largeTitle.bold())
                     .foregroundColor(.white)
                 
-                VStack(spacing: 15) {
+                VStack(spacing: 8) {
                     VStack {
                         Text("Tap the flag of")
                             .foregroundStyle(.secondary)
@@ -40,6 +40,8 @@ struct Game: View {
                             .foregroundStyle(.secondary)
                             .font(.largeTitle.weight(.semibold))
                     }
+                    
+                    Spacer()
                     
                     if self.horizontal() {
                         HStack {
@@ -57,7 +59,7 @@ struct Game: View {
                                 Button {
                                     self.flagTapped(number)
                                 }   label: {
-                                    FlagImage(name: self.countries[number], size: 180)
+                                    FlagImage(name: self.countries[number], size: 170)
                                 }
                             }
                         }
@@ -67,7 +69,7 @@ struct Game: View {
                                 Button {
                                     self.flagTapped(number)
                                 }   label: {
-                                    FlagImage(name: self.countries[number], size: 180)
+                                    FlagImage(name: self.countries[number], size: 170)
                                 }
                             }
                         }
