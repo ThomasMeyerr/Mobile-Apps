@@ -7,6 +7,37 @@
 
 import SwiftUI
 
+/* ------- IMAGE COMPOSITION ------- */
+struct HorizontaleImage: View {
+    
+    var name: String
+    
+    var body: some View {
+        Image(name)
+            .resizable()
+            .frame(width: 150, height: 150)
+            .scaledToFit()
+            .clipShape(.circle)
+            .overlay(Circle().stroke(Color.white, lineWidth: 2))
+            .shadow(radius: 5)
+    }
+}
+
+struct VerticaleImage: View {
+    
+    var name: String
+    
+    var body: some View {
+        Image(name)
+            .resizable()
+            .frame(width: 180, height: 180)
+            .scaledToFit()
+            .clipShape(.circle)
+            .overlay(Circle().stroke(Color.white, lineWidth: 2))
+            .shadow(radius: 5)
+    }
+}
+
 struct Game: View {
         
     @State var countries: [String]
@@ -50,13 +81,7 @@ struct Game: View {
                                 Button {
                                     self.flagTapped(number)
                                 }   label: {
-                                    Image(self.countries[number])
-                                        .resizable()
-                                        .frame(width: 150, height: 150)
-                                        .scaledToFit()
-                                        .clipShape(.circle)
-                                        .overlay(Circle().stroke(Color.white, lineWidth: 2))
-                                        .shadow(radius: 5)
+                                    HorizontaleImage(name: self.countries[number])
                                 }
                             }
                         }
@@ -66,13 +91,7 @@ struct Game: View {
                                 Button {
                                     self.flagTapped(number)
                                 }   label: {
-                                    Image(self.countries[number])
-                                        .resizable()
-                                        .frame(width: 180, height: 180)
-                                        .scaledToFit()
-                                        .clipShape(.circle)
-                                        .overlay(Circle().stroke(Color.white, lineWidth: 2))
-                                        .shadow(radius: 5)
+                                    VerticaleImage(name: self.countries[number])
                                 }
                             }
                         }
@@ -82,13 +101,7 @@ struct Game: View {
                                 Button {
                                     self.flagTapped(number)
                                 }   label: {
-                                    Image(self.countries[number])
-                                        .resizable()
-                                        .frame(width: 180, height: 180)
-                                        .scaledToFit()
-                                        .clipShape(.circle)
-                                        .overlay(Circle().stroke(Color.white, lineWidth: 2))
-                                        .shadow(radius: 5)
+                                    VerticaleImage(name: self.countries[number])
                                 }
                             }
                         }
