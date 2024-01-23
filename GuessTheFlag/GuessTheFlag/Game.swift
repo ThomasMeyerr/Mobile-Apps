@@ -50,7 +50,7 @@ struct Game: View {
                                 Button {
                                     self.flagTapped(number)
                                 }   label: {
-                                    HorizontaleImage(name: self.countries[number])
+                                    FlagImage(name: self.countries[number], size: 150)
                                 }
                             }
                         }
@@ -60,7 +60,7 @@ struct Game: View {
                                 Button {
                                     self.flagTapped(number)
                                 }   label: {
-                                    VerticaleImage(name: self.countries[number])
+                                    FlagImage(name: self.countries[number], size: 180)
                                 }
                             }
                         }
@@ -70,7 +70,7 @@ struct Game: View {
                                 Button {
                                     self.flagTapped(number)
                                 }   label: {
-                                    VerticaleImage(name: self.countries[number])
+                                    FlagImage(name: self.countries[number], size: 180)
                                 }
                             }
                         }

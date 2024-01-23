@@ -32,11 +32,11 @@ struct ContinentImage: View {
     
     var body: some View {
         VStack {
-            Text(name)
+            Text(self.name)
                 .font(.subheadline.weight(.heavy))
                 .foregroundColor(.white)
             
-            Image(name)
+            Image(self.name)
                 .resizable()
                 .scaledToFit()
                 .clipShape(.rect(cornerRadius: 10))
@@ -45,29 +45,15 @@ struct ContinentImage: View {
     }
 }
 
-struct HorizontaleImage: View {
+struct FlagImage: View {
     
     var name: String
+    var size: CGFloat
     
     var body: some View {
-        Image(name)
+        Image(self.name)
             .resizable()
-            .frame(width: 150, height: 150)
-            .scaledToFit()
-            .clipShape(.circle)
-            .overlay(Circle().stroke(Color.white, lineWidth: 2))
-            .shadow(radius: 5)
-    }
-}
-
-struct VerticaleImage: View {
-    
-    var name: String
-    
-    var body: some View {
-        Image(name)
-            .resizable()
-            .frame(width: 180, height: 180)
+            .frame(width: self.size, height: self.size)
             .scaledToFit()
             .clipShape(.circle)
             .overlay(Circle().stroke(Color.white, lineWidth: 2))
