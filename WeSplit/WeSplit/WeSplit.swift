@@ -51,6 +51,7 @@ struct WeSplit: View {
                 
                 Section("Total before dividing") {
                     Text(getTotal(), format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
+                        .foregroundColor(self.tipPercentage == 0 ? .red : .black)
                 }
                 
                 Section("Amount per person") {
