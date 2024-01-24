@@ -20,7 +20,7 @@ struct Game: View {
     
     var body: some View {
         ZStack {
-            LinearGradient(colors: [.blue, .black], startPoint: .top, endPoint: .bottom)
+            LinearGradient(colors: [Color(red: 52/255, green: 103/255, blue: 51/255), .black], startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()
             
             VStack {
@@ -33,11 +33,11 @@ struct Game: View {
                 VStack(spacing: 8) {
                     VStack {
                         Text("Tap the flag of")
-                            .foregroundStyle(.secondary)
+                            .foregroundStyle(.white)
                             .font(.subheadline.weight(.heavy))
                         
                         Text(self.countries[self.correctAnswer])
-                            .foregroundStyle(.secondary)
+                            .foregroundStyle(.white)
                             .font(.largeTitle.weight(.semibold))
                     }
                     
@@ -78,14 +78,17 @@ struct Game: View {
                     Spacer()
                     
                     Text("Score: \(self.score)")
-                        .foregroundStyle(.secondary)
+                        .foregroundStyle(.white)
                         .font(.title.bold())
                     
                     Spacer()
                 }
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 20)
-                .background(.regularMaterial)
+                .background {
+                    Color.white
+                        .blur(radius: 400)
+                }
                 .clipShape(.rect(cornerRadius: 20))
             }
             .padding()
