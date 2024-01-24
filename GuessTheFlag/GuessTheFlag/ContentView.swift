@@ -14,17 +14,17 @@ struct ContentView: View {
             TabView {
                 Menu()
                     .tabItem {
-                        Label("Training", systemImage:"tray.and.arrow.down.fill")
+                        Label("Training", systemImage:"globe.europe.africa")
                     }
                 
                 Ranked()
                     .tabItem {
-                        Label("Ranked", systemImage:"tray.and.arrow.down.fill")
+                        Label("Ranked", systemImage:"globe")
                     }
                     
                 Leaderboard()
                     .tabItem {
-                        Label("Leaderboard", systemImage:"tray.and.arrow.down.fill")
+                        Label("Leaderboard", systemImage:"person.fill")
                     }
             }
         }
