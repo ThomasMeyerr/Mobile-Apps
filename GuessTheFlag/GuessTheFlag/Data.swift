@@ -22,9 +22,10 @@ let Europe = ["Estonia", "France", "Germany", "Ireland", "Italy", "Poland", "Spa
 
 let Asia = ["Afghanistan", "Armenia", "Azerbaijan", "Bahrain", "Bangladesh", "Bhutan", "Brunei", "Cambodia", "China", "Cyprus", "Georgia", "India", "Indonesia", "Iran", "Iraq", "Israel", "Japan", "Jordan", "Kazakhstan", "Kuwait", "Kyrgyzstan", "Laos", "Lebanon", "Malaysia", "Maldives", "Mongolia", "Myanmar", "Nepal", "North Korea", "Oman", "Pakistan", "Palestine", "Philippines", "Qatar", "Saudi Arabia", "Singapore", "South Korea", "Sri Lanka", "Syria", "Taiwan", "Tajikistan", "Thailand", "Timor-Leste", "Turkey", "Turkmenistan", "United Arab Emirates", "Uzbekistan", "Vietnam", "Yemen"].shuffled()
 
-let America = [String]()
-let Oceania = [String]()
-let Africa = [String]()
+let America = ["US", "Canada", "Mexico", "Brazil", "Argentina", "Colombia", "Peru", "Venezuela", "Chile", "Ecuador", "Guatemala", "Cuba", "Bolivia", "Dominican Republic", "Honduras", "Paraguay", "El Salvador", "Nicaragua", "Costa Rica", "Puerto Rico", "Panama", "Uruguay", "Jamaica", "Trinidad and Tobago", "Guyana", "Suriname", "Belize", "Bahamas", "Barbados", "Saint Lucia", "Grenada", "Saint Vincent and the Grenadines", "Antigua and Barbuda", "Saint Kitts and Nevis", "Dominica", "Haiti", "Saint Martin", "Sint Maarten", "Aruba", "Curacao", "Bonaire", "Saba", "Sint Eustatius", "Greenland", "Bermuda", "Cayman Islands", "Turks and Caicos Islands", "Anguilla", "British Virgin Islands", "United States Virgin Islands", "Puerto Rico", "Montserrat", "Saint Pierre and Miquelon", "Falkland Islands", "South Georgia and the South Sandwich Islands"].shuffled()
+
+let Oceania = [""].shuffled()
+let Africa = [""].shuffled()
 
 
 /* ------- IMAGE COMPOSITION ------- */
