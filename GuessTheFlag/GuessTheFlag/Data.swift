@@ -57,9 +57,9 @@ struct FlagImage: View {
     var body: some View {
         Image(self.name)
             .resizable()
-            .frame(width: self.size, height: self.size)
-            .scaledToFit()
             .clipShape(Circle())
+            .scaledToFill()
+            .frame(width: self.size, height: self.size)
             .overlay(Circle().stroke(Color.white, lineWidth: 2))
             .shadow(radius: 5)
     }
