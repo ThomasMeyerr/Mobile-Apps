@@ -24,8 +24,9 @@ let Asia = ["Afghanistan", "Armenia", "Azerbaijan", "Bahrain", "Bangladesh", "Bh
 
 let America = ["US", "Canada", "Mexico", "Brazil", "Argentina", "Colombia", "Peru", "Venezuela", "Chile", "Ecuador", "Guatemala", "Cuba", "Bolivia", "Dominican Republic", "Honduras", "Paraguay", "El Salvador", "Nicaragua", "Costa Rica", "Puerto Rico", "Panama", "Uruguay", "Jamaica", "Trinidad and Tobago", "Guyana", "Suriname", "Belize", "Bahamas", "Barbados", "Saint Lucia", "Grenada", "Saint Vincent and the Grenadines", "Antigua and Barbuda", "Saint Kitts and Nevis", "Dominica", "Haiti", "Saint Martin", "Sint Maarten", "Aruba", "Curacao", "Bonaire", "Saba", "Sint Eustatius", "Greenland", "Bermuda", "Cayman Islands", "Turks and Caicos Islands", "Anguilla", "British Virgin Islands", "United States Virgin Islands", "Puerto Rico", "Montserrat", "Saint Pierre and Miquelon", "Falkland Islands", "South Georgia and the South Sandwich Islands"].shuffled()
 
-let Oceania = [""].shuffled()
-let Africa = [""].shuffled()
+let Oceania = ["Australia", "Papua New Guinea", "New Zealand", "Fiji", "Solomon Islands", "Samoa", "Kiribati", "Tonga", "Micronesia", "Marshall Islands", "Palau", "Tuvalu", "Nauru", "Cook Islands", "Niue", "American Samoa", "Guam", "Northern Mariana Islands", "Pitcairn Islands", "Tokelau", "Wallis and Futuna", "French Polynesia", "New Caledonia", "Vanuatu"].shuffled()
+
+let Africa = ["Algeria", "Angola", "Benin", "Botswana", "Burkina Faso", "Burundi", "Cabo Verde", "Cameroon", "Central African Republic", "Chad", "Comoros", "Democratic Republic of the Congo", "Djibouti", "Egypt", "Equatorial Guinea", "Eritrea", "Eswatini", "Ethiopia", "Gabon", "Gambia", "Ghana", "Guinea", "Guinea-Bissau", "Ivory Coast", "Kenya", "Lesotho", "Liberia", "Libya", "Madagascar", "Malawi", "Mali", "Mauritania", "Mauritius", "Morocco", "Mozambique", "Namibia", "Niger", "Nigeria", "Rwanda", "Sao Tome and Principe", "Senegal", "Seychelles", "Sierra Leone", "Somalia", "South Africa", "South Sudan", "Sudan", "Tanzania", "Togo", "Tunisia", "Uganda", "Zambia", "Zimbabwe"].shuffled()
 
 
 /* ------- IMAGE COMPOSITION ------- */
