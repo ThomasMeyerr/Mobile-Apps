@@ -58,7 +58,7 @@ struct FlagImage: View {
             .resizable()
             .frame(width: self.size, height: self.size)
             .scaledToFit()
-            .clipShape(.circle)
+            .clipShape(Circle())
             .overlay(Circle().stroke(Color.white, lineWidth: 2))
             .shadow(radius: 5)
     }
