@@ -14,6 +14,7 @@ struct Game: View {
     @State private var correctAnswer = Int.random(in: 0...3)
     @State private var score = 0
     @State private var endingGame = false
+    @State private var wrongAnswer = String()
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     @Environment(\.verticalSizeClass) var verticalSizeClass
@@ -93,7 +94,7 @@ struct Game: View {
             }
             .padding()
         }
-        .alert("Finish!", isPresented: self.$endingGame) {
+        .alert("Wrong! It was \(self.wrongAnswer)", isPresented: self.$endingGame) {
             Button("Restart", role: .cancel, action: reset)
             Button("Menu", role: .destructive) {
                 self.presentationMode.wrappedValue.dismiss()
@@ -113,6 +114,7 @@ struct Game: View {
             self.score += 1
         } else {
             self.endingGame = true
+            self.wrongAnswer = self.countries[number]
             return;
         }
         askQuestion()
