@@ -10,7 +10,7 @@ import SwiftUI
 struct Game: View {
         
     @State var countries: [String]
-
+    
     @State private var correctAnswer = Int.random(in: 0...3)
     @State private var previousAnswer = String()
     @State private var score = 0
@@ -26,11 +26,9 @@ struct Game: View {
                 .ignoresSafeArea()
             
             VStack {
-                Spacer()
+                TitleText(title: "ded")
                 
-                Text("Guess the flag")
-                    .font(.largeTitle.bold())
-                    .foregroundColor(.white)
+                TitleText(title: "Guess the flag")
                 
                 VStack(spacing: 8) {
                     VStack {
@@ -79,9 +77,7 @@ struct Game: View {
                     
                     Spacer()
                     
-                    Text("Score: \(self.score)")
-                        .foregroundStyle(.white)
-                        .font(.title.bold())
+                    TitleText(title: "Score: \(self.score)")
                     
                     Spacer()
                 }

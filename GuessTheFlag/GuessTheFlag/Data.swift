@@ -68,3 +68,15 @@ struct FlagImage: View {
             .shadow(radius: 5)
     }
 }
+
+
+/* ------- TITLE TEXT ------- */
+struct TitleText: View {
+    let title: String
+    
+    var body: some View {
+        Text(title)
+            .font(.largeTitle.bold())
+            .foregroundColor(.white)
+    }
+}

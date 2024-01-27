@@ -18,9 +18,7 @@ struct Menu: View {
                 .ignoresSafeArea()
             
             VStack {
-                Text("Choose a continent :")
-                    .font(.largeTitle.bold())
-                    .foregroundColor(.white)
+                TitleText(title: "Choose a continent :")
                 
                 NavigationStack {
                     if horizontal() {
