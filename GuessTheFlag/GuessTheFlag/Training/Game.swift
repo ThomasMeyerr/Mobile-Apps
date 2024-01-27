@@ -12,6 +12,7 @@ struct Game: View {
     @State var countries: [String]
 
     @State private var correctAnswer = Int.random(in: 0...3)
+    @State private var previousAnswer = String()
     @State private var score = 0
     @State private var endingGame = false
     @State private var wrongAnswer = String()
@@ -112,6 +113,7 @@ struct Game: View {
     func flagTapped(_ number: Int) {
         if number == self.correctAnswer {
             self.score += 1
+            self.previousAnswer = self.countries[self.correctAnswer]
         } else {
             self.endingGame = true
             self.wrongAnswer = self.countries[number]
@@ -123,6 +125,9 @@ struct Game: View {
     func askQuestion() {
         self.countries.shuffle()
         self.correctAnswer = Int.random(in: 0...3)
+        if (self.previousAnswer == self.countries[self.correctAnswer]) {
+            askQuestion()
+        }
     }
     
     func reset() {
