@@ -24,7 +24,8 @@ struct Ranked: View {
                 Button(action: {
                     self.showingGame = true
                 }) {
-                    Label("START", systemImage: "globe")
+                    Label("START", systemImage: "timer")
+                        .font(.largeTitle)
                 }
             }
         }
