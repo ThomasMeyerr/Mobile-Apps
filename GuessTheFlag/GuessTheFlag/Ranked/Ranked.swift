@@ -17,7 +17,7 @@ struct Ranked: View {
                 LinearGradient(colors: [Color(red: 52/255, green: 103/255, blue: 51/255), .black], startPoint: .top, endPoint: .bottom)
                     .ignoresSafeArea()
                 
-                NavigationLink(destination: Game(countries: world), isActive: self.$showingGame) {
+                NavigationLink(destination: Game(countries: world, title: "WORLD"), isActive: self.$showingGame) {
                     EmptyView()
                 }
                 

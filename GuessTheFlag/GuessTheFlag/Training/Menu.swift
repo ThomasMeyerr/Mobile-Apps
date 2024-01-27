@@ -24,7 +24,7 @@ struct Menu: View {
                     if horizontal() {
                         HStack {
                             ForEach(Array(continents.keys), id: \.self) { name in
-                                NavigationLink(destination: Game(countries: continents[name] ?? [String]()), label: {
+                                NavigationLink(destination: Game(countries: continents[name] ?? [String](), title: name), label: {
                                     ContinentImage(name: name)
                                 })
                             }
@@ -32,26 +32,26 @@ struct Menu: View {
                         .padding()
                     } else {
                         VStack(spacing: 20) {
-                            NavigationLink(destination: Game(countries: Europe), label: {
+                            NavigationLink(destination: Game(countries: Europe, title: "EUROPE"), label: {
                                 ContinentImage(name: "Europe")
                             })
                             
                             HStack(spacing: 10) {
-                                NavigationLink(destination: Game(countries: Africa), label: {
+                                NavigationLink(destination: Game(countries: Africa, title: "AFRICA"), label: {
                                     ContinentImage(name: "Africa")
                                 })
                                 
-                                NavigationLink(destination: Game(countries: Asia), label: {
+                                NavigationLink(destination: Game(countries: Asia, title: "ASIA"), label: {
                                     ContinentImage(name: "Asia")
                                 })
                             }
                             
                             HStack(spacing: 10) {
-                                NavigationLink(destination: Game(countries: America), label: {
+                                NavigationLink(destination: Game(countries: America, title: "AMERICA"), label: {
                                     ContinentImage(name: "America")
                                 })
                                 
-                                NavigationLink(destination: Game(countries: Oceania), label: {
+                                NavigationLink(destination: Game(countries: Oceania, title: "OCEANIA"), label: {
                                     ContinentImage(name: "Oceania")
                                 })
                             }
