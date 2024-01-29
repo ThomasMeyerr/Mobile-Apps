@@ -7,6 +7,14 @@
 
 import SwiftUI
 
+/* ------- PLAYER ------- */
+struct Player {
+    var name: String
+    var bestScore: Int
+    var currentScore: Int
+}
+
+
 /* ------- LIST OF CONTINENTS ------- */
 let continents = [
     "Europe": Europe,

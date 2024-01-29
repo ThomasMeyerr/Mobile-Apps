@@ -67,7 +67,6 @@
 				161DEB952B57BE4200573732 /* GuessTheFlagApp.swift */,
 				16D5ECAF2B5FBA7200CAA7F1 /* Ideas.md */,
 				1685CA172B5E96A700A5371A /* ContentView.swift */,
-				167049512B67C10F00C7A499 /* TimeCounter.swift */,
 				16945D132B5A7CF900CA3B4D /* Data.swift */,
 				16D5ECB32B5FBBE700CAA7F1 /* Leaderboard */,
 				16D5ECB22B5FBBD700CAA7F1 /* Ranked */,
@@ -98,6 +97,7 @@
 		16D5ECB22B5FBBD700CAA7F1 /* Ranked */ = {
 			isa = PBXGroup;
 			children = (
+				167049512B67C10F00C7A499 /* TimeCounter.swift */,
 				16D5ECB42B5FBD9500CAA7F1 /* Ranked.swift */,
 			);
 			path = Ranked;

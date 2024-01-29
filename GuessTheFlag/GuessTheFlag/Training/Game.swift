@@ -15,7 +15,7 @@ struct Game: View {
     @State private var correctAnswer = Int.random(in: 0...3)
     @State private var previousAnswer = String()
     @State private var score = 0
-    @State private var timeRemaining = 5
+    @State private var timeRemaining = 60
     @State private var endingGame = false
     @State private var timerEnd = false
     @State private var wrongAnswer = String()
@@ -124,7 +124,7 @@ struct Game: View {
     
     func reset() {
         self.score = 0
-        self.timeRemaining = 5
+        self.timeRemaining = 60
         self.timerEnd = false
         self.endingGame = false
         askQuestion()
