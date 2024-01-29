@@ -26,7 +26,7 @@ struct Game: View {
                     .ignoresSafeArea()
                 
                 VStack {
-                    Timer(countries: self.countries)
+                    TimeCounter(countries: self.countries, endingGame: self.$endingGame)
                     
                     TitleText(title: self.title)
                     
