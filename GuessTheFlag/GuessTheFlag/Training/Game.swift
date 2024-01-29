@@ -18,8 +18,6 @@ struct Game: View {
     @State private var endingGame = false
     @State private var wrongAnswer = String()
     @Environment(\.presentationMode) var presentationMode
-    @Environment(\.horizontalSizeClass) var horizontalSizeClass
-    @Environment(\.verticalSizeClass) var verticalSizeClass
     
     var body: some View {
         ZStack {
@@ -44,34 +42,22 @@ struct Game: View {
                     
                     Spacer()
                     
-                    if self.horizontal() {
-                        HStack {
-                            ForEach(0..<4) { number in
-                                Button {
-                                    self.flagTapped(number)
-                                }   label: {
-                                    FlagImage(name: self.countries[number], size: 150)
-                                }
+                    HStack {
+                        ForEach(0..<2) { number in
+                            Button {
+                                self.flagTapped(number)
+                            }   label: {
+                                FlagImage(name: self.countries[number], size: 170)
                             }
                         }
-                    } else {
-                        HStack {
-                            ForEach(0..<2) { number in
-                                Button {
-                                    self.flagTapped(number)
-                                }   label: {
-                                    FlagImage(name: self.countries[number], size: 170)
-                                }
-                            }
-                        }
-                        
-                        HStack {
-                            ForEach(2..<4) { number in
-                                Button {
-                                    self.flagTapped(number)
-                                }   label: {
-                                    FlagImage(name: self.countries[number], size: 170)
-                                }
+                    }
+
+                    HStack {
+                        ForEach(2..<4) { number in
+                            Button {
+                                self.flagTapped(number)
+                            }   label: {
+                                FlagImage(name: self.countries[number], size: 170)
                             }
                         }
                     }
@@ -131,14 +117,6 @@ struct Game: View {
         self.score = 0
         self.endingGame = false
         askQuestion()
-    }
-    
-    func horizontal() -> Bool {
-        if self.horizontalSizeClass == .compact && self.verticalSizeClass == .regular {
-            return false
-        } else {
-            return true
-        }
     }
 }
 
