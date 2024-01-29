@@ -17,92 +17,83 @@ struct Game: View {
     @State private var score = 0
     @State private var endingGame = false
     @State private var wrongAnswer = String()
-    @State private var timeRemaining = 60
-    @State private var timerIsRunning = false
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
-        ZStack {
-            LinearGradient(colors: [Color(red: 52/255, green: 103/255, blue: 51/255), .black], startPoint: .top, endPoint: .bottom)
-                .ignoresSafeArea()
-            
-            VStack {
-                if (self.countries == World) {
-                    HStack {
+        NavigationStack {
+            ZStack {
+                LinearGradient(colors: [Color(red: 52/255, green: 103/255, blue: 51/255), .black], startPoint: .top, endPoint: .bottom)
+                    .ignoresSafeArea()
+                
+                VStack {
+                    Timer(countries: self.countries)
+                    
+                    TitleText(title: self.title)
+                    
+                    TitleText(title: "Guess the flag")
+                    
+                    VStack(spacing: 8) {
+                        VStack {
+                            Text("Tap the flag of")
+                                .foregroundStyle(.white)
+                                .font(.subheadline.weight(.heavy))
+                            
+                            Text(self.countries[self.correctAnswer])
+                                .foregroundStyle(.white)
+                                .font(.largeTitle.weight(.semibold))
+                        }
+                        
                         Spacer()
                         
-                        TitleText(title: "\(self.timeRemaining)")
-                    }
-                }
-                
-                TitleText(title: self.title)
-                                    
-                TitleText(title: "Guess the flag")
-                
-                VStack(spacing: 8) {
-                    VStack {
-                        Text("Tap the flag of")
-                            .foregroundStyle(.white)
-                            .font(.subheadline.weight(.heavy))
+                        HStack {
+                            ForEach(0..<2) { number in
+                                Button {
+                                    self.flagTapped(number)
+                                }   label: {
+                                    FlagImage(name: self.countries[number], size: 170)
+                                }
+                            }
+                        }
                         
-                        Text(self.countries[self.correctAnswer])
-                            .foregroundStyle(.white)
-                            .font(.largeTitle.weight(.semibold))
-                    }
-                    
-                    Spacer()
-                    
-                    HStack {
-                        ForEach(0..<2) { number in
-                            Button {
-                                self.flagTapped(number)
-                            }   label: {
-                                FlagImage(name: self.countries[number], size: 170)
+                        HStack {
+                            ForEach(2..<4) { number in
+                                Button {
+                                    self.flagTapped(number)
+                                }   label: {
+                                    FlagImage(name: self.countries[number], size: 170)
+                                }
                             }
                         }
+                        
+                        Spacer()
+                        
+                        TitleText(title: "Score: \(self.score)")
+                        
+                        Spacer()
                     }
-
-                    HStack {
-                        ForEach(2..<4) { number in
-                            Button {
-                                self.flagTapped(number)
-                            }   label: {
-                                FlagImage(name: self.countries[number], size: 170)
-                            }
-                        }
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 20)
+                    .background {
+                        Color.white
+                            .blur(radius: 400)
                     }
-                    
-                    Spacer()
-                    
-                    TitleText(title: "Score: \(self.score)")
-                    
-                    Spacer()
+                    .clipShape(.rect(cornerRadius: 20))
                 }
-                .frame(maxWidth: .infinity)
-                .padding(.vertical, 20)
-                .background {
-                    Color.white
-                        .blur(radius: 400)
+                .padding()
+            }
+            .alert("Wrong! It was \(self.wrongAnswer)", isPresented: self.$endingGame) {
+                Button("Restart", role: .cancel, action: reset)
+                Button("Menu", role: .destructive) {
+                    self.presentationMode.wrappedValue.dismiss()
                 }
-                .clipShape(.rect(cornerRadius: 20))
+            } message : {
+                Text("Your final score is \(self.score) !")
+                    .font(.title2.weight(.semibold))
+                    .foregroundColor(.green)
             }
-            .padding()
-        }
-        .alert("Wrong! It was \(self.wrongAnswer)", isPresented: self.$endingGame) {
-            Button("Restart", role: .cancel, action: reset)
-            Button("Menu", role: .destructive) {
-                self.presentationMode.wrappedValue.dismiss()
+            .onAppear {
+                askQuestion()
             }
-        } message : {
-            Text("Your final score is \(self.score) !")
-                .font(.title2.weight(.semibold))
-                .foregroundColor(.green)
-        }
-        .onAppear {
-            if self.countries == World {
-                print("coucou")
-            }
-            askQuestion()
         }
     }
     
