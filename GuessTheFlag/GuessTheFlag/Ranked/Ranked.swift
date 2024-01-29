@@ -24,7 +24,7 @@ struct Ranked: View {
                 Button(action: {
                     self.showingGame = true
                 }) {
-                    VStack(spacing: 0) {
+                    VStack {
                         TitleText(title: "CLICK TO START")
                         
                         Text("Timer: 60s")
@@ -33,9 +33,8 @@ struct Ranked: View {
                         
                         Image("Globe")
                             .resizable()
-                            .frame(width: 600, height: 600)
+                            .scaledToFit()
                             .padding()
-                        
                     }
                 }
             }
