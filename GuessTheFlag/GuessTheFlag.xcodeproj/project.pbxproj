@@ -97,8 +97,8 @@
 		16D5ECB22B5FBBD700CAA7F1 /* Ranked */ = {
 			isa = PBXGroup;
 			children = (
-				167049512B67C10F00C7A499 /* TimeCounter.swift */,
 				16D5ECB42B5FBD9500CAA7F1 /* Ranked.swift */,
+				167049512B67C10F00C7A499 /* TimeCounter.swift */,
 			);
 			path = Ranked;
 			sourceTree = "<group>";

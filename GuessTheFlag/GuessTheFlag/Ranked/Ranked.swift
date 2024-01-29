@@ -24,8 +24,19 @@ struct Ranked: View {
                 Button(action: {
                     self.showingGame = true
                 }) {
-                    Label("START", systemImage: "timer")
-                        .font(.largeTitle)
+                    VStack(spacing: 0) {
+                        TitleText(title: "CLICK TO START")
+                        
+                        Text("Timer: 60s")
+                            .foregroundStyle(.white)
+                            .font(.subheadline.weight(.heavy))
+                        
+                        Image("Globe")
+                            .resizable()
+                            .frame(width: 600, height: 600)
+                            .padding()
+                        
+                    }
                 }
             }
         }
