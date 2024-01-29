@@ -17,6 +17,8 @@ struct Game: View {
     @State private var score = 0
     @State private var endingGame = false
     @State private var wrongAnswer = String()
+    @State private var timeRemaining = 60
+    @State private var timerIsRunning = false
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
@@ -25,8 +27,16 @@ struct Game: View {
                 .ignoresSafeArea()
             
             VStack {
-                TitleText(title: self.title)
+                if (self.countries == World) {
+                    HStack {
+                        Spacer()
+                        
+                        TitleText(title: "\(self.timeRemaining)")
+                    }
+                }
                 
+                TitleText(title: self.title)
+                                    
                 TitleText(title: "Guess the flag")
                 
                 VStack(spacing: 8) {
