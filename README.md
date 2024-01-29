@@ -10,12 +10,7 @@ Test your knowledge of world flags and improve your geography skills with this f
 ## Screenshots of the game
 ### Portrait
 <div>
-  <img src="ImageReadMe/GTFMenuPortrait.png" width=200>
-  <img src="ImageReadMe/GTFGamePortrait.png" width=200>
-</div>
-
-### Landscape
-<div>
-  <img src="ImageReadMe/GTFMenuLandscape.png" width=400>
-  <img src="ImageReadMe/GTFGameLandscape.png" width=400>
+  <img src="ImageReadMe/GTFMenu.png" width=200>
+  <img src="ImageReadMe/GTFRankedMenu.png" width=200>
+  <img src="ImageReadMe/GTFRanked.png" width=200>
 </div>
