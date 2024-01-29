@@ -19,6 +19,7 @@ struct Game: View {
     @State private var endingGame = false
     @State private var timerEnd = false
     @State private var wrongAnswer = String()
+    @State private var pseudo = String()
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
@@ -83,25 +84,17 @@ struct Game: View {
                 }
                 .padding()
             }
-            .alert("Wrong! It was \(self.wrongAnswer)", isPresented: self.$endingGame) {
+            .alert("Wrong! It was \(self.wrongAnswer) !\n Score: \(self.score)", isPresented: self.$endingGame) {
                 Button("Restart", role: .cancel, action: reset)
                 Button("Menu", role: .destructive) {
                     self.presentationMode.wrappedValue.dismiss()
                 }
-            } message : {
-                Text("Your final score is \(self.score) !")
-                    .font(.title2.weight(.semibold))
-                    .foregroundColor(.green)
             }
-            .alert("Running out of time !", isPresented: self.$timerEnd) {
+            .alert("Running out of time !\n Score: \(self.score)", isPresented: self.$timerEnd) {
                 Button("Restart", role: .cancel, action: reset)
                 Button("Menu", role: .destructive) {
                     self.presentationMode.wrappedValue.dismiss()
                 }
-            } message : {
-                Text("Your final score is \(self.score) !")
-                    .font(.title2.weight(.semibold))
-                    .foregroundColor(.green)
             }
             .onAppear {
                 askQuestion()
@@ -114,7 +107,6 @@ struct Game: View {
             self.score += 1
             self.previousAnswer = self.countries[self.correctAnswer]
         } else {
-            self.timerEnd = false
             self.endingGame = true
             self.wrongAnswer = self.countries[number]
             return;
