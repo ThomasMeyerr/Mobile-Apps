@@ -10,9 +10,8 @@ import SwiftUI
 struct TimeCounter: View {
     
     @State var countries: [String]
+    @Binding var timeRemaining: Int
     @Binding var endingGame: Bool
-    
-    @State private var timeRemaining = 10
     
     var body: some View {
         if (self.countries == World) {
@@ -20,6 +19,9 @@ struct TimeCounter: View {
                 Spacer()
                 
                 TitleText(title: "\(self.timeRemaining)")
+            }
+            .onChange(of: self.endingGame) {
+                startTimer()
             }
             .onAppear {
                 startTimer()

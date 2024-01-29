@@ -15,7 +15,9 @@ struct Game: View {
     @State private var correctAnswer = Int.random(in: 0...3)
     @State private var previousAnswer = String()
     @State private var score = 0
+    @State private var timeRemaining = 5
     @State private var endingGame = false
+    @State private var timerEnd = false
     @State private var wrongAnswer = String()
     @Environment(\.presentationMode) var presentationMode
     
@@ -26,7 +28,7 @@ struct Game: View {
                     .ignoresSafeArea()
                 
                 VStack {
-                    TimeCounter(countries: self.countries, endingGame: self.$endingGame)
+                    TimeCounter(countries: self.countries, timeRemaining: self.$timeRemaining, endingGame: self.$timerEnd)
                     
                     TitleText(title: self.title)
                     
@@ -91,6 +93,16 @@ struct Game: View {
                     .font(.title2.weight(.semibold))
                     .foregroundColor(.green)
             }
+            .alert("Running out of time !", isPresented: self.$timerEnd) {
+                Button("Restart", role: .cancel, action: reset)
+                Button("Menu", role: .destructive) {
+                    self.presentationMode.wrappedValue.dismiss()
+                }
+            } message : {
+                Text("Your final score is \(self.score) !")
+                    .font(.title2.weight(.semibold))
+                    .foregroundColor(.green)
+            }
             .onAppear {
                 askQuestion()
             }
@@ -102,6 +114,7 @@ struct Game: View {
             self.score += 1
             self.previousAnswer = self.countries[self.correctAnswer]
         } else {
+            self.timerEnd = false
             self.endingGame = true
             self.wrongAnswer = self.countries[number]
             return;
@@ -119,11 +132,13 @@ struct Game: View {
     
     func reset() {
         self.score = 0
+        self.timeRemaining = 5
+        self.timerEnd = false
         self.endingGame = false
         askQuestion()
     }
 }
 
 #Preview {
-    Game(countries: Europe, title: "EUROPE")
+    Game(countries: World, title: "WORLD")
 }
