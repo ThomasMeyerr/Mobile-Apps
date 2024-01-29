@@ -89,6 +89,9 @@ struct Game: View {
                 .foregroundColor(.green)
         }
         .onAppear {
+            if self.countries == World {
+                print("coucou")
+            }
             askQuestion()
         }
     }

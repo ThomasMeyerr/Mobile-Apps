@@ -30,7 +30,7 @@ let Africa = ["Algeria", "Angola", "Benin", "Botswana", "Burkina Faso", "Burundi
 
 
 /* ------- RANKED LIST (WORLD) ------- */
-let world = Europe + Asia + America + Africa + Oceania
+let World = Europe + Asia + America + Africa + Oceania
 
 
 /* ------- IMAGE COMPOSITION ------- */
