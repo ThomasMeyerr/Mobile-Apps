@@ -6,14 +6,6 @@
 //
 
 import SwiftUI
-import CoreData
-
-/* ------- USER ------- */
-class User: NSManagedObject {
-    @NSManaged var name: String
-    @NSManaged var score: Int
-}
-
 
 /* ------- LIST OF CONTINENTS ------- */
 let continents = [
