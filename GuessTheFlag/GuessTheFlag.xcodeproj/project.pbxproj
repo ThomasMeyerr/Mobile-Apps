@@ -70,7 +70,7 @@
 				16D5ECAF2B5FBA7200CAA7F1 /* Ideas.md */,
 				1685CA172B5E96A700A5371A /* ContentView.swift */,
 				16945D132B5A7CF900CA3B4D /* Data.swift */,
-				16D5ECB02B5FBB6300CAA7F1 /* Training */,
+				16D5ECB02B5FBB6300CAA7F1 /* Training & Game */,
 				16D5ECB22B5FBBD700CAA7F1 /* Ranked */,
 				16D5ECB32B5FBBE700CAA7F1 /* Leaderboard */,
 				16F7F2A82B68E775005345B1 /* User */,
@@ -88,13 +88,13 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		16D5ECB02B5FBB6300CAA7F1 /* Training */ = {
+		16D5ECB02B5FBB6300CAA7F1 /* Training & Game */ = {
 			isa = PBXGroup;
 			children = (
 				1685CA152B5E969000A5371A /* Menu.swift */,
 				1685CA132B5E967A00A5371A /* Game.swift */,
 			);
-			path = Training;
+			path = "Training & Game";
 			sourceTree = "<group>";
 		};
 		16D5ECB22B5FBBD700CAA7F1 /* Ranked */ = {

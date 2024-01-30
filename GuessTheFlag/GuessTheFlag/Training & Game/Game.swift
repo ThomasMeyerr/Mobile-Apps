@@ -37,9 +37,7 @@ struct Game: View {
                     
                     VStack(spacing: 8) {
                         VStack {
-                            Text("Tap the flag of")
-                                .foregroundStyle(.white)
-                                .font(.subheadline.weight(.heavy))
+                            HeavyText(heavy: "Tap the flag of")
                             
                             Text(self.countries[self.correctAnswer])
                                 .foregroundStyle(.white)

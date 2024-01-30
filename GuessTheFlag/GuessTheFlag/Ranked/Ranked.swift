@@ -27,9 +27,7 @@ struct Ranked: View {
                     VStack {
                         TitleText(title: "CLICK TO START")
                         
-                        Text("Timer: 60s")
-                            .foregroundStyle(.white)
-                            .font(.subheadline.weight(.heavy))
+                        HeavyText(heavy: "Timer 60s")
                         
                         Image("Globe")
                             .resizable()

@@ -8,13 +8,36 @@
 import SwiftUI
 
 struct Leaderboard: View {
+        
     var body: some View {
         ZStack {
             LinearGradient(colors: [Color(red: 52/255, green: 103/255, blue: 51/255), .black], startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()
             
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-                .foregroundColor(.white)
+            VStack {
+                TitleText(title: "LEADERBOARD")
+                
+                Spacer()
+                
+                HStack {
+                    Spacer()
+                    
+                    HeavyText(heavy: "NAME")
+                    
+                    Spacer()
+                    Spacer()
+                    Spacer()
+                    
+                    HeavyText(heavy: "SCORE")
+                    
+                    Spacer()
+                }
+                
+                List(leaderboard.sorted(by: { $0.value > $1.value }), id: \.key) { (name, score) in
+                    LeaderboardView(name: name, score: score)
+                }
+            }
+            .padding()
         }
     }
 }

@@ -7,6 +7,40 @@
 
 import SwiftUI
 
+/* ------- USER MODEL ------- */
+struct UserModel {
+    var ID: UUID
+    var name: String
+    var password: String
+    var Score: Int
+}
+
+/* ------- LEADERBOARD ------- */
+var leaderboard = [
+    "Thomas": 64,
+    "Zoé": 39,
+    "Lucas": 24,
+    "Cyril": 32,
+    "Alice": 78,
+    "Bob": 45,
+    "Charlie": 50,
+    "David": 60,
+    "Eva": 42,
+    "Frank": 55,
+    "Grace": 68,
+    "Hank": 30,
+    "Ivy": 90,
+    "Jack": 75,
+    "Kate": 80,
+    "Liam": 88,
+    "Mia": 36,
+    "Noah": 92,
+    "Olivia": 65,
+    "Peter": 52,
+    "Quinn": 84
+]
+
+
 /* ------- LIST OF CONTINENTS ------- */
 let continents = [
     "Europe": Europe,
@@ -78,5 +112,34 @@ struct TitleText: View {
         Text(title)
             .font(.largeTitle.bold())
             .foregroundColor(.white)
+    }
+}
+
+/* ------- HEAVY TEXT ------- */
+struct HeavyText: View {
+    let heavy: String
+    
+    var body: some View {
+        Text(heavy)
+            .foregroundStyle(.white)
+            .font(.subheadline.weight(.heavy))
+    }
+}
+
+/* ------- LEADERBOARD VIEW ------- */
+struct LeaderboardView: View {
+    
+    let name: String
+    let score: Int
+    
+    var body: some View {
+        HStack {
+            Text(name)
+            
+            Spacer()
+            
+            Text("\(score)")
+        }
+        .padding()
     }
 }
