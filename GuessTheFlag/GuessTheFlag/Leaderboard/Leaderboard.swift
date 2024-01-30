@@ -10,7 +10,7 @@ import SwiftUI
 struct Leaderboard: View {
     var body: some View {
         ZStack {
-            LinearGradient(colors: [.blue, .black], startPoint: .top, endPoint: .bottom)
+            LinearGradient(colors: [Color(red: 52/255, green: 103/255, blue: 51/255), .black], startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()
             
             Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)

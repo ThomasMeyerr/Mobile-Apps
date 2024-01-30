@@ -6,12 +6,12 @@
 //
 
 import SwiftUI
+import CoreData
 
-/* ------- PLAYER ------- */
-struct Player {
-    var name: String
-    var bestScore: Int
-    var currentScore: Int
+/* ------- USER ------- */
+class User: NSManagedObject {
+    @NSManaged var name: String
+    @NSManaged var score: Int
 }
 
 
@@ -38,7 +38,7 @@ let Africa = ["Algeria", "Angola", "Benin", "Botswana", "Burkina Faso", "Burundi
 
 
 /* ------- RANKED LIST (WORLD) ------- */
-let World = Europe + Asia + America + Africa + Oceania
+let World = (Europe + Asia + America + Africa + Oceania).shuffled()
 
 
 /* ------- IMAGE COMPOSITION ------- */
