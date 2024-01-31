@@ -13,7 +13,7 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            Stepper("\(self.sleepAmount) hours", value: self.$sleepAmount, in: 4...12)
+            Stepper("\(self.sleepAmount.formatted()) hours", value: self.$sleepAmount, in: 4...12, step: 0.25)
         }
         .padding()
     }
