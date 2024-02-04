@@ -26,7 +26,7 @@ struct ContentView: View {
                         Label("Leaderboard", systemImage: "crown")
                     }
                 
-                User()
+                UserView()
                     .tabItem {
                         Label("User", systemImage: "person.crop.circle.fill")
                     }

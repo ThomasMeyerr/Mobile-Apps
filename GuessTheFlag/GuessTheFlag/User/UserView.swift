@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct User: View {
+struct UserView: View {
     var body: some View {
         ZStack {
             LinearGradient(colors: [Color(red: 52/255, green: 103/255, blue: 51/255), .black], startPoint: .top, endPoint: .bottom)
@@ -20,5 +20,5 @@ struct User: View {
 }
 
 #Preview {
-    User()
+    UserView()
 }

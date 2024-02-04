@@ -20,7 +20,7 @@
 		16B7ABAB2B6C3632009351D9 /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B7ABAA2B6C3632009351D9 /* Modifiers.swift */; };
 		16D5ECB52B5FBD9500CAA7F1 /* Ranked.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D5ECB42B5FBD9500CAA7F1 /* Ranked.swift */; };
 		16D5ECB72B5FBDE200CAA7F1 /* Leaderboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D5ECB62B5FBDE200CAA7F1 /* Leaderboard.swift */; };
-		16F7F2AA2B68E7A8005345B1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F7F2A92B68E7A8005345B1 /* User.swift */; };
+		16F7F2AA2B68E7A8005345B1 /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F7F2A92B68E7A8005345B1 /* UserView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,7 +39,7 @@
 		16D5ECAF2B5FBA7200CAA7F1 /* Ideas.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Ideas.md; sourceTree = "<group>"; };
 		16D5ECB42B5FBD9500CAA7F1 /* Ranked.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ranked.swift; sourceTree = "<group>"; };
 		16D5ECB62B5FBDE200CAA7F1 /* Leaderboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Leaderboard.swift; sourceTree = "<group>"; };
-		16F7F2A92B68E7A8005345B1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		16F7F2A92B68E7A8005345B1 /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,7 +133,7 @@
 		16F7F2A82B68E775005345B1 /* User */ = {
 			isa = PBXGroup;
 			children = (
-				16F7F2A92B68E7A8005345B1 /* User.swift */,
+				16F7F2A92B68E7A8005345B1 /* UserView.swift */,
 				169214E22B6FF79B0016D0F8 /* UserData.xcdatamodeld */,
 			);
 			path = User;
@@ -217,7 +217,7 @@
 				16B7ABAB2B6C3632009351D9 /* Modifiers.swift in Sources */,
 				16945D142B5A7CF900CA3B4D /* Data.swift in Sources */,
 				169214E62B6FF9C30016D0F8 /* StackCoreData.swift in Sources */,
-				16F7F2AA2B68E7A8005345B1 /* User.swift in Sources */,
+				16F7F2AA2B68E7A8005345B1 /* UserView.swift in Sources */,
 				16D5ECB52B5FBD9500CAA7F1 /* Ranked.swift in Sources */,
 				1685CA162B5E969000A5371A /* Menu.swift in Sources */,
 				167049522B67C10F00C7A499 /* TimeCounter.swift in Sources */,
