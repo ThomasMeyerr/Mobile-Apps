@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct Game: View {
-        
     @State var countries: [String]
     @State var title: String
     

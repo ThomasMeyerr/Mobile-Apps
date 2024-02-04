@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct Ranked: View {
-    
     @State private var showingGame = false
     
     var body: some View {

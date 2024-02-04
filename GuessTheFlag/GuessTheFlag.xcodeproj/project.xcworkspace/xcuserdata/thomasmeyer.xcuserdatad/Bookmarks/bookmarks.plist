@@ -10,13 +10,15 @@
 				<key>location-parameters</key>
 				<dict>
 					<key>EndingColumnNumber</key>
-					<string>16</string>
+					<string>0</string>
 					<key>EndingLineNumber</key>
 					<string>19</string>
 					<key>StartingColumnNumber</key>
-					<string>16</string>
+					<string>0</string>
 					<key>StartingLineNumber</key>
-					<string>19</string>
+					<string>18</string>
+					<key>Timestamp</key>
+					<string>728758807.911284</string>
 				</dict>
 				<key>rebasable-url</key>
 				<dict>
@@ -32,15 +34,16 @@
 			<key>text-context</key>
 			<dict>
 				<key>focused</key>
-				<string></string>
+				<string>                NavigationLink(destination: Game(countries: World, title: "WORLD"), isActive: self.$showingGame) {
+</string>
 				<key>leading</key>
 				<string>                    .ignoresSafeArea()
                 
-                </string>
+</string>
 				<key>trailing</key>
-				<string>NavigationLink(destination: Game(countries: World, title: "WORLD"), isActive: self.$showingGame) {
-                    EmptyView()
+				<string>                    EmptyView()
                 }
+                
 </string>
 			</dict>
 			<key>title</key>

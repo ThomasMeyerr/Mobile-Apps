@@ -14,6 +14,8 @@
 		1685CA142B5E967A00A5371A /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1685CA132B5E967A00A5371A /* Game.swift */; };
 		1685CA162B5E969000A5371A /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1685CA152B5E969000A5371A /* Menu.swift */; };
 		1685CA182B5E96A700A5371A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1685CA172B5E96A700A5371A /* ContentView.swift */; };
+		169214E42B6FF79C0016D0F8 /* UserData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 169214E22B6FF79B0016D0F8 /* UserData.xcdatamodeld */; };
+		169214E62B6FF9C30016D0F8 /* StackCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169214E52B6FF9C30016D0F8 /* StackCoreData.swift */; };
 		16945D142B5A7CF900CA3B4D /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16945D132B5A7CF900CA3B4D /* Data.swift */; };
 		16B7ABAB2B6C3632009351D9 /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B7ABAA2B6C3632009351D9 /* Modifiers.swift */; };
 		16D5ECB52B5FBD9500CAA7F1 /* Ranked.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D5ECB42B5FBD9500CAA7F1 /* Ranked.swift */; };
@@ -30,6 +32,8 @@
 		1685CA132B5E967A00A5371A /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		1685CA152B5E969000A5371A /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		1685CA172B5E96A700A5371A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		169214E32B6FF79B0016D0F8 /* UserData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserData.xcdatamodel; sourceTree = "<group>"; };
+		169214E52B6FF9C30016D0F8 /* StackCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackCoreData.swift; sourceTree = "<group>"; };
 		16945D132B5A7CF900CA3B4D /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		16B7ABAA2B6C3632009351D9 /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
 		16D5ECAF2B5FBA7200CAA7F1 /* Ideas.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Ideas.md; sourceTree = "<group>"; };
@@ -95,6 +99,7 @@
 			children = (
 				16945D132B5A7CF900CA3B4D /* Data.swift */,
 				16B7ABAA2B6C3632009351D9 /* Modifiers.swift */,
+				169214E52B6FF9C30016D0F8 /* StackCoreData.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -129,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				16F7F2A92B68E7A8005345B1 /* User.swift */,
+				169214E22B6FF79B0016D0F8 /* UserData.xcdatamodeld */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -207,8 +213,10 @@
 				1685CA182B5E96A700A5371A /* ContentView.swift in Sources */,
 				161DEB962B57BE4200573732 /* GuessTheFlagApp.swift in Sources */,
 				16D5ECB72B5FBDE200CAA7F1 /* Leaderboard.swift in Sources */,
+				169214E42B6FF79C0016D0F8 /* UserData.xcdatamodeld in Sources */,
 				16B7ABAB2B6C3632009351D9 /* Modifiers.swift in Sources */,
 				16945D142B5A7CF900CA3B4D /* Data.swift in Sources */,
+				169214E62B6FF9C30016D0F8 /* StackCoreData.swift in Sources */,
 				16F7F2AA2B68E7A8005345B1 /* User.swift in Sources */,
 				16D5ECB52B5FBD9500CAA7F1 /* Ranked.swift in Sources */,
 				1685CA162B5E969000A5371A /* Menu.swift in Sources */,
@@ -418,6 +426,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		169214E22B6FF79B0016D0F8 /* UserData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				169214E32B6FF79B0016D0F8 /* UserData.xcdatamodel */,
+			);
+			currentVersion = 169214E32B6FF79B0016D0F8 /* UserData.xcdatamodel */;
+			path = UserData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 161DEB8A2B57BE4200573732 /* Project object */;
 }

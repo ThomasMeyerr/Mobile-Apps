@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct TimeCounter: View {
-    
     @State var countries: [String]
     @Binding var timeRemaining: Int
     @Binding var endingGame: Bool

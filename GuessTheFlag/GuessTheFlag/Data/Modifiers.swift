@@ -9,7 +9,6 @@ import SwiftUI
 
 /* ------- IMAGE COMPOSITION ------- */
 struct ContinentImage: View {
-    
     var name: String
     
     var body: some View {
@@ -28,7 +27,6 @@ struct ContinentImage: View {
 }
 
 struct FlagImage: View {
-    
     var name: String
     var size: CGFloat
     
@@ -68,7 +66,6 @@ struct HeavyText: View {
 
 /* ------- LEADERBOARD VIEW ------- */
 struct LeaderboardView: View {
-    
     let name: String
     let score: Int
     

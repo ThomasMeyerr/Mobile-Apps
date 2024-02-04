@@ -7,14 +7,6 @@
 
 import SwiftUI
 
-/* ------- USER MODEL ------- */
-struct UserModel {
-    var ID: UUID
-    var name: String
-    var password: String
-    var Score: Int
-}
-
 /* ------- LEADERBOARD ------- */
 var leaderboard = [
     "Thomas": 64,

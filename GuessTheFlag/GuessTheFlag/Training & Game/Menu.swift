@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct Menu: View {
-    
     var body: some View {
         ZStack {
             LinearGradient(colors: [Color(red: 52/255, green: 103/255, blue: 51/255), .black], startPoint: .top, endPoint: .bottom)
