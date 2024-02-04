@@ -18,6 +18,9 @@ struct ContentView: View {
             
             DatePicker("Please enter a date", selection: self.$wakeUp, in: Date.now..., displayedComponents: .hourAndMinute)
                 .labelsHidden()
+            
+            Text(Date.now.formatted(date: .long, time: .shortened))
+            
         }
         .padding()
     }
