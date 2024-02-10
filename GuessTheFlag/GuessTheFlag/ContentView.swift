@@ -21,15 +21,15 @@ struct ContentView: View {
                         Label("Ranked", systemImage: "globe")
                     }
                     
-                Leaderboard()
-                    .tabItem {
-                        Label("Leaderboard", systemImage: "crown")
-                    }
-                
-                UserView()
-                    .tabItem {
-                        Label("User", systemImage: "person.crop.circle.fill")
-                    }
+//                Leaderboard()
+//                    .tabItem {
+//                        Label("Leaderboard", systemImage: "crown")
+//                    }
+//                
+//                UserView()
+//                    .tabItem {
+//                        Label("User", systemImage: "person.crop.circle.fill")
+//                    }
             }
         }
         .accentColor(.white)

@@ -26,6 +26,7 @@ struct PersistenceController {
 class DataManager: ObservableObject {
     // Le contexte de la base de données Core Data
     private let viewContext = PersistenceController.shared.container.viewContext
+    static let shared = DataManager()
     
     // Fonction pour ajouter un nouvel utilisateur
     func addUser(username: String, password: String) {
