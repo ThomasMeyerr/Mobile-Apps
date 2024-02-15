@@ -30,71 +30,19 @@ struct Information: View {
 
                 Spacer()
 
-                CustomHStack {
-                    Title(text: "Schedule : ")
+                Schedule()
 
-                    if let day = show.schedule?.days {
-                        TextUpgrade(text: day.joined(separator: ", "), italic: true)
-                    }
-                }
+                Time()
 
-                CustomHStack {
-                    Title(text: "Time : ")
+                Channel()
 
-                    if let time = show.schedule?.time {
-                        TextUpgrade(text: time, italic: true)
-                    }
-                }
+                Status()
 
-                CustomHStack {
-                    Title(text: "Channel : ")
+                Date()
 
-                    if let name = show.network?.name {
-                        TextUpgrade(text: name, italic: false)
-                    }
+                Genres()
 
-                    TextUpgrade(text: "in", italic: true)
-
-                    if let country = show.network?.country?.name {
-                        TextUpgrade(text: country, italic: false)
-                    }
-                }
-
-                CustomHStack {
-                    Title(text: "Status : ")
-
-                    if let status = show.status {
-                        TextUpgrade(text: status, italic: false)
-                    }
-                }
-
-                CustomHStack {
-                    Title(text: "Date : ")
-
-                    if let premiered = show.premiered {
-                        TextUpgrade(text: premiered, italic: true)
-                    }
-
-                    if let ended = show.ended {
-                        TextUpgrade(text: "-  " + ended, italic: true)
-                    }
-                }
-
-                CustomHStack {
-                    Title(text: "Genres : ")
-
-                    if let genres = show.genres {
-                        TextUpgrade(text: genres.joined(separator: ", "), italic: false)
-                    }
-                }
-
-                CustomHStack {
-                    Title(text: "Language : ")
-
-                    if let language = show.language {
-                        TextUpgrade(text: language, italic: false)
-                    }
-                }
+                Language()
             }
             .padding()
         }
