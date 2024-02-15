@@ -7,4 +7,26 @@
 
 import SwiftUI
 
-/* ------- MODIFIERS ------- */
+/* ------- TEXT UPGRADE ------- */
+struct TextUpgrade: View {
+    var text: String
+    var italic: Bool
+
+    var body: some View {
+        Text(text)
+            .foregroundColor(.black)
+            .applyIf(italic) {.italic()}
+    }
+}
+
+
+/* ------- TITLE ------- */
+struct Title: View {
+    var text: String
+
+    var body: some View {
+        Text(text)
+            .foregroundColor(.blue)
+            .bold()
+    }
+}
