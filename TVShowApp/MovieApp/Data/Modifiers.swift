@@ -30,3 +30,21 @@ struct Title: View {
             .bold()
     }
 }
+
+
+/* ------- CUSTOM HSTACK ------- */
+extension Hstack {
+    init(alignment: VerticalAlignment = .center, @ViewBuilder content: () -> Content) {
+        self.init(alignment: alignment) {
+            content()
+        }
+        .spacing(10)
+        .frame(maxWidth: .infinity, alignment: .leading)
+    }
+}
+
+// extension View {
+//     func spacing(_ spacing: CGFloat) -> some View {
+//         self.spacing(spacing)
+//     }
+// }
