@@ -8,6 +8,16 @@
 import SwiftUI
 
 /* ------- TEXT UPGRADE ------- */
+extension View {
+    @ViewBuilder func `if`<Content: View>(_ condition: Bool, transform: (Self) -> Content) -> some View {
+        if condition {
+            transform(self)
+        } else {
+            self
+        }
+    }
+}
+
 struct TextUpgrade: View {
     var text: String
     var italic: Bool
@@ -15,7 +25,9 @@ struct TextUpgrade: View {
     var body: some View {
         Text(text)
             .foregroundColor(.black)
-            .applyIf(italic) {.italic()}
+            .if(italic) { view in
+                view.italic()
+            }
     }
 }
 
