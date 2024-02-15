@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ContentView: View {
-    
     @State private var started = true
     @State private var isLoading = false
     @State private var searchTerm = String()
