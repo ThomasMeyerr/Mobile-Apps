@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  Data.swift
 //  MovieApp
 //
 //  Created by Thomas Meyer on 15/02/2024.
