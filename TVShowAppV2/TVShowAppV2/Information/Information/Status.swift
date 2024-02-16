@@ -1,5 +1,5 @@
 //
-//  Genres.swift
+//  Status.swift
 //  TVShowAppV2
 //
 //  Created by Thomas Meyer on 16/02/2024.
@@ -7,15 +7,15 @@
 
 import SwiftUI
 
-struct Genres: View {
+struct Status: View {
     let show: Show
 
     var body: some View {
         HStack(spacing: 10) {
-            Title(text: "Genres : ")
+            Title(text: "Status : ")
 
-            if let genres = show.genres {
-                TextUpgrade(text: genres.joined(separator: ", "), italic: false)
+            if let status = self.show.status {
+                TextUpgrade(text: status, italic: false)
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)

@@ -14,11 +14,11 @@ struct Date: View {
         HStack(spacing: 10) {
             Title(text: "Date : ")
 
-            if let premiered = show.premiered {
+            if let premiered = self.show.premiered {
                 TextUpgrade(text: premiered, italic: true)
             }
 
-            if let ended = show.ended {
+            if let ended = self.show.ended {
                 TextUpgrade(text: "-  " + ended, italic: true)
             }
         }

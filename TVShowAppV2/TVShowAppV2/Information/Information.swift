@@ -16,7 +16,7 @@ struct Information: View {
                 .ignoresSafeArea()
 
             VStack {
-                Text(show.name)
+                Text(self.show.name)
                     .foregroundColor(.blue)
                     .bold()
                     .font(.system(size: 30))
@@ -30,19 +30,19 @@ struct Information: View {
 
                 Spacer()
 
-                Schedules(show: show)
+                Schedules(show: self.show)
 
-                Time(show: show)
+                Time(show: self.show)
 
-                Channel(show: show)
+                Channel(show: self.show)
 
-                Status(show: show)
+                Status(show: self.show)
 
-                Date(show: show)
+                Date(show: self.show)
 
-                Genres(show: show)
+                Genres(show: self.show)
 
-                Language(show: show)
+                Language(show: self.show)
             }
             .padding()
         }

@@ -1,5 +1,5 @@
 //
-//  Language.swift
+//  Schedules.swift
 //  TVShowAppV2
 //
 //  Created by Thomas Meyer on 16/02/2024.
@@ -7,15 +7,15 @@
 
 import SwiftUI
 
-struct Language: View {
+struct Schedules: View {
     let show: Show
 
     var body: some View {
         HStack(spacing: 10) {
-            Title(text: "Language : ")
+            Title(text: "Schedule : ")
 
-            if let language = show.language {
-                TextUpgrade(text: language, italic: false)
+            if let day = self.show.schedule?.days {
+                TextUpgrade(text: day.joined(separator: ", "), italic: true)
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)

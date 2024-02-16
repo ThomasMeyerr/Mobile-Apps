@@ -1,5 +1,5 @@
 //
-//  Schedules.swift
+//  Time.swift
 //  TVShowAppV2
 //
 //  Created by Thomas Meyer on 16/02/2024.
@@ -7,15 +7,15 @@
 
 import SwiftUI
 
-struct Schedules: View {
+struct Time: View {
     let show: Show
 
     var body: some View {
         HStack(spacing: 10) {
-            Title(text: "Schedule : ")
+            Title(text: "Time : ")
 
-            if let day = show.schedule?.days {
-                TextUpgrade(text: day.joined(separator: ", "), italic: true)
+            if let time = self.show.schedule?.time {
+                TextUpgrade(text: time, italic: true)
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)

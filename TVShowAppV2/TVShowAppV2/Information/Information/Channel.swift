@@ -14,13 +14,13 @@ struct Channel: View {
         HStack(spacing: 10) {
             Title(text: "Channel : ")
 
-            if let name = show.network?.name {
+            if let name = self.show.network?.name {
                 TextUpgrade(text: name, italic: false)
             }
 
             TextUpgrade(text: "in", italic: true)
 
-            if let country = show.network?.country?.name {
+            if let country = self.show.network?.country?.name {
                 TextUpgrade(text: country, italic: false)
             }
         }
