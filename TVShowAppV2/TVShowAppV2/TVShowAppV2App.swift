@@ -1,14 +1,14 @@
 //
-//  MovieAppApp.swift
-//  MovieApp
+//  TVShowAppV2App.swift
+//  TVShowAppV2
 //
-//  Created by Thomas Meyer on 03/01/2024.
+//  Created by Thomas Meyer on 16/02/2024.
 //
 
 import SwiftUI
 
 @main
-struct MovieAppApp: App {
+struct TVShowAppV2App: App {
     var body: some Scene {
         WindowGroup {
             ContentView()

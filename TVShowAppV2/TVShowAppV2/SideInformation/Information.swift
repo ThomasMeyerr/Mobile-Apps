@@ -1,8 +1,8 @@
 //
 //  Information.swift
-//  MovieApp
+//  TVShowAppV2
 //
-//  Created by Thomas Meyer on 15/02/2024.
+//  Created by Thomas Meyer on 16/02/2024.
 //
 
 import SwiftUI
