@@ -15,7 +15,7 @@ struct Status: View {
             Title(text: "Status : ")
 
             if let status = self.show.status {
-                TextUpgrade(text: status, italic: false)
+                TextUpgrade(text: status, italic: true)
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)

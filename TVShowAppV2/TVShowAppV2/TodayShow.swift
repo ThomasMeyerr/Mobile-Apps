@@ -15,16 +15,15 @@ struct TodayShow: View {
     
     var body: some View {
         NavigationView {
-            GeometryReader { geometry in
-                ZStack {
-                    Color(.white)
-                        .ignoresSafeArea()
-                }
+            ZStack {
+                Color(.white)
+                    .ignoresSafeArea()
+                
                 ZStack {
                     VStack(spacing: 0) {
                         // Header with searchbar
                         Search(searchTerm: self.$searchTerm, started: self.$started, isLoading: self.$isLoading, shows: self.$shows)
-                        
+                                                                        
                         ZStack {
                             // Body with TV-series informations
                             if shows.isEmpty && !started {
@@ -55,21 +54,21 @@ struct TodayShow: View {
                                         ForEach(shows) { show in
                                             NavigationLink(destination: Information(show: show)) {
                                                 if let imageURLString = show.image?.medium {
-                                                        AsyncImage(url: URL(string: imageURLString)) { image in
-                                                                VStack {
-                                                                    Text(show.name)
-                                                                        .foregroundColor(.blue)
-                                                                        .bold()
-                                                                        .font(.system(size: 25))
-                                                                    image
-                                                                        .resizable()
-                                                                        .aspectRatio(contentMode: .fit)
-                                                                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                                                                        .padding()
-                                                                }
-                                                        } placeholder: {
-                                                                ProgressView()
+                                                    AsyncImage(url: URL(string: imageURLString)) { image in
+                                                        VStack {
+                                                            Text(show.name)
+                                                                .foregroundColor(.blue)
+                                                                .bold()
+                                                                .font(.system(size: 25))
+                                                            image
+                                                                .resizable()
+                                                                .aspectRatio(contentMode: .fit)
+                                                                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                                                .padding()
                                                         }
+                                                    } placeholder: {
+                                                        ProgressView()
+                                                    }
                                                 }
                                             }
                                         }
@@ -84,7 +83,7 @@ struct TodayShow: View {
                     if isLoading {
                         Color(.blue)
                             .ignoresSafeArea()
-                        VStack(spacing: 0) {
+                        VStack() {
                             Image("Logo")
                             
                             Text("TVShowApp.")
@@ -92,7 +91,7 @@ struct TodayShow: View {
                                 .font(Font.system(size: 59, weight: .bold))
                                 .foregroundColor(.white)
                                 .padding()
-                            
+                                                        
                             ProgressView()
                                 .progressViewStyle(CircularProgressViewStyle(tint: .white))
                                 .scaleEffect(3)

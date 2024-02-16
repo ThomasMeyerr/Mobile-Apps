@@ -14,32 +14,28 @@ struct Search: View {
     @Binding var shows: [Show]
 
     var body: some View {
-        GeometryReader { geometry in
-            ZStack {
-                Color(.blue)
-                    .frame(height: geometry.size.height * 0.25)
-                    .ignoresSafeArea()
-                
-                RoundedRectangle(cornerRadius: 12)
-                    .foregroundColor(Color(.sRGB, red: 230/255, green: 242/255, blue: 255/255, opacity: 1.0))
-                    .frame(height: 36)
-                    .padding(.leading, 60)
-                    .padding(.trailing, 10)
-                
-                HStack {
-                    Image(systemName: "magnifyingglass")
-                        .foregroundColor(.blue)
-                        .padding(.leading, 20)
-                    
-                    TextField("Nom de Série...", text: self.$searchTerm)
-                        .foregroundColor(.black)
-                        .padding(5)
-                        .onChange(of: self.searchTerm) {
-                            showResult()
-                        }
-                }
+        ZStack {
+            Color(.blue)
+                .ignoresSafeArea()
+            
+            RoundedRectangle(cornerRadius: 12)
+                .foregroundColor(Color(.sRGB, red: 230/255, green: 242/255, blue: 255/255, opacity: 1.0))
+                .frame(height: 36)
                 .padding()
+            
+            HStack {
+                Image(systemName: "magnifyingglass")
+                    .foregroundColor(.blue)
+                    .padding(.leading, 20)
+                
+                TextField("Nom de Série...", text: self.$searchTerm)
+                    .foregroundColor(.black)
+                    .padding(5)
+                    .onChange(of: self.searchTerm) {
+                        showResult()
+                    }
             }
+            .padding()
         }
     }
     

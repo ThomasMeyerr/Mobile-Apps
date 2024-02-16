@@ -15,13 +15,13 @@ struct Channel: View {
             Title(text: "Channel : ")
 
             if let name = self.show.network?.name {
-                TextUpgrade(text: name, italic: false)
+                TextUpgrade(text: name, italic: true)
             }
 
-            TextUpgrade(text: "in", italic: true)
+            TextUpgrade(text: "in", italic: false)
 
             if let country = self.show.network?.country?.name {
-                TextUpgrade(text: country, italic: false)
+                TextUpgrade(text: country, italic: true)
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)

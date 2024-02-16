@@ -15,7 +15,7 @@ struct Language: View {
             Title(text: "Language : ")
 
             if let language = self.show.language {
-                TextUpgrade(text: language, italic: false)
+                TextUpgrade(text: language, italic: true)
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)

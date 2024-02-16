@@ -15,7 +15,7 @@ struct Genres: View {
             Title(text: "Genres : ")
 
             if let genres = self.show.genres {
-                TextUpgrade(text: genres.joined(separator: ", "), italic: false)
+                TextUpgrade(text: genres.joined(separator: ", "), italic: true)
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
