@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct Genres: View {
+    let show: Show
+
     var body: some View {
         HStack(spacing: 10) {
             Title(text: "Genres : ")

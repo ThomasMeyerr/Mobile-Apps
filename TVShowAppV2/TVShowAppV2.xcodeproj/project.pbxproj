@@ -20,7 +20,7 @@
 		1643B8D12B7F475A00FD3D1A /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1643B8D02B7F475A00FD3D1A /* Date.swift */; };
 		1643B8D32B7F476C00FD3D1A /* Genres.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1643B8D22B7F476C00FD3D1A /* Genres.swift */; };
 		1643B8D52B7F477F00FD3D1A /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1643B8D42B7F477F00FD3D1A /* Language.swift */; };
-		1643B8D72B7F47A600FD3D1A /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1643B8D62B7F47A600FD3D1A /* Schedule.swift */; };
+		1643B8D72B7F47A600FD3D1A /* Schedules.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1643B8D62B7F47A600FD3D1A /* Schedules.swift */; };
 		1643B8D92B7F47C300FD3D1A /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1643B8D82B7F47C200FD3D1A /* Status.swift */; };
 		1643B8DB2B7F47D600FD3D1A /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1643B8DA2B7F47D600FD3D1A /* Time.swift */; };
 /* End PBXBuildFile section */
@@ -40,7 +40,7 @@
 		1643B8D02B7F475A00FD3D1A /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		1643B8D22B7F476C00FD3D1A /* Genres.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genres.swift; sourceTree = "<group>"; };
 		1643B8D42B7F477F00FD3D1A /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
-		1643B8D62B7F47A600FD3D1A /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
+		1643B8D62B7F47A600FD3D1A /* Schedules.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedules.swift; sourceTree = "<group>"; };
 		1643B8D82B7F47C200FD3D1A /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		1643B8DA2B7F47D600FD3D1A /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -120,7 +120,7 @@
 				1643B8D02B7F475A00FD3D1A /* Date.swift */,
 				1643B8D22B7F476C00FD3D1A /* Genres.swift */,
 				1643B8D42B7F477F00FD3D1A /* Language.swift */,
-				1643B8D62B7F47A600FD3D1A /* Schedule.swift */,
+				1643B8D62B7F47A600FD3D1A /* Schedules.swift */,
 				1643B8D82B7F47C200FD3D1A /* Status.swift */,
 				1643B8DA2B7F47D600FD3D1A /* Time.swift */,
 			);
@@ -204,7 +204,7 @@
 				1643B8CC2B7F471D00FD3D1A /* Information.swift in Sources */,
 				1643B8B42B7F45BB00FD3D1A /* TVShowAppV2App.swift in Sources */,
 				1643B8C32B7F466E00FD3D1A /* API.swift in Sources */,
-				1643B8D72B7F47A600FD3D1A /* Schedule.swift in Sources */,
+				1643B8D72B7F47A600FD3D1A /* Schedules.swift in Sources */,
 				1643B8CA2B7F46F400FD3D1A /* SideMenu.swift in Sources */,
 				1643B8C52B7F46A500FD3D1A /* Data.swift in Sources */,
 				1643B8D92B7F47C300FD3D1A /* Status.swift in Sources */,

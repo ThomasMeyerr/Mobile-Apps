@@ -30,19 +30,19 @@ struct Information: View {
 
                 Spacer()
 
-                Schedule()
+                Schedules(show: show)
 
-                Time()
+                Time(show: show)
 
-                Channel()
+                Channel(show: show)
 
-                Status()
+                Status(show: show)
 
-                Date()
+                Date(show: show)
 
-                Genres()
+                Genres(show: show)
 
-                Language()
+                Language(show: show)
             }
             .padding()
         }
