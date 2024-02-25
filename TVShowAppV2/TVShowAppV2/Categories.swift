@@ -1,5 +1,5 @@
 //
-//  SideMenu.swift
+//  Categories.swift
 //  TVShowAppV2
 //
 //  Created by Thomas Meyer on 16/02/2024.
@@ -7,8 +7,7 @@
 
 import SwiftUI
 
-struct SideMenu: View {
-    @Binding var showMenu: Bool
+struct Categories: View {
     @State private var genres = ["Action", "Adult", "Adventure", "Anime", "Children", "Comedy", "Crime", "DIY", "Drama", "Espionnage", "Family", "Fantasy", "Food", "History", "Horror", "Legal", "Medical", "Music", "Mystery", "Nature", "Romance", "Science-Fiction", "Sports", "Supernatural", "Thriller", "Travel", "War", "Western"]
 
     var body: some View {
@@ -28,9 +27,6 @@ struct SideMenu: View {
             .background(Color(.blue))
             .padding()
             .frame(width: UIScreen.main.bounds.width / 2, alignment: .leading)
-            .onTapGesture {
-                self.showMenu.toggle()
-            }
         }
     }
 }

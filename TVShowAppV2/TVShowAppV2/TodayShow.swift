@@ -21,9 +21,6 @@ struct TodayShow: View {
                 
                 ZStack {
                     VStack(spacing: 0) {
-                        // Header with searchbar
-                        Search(searchTerm: self.$searchTerm, started: self.$started, isLoading: self.$isLoading, shows: self.$shows)
-                                                                        
                         ZStack {
                             // Body with TV-series informations
                             if shows.isEmpty && !started {

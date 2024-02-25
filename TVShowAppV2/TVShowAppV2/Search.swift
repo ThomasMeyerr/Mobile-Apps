@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct Search: View {
-    @Binding var searchTerm: String
-    @Binding var started: Bool
-    @Binding var isLoading: Bool
-    @Binding var shows: [Show]
+    @State private var started = true
+    @State private var isLoading = false
+    @State private var searchTerm = String()
+    @State private var shows: [Show] = []
 
     var body: some View {
         ZStack {
