@@ -8,55 +8,80 @@
 import SwiftUI
 
 struct Search: View {
-    @State private var started = true
-    @State private var isLoading = false
     @State private var searchTerm = String()
     @State private var shows: [Show] = []
 
     var body: some View {
-//        if shows.isEmpty && !started {
-//            VStack {
-//                Image("Not Found")
-//                    .resizable()
-//                    .frame(width: 250, height: 250)
-//                    .padding()
-//                Text("No match found...")
-//                    .foregroundColor(.gray)
-//                    .font(Font.system(size: 40))
-//                    .italic()
-//                    .padding()
-//            }
-        ZStack {
-            Color(.blue)
-                .ignoresSafeArea()
-            
-            RoundedRectangle(cornerRadius: 12)
-                .foregroundColor(Color(.sRGB, red: 230/255, green: 242/255, blue: 255/255, opacity: 1.0))
-                .frame(height: 36)
-                .padding()
-            
-            HStack {
-                Image(systemName: "magnifyingglass")
-                    .foregroundColor(.blue)
-                    .padding(.leading, 20)
+        NavigationView {
+            ZStack {
+                Color.white.ignoresSafeArea()
                 
-                TextField("Nom de Série...", text: self.$searchTerm)
-                    .foregroundColor(.black)
-                    .padding(5)
-                    .onChange(of: self.searchTerm) {
-                        showResult()
+                VStack {
+                    Spacer()
+                    
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 12)
+                            .foregroundColor(Color(.sRGB, red: 230/255, green: 242/255, blue: 255/255, opacity: 1.0))
+                            .frame(height: 36)
+                            .padding()
+                        
+                        HStack {
+                            Image(systemName: "magnifyingglass")
+                                .foregroundColor(.blue)
+                                .padding(.leading, 20)
+                            
+                            TextField("Nom de Série...", text: self.$searchTerm)
+                                .foregroundColor(.black)
+                                .padding(5)
+                                .onChange(of: self.searchTerm) {
+                                    showResult()
+                                }
+                        }
+                        .padding()
                     }
+                    
+                    Spacer()
+                    
+                    if shows.isEmpty {
+                        NoMatch()
+                    }
+                    
+                    ScrollView(.horizontal) {
+                        HStack(spacing: 10) {
+                            ForEach(shows) { show in
+                                NavigationLink(destination: Information(show: show)) {
+                                    if let imageURLString = show.image?.medium {
+                                        AsyncImage(url: URL(string: imageURLString)) { image in
+                                            VStack {
+                                                Text(show.name)
+                                                    .foregroundColor(.blue)
+                                                    .font(.title2.italic())
+                                                
+                                                image
+                                                    .resizable()
+                                                    .aspectRatio(contentMode: .fit)
+                                                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                                    .padding()
+                                            }
+                                        } placeholder: {
+                                            ProgressView()
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .padding()
+                    }
+                    
+                    Spacer()
+                }
             }
-            .padding()
         }
     }
     
     func showResult() {
-        self.started = false
-        
         TVMazeAPI.shared.searchShows(query: self.searchTerm) { result in
             DispatchQueue.main.async {
-                self.isLoading = false
                 switch result {
                 case .success(let shows):
                     self.shows = shows
@@ -66,4 +91,8 @@ struct Search: View {
             }
         }
     }
+}
+
+#Preview {
+    Search()
 }
