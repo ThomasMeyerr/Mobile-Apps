@@ -14,8 +14,10 @@ struct Genres: View {
         HStack(spacing: 10) {
             Title(text: "Genres : ")
 
-            if let genres = self.show.genres {
+            if let genres = self.show.genres, !genres.isEmpty {
                 TextUpgrade(text: genres.joined(separator: ", "), italic: true)
+            } else {
+                TextUpgrade(text: "N/C", italic: true)
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)

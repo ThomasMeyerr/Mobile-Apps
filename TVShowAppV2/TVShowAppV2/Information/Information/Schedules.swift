@@ -14,8 +14,10 @@ struct Schedules: View {
         HStack(spacing: 10) {
             Title(text: "Schedule : ")
 
-            if let day = self.show.schedule?.days {
+            if let day = self.show.schedule?.days, !day.isEmpty {
                 TextUpgrade(text: day.joined(separator: ", "), italic: true)
+            } else {
+                TextUpgrade(text: "N/C", italic: true)
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)

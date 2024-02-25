@@ -14,8 +14,10 @@ struct Status: View {
         HStack(spacing: 10) {
             Title(text: "Status : ")
 
-            if let status = self.show.status {
+            if let status = self.show.status, !status.isEmpty{
                 TextUpgrade(text: status, italic: true)
+            } else {
+                TextUpgrade(text: "N/C", italic: true)
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)

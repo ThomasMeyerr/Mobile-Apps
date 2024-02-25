@@ -139,5 +139,5 @@ struct Home: View {
 }
 
 #Preview {
-    TodayShow()
+    Home()
 }

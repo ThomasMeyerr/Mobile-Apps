@@ -14,8 +14,10 @@ struct Time: View {
         HStack(spacing: 10) {
             Title(text: "Time : ")
 
-            if let time = self.show.schedule?.time {
+            if let time = self.show.schedule?.time, !time.isEmpty {
                 TextUpgrade(text: time, italic: true)
+            } else {
+                TextUpgrade(text: "N/C", italic: true)
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)

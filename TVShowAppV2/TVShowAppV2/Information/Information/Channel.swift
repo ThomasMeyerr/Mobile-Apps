@@ -20,8 +20,10 @@ struct Channel: View {
 
             TextUpgrade(text: "in", italic: false)
 
-            if let country = self.show.network?.country?.name {
+            if let country = self.show.network?.country?.name, !country.isEmpty {
                 TextUpgrade(text: country, italic: true)
+            } else {
+                TextUpgrade(text: "N/C", italic: true)
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
