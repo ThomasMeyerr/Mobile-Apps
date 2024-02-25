@@ -36,6 +36,7 @@ struct Search: View {
                     }
                     .padding()
                 }
+                .background(Color.blue)
                 
                 Spacer()
                 
