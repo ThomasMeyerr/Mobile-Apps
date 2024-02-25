@@ -20,32 +20,7 @@ struct Home: View {
                         .foregroundColor(.blue)
                         .font(.title.bold())
                         
-                    ScrollView(.horizontal) {
-                        HStack(spacing: 10) {
-                            ForEach(shows) { show in
-                                NavigationLink(destination: Information(show: show)) {
-                                    if let imageURLString = show.image?.medium {
-                                        AsyncImage(url: URL(string: imageURLString)) { image in
-                                            VStack {
-                                                Text(show.name)
-                                                    .foregroundColor(.blue)
-                                                    .font(.title2.italic())
-                                                
-                                                image
-                                                    .resizable()
-                                                    .aspectRatio(contentMode: .fit)
-                                                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                                                    .padding()
-                                            }
-                                        } placeholder: {
-                                            ProgressView()
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        .padding()
-                    }
+                    Shows(shows: self.$shows)
                 }
             }
         }
