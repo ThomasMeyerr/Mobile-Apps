@@ -25,7 +25,6 @@ struct Home: View {
                         HStack(spacing: 10) {
                             ForEach(shows) { show in
                                 NavigationLink(destination: Information(show: show)) {
-                                    
                                     if let imageURLString = show.image?.medium {
                                         AsyncImage(url: URL(string: imageURLString)) { image in
                                             VStack {

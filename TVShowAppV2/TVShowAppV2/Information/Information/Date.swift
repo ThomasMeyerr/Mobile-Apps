@@ -18,8 +18,10 @@ struct Date: View {
                 TextUpgrade(text: premiered, italic: true)
             }
 
-            if let ended = self.show.ended {
+            if let ended = self.show.ended, !ended.isEmpty {
                 TextUpgrade(text: "-  " + ended, italic: true)
+            } else {
+                TextUpgrade(text: "-  Now", italic: true)
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
