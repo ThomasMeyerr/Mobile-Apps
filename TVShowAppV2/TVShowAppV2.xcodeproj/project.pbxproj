@@ -117,13 +117,13 @@
 		1643B8C82B7F46DB00FD3D1A /* Information */ = {
 			isa = PBXGroup;
 			children = (
-				1643B8CD2B7F473500FD3D1A /* Information */,
+				1643B8CD2B7F473500FD3D1A /* Types */,
 				1643B8CB2B7F471D00FD3D1A /* Information.swift */,
 			);
 			path = Information;
 			sourceTree = "<group>";
 		};
-		1643B8CD2B7F473500FD3D1A /* Information */ = {
+		1643B8CD2B7F473500FD3D1A /* Types */ = {
 			isa = PBXGroup;
 			children = (
 				1643B8CE2B7F474400FD3D1A /* Channel.swift */,
@@ -134,7 +134,7 @@
 				1643B8D82B7F47C200FD3D1A /* Status.swift */,
 				1643B8DA2B7F47D600FD3D1A /* Time.swift */,
 			);
-			path = Information;
+			path = Types;
 			sourceTree = "<group>";
 		};
 		16B8B78D2B8B5C6700A41003 /* Home */ = {

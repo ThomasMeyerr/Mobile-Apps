@@ -21,9 +21,7 @@ struct Information: View {
                     .bold()
                     .font(.system(size: 30))
 
-                Text("Synopsis :")
-                    .foregroundColor(.black)
-                    .bold()
+                Title(text: "Summary :")
                     .padding()
 
                 TextUpgrade(text: stripHTML(show.summary ?? ""), italic: true)
