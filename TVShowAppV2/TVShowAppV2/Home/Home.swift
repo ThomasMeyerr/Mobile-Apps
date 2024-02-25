@@ -1,5 +1,5 @@
 //
-//  TodayShow.swift
+//  Home.swift
 //  TVShowAppV2
 //
 //  Created by Thomas Meyer on 16/02/2024.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TodayShow: View {
+struct Home: View {
     @State private var started = true
     @State private var isLoading = false
     @State private var searchTerm = String()
