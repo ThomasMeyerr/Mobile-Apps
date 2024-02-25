@@ -16,8 +16,6 @@ struct Search: View {
             Color.white.ignoresSafeArea()
             
             VStack {
-                Spacer()
-                
                 ZStack {
                     RoundedRectangle(cornerRadius: 12)
                         .foregroundColor(Color(.sRGB, red: 230/255, green: 242/255, blue: 255/255, opacity: 1.0))
@@ -43,9 +41,9 @@ struct Search: View {
                 
                 if shows.isEmpty {
                     NoMatch()
+                } else {
+                    Shows(shows: self.$shows)
                 }
-                
-                Shows(shows: self.$shows)
                 
                 Spacer()
             }
