@@ -16,45 +16,37 @@ struct Home: View {
                 Color(.white)
                     .ignoresSafeArea()
                 
-                ZStack {
-                    VStack {
-                        ZStack {
-                            VStack {
-                                Text("Shows of the Day :")
-                                    .foregroundColor(.blue)
-                                    .font(Font.system(size: 30, weight: .bold))
-                                    .offset(y: -50)
-                                Spacer()
-                            }
-                            .padding()
-                        }
+                VStack {
+                    Text("Shows of the Day :")
+                        .foregroundColor(.blue)
+                        .font(.title.bold())
                         
-                        ScrollView(.horizontal) {
-                            HStack(spacing: 10) {
-                                ForEach(shows) { show in
-                                    NavigationLink(destination: Information(show: show)) {
-                                        if let imageURLString = show.image?.medium {
-                                            AsyncImage(url: URL(string: imageURLString)) { image in
-                                                VStack {
-                                                    Text(show.name)
-                                                        .foregroundColor(.blue)
-                                                        .bold()
-                                                        .font(.system(size: 25))
-                                                    image
-                                                        .resizable()
-                                                        .aspectRatio(contentMode: .fit)
-                                                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                                                        .padding()
-                                                }
-                                            } placeholder: {
-                                                ProgressView()
+                    ScrollView(.horizontal) {
+                        HStack(spacing: 10) {
+                            ForEach(shows) { show in
+                                NavigationLink(destination: Information(show: show)) {
+                                    
+                                    if let imageURLString = show.image?.medium {
+                                        AsyncImage(url: URL(string: imageURLString)) { image in
+                                            VStack {
+                                                Text(show.name)
+                                                    .foregroundColor(.blue)
+                                                    .font(.title2.italic())
+                                                
+                                                image
+                                                    .resizable()
+                                                    .aspectRatio(contentMode: .fit)
+                                                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                                    .padding()
                                             }
+                                        } placeholder: {
+                                            ProgressView()
                                         }
                                     }
                                 }
                             }
-                            .padding()
                         }
+                        .padding()
                     }
                 }
             }

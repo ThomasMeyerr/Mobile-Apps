@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/* ------- MAIN API CLASS ------- */
+/* ------- API CLASS FOR SEARCHBAR ------- */
 class TVMazeAPI {
     static let shared = TVMazeAPI()
     private init() {}
