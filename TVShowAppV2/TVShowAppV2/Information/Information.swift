@@ -24,7 +24,11 @@ struct Information: View {
                 Title(text: "Summary :")
                     .padding()
 
-                TextUpgrade(text: stripHTML(show.summary ?? ""), italic: true)
+                if let summary = self.show.summary, !summary.isEmpty{
+                    TextUpgrade(text: stripHTML(summary), italic: true)
+                } else {
+                    TextUpgrade(text: "N/C", italic: true)
+                }
 
                 Spacer()
 
