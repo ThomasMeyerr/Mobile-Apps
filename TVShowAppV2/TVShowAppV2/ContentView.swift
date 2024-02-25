@@ -13,7 +13,7 @@ struct ContentView: View {
             TabView {
                 Home()
                     .tabItem {
-                            Label("Home", systemImage: "house.fill")
+                        Label("Home", systemImage: "house.fill")
                     }
                 
                 Search()
@@ -26,6 +26,9 @@ struct ContentView: View {
                         Label("Categories", systemImage: "line.3.horizontal")
                     }
             }
+        }
+        .onAppear {
+            _ = LoadingScreen()
         }
     }
 }

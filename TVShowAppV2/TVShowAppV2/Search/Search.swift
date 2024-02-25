@@ -14,6 +14,18 @@ struct Search: View {
     @State private var shows: [Show] = []
 
     var body: some View {
+//        if shows.isEmpty && !started {
+//            VStack {
+//                Image("Not Found")
+//                    .resizable()
+//                    .frame(width: 250, height: 250)
+//                    .padding()
+//                Text("No match found...")
+//                    .foregroundColor(.gray)
+//                    .font(Font.system(size: 40))
+//                    .italic()
+//                    .padding()
+//            }
         ZStack {
             Color(.blue)
                 .ignoresSafeArea()
