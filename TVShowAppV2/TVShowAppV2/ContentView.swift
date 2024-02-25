@@ -8,27 +8,37 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var isLoading = true
+    
     var body: some View {
-        NavigationView {
-            TabView {
-                Home()
-                    .tabItem {
-                        Label("Home", systemImage: "house.fill")
+        if self.isLoading {
+            LoadingScreen()
+                .onAppear {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                        withAnimation {
+                            self.isLoading = false
+                        }
                     }
-                
-                Search()
-                    .tabItem {
-                        Label("Search", systemImage: "magnifyingglass")
-                    }
-                
-                Categories()
-                    .tabItem {
-                        Label("Categories", systemImage: "line.3.horizontal")
-                    }
+                }
+        } else {
+            NavigationView {
+                TabView {
+                    Home()
+                        .tabItem {
+                            Label("Home", systemImage: "house.fill")
+                        }
+                    
+                    Search()
+                        .tabItem {
+                            Label("Search", systemImage: "magnifyingglass")
+                        }
+                    
+                    Categories()
+                        .tabItem {
+                            Label("Categories", systemImage: "line.3.horizontal")
+                        }
+                }
             }
-        }
-        .onAppear {
-            _ = LoadingScreen()
         }
     }
 }
