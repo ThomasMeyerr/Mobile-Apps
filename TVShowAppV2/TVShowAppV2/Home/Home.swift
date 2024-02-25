@@ -11,17 +11,19 @@ struct Home: View {
     @State private var shows: [Show] = []
     
     var body: some View {
-        NavigationView {
-            ZStack {
-                Color.white.ignoresSafeArea()
-                
-                VStack {
-                    Text("Shows of the Day :")
-                        .foregroundColor(.blue)
-                        .font(.title.bold())
+        ZStack {
+            Color.white.ignoresSafeArea()
                         
-                    Shows(shows: self.$shows)
-                }
+            VStack {
+                Spacer()
+                Spacer()
+                
+                Text("Shows of the Day :")
+                    .foregroundColor(.white)
+                    .font(.title.bold())
+                    .background(Color.blue.frame(width: 400, height: 200).ignoresSafeArea())
+                
+                Shows(shows: self.$shows)
             }
         }
         .onAppear {
