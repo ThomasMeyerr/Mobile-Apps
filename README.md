@@ -1,11 +1,12 @@
 # GuessTheFlag
-GuessTheFlag is a simple mobile app that challenges users to identify different country flags.<br>
-Test your knowledge of world flags and improve your geography skills with this fun and educational game.
+GuessTheFlag is a simple mobile app game developed using Swift for iOS devices.</br>
+The game challenges players to guess the flag of a country based on a given list of options.
 
 ## Features
 - *Flag Quiz:* Guess the country associated with the displayed flag.
 - *Scoring:* Keep track of your score and try to beat your previous high score.
 - *Learn Geography:* Explore flags from around the world.
+- *Ranked Mode:* Challenge yourself and try to climb the ladder.
 
 ## Screenshots of the game
 ### Portrait
