@@ -15,3 +15,10 @@ The game challenges players to guess the flag of a country based on a given list
   <img src="ImageReadMe/GTFRankedMenu.png" width=200>
   <img src="ImageReadMe/GTFRanked.png" width=200>
 </div>
+
+# TVShowApp
+
+Create a simple application using the [TVmaze API](https://www.tvmaze.com/api).
+
+## TVShowApp v2
+Refactor the code after 2 months, using tabView, modifiers and better use of views to improve the app and the code
