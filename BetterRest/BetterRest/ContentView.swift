@@ -19,9 +19,7 @@ struct ContentView: View {
     @State private var wakeUp = defaultWakeTime
     @State private var sleepAmount = 8.0
     @State private var coffeeAmount = 1
-    @State private var alertTitle = String()
-    @State private var alertMessage = String()
-    @State private var showingAlert = false
+    @State private var bedTime = String()
     
     var body: some View {
         NavigationStack {
@@ -45,16 +43,15 @@ struct ContentView: View {
                             }
                         }
                     }
+                    
+                    Section("Recommended bedtime") {
+                        Button("Calculate") {
+                            calculateBedTime()
+                        }
+                        Text("\(bedTime)")
+                    }
                 }
                 .navigationTitle("Better Rest")
-                .toolbar {
-                    Button("Calculate", action: calculateBedTime)
-                }
-                .alert(alertTitle, isPresented: $showingAlert) {
-                    Button("OK") {}
-                } message: {
-                    Text(alertMessage)
-                }
             }
         }
     }
@@ -71,14 +68,10 @@ struct ContentView: View {
             let prediction = try model.prediction(wake: Double(hour + minute), estimatedSleep: sleepAmount, coffee: Double(coffeeAmount))
             
             let sleepTime = wakeUp - prediction.actualSleep
-            alertTitle = "Your ideal betime is ..."
-            alertMessage = sleepTime.formatted(date: .omitted, time: .shortened)
+            bedTime = sleepTime.formatted(date: .omitted, time: .shortened)
         } catch {
-            alertTitle = "Error"
-            alertMessage = "Sorry, there was a problem calculating your bedtime."
+            bedTime = "Error calculating bedtime"
         }
-        
-        showingAlert = true
     }
 }
 
