@@ -1,6 +1,6 @@
 //
 //  ContentView.swift
-//  Word Scramble
+//  WordScramble
 //
 //  Created by Thomas Meyer on 01/05/2024.
 //
