@@ -11,6 +11,9 @@ struct ContentView: View {
     @State private var usedWords = [String]()
     @State private var rootWord = String()
     @State private var newWord = String()
+    @State private var errorTitle = String()
+    @State private var errorMessage = String()
+    @State private var showingError = false
 
     var body: some View {
         NavigationStack {
@@ -33,6 +36,11 @@ struct ContentView: View {
         }
         .onSubmit(addNewWord)
         .onAppear(perform: startGame)
+        .alert(errorTitle, isPresented: $showingError) {
+            Button("OK") {}
+        } message: {
+            Text(errorMessage)
+        }
     }
     
     func startGame() {
@@ -82,6 +90,12 @@ struct ContentView: View {
         let misspelledRange = checker.rangeOfMisspelledWord(in: word, range: range, startingAt: 0, wrap: false, language: "en")
         
         return misspelledRange.location == NSNotFound
+    }
+    
+    func wordError(title: String, message: String) {
+        errorTitle = title
+        errorMessage = message
+        showingError = true
     }
 }
 
