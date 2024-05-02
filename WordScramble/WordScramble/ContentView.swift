@@ -29,8 +29,8 @@ struct ContentView: View {
                     }
                 }
             }
+            .navigationTitle(rootWord)
         }
-        .navigationTitle(rootWord)
         .onSubmit(addNewWord)
         .onAppear(perform: startGame)
     }
