@@ -27,6 +27,7 @@ struct ContentView: View {
             }
         }
         .navigationTitle(rootWord)
+        .onSubmit(addNewWord)
     }
     
     func addNewWord() {
