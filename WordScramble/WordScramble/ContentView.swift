@@ -36,9 +36,7 @@ struct ContentView: View {
         }
         .onSubmit(addNewWord)
         .onAppear(perform: startGame)
-        .alert(errorTitle, isPresented: $showingError) {
-            Button("OK") {}
-        } message: {
+        .alert(errorTitle, isPresented: $showingError) {} message: {
             Text(errorMessage)
         }
     }
@@ -60,6 +58,18 @@ struct ContentView: View {
         let answer = newWord.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)
         
         guard answer.count > 0 else { return }
+        guard isOriginal(word: answer) else {
+            wordError(title: "Word used already", message: "Be more original")
+            return
+        }
+        guard isPossible(word: answer) else {
+            wordError(title: "Word not possible", message: "You can't spell that word from '\(rootWord)' !")
+            return
+        }
+        guard isReal(word: answer) else {
+            wordError(title: "Word not recognized", message: "You can't just make them up, you know !")
+            return
+        }
         
         withAnimation {
             usedWords.insert(answer, at: 0)
