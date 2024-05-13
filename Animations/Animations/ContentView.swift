@@ -22,7 +22,7 @@ struct ContentView: View {
                 Rectangle()
                     .fill(.red)
                     .frame(width: 200, height: 200)
-                    .transition(.scale)
+                    .transition(.asymmetric(insertion: .scale, removal: .opacity))
             }
         }
     }
