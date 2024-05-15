@@ -20,6 +20,7 @@ struct Game: View {
     @State private var wrongAnswer = String()
     @State private var pseudo = String()
     @State private var animation = Double()
+    @State private var animate = -1
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
@@ -55,7 +56,7 @@ struct Game: View {
                                 } label: {
                                     FlagImage(name: self.countries[number], size: 170)
                                 }
-                                .rotation3DEffect(.degrees(animation), axis: (x: 0.0, y: 1.0, z: 0.0))
+                                .rotation3DEffect(number == self.animate ? .degrees(animation) : .degrees(0), axis: (x: 0.0, y: 1.0, z: 0.0))
                             }
                         }
                         
@@ -107,6 +108,7 @@ struct Game: View {
         if number == self.correctAnswer {
             self.score += 1
             self.animation += 360
+            self.animate = number
             self.previousAnswer = self.countries[self.correctAnswer]
         } else {
             self.endingGame = true
