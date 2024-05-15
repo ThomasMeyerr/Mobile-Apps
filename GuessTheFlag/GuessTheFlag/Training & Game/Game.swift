@@ -19,6 +19,7 @@ struct Game: View {
     @State private var timerEnd = false
     @State private var wrongAnswer = String()
     @State private var pseudo = String()
+    @State private var animation = Double()
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
@@ -48,10 +49,13 @@ struct Game: View {
                         HStack {
                             ForEach(0..<2) { number in
                                 Button {
-                                    self.flagTapped(number)
-                                }   label: {
+                                    withAnimation(.spring(duration: 1, bounce: 0.5)) {
+                                        self.flagTapped(number)
+                                    }
+                                } label: {
                                     FlagImage(name: self.countries[number], size: 170)
                                 }
+                                .rotation3DEffect(.degrees(animation), axis: (x: 0.0, y: 1.0, z: 0.0))
                             }
                         }
                         
@@ -59,7 +63,7 @@ struct Game: View {
                             ForEach(2..<4) { number in
                                 Button {
                                     self.flagTapped(number)
-                                }   label: {
+                                } label: {
                                     FlagImage(name: self.countries[number], size: 170)
                                 }
                             }
@@ -102,6 +106,7 @@ struct Game: View {
     func flagTapped(_ number: Int) {
         if number == self.correctAnswer {
             self.score += 1
+            self.animation += 360
             self.previousAnswer = self.countries[self.correctAnswer]
         } else {
             self.endingGame = true
