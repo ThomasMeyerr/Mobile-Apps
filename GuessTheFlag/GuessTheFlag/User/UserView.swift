@@ -17,6 +17,12 @@ struct UserView: View {
                 .ignoresSafeArea()
             
             VStack {
+                Spacer()
+
+                TitleText(title: "Max Score : \(UserDefaults.standard.integer(forKey: "MaxScore"))")
+    
+                Spacer()
+                
                 TitleText(title: "Login or sign up")
                 
                 TextField("Username", text: self.$username)
@@ -27,7 +33,9 @@ struct UserView: View {
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding()
                 
-                HStack {
+                Spacer()
+                
+                HStack(spacing: 100) {
                     Button("Login") {
                         //
                     }
@@ -36,6 +44,8 @@ struct UserView: View {
                         //
                     }
                 }
+                
+                Spacer()
             }
             .background {
                 Color.white
