@@ -84,12 +84,18 @@ struct Game: View {
             .alert("Wrong! It was \(self.wrongAnswer) !\n Score: \(self.score)", isPresented: self.$endingGame) {
                 Button("Restart", role: .cancel, action: reset)
                 Button("Menu", role: .destructive) {
+                    if score > UserDefaults.standard.integer(forKey: "MaxScore") {
+                        UserDefaults.standard.set(score, forKey: "MaxScore")
+                    }
                     self.presentationMode.wrappedValue.dismiss()
                 }
             }
             .alert("Running out of time !\n Score: \(self.score)", isPresented: self.$timerEnd) {
                 Button("Restart", role: .cancel, action: reset)
                 Button("Menu", role: .destructive) {
+                    if score > UserDefaults.standard.integer(forKey: "MaxScore") {
+                        UserDefaults.standard.set(score, forKey: "MaxScore")
+                    }
                     self.presentationMode.wrappedValue.dismiss()
                 }
             }
