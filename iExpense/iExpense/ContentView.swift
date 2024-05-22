@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Observation
 
 @Observable
 class User {
@@ -15,6 +16,7 @@ class User {
 
 struct ContentView: View {
     @State private var user = User()
+    @State private var showingSheet = false
 
     var body: some View {
         VStack {
@@ -22,8 +24,21 @@ struct ContentView: View {
             
             TextField("First name", text: $user.firstName)
             TextField("Last name", text: $user.lastName)
+            
+            Button("Show Sheet") {
+                showingSheet.toggle()
+            }
         }
         .padding()
+        .sheet(isPresented: $showingSheet) {
+            SecondView()
+        }
+    }
+}
+
+struct SecondView: View {
+    var body: some View {
+        Text("Second View")
     }
 }
 
