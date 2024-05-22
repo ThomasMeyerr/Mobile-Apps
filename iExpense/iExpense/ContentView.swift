@@ -31,14 +31,16 @@ struct ContentView: View {
         }
         .padding()
         .sheet(isPresented: $showingSheet) {
-            SecondView()
+            SecondView(name: "damn")
         }
     }
 }
 
 struct SecondView: View {
+    let name: String
+
     var body: some View {
-        Text("Second View")
+        Text("Second View \(name)")
     }
 }
 
