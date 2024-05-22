@@ -12,17 +12,22 @@ struct ContentView: View {
     @State private var currentNumber = 1
     
     var body: some View {
-        VStack {
-            List {
-                ForEach(numbers, id: \.self) {
-                    Text("Row \($0)")
+        NavigationStack {
+            VStack {
+                List {
+                    ForEach(numbers, id: \.self) {
+                        Text("Row \($0)")
+                    }
+                    .onDelete(perform: removeRows)
                 }
-                .onDelete(perform: removeRows)
+                
+                Button("Add Number") {
+                    numbers.append(currentNumber)
+                    currentNumber += 1
+                }
             }
-            
-            Button("Add Number") {
-                numbers.append(currentNumber)
-                currentNumber += 1
+            .toolbar {
+                EditButton()
             }
         }
     }
