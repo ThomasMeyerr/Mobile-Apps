@@ -28,10 +28,12 @@ struct UserView: View {
                     .padding()
                 
                 HStack {
-                    Button("Login") {}
+                    Button("Login") {
+                        //
+                    }
                     
                     Button("Sign Up") {
-                        signUpUser()
+                        //
                     }
                 }
             }
@@ -42,10 +44,6 @@ struct UserView: View {
             .cornerRadius(10)
             .padding()
         }
-    }
-    
-    private func signUpUser() {
-        DataManager.shared.addUser(username: self.username, password: self.password)
     }
 }
 

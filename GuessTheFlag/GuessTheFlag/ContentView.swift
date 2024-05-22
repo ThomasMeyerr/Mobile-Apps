@@ -26,10 +26,10 @@ struct ContentView: View {
 //                        Label("Leaderboard", systemImage: "crown")
 //                    }
 //                
-//                UserView()
-//                    .tabItem {
-//                        Label("User", systemImage: "person.crop.circle.fill")
-//                    }
+                UserView()
+                    .tabItem {
+                        Label("User", systemImage: "person.crop.circle.fill")
+                    }
             }
         }
         .accentColor(.white)
