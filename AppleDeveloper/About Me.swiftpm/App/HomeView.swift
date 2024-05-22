@@ -8,7 +8,7 @@ struct HomeView: View {
     
     var body: some View {
         VStack {
-            Text("All About")
+            Text("All About Me")
                 .font(.largeTitle)
                 .fontWeight(.bold)
                 .padding()
@@ -16,7 +16,7 @@ struct HomeView: View {
             Image(information.image)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .cornerRadius(10)
+                .cornerRadius(50)
                 .padding(40)
 
             Text(information.name)
