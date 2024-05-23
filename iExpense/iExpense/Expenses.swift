@@ -10,5 +10,11 @@ import Observation
 
 @Observable
 class Expenses {
-    var items = [ExpenseItem]()
+    var items = [ExpenseItem]() {
+        didSet {
+            if let encoded = try? JSONDecoder().encode(items) {
+                UserDefaults.standard.set(encoded, forKey: "Items")
+            }
+        }
+    }
 }

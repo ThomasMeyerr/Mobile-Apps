@@ -32,8 +32,8 @@ struct AddView: View {
             .navigationTitle("Add new expense")
             .toolbar {
                 Button("Save") {
-                    let expense = ExpenseItem(name: name, type: type, amount: amount)
-                    expenses.items.append(expense)
+                    let item = ExpenseItem(name: name, type: type, amount: amount)
+                    expenses.items.append(item)
                 }
             }
         }
