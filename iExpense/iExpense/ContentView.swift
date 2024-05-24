@@ -32,18 +32,23 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             List {
-                ForEach(expenses.items) { item in
-                    if item.type == "Personal" {
-                        Section("Personal") {
-                            DisplayItem(item: item)
-                        }
-                    } else {
-                        Section("Business") {
+                Section("Personal") {
+                    ForEach(expenses.items) { item in
+                        if item.type == "Personal" {
                             DisplayItem(item: item)
                         }
                     }
+                    .onDelete(perform: removeItems)
                 }
-                .onDelete(perform: removeItems)
+                
+                Section("Business") {
+                    ForEach(expenses.items) { item in
+                        if item.type == "Business" {
+                            DisplayItem(item: item)
+                        }
+                    }
+                    .onDelete(perform: removeItems)
+                }
             }
             .navigationTitle("iExpense")
             .toolbar {
