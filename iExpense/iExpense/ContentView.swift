@@ -7,6 +7,24 @@
 
 import SwiftUI
 
+struct DisplayItem: View {
+    let item: ExpenseItem
+    
+    var body: some View {
+        HStack {
+            VStack(alignment: .leading) {
+                Text(item.name)
+                    .font(.headline)
+                Text(item.type)
+            }
+            
+            Spacer()
+            Text(item.amount, format: .currency(code: Locale.current.currencyCode ?? "USD"))
+                .font(item.amount < 10 ? .subheadline : item.amount < 100 ? .title3 : .title2)
+        }
+    }
+}
+
 struct ContentView: View {
     @State private var expenses = Expenses()
     @State private var showingAddExpense = false
@@ -15,16 +33,14 @@ struct ContentView: View {
         NavigationStack {
             List {
                 ForEach(expenses.items) { item in
-                    HStack {
-                        VStack(alignment: .leading) {
-                            Text(item.name)
-                                .font(.headline)
-                            Text(item.type)
+                    if item.type == "Personal" {
+                        Section("Personal") {
+                            DisplayItem(item: item)
                         }
-                        
-                        Spacer()
-                        Text(item.amount, format: .currency(code: Locale.current.currencyCode ?? "USD"))
-                            .font(item.amount < 10 ? .subheadline : item.amount < 100 ? .title3 : .title2)
+                    } else {
+                        Section("Business") {
+                            DisplayItem(item: item)
+                        }
                     }
                 }
                 .onDelete(perform: removeItems)
