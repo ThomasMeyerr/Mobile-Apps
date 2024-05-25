@@ -29,6 +29,11 @@ struct ContentView: View {
                 }
             }
             """
+            
+            let data = Data(input.utf8)
+            if let user = try? JSONDecoder().decode(User.self, from: data) {
+                print(user.address.street)
+            }
         }
     }
 }
