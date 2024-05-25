@@ -9,17 +9,16 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        NavigationStack {
-            NavigationLink {
-                Text("Detail View")
-            } label: {
-                VStack {
-                    Text("This is the label")
-                    Text("So is this")
-                    Image(systemName: "face.smiling")
+        Button("Decode JSON") {
+            let input = """
+            {
+                "name": "Taylor Swift",
+                "address": {
+                    "street": "555, Taylor Swift Avenue",
+                    "city": "Nashville"
                 }
-                .font(.largeTitle)
             }
+            """
         }
     }
 }
