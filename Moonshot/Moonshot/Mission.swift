@@ -1,5 +1,5 @@
 //
-//  Missions.swift
+//  Mission.swift
 //  Moonshot
 //
 //  Created by Thomas Meyer on 27/05/2024.
@@ -12,7 +12,7 @@ struct CrewRole: Codable {
     let role: String
 }
 
-struct Missions: Codable, Identifiable {
+struct Mission: Codable, Identifiable {
     let id: Int
     let launchDate: String?
     let crews: [CrewRole]
