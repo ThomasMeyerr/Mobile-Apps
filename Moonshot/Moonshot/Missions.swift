@@ -14,7 +14,7 @@ struct CrewRole: Codable {
 
 struct Missions: Codable, Identifiable {
     let id: Int
-    let launchDate: String
+    let launchDate: String?
     let crews: [CrewRole]
     let description: String
 }
