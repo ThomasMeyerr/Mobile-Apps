@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct CrewRole: Codable {
-    let name: String
-    let role: String
-}
-
 struct Mission: Codable, Identifiable {
+    struct CrewRole: Codable {
+        let name: String
+        let role: String
+    }
+    
     let id: Int
     let launchDate: String?
-    let crews: [CrewRole]
+    let crew: [CrewRole]
     let description: String
 }
