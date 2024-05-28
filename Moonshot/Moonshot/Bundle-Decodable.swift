@@ -17,8 +17,13 @@ extension Bundle {
             fatalError("Failed to load \(file) from bundle.")
         }
         
+        let decoder = JSONDecoder()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "y-MM-dd"
+        decoder.dateDecodingStrategy = .formatted(formatter)
+        
         do {
-            return try JSONDecoder().decode(T.self, from: data)
+            return try decoder.decode(T.self, from: data)
         } catch DecodingError.keyNotFound(let key, let context) {
             fatalError("Failed to decode \(file) from bundle due to missing key '\(key.stringValue)' – \(context.debugDescription)")
         } catch DecodingError.typeMismatch(_, let context) {
