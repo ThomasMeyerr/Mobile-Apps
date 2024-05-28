@@ -12,7 +12,20 @@ struct ContentView: View {
     let missions: [Mission] = Bundle.main.decode("missions.json")
     
     var body: some View {
-        Text("Apollo \(missions[0].id)")
+        NavigationStack {
+            LazyVStack {
+                ForEach(missions) { mission in
+                    NavigationLink {
+                        Image(mission.image)
+                            .resizable()
+                            .scaledToFit()
+                    } label: {
+                        Text(mission.displayName)
+                    }
+                }
+            }
+            .navigationTitle("Mission")
+        }
     }
 }
 
