@@ -5,7 +5,7 @@
 //  Created by Thomas Meyer on 27/05/2024.
 //
 
-import SwiftUI
+import Foundation
 
 struct Mission: Codable, Identifiable {
     struct CrewRole: Codable {
