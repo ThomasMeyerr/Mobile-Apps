@@ -28,11 +28,25 @@ struct MissionView: View {
                     .padding(.top)
                 
                 VStack(alignment: .leading) {
+                    Rectangle()
+                        .frame(height: 2)
+                        .foregroundStyle(.lightBackground)
+                        .padding(.vertical)
+                    
                     Text("Mission Highlights")
                         .font(.title.bold())
                         .padding(.bottom, 5)
                     
                     Text(mission.description)
+                    
+                    Rectangle()
+                        .frame(height: 2)
+                        .foregroundStyle(.lightBackground)
+                        .padding(.vertical)
+                    
+                    Text("Crew")
+                        .font(.title.bold())
+                        .padding(.bottom, 5)
                 }
                 .padding(.horizontal)
                 
@@ -93,4 +107,3 @@ struct MissionView: View {
     return MissionView(mission: missions[0], astronauts: astronauts)
         .preferredColorScheme(.dark)
 }
-
