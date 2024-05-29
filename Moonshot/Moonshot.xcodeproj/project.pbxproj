@@ -71,9 +71,9 @@
 				164A0EC82C038CF900D8B4CD /* Bundle-Decodable.swift */,
 				164A0EC42C038B8000D8B4CD /* missions.json */,
 				163693672C027D9D000AFE27 /* ContentView.swift */,
-				1649631A2C072C3F008192DC /* MissionView.swift */,
 				1630433A2C05E0ED0014EF0B /* Color-Theme.swift */,
 				1658F80C2C04D24E00E192A3 /* Mission.swift */,
+				1649631A2C072C3F008192DC /* MissionView.swift */,
 				163693692C027DA0000AFE27 /* Assets.xcassets */,
 				1636936B2C027DA0000AFE27 /* Preview Content */,
 			);
