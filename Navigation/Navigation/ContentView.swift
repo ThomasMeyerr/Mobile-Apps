@@ -15,6 +15,7 @@ struct ContentView: View {
             }
             .navigationTitle("Title goes here")
             .navigationBarTitleDisplayMode(.inline)
+            .toolbarBackground(.blue.opacity(0.5))
         }
     }
 }
