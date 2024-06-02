@@ -10,12 +10,12 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         NavigationStack {
-            List(0..<100) { i in
-                Text("Row \(i)")
-            }
-            .navigationTitle("Title goes here")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbarBackground(.blue.opacity(0.5))
+            Text("Hello")
+                .toolbar {
+                    ToolbarItem(placement: .topBarLeading) {
+                        Button("Tap Me") {}
+                    }
+                }
         }
     }
 }
