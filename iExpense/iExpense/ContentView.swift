@@ -51,8 +51,9 @@ struct ContentView: View {
             }
             .navigationTitle("iExpense")
             .toolbar {
-                NavigationLink)("Add Expense") {
+                NavigationLink("Add Expense") {
                     AddView(expenses: expenses)
+                        .navigationBarBackButtonHidden()
                 }
             }
         }
