@@ -84,7 +84,9 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             List(activities.array) { activity in
-                NavigationLink(activity.title, value: activity)
+                NavigationLink(activity.title) {
+                    ShowingActivity(activity: activity)
+                }
             }
             .navigationTitle("List of activities")
             .toolbar {
