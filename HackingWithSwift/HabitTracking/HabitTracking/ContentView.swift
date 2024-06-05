@@ -22,8 +22,16 @@ class Activities {
     }
 }
 
-struct Form {
-    
+struct AddActivity: View {
+    var body: some View {
+        Text("This is the form")
+    }
+}
+
+struct ShowingActivity: View {
+    var body: some View {
+        Text("Detail activity")
+    }
 }
 
 struct ContentView: View {
@@ -36,8 +44,8 @@ struct ContentView: View {
             }
             .navigationTitle("List of activities")
             .toolbar {
-                Button {
-                    // something
+                NavigationLink {
+                    AddActivity()
                 } label: {
                     Image(systemName: "plus.circle")
                         .resizable()
