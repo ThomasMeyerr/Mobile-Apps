@@ -31,22 +31,16 @@ struct AddActivity: View {
     var body: some View {
         NavigationStack {
             VStack(alignment: .leading) {
-                Spacer()
-                
                 Text("Name of the activity :")
                     .font(.title2)
                     .padding()
                 TextField("Example: Natation", text: $title)
-                
-                Spacer()
-                
+                                
                 Text("Enter a description :")
                     .font(.title2)
                     .padding()
                 TextField("Example : hours of day...", text: $description)
-                
-                Spacer()
-                
+                                
                 Button {
                     if title != "" && description != "" {
                         let activity = Activity(title: title, description: description)
@@ -59,8 +53,6 @@ struct AddActivity: View {
                         .foregroundStyle(.green)
                         .padding()
                 }
-                
-                Spacer()
             }
             .navigationTitle("Add Activity")
         }
@@ -83,10 +75,13 @@ struct ContentView: View {
 
     var body: some View {
         NavigationStack {
-            List(activities.array) { activity in
-                NavigationLink(activity.title) {
-                    ShowingActivity(activity: activity)
+            List {
+                ForEach(activities.array) { activity in
+                    NavigationLink(activity.title) {
+                        ShowingActivity(activity: activity)
+                    }
                 }
+                .onDelete(perform: deleteActivity)
             }
             .navigationTitle("List of activities")
             .toolbar {
@@ -100,6 +95,10 @@ struct ContentView: View {
                 }
             }
         }
+    }
+    
+    func deleteActivity(at offset: IndexSet) {
+        activities.array.remove(atOffsets: offset)
     }
 }
 
