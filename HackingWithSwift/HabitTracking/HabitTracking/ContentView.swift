@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Activity: Identifiable {
+struct Activity: Identifiable, Hashable {
     var id = UUID()
     var title: String
     var description: String
@@ -23,8 +23,26 @@ class Activities {
 }
 
 struct AddActivity: View {
+    var activities: Activities
+    var title = String()
+    var description = String()
+    @Environment(\.dismiss) var dismiss
+
     var body: some View {
-        Text("This is the form")
+        NavigationStack {
+            VStack {
+                TextField("Enter the name of activity : ", text: $title)
+                
+                TextField("Enter a description : ", text: $description)
+                
+                Button("Add to Activities") {
+                    let activity = Activity(title: title, description: description)
+                    activities.array.append(activity)
+                    dismiss()
+                }
+            }
+            .navigationTitle("Add Activity")
+        }
     }
 }
 
@@ -45,12 +63,12 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             List(activities.array) { activity in
-                Text(activity.title)
+                NavigationLink(activity.title, value: activity)
             }
             .navigationTitle("List of activities")
             .toolbar {
                 NavigationLink {
-                    AddActivity()
+                    AddActivity(activities: activities)
                 } label: {
                     Image(systemName: "plus.circle")
                         .resizable()
