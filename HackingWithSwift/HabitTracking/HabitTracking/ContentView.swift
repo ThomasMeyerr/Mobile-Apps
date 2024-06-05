@@ -7,23 +7,44 @@
 
 import SwiftUI
 
-struct Activity: Identifiable, Hashable {
+struct Activity: Identifiable, Codable, Hashable {
     var id = UUID()
     var title: String
     var description: String
 }
 
 @Observable
-class Activities {
-    var array: [Activity]
+class Data {
+    var array: [Activity] {
+        didSet {
+            saveToUserDefaults()
+        }
+    }
 
     init() {
         self.array = [Activity]()
+        loadFromUserDefaults()
+    }
+    
+    private let userDefaultKey = "Activities"
+    
+    func saveToUserDefaults() {
+        if let encoded = try? JSONEncoder().encode(array) {
+            UserDefaults.standard.set(encoded, forKey: userDefaultKey)
+        }
+    }
+    
+    func loadFromUserDefaults() {
+        if let savedData = UserDefaults.standard.data(forKey: userDefaultKey) {
+            if let decoded = try? JSONDecoder().decode([Activity].self, from: savedData) {
+                self.array = decoded
+            }
+        }
     }
 }
 
 struct AddActivity: View {
-    var activities: Activities
+    var activities: Data
     @State private var title = String()
     @State private var description = String()
     @Environment(\.dismiss) var dismiss
@@ -64,6 +85,10 @@ struct ShowingActivity: View {
 
     var body: some View {
         NavigationStack {
+            Text("Description:")
+                .font(.title2)
+                .padding(.bottom)
+            
             Text(activity.description)
                 .navigationTitle(activity.title)
         }
@@ -71,7 +96,7 @@ struct ShowingActivity: View {
 }
 
 struct ContentView: View {
-    var activities = Activities()
+    var activities = Data()
 
     var body: some View {
         NavigationStack {
