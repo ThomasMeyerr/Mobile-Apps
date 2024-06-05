@@ -24,22 +24,43 @@ class Activities {
 
 struct AddActivity: View {
     var activities: Activities
-    var title = String()
-    var description = String()
+    @State private var title = String()
+    @State private var description = String()
     @Environment(\.dismiss) var dismiss
 
     var body: some View {
         NavigationStack {
-            VStack {
-                TextField("Enter the name of activity : ", text: $title)
+            VStack(alignment: .leading) {
+                Spacer()
                 
-                TextField("Enter a description : ", text: $description)
+                Text("Name of the activity :")
+                    .font(.title2)
+                    .padding()
+                TextField("Example: Natation", text: $title)
                 
-                Button("Add to Activities") {
-                    let activity = Activity(title: title, description: description)
-                    activities.array.append(activity)
+                Spacer()
+                
+                Text("Enter a description :")
+                    .font(.title2)
+                    .padding()
+                TextField("Example : hours of day...", text: $description)
+                
+                Spacer()
+                
+                Button {
+                    if title != "" && description != "" {
+                        let activity = Activity(title: title, description: description)
+                        activities.array.append(activity)
+                    }
                     dismiss()
+                } label: {
+                    Text("Done")
+                        .font(.title)
+                        .foregroundStyle(.green)
+                        .padding()
                 }
+                
+                Spacer()
             }
             .navigationTitle("Add Activity")
         }
