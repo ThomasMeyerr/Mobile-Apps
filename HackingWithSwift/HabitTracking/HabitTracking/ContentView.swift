@@ -29,8 +29,13 @@ struct AddActivity: View {
 }
 
 struct ShowingActivity: View {
+    var activity: Activity
+
     var body: some View {
-        Text("Detail activity")
+        NavigationStack {
+            Text(activity.description)
+                .navigationTitle(activity.title)
+        }
     }
 }
 
