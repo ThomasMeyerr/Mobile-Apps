@@ -7,15 +7,45 @@
 
 import SwiftUI
 
+struct Activity: Identifiable {
+    var id = UUID()
+    var title: String
+    var description: String
+}
+
+@Observable
+class Activities {
+    var array: [Activity]
+
+    init() {
+        self.array = [Activity]()
+    }
+}
+
+struct Form {
+    
+}
+
 struct ContentView: View {
+    var activities = Activities()
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack {
+            List(activities.array) { activity in
+                Text(activity.title)
+            }
+            .navigationTitle("List of activities")
+            .toolbar {
+                Button {
+                    // something
+                } label: {
+                    Image(systemName: "plus.circle")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 40)
+                }
+            }
         }
-        .padding()
     }
 }
 
