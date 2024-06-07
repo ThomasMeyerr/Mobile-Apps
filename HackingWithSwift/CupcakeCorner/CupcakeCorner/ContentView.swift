@@ -34,7 +34,17 @@ struct ContentView: View {
     }
     
     func loadData() async {
+        guard let url = URL(string: "https://itunes.apple.com/search?term=taylor+swift&entity=song") else {
+            print("Invalid URL")
+            return
+        }
         
+        do {
+            let (data, _) = try await URLSession.shared.data(from: url)
+            //
+        } catch {
+            print("Invalid data")
+        }
     }
 }
 
