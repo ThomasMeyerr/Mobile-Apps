@@ -51,28 +51,27 @@ struct AddActivity: View {
 
     var body: some View {
         NavigationStack {
-            VStack(alignment: .leading) {
-                Text("Name of the activity :")
-                    .font(.title2)
-                    .padding()
-                TextField("Example: Natation", text: $title)
-                                
-                Text("Enter a description :")
-                    .font(.title2)
-                    .padding()
-                TextField("Example : hours of day...", text: $description)
-                                
-                Button {
-                    if title != "" && description != "" {
+            Form {
+                Section {
+                    Text("Name of the activity :")
+                        .font(.headline)
+                    TextField("Example: Natation", text: $title)
+                    
+                    Text("Enter a description :")
+                        .font(.headline)
+                    TextField("Example : hours of day...", text: $description)
+                }
+                
+                Section {
+                    Button {
                         let activity = Activity(title: title, description: description)
                         activities.array.append(activity)
+                        dismiss()
+                    } label: {
+                        Text("Done")
+                            .font(.title)
                     }
-                    dismiss()
-                } label: {
-                    Text("Done")
-                        .font(.title)
-                        .foregroundStyle(.green)
-                        .padding()
+                    .disabled(title.isEmpty || description.isEmpty)
                 }
             }
             .navigationTitle("Add Activity")
