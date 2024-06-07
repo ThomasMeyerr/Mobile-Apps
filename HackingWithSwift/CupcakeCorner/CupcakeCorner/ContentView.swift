@@ -12,7 +12,7 @@ struct Response: Codable {
 }
 
 struct Result: Codable {
-    var trackID: Int
+    var trackId: Int
     var trackName: String
     var collectionName: String
 }
@@ -21,7 +21,7 @@ struct ContentView: View {
     @State private var results = [Result]()
 
     var body: some View {
-        List(results, id: \.trackID) { item in
+        List(results, id: \.trackId) { item in
             VStack(alignment: .leading) {
                 Text(item.trackName)
                     .font(.headline)
