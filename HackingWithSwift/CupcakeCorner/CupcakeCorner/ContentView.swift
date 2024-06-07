@@ -10,6 +10,10 @@ import SwiftUI
 struct ContentView: View {
     @State private var username = ""
     @State private var email = ""
+    
+    var disableForm: Bool {
+        username.count < 5 || email.count < 5
+    }
 
     var body: some View {
         Form {
@@ -23,7 +27,7 @@ struct ContentView: View {
                     print("Creating account...")
                 }
             }
-            .disabled(username.isEmpty || email.isEmpty)
+            .disabled(disableForm)
         }
     }
 }
