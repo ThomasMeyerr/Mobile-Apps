@@ -26,7 +26,14 @@ struct ContentView: View {
                 Text(item.trackName)
                     .font(.headline)
                 Text(item.collectionName)
-                AsyncImage(url: URL(string: "https://hws.dev/img/logo.png"), scale: 3)
+                AsyncImage(url: URL(string: "https://hws.dev/img/logo.png")) { image in
+                    image
+                        .resizable()
+                        .scaledToFit()
+                } placeholder: {
+                    ProgressView()
+                }
+                .frame(width: 200, height: 200)
             }
         }
         .task {
