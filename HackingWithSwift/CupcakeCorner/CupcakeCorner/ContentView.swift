@@ -26,6 +26,7 @@ struct ContentView: View {
                 Text(item.trackName)
                     .font(.headline)
                 Text(item.collectionName)
+                AsyncImage(url: URL(string: "https://hws.dev/img/logo.png"), scale: 3)
             }
         }
         .task {
