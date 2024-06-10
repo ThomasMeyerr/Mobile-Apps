@@ -6,29 +6,24 @@
 //
 
 import SwiftUI
-import CoreHaptics
 
 struct ContentView: View {
-    @State private var counter = Int()
-    @State private var engine: CHHapticEngine?
+    @State private var order = Order()
 
     var body: some View {
-        Button("Tap Count: \(counter)") {
-            counter += 1
-        }
-        .sensoryFeedback(.impact(weight: .heavy, intensity: 1), trigger: counter)
-    }
-    
-    func prepareHaptics() {
-        guard CHHapticEngine.capabilitiesForHardware().supportsHaptics else {
-            return
-        }
-        
-        do {
-            engine = try CHHapticEngine()
-            try engine?.start()
-        } catch {
-            print("There was an error creating the engine: \(error.localizedDescription)")
+        NavigationStack {
+            Form {
+                Section {
+                    Picker("Select your cake type", selection: $order.type) {
+                        ForEach(Order.types.indices, id: \.self) {
+                            Text(Order.types[$0])
+                        }
+                    }
+                    
+                    Stepper("Number of cakes: \(order.quantity)", value: $order.quantity, in: 3...20)
+                }
+            }
+            .navigationTitle("Cupcake Corner")
         }
     }
 }
