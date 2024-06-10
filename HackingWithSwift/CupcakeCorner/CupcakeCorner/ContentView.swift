@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var username = ""
-    @State private var email = ""
+    @State private var username = String()
+    @State private var email = String()
     
     var disableForm: Bool {
         username.count < 5 || email.count < 5
