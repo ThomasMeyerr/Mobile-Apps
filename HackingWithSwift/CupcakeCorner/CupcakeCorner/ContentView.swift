@@ -40,6 +40,7 @@ struct ContentView: View {
             }
             .navigationTitle("Cupcake Corner")
         }
+        .preferredColorScheme(.dark)
     }
 }
 
