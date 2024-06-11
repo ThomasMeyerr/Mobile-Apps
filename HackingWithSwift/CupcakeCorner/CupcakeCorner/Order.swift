@@ -24,4 +24,9 @@ class Order {
     }
     var extraFrosting = false
     var addSprinkles = false
+    
+    var name = String()
+    var streetAddress = String()
+    var city = String()
+    var zip = String()
 }
