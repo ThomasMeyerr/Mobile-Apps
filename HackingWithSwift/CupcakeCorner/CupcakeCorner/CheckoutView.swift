@@ -9,6 +9,9 @@ import SwiftUI
 
 struct CheckoutView: View {
     var order: Order
+    
+    @State private var confirmationMessage = String()
+    @State private var showingConfirmation = false
 
     var body: some View {
         ScrollView {
@@ -34,6 +37,11 @@ struct CheckoutView: View {
             }
         }
         .navigationTitle("Check out")
+        .alert("Thank you!", isPresented: $showingConfirmation) {
+            Button("OK") {}
+        } message: {
+            Text(confirmationMessage)
+        }
         .navigationBarTitleDisplayMode(.inline)
         .scrollBounceBehavior(.basedOnSize)
     }
