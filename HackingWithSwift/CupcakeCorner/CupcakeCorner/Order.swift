@@ -29,4 +29,10 @@ class Order {
     var streetAddress = String()
     var city = String()
     var zip = String()
+    var hasValidAddress: Bool {
+        if name.isEmpty || streetAddress.isEmpty || city.isEmpty || zip.isEmpty {
+            return false
+        }
+        return true
+    }
 }
