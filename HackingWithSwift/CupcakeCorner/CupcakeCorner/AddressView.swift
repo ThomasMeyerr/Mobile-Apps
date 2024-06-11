@@ -15,9 +15,19 @@ struct AddressView: View {
             Section {
                 TextField("Name", text: $order.name)
                 TextField("Street Address", text: $order.streetAddress)
-                
+                TextField("City", text: $order.city)
+                TextField("Zip", text: $order.zip)
+            }
+            
+            Section {
+                NavigationLink("Check out") {
+                    CheckoutView(order: order)
+                }
             }
         }
+        .navigationTitle("Delivery details")
+        .navigationBarTitleDisplayMode(.inline)
+        .preferredColorScheme(.dark)
     }
 }
 
