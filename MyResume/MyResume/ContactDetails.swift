@@ -11,7 +11,20 @@ struct ContactDetails: View {
     @Bindable var data: Data
 
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Image("Moi")
+                .resizable()
+                .scaledToFit()
+                .clipShape(Circle())
+                .frame(width: 150)
+            
+            Text(data.name)
+                .font(.largeTitle)
+            
+            Text(data.email)
+        }
+        .navigationTitle("Mes coordonnées")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

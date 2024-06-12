@@ -25,7 +25,7 @@ struct ContentView: View {
                                 .frame(width: 80)
                             
                             VStack(alignment: .leading) {
-                                Text("Thomas Meyer")
+                                Text(data.name)
                                     .font(.title2)
                                 Text("Développeur iOS (Stagiaire)")
                                     .font(.subheadline)
