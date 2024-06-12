@@ -11,7 +11,9 @@ struct CheckoutView: View {
     var order: Order
     
     @State private var confirmationMessage = String()
+    @State private var errorMessage = String()
     @State private var showingConfirmation = false
+    @State private var showingError = false
 
     var body: some View {
         ScrollView {
@@ -42,6 +44,11 @@ struct CheckoutView: View {
         } message: {
             Text(confirmationMessage)
         }
+        .alert("Warning", isPresented: $showingError) {
+            Button("OK") {}
+        } message: {
+            Text(errorMessage)
+        }
         .navigationBarTitleDisplayMode(.inline)
         .scrollBounceBehavior(.basedOnSize)
     }
@@ -64,6 +71,8 @@ struct CheckoutView: View {
             showingConfirmation = true
         } catch {
             print("Checkout failed: \(error.localizedDescription)")
+            errorMessage = "No internet connection"
+            showingError = true
         }
     }
 }
