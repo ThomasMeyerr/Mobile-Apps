@@ -15,7 +15,7 @@ struct ContentView: View {
             Form {
                 Section {
                     NavigationLink {
-                        //
+                        ContactDetails(data: data)
                     } label: {
                         HStack(spacing: 20) {
                             Image("Moi")
