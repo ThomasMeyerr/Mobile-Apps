@@ -9,9 +9,13 @@ import SwiftUI
 
 struct FourtyTwo: View {
     var data: Data
+    
+    @State private var showingGit = false
 
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Link(destination: URL(string: "https://github.com/M0dzie")!) {
+            Text("My Github")
+        }
     }
 }
 

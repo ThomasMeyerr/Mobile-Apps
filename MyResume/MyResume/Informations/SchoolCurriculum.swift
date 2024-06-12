@@ -21,7 +21,7 @@ struct SchoolCurriculum: View {
                             .resizable()
                             .scaledToFit()
                             .frame(height: 50)
-                        DisplayTextsInForm(text1: "", text2: "2012 - 2018")
+                        DisplayTextsInForm(text1: "", text2: "2011 - 2018")
                     }
                 }
             }

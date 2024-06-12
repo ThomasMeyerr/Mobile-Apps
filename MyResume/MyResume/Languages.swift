@@ -28,7 +28,7 @@ struct Languages: View {
                     
                     Spacer()
                     
-                    Text(language)
+                    Text(language == "Cpp" ? "C++" : language)
                         .opacity(0.5)
                 }
             }
