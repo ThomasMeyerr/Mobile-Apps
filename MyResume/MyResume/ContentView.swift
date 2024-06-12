@@ -14,18 +14,22 @@ struct ContentView: View {
         NavigationStack {
             Form {
                 Section {
-                    HStack(spacing: 20) {
-                        Image("Moi")
-                            .resizable()
-                            .scaledToFit()
-                            .clipShape(Circle())
-                            .frame(width: 100)
-                        
-                        VStack {
-                            Text("Thomas Meyer")
-                                .font(.title)
-                            Text("Développeur iOS (Stagiaire)")
-                                .font(.subheadline)
+                    NavigationLink {
+                        //
+                    } label: {
+                        HStack(spacing: 20) {
+                            Image("Moi")
+                                .resizable()
+                                .scaledToFit()
+                                .clipShape(Circle())
+                                .frame(width: 80)
+                            
+                            VStack(alignment: .leading) {
+                                Text("Thomas Meyer")
+                                    .font(.title2)
+                                Text("Développeur iOS (Stagiaire)")
+                                    .font(.subheadline)
+                            }
                         }
                     }
                 }
