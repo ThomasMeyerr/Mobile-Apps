@@ -11,7 +11,13 @@ struct PersonalInfo: View {
     var data: Data
 
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Form {
+            Section {
+                DisplayTextsInForm(text1: "Nom", text2: data.name)
+            }
+        }
+        .navigationTitle("Informations personnelles")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

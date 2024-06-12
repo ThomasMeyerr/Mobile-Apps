@@ -22,3 +22,19 @@ struct Logo: View {
         }
     }
 }
+
+struct DisplayTextsInForm: View {
+    var text1: String
+    var text2: String
+
+    var body: some View {
+        HStack {
+            Text(text1)
+            
+            Spacer()
+            
+            Text(text2)
+                .opacity(0.6)
+        }
+    }
+}
