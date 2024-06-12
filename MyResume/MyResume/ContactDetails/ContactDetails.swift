@@ -22,7 +22,7 @@ struct ContactDetails: View {
                 .font(.largeTitle)
             
             Text(data.email)
-                .opacity(0.6)
+                .opacity(0.5)
         }
         
         Form {
