@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var isDarkMode = false
+    @State private var data = Data()
 
     var body: some View {
         NavigationStack {
@@ -24,7 +24,7 @@ struct ContentView: View {
                         VStack {
                             Text("Thomas Meyer")
                                 .font(.title)
-                            Text("Développeur iOS (Stagiaire")
+                            Text("Développeur iOS (Stagiaire)")
                                 .font(.subheadline)
                         }
                     }
@@ -34,17 +34,17 @@ struct ContentView: View {
             .toolbar {
                 ToolbarItem {
                     Button {
-                        isDarkMode.toggle()
+                        data.isDarkMode.toggle()
                     } label: {
-                        Image(systemName: isDarkMode ? "sun.min.fill" : "moon.fill")
+                        Image(systemName: data.isDarkMode ? "sun.min.fill" : "moon.fill")
                             .resizable()
                             .scaledToFit()
                             .frame(width: 35)
-                            .foregroundStyle(isDarkMode ? .white : .black)
+                            .foregroundStyle(data.isDarkMode ? .white : .black)
                     }
                 }
             }
-            .preferredColorScheme(isDarkMode ? .dark : .light)
+            .preferredColorScheme(data.isDarkMode ? .dark : .light)
         }
     }
 }
