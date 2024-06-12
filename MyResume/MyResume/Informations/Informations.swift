@@ -43,6 +43,12 @@ struct Informations: View {
             } label: {
                 ContactDetailsLabel(logo: "graduationcap.fill", label: "Parcours scolaire")
             }
+            
+            NavigationLink {
+                Hobbies(data: data)
+            } label: {
+                ContactDetailsLabel(logo: "figure.open.water.swim", label: "Centres d'intérêt")
+            }
         }
         .navigationTitle("Informations globales")
         .navigationBarTitleDisplayMode(.inline)

@@ -12,10 +12,8 @@ struct SoftSkills: View {
 
     var body: some View {
         Form {
-            Section {
-                ForEach(data.softSkills, id: \.self) { skill in
-                    Text(skill)
-                }
+            ForEach(data.softSkills, id: \.self) { skill in
+                Text(skill)
             }
         }
         .navigationTitle("Compétences")

@@ -12,26 +12,24 @@ struct Languages: View {
 
     var body: some View {
         Form {
-            Section {
-                ForEach(data.languages, id: \.self) { language in
-                    HStack {
-                        if language == "Django" {
-                            Image(data.isDarkMode ? "\(language)White" : language)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(height: 50)
-                        } else {
-                            Image(language)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(height: 50)
-                        }
-                        
-                        Spacer()
-                        
-                        Text(language)
-                            .opacity(0.5)
+            ForEach(data.languages, id: \.self) { language in
+                HStack {
+                    if language == "Django" {
+                        Image(data.isDarkMode ? "\(language)White" : language)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(height: 50)
+                    } else {
+                        Image(language)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(height: 50)
                     }
+                    
+                    Spacer()
+                    
+                    Text(language)
+                        .opacity(0.5)
                 }
             }
         }
