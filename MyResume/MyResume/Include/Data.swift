@@ -38,10 +38,7 @@ Master Métiers du Patrimoine    2016 - 2018
 """
     
     /* 42 */
-    let FourtyTwoCursus = """
-Étude des bases du langage C, C++, Python et Django
-Utilisation de Git, Github et Docker
-"""
+    let fourtyTwoCursus = ["Bases du langage C, C++, Python et Django", "Utilisation de Git, Github et Docker"]
     
     
 /* ----- CONTENT VIEW ----- */
