@@ -12,7 +12,7 @@
 		164F3CC12C19888000A6D241 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 164F3CC02C19888000A6D241 /* Assets.xcassets */; };
 		164F3CC42C19888000A6D241 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 164F3CC32C19888000A6D241 /* Preview Assets.xcassets */; };
 		164F3CCB2C198F1800A6D241 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164F3CCA2C198F1800A6D241 /* Data.swift */; };
-		164F3CCD2C19909D00A6D241 /* ContactDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164F3CCC2C19909D00A6D241 /* ContactDetails.swift */; };
+		164F3CCD2C19909D00A6D241 /* Informations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164F3CCC2C19909D00A6D241 /* Informations.swift */; };
 		164F3CCF2C1997D600A6D241 /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164F3CCE2C1997D600A6D241 /* Modifiers.swift */; };
 		164F3CD22C199A0A00A6D241 /* PersonalInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164F3CD12C199A0A00A6D241 /* PersonalInfo.swift */; };
 		164F3CD52C19A28D00A6D241 /* SoftSkills.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164F3CD42C19A28D00A6D241 /* SoftSkills.swift */; };
@@ -27,7 +27,7 @@
 		164F3CC02C19888000A6D241 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		164F3CC32C19888000A6D241 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		164F3CCA2C198F1800A6D241 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
-		164F3CCC2C19909D00A6D241 /* ContactDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetails.swift; sourceTree = "<group>"; };
+		164F3CCC2C19909D00A6D241 /* Informations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Informations.swift; sourceTree = "<group>"; };
 		164F3CCE2C1997D600A6D241 /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
 		164F3CD12C199A0A00A6D241 /* PersonalInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfo.swift; sourceTree = "<group>"; };
 		164F3CD42C19A28D00A6D241 /* SoftSkills.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoftSkills.swift; sourceTree = "<group>"; };
@@ -68,7 +68,7 @@
 				164F3CBC2C19887900A6D241 /* MyResumeApp.swift */,
 				164F3CBE2C19887900A6D241 /* ContentView.swift */,
 				164F3CD62C19A56C00A6D241 /* Languages.swift */,
-				164F3CD32C199A1400A6D241 /* ContactDetails */,
+				164F3CD32C199A1400A6D241 /* Informations */,
 				164F3CD02C1997E500A6D241 /* Include */,
 				164F3CC02C19888000A6D241 /* Assets.xcassets */,
 				164F3CC22C19888000A6D241 /* Preview Content */,
@@ -93,15 +93,15 @@
 			path = Include;
 			sourceTree = "<group>";
 		};
-		164F3CD32C199A1400A6D241 /* ContactDetails */ = {
+		164F3CD32C199A1400A6D241 /* Informations */ = {
 			isa = PBXGroup;
 			children = (
-				164F3CCC2C19909D00A6D241 /* ContactDetails.swift */,
+				164F3CCC2C19909D00A6D241 /* Informations.swift */,
 				164F3CD82C19AA9B00A6D241 /* SchoolCurriculum.swift */,
 				164F3CD42C19A28D00A6D241 /* SoftSkills.swift */,
 				164F3CD12C199A0A00A6D241 /* PersonalInfo.swift */,
 			);
-			path = ContactDetails;
+			path = Informations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,7 +177,7 @@
 				164F3CBF2C19887900A6D241 /* ContentView.swift in Sources */,
 				164F3CD72C19A56C00A6D241 /* Languages.swift in Sources */,
 				164F3CD92C19AA9B00A6D241 /* SchoolCurriculum.swift in Sources */,
-				164F3CCD2C19909D00A6D241 /* ContactDetails.swift in Sources */,
+				164F3CCD2C19909D00A6D241 /* Informations.swift in Sources */,
 				164F3CCB2C198F1800A6D241 /* Data.swift in Sources */,
 				164F3CBD2C19887900A6D241 /* MyResumeApp.swift in Sources */,
 				164F3CD52C19A28D00A6D241 /* SoftSkills.swift in Sources */,

@@ -1,5 +1,5 @@
 //
-//  ContactDetails.swift
+//  Informations.swift
 //  MyResume
 //
 //  Created by Thomas Meyer on 12/06/2024.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContactDetails: View {
+struct Informations: View {
     var data: Data
 
     var body: some View {
@@ -50,5 +50,5 @@ struct ContactDetails: View {
 }
 
 #Preview {
-    ContactDetails(data: Data())
+    Informations(data: Data())
 }
