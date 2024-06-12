@@ -17,7 +17,7 @@ struct SchoolCurriculum: View {
                     //
                 } label: {
                     HStack {
-                        Image("USMB")
+                        Image(data.isDarkMode ? "USMBWhite" : "USMB")
                             .resizable()
                             .scaledToFit()
                             .frame(height: 50)
@@ -31,7 +31,7 @@ struct SchoolCurriculum: View {
                     //
                 } label: {
                     HStack {
-                        Image("42")
+                        Image(data.isDarkMode ? "42White" : "42")
                             .resizable()
                             .scaledToFit()
                             .frame(height: 50)
