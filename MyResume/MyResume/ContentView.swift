@@ -8,14 +8,29 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var isDarkMode = false
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack {
+            Form {
+                
+            }
+            .navigationTitle("My Resume")
+            .toolbar {
+                ToolbarItem {
+                    Button {
+                        isDarkMode.toggle()
+                    } label: {
+                        Image(systemName: isDarkMode ? "sun.min.fill" : "moon.fill")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 35)
+                            .foregroundStyle(isDarkMode ? .white : .black)
+                    }
+                }
+            }
+            .preferredColorScheme(isDarkMode ? .dark : .light)
         }
-        .padding()
     }
 }
 
