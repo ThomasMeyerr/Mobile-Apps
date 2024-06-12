@@ -12,8 +12,8 @@ struct Hobbies: View {
 
     var body: some View {
         Form {
-            ForEach(data.hobbies, id: \.self) { hobby in
-                Text(hobby)
+            ForEach(data.hobbies, id: \.self) {
+                Text($0)
             }
         }
     }

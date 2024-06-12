@@ -14,7 +14,7 @@ struct SchoolCurriculum: View {
         Form {
             Section {
                 NavigationLink {
-                    //
+                    USMB(data: data)
                 } label: {
                     HStack {
                         Image(data.isDarkMode ? "USMBWhite" : "USMB")
@@ -28,7 +28,7 @@ struct SchoolCurriculum: View {
             
             Section {
                 NavigationLink {
-                    //
+                    FourtyTwo(data: data)
                 } label: {
                     HStack {
                         Image(data.isDarkMode ? "42White" : "42")
