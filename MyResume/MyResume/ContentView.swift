@@ -24,13 +24,13 @@ struct ContentView: View {
                         VStack {
                             Text("Thomas Meyer")
                                 .font(.title)
-                            Text("iOS Developer (Internship")
+                            Text("Développeur iOS (Stagiaire")
                                 .font(.subheadline)
                         }
                     }
                 }
             }
-            .navigationTitle("My Resume")
+            .navigationTitle("Mon C.V.")
             .toolbar {
                 ToolbarItem {
                     Button {
