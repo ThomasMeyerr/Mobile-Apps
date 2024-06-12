@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContactDetails: View {
-    @Bindable var data: Data
+    var data: Data
 
     var body: some View {
         VStack {
@@ -27,7 +27,7 @@ struct ContactDetails: View {
         
         Form {
             NavigationLink {
-                //
+                PersonalInfo(data: data)
             } label: {
                 HStack(spacing: 20) {
                     Logo(logo: "person.text.rectangle.fill")
