@@ -22,6 +22,19 @@ struct ContactDetails: View {
                 .font(.largeTitle)
             
             Text(data.email)
+                .opacity(0.5)
+        }
+        
+        Form {
+            NavigationLink {
+                //
+            } label: {
+                HStack(spacing: 20) {
+                    Image(systemName: "person.text.rectangle.fill")
+                    
+                    Text("Infos personnelles")
+                }
+            }
         }
         .navigationTitle("Mes coordonnées")
         .navigationBarTitleDisplayMode(.inline)

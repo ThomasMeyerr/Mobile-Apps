@@ -34,7 +34,7 @@ struct ContentView: View {
                     }
                 }
             }
-            .navigationTitle("Mon C.V.")
+            .navigationTitle("C.V.")
             .toolbar {
                 ToolbarItem {
                     Button {
