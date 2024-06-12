@@ -29,7 +29,7 @@ struct ContactDetails: View {
             NavigationLink {
                 PersonalInfo(data: data)
             } label: {
-                HStack(spacing: 20) {
+                HStack(spacing: 15) {
                     Logo(logo: "person.text.rectangle.fill")
                     
                     Text("Infos personnelles")

@@ -13,7 +13,7 @@ struct Logo: View {
     var body: some View {
         ZStack {
             Rectangle()
-                .fill(Color.secondary.opacity(0.6))
+                .fill(Color.secondary.opacity(0.5))
                 .frame(width: 30, height: 30)
                 .cornerRadius(5)
             
@@ -34,7 +34,7 @@ struct DisplayTextsInForm: View {
             Spacer()
             
             Text(text2)
-                .opacity(0.6)
+                .opacity(0.5)
         }
     }
 }

@@ -17,7 +17,7 @@ struct ContentView: View {
                     NavigationLink {
                         ContactDetails(data: data)
                     } label: {
-                        HStack(spacing: 20) {
+                        HStack(spacing: 15) {
                             Image("Moi")
                                 .resizable()
                                 .scaledToFit()
