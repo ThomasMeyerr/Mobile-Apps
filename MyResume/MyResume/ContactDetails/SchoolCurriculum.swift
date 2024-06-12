@@ -16,7 +16,13 @@ struct SchoolCurriculum: View {
                 NavigationLink {
                     //
                 } label: {
-                    DisplayTextsInForm(text1: "Université Savoie Mont-Blanc", text2: "2012 - 2018")
+                    HStack {
+                        Image("USMB")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(height: 50)
+                        DisplayTextsInForm(text1: "", text2: "2012 - 2018")
+                    }
                 }
             }
             
@@ -24,7 +30,13 @@ struct SchoolCurriculum: View {
                 NavigationLink {
                     //
                 } label: {
-                    DisplayTextsInForm(text1: "École 42 Lyon", text2: "2022 - Aujourd'hui")
+                    HStack {
+                        Image("42")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(height: 50)
+                        DisplayTextsInForm(text1: "", text2: "2022 - Aujourd'hui")
+                    }
                 }
             }
         }

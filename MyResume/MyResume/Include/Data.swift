@@ -23,6 +23,6 @@ class Data {
     
     let softSkills = ["Travail en équipe", "Polyvalence", "Autonomie", "Rigueur"]
     
-    let languages = ["C", "C++", "Swift", "Python", "Django"]
+    let languages = ["C", "Cpp", "Swift", "Python", "Django"]
     let hardSkills = ["Git", "Github", "Docker"]
 }
