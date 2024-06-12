@@ -10,6 +10,8 @@ import Foundation
 class Data {
     var isDarkMode = true
     
+/* ----- INFORMATIONS ----- */
+    /* PersonalInfo */
     let name = "Thomas Meyer"
     let email = "thomasmeyercontact@gmail.com"
     let dateOfBirth = "13 novembre 1993"
@@ -20,9 +22,17 @@ class Data {
 """
     let drivingLicense = "B - Véhiculé"
     
+    /* SoftSkills */
     let softSkills = ["Travail en équipe", "Polyvalence", "Autonomie", "Rigueur"]
+    
+    /* Hobbies */
     let hobbies = ["Informatique", "Histoire", "Musique", "Arts", "Cinéma"]
     
+/* ----- SCHOOLS ----- */
+    /* USMB */
+    /* 42 */
+    
+/* ----- CONTENT VIEW ----- */
     let languages = ["C", "Cpp", "Swift", "Python", "Django"]
     let hardSkills = ["Git", "Github", "Docker"]
 }
