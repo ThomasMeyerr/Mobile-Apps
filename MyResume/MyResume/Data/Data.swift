@@ -19,4 +19,5 @@ class Data {
 79 Rue du canal des usiniers
 73000 Chambéry
 """
+    var drivingLicense = "B - Véhiculé"
 }
