@@ -15,10 +15,17 @@ struct Languages: View {
             Section {
                 ForEach(data.languages, id: \.self) { language in
                     HStack {
-                        Image(language)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(height: 50)
+                        if language == "Django" {
+                            Image(data.isDarkMode ? "\(language)White" : language)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(height: 50)
+                        } else {
+                            Image(language)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(height: 50)
+                        }
                         
                         Spacer()
                         
