@@ -7,6 +7,12 @@
 
 import SwiftUI
 
+extension String {
+    var isWhiteSpaceOnly: Bool {
+        return self.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+    }
+}
+
 @Observable
 class Order: Codable {
     enum CodingKeys: String, CodingKey {
@@ -43,6 +49,8 @@ class Order: Codable {
     var zip = String()
     var hasValidAddress: Bool {
         if name.isEmpty || streetAddress.isEmpty || city.isEmpty || zip.isEmpty {
+            return false
+        } else if name.isWhiteSpaceOnly || streetAddress.isWhiteSpaceOnly || city.isWhiteSpaceOnly || zip.isWhiteSpaceOnly {
             return false
         }
         return true
