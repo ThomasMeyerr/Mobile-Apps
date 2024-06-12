@@ -12,10 +12,20 @@ struct SchoolCurriculum: View {
 
     var body: some View {
         Form {
-            NavigationLink {
-                //
-            } label: {
-                DisplayTextsInForm(text1: "USMB", text2: "2012-2018")
+            Section {
+                NavigationLink {
+                    //
+                } label: {
+                    DisplayTextsInForm(text1: "Université Savoie Mont-Blanc", text2: "2012 - 2018")
+                }
+            }
+            
+            Section {
+                NavigationLink {
+                    //
+                } label: {
+                    DisplayTextsInForm(text1: "École 42 Lyon", text2: "2022 - Aujourd'hui")
+                }
             }
         }
         .navigationTitle("Parcours scolare")

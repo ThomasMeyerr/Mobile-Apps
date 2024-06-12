@@ -14,7 +14,17 @@ struct Languages: View {
         Form {
             Section {
                 ForEach(data.languages, id: \.self) { language in
-                    Text(language)
+                    HStack {
+                        Image(language)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(height: 50)
+                        
+                        Spacer()
+                        
+                        Text(language)
+                            .opacity(0.5)
+                    }
                 }
             }
         }
