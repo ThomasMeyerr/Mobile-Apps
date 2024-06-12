@@ -23,6 +23,19 @@ struct Logo: View {
     }
 }
 
+struct ContactDetailsLabel: View {
+    var logo: String
+    var label: String
+    
+    var body: some View {
+        HStack(spacing: 15) {
+            Logo(logo: logo)
+            
+            Text(label)
+        }
+    }
+}
+
 struct DisplayTextsInForm: View {
     var text1: String
     var text2: String

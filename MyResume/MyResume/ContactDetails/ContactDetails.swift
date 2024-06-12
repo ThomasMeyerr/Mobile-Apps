@@ -29,21 +29,19 @@ struct ContactDetails: View {
             NavigationLink {
                 PersonalInfo(data: data)
             } label: {
-                HStack(spacing: 15) {
-                    Logo(logo: "person.text.rectangle.fill")
-                    
-                    Text("Infos personnelles")
-                }
+                ContactDetailsLabel(logo: "person.text.rectangle.fill", label: "Infos personnelles")
             }
             
             NavigationLink {
                 Skills(data: data)
             } label: {
-                HStack(spacing: 15) {
-                    Logo(logo: "book.fill")
-                    
-                    Text("Compétences")
-                }
+                ContactDetailsLabel(logo: "book.fill", label: "Compétences")
+            }
+            
+            NavigationLink {
+                Languages(data: data)
+            } label: {
+                ContactDetailsLabel(logo: "laptopcomputer", label: "Langages informatiques")
             }
         }
         .navigationTitle("Mes coordonnées")

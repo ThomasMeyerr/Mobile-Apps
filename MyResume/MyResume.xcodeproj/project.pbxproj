@@ -16,6 +16,7 @@
 		164F3CCF2C1997D600A6D241 /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164F3CCE2C1997D600A6D241 /* Modifiers.swift */; };
 		164F3CD22C199A0A00A6D241 /* PersonalInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164F3CD12C199A0A00A6D241 /* PersonalInfo.swift */; };
 		164F3CD52C19A28D00A6D241 /* Skills.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164F3CD42C19A28D00A6D241 /* Skills.swift */; };
+		164F3CD72C19A56C00A6D241 /* Languages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164F3CD62C19A56C00A6D241 /* Languages.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		164F3CCE2C1997D600A6D241 /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
 		164F3CD12C199A0A00A6D241 /* PersonalInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfo.swift; sourceTree = "<group>"; };
 		164F3CD42C19A28D00A6D241 /* Skills.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skills.swift; sourceTree = "<group>"; };
+		164F3CD62C19A56C00A6D241 /* Languages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Languages.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				164F3CCC2C19909D00A6D241 /* ContactDetails.swift */,
+				164F3CD62C19A56C00A6D241 /* Languages.swift */,
 				164F3CD42C19A28D00A6D241 /* Skills.swift */,
 				164F3CD12C199A0A00A6D241 /* PersonalInfo.swift */,
 			);
@@ -169,6 +172,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				164F3CBF2C19887900A6D241 /* ContentView.swift in Sources */,
+				164F3CD72C19A56C00A6D241 /* Languages.swift in Sources */,
 				164F3CCD2C19909D00A6D241 /* ContactDetails.swift in Sources */,
 				164F3CCB2C198F1800A6D241 /* Data.swift in Sources */,
 				164F3CBD2C19887900A6D241 /* MyResumeApp.swift in Sources */,
