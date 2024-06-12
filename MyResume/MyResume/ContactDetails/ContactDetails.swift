@@ -35,6 +35,16 @@ struct ContactDetails: View {
                     Text("Infos personnelles")
                 }
             }
+            
+            NavigationLink {
+                Skills(data: data)
+            } label: {
+                HStack(spacing: 15) {
+                    Logo(logo: "book.fill")
+                    
+                    Text("Compétences")
+                }
+            }
         }
         .navigationTitle("Mes coordonnées")
         .navigationBarTitleDisplayMode(.inline)
