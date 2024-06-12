@@ -1,5 +1,5 @@
 //
-//  Skills.swift
+//  SoftSkills.swift
 //  MyResume
 //
 //  Created by Thomas Meyer on 12/06/2024.
@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-struct Skills: View {
+struct SoftSkills: View {
     var data: Data
 
     var body: some View {
         Form {
             Section {
-                ForEach(data.skills, id: \.self) { skill in
+                ForEach(data.softSkills, id: \.self) { skill in
                     Text(skill)
                 }
             }
@@ -24,5 +24,5 @@ struct Skills: View {
 }
 
 #Preview {
-    Skills(data: Data())
+    SoftSkills(data: Data())
 }

@@ -27,10 +27,21 @@ struct ContentView: View {
                             VStack(alignment: .leading) {
                                 Text(data.name)
                                     .font(.title2)
-                                Text("Développeur iOS (Stagiaire)")
+                                Text("""
+Développeur iOS (Stagiaire)
+Octobre 2024
+""")
                                     .font(.subheadline)
                             }
                         }
+                    }
+                }
+                
+                Section {
+                    NavigationLink {
+                        Languages(data: data)
+                    } label: {
+                        ContactDetailsLabel(logo: "laptopcomputer", label: "Langages informatiques")
                     }
                 }
             }

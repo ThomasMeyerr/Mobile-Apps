@@ -33,18 +33,18 @@ struct ContactDetails: View {
             }
             
             NavigationLink {
-                Skills(data: data)
+                SoftSkills(data: data)
             } label: {
-                ContactDetailsLabel(logo: "book.fill", label: "Compétences")
+                ContactDetailsLabel(logo: "book.fill", label: "Soft skills")
             }
             
             NavigationLink {
-                Languages(data: data)
+                SchoolCurriculum(data: data)
             } label: {
-                ContactDetailsLabel(logo: "laptopcomputer", label: "Langages informatiques")
+                ContactDetailsLabel(logo: "graduationcap.fill", label: "Parcours scolaire")
             }
         }
-        .navigationTitle("Mes coordonnées")
+        .navigationTitle("Informations globales")
         .navigationBarTitleDisplayMode(.inline)
     }
 }

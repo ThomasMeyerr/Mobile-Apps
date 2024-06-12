@@ -21,6 +21,8 @@ class Data {
 """
     let drivingLicense = "B - Véhiculé"
     
-    let skills = ["Travail en équipe", "Polyvalence", "Autonomie", "Rigueur"]
-    let languages = ["C", "C++", "Swift"]
+    let softSkills = ["Travail en équipe", "Polyvalence", "Autonomie", "Rigueur"]
+    
+    let languages = ["C", "C++", "Swift", "Python", "Django"]
+    let hardSkills = ["Git", "Github", "Docker"]
 }
