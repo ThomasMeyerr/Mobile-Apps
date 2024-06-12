@@ -30,7 +30,8 @@ struct FourtyTwo: View {
                         Image(data.isDarkMode ? "GithubWhite" : "Github")
                             .resizable()
                             .scaledToFit()
-                            .frame(width: 400)
+                            .frame(width: 250)
+                            .padding()
                     }
                 }
             }

@@ -7,6 +7,7 @@
 
 import Foundation
 
+@Observable
 class Data {
     var isDarkMode = true
     
