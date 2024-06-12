@@ -9,7 +9,7 @@ import Foundation
 
 @Observable
 class Data {
-    var isDarkMode = false
+    var isDarkMode = true
     
     var name = "Thomas Meyer"
     var email = "thomasmeyercontact@gmail.com"

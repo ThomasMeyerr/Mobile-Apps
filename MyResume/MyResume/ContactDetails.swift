@@ -22,7 +22,7 @@ struct ContactDetails: View {
                 .font(.largeTitle)
             
             Text(data.email)
-                .opacity(0.5)
+                .opacity(0.6)
         }
         
         Form {
@@ -30,7 +30,7 @@ struct ContactDetails: View {
                 //
             } label: {
                 HStack(spacing: 20) {
-                    Image(systemName: "person.text.rectangle.fill")
+                    Logo(logo: "person.text.rectangle.fill")
                     
                     Text("Infos personnelles")
                 }
