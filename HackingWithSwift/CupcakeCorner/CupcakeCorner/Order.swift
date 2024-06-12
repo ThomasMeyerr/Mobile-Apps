@@ -27,6 +27,16 @@ class Order: Codable {
         case _zip = "zip"
     }
     
+    init() {
+        if let savedData = UserDefaults.standard.data(forKey: "streetAddress") {
+            if let decodedData = try? JSONDecoder().decode(String.self, from: savedData) {
+                streetAddress = decodedData
+                return
+            }
+        }
+        streetAddress = String()
+    }
+    
     static let types = ["Vanilla", "Strawberry", "Chocolate", "Rainbow"]
     
     var type = Int()
@@ -44,7 +54,13 @@ class Order: Codable {
     var addSprinkles = false
     
     var name = String()
-    var streetAddress = String()
+    var streetAddress = String() {
+        didSet {
+            if let encodedData = try? JSONEncoder().encode(streetAddress) {
+                UserDefaults.standard.set(encodedData, forKey: "streetAddress")
+            }
+        }
+    }
     var city = String()
     var zip = String()
     var hasValidAddress: Bool {
