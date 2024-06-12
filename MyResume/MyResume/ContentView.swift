@@ -13,7 +13,15 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             Form {
-                
+                Section {
+                    HStack {
+                        Image("Moi")
+                            .resizable()
+                            .scaledToFit()
+                            .clipShape(Circle())
+                            .frame(width: 100)
+                    }
+                }
             }
             .navigationTitle("My Resume")
             .toolbar {
