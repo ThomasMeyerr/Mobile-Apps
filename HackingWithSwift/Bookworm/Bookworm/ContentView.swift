@@ -6,41 +6,23 @@
 //
 
 import SwiftUI
+import SwiftData
 
-struct PushButton: View {
-    let title: String
-    @Binding var isOn: Bool
+@Model
+class Student {
+    var id: UUID
+    var name: String
     
-    var onColors = [Color.red, Color.yellow]
-    var offColors = [Color(white: 0.6), Color(white: 0.4)]
-    
-    var body: some View {
-        Button(title) {
-            isOn.toggle()
-        }
-        .padding()
-        .background(LinearGradient(colors: isOn ? onColors : offColors, startPoint: .top, endPoint: .bottom))
-        .foregroundStyle(.white)
-        .clipShape(.capsule)
-        .shadow(radius: isOn ? 0 : 5)
+    init(id: UUID, name: String) {
+        self.id = id
+        self.name = name
     }
 }
 
 struct ContentView: View {
-    @AppStorage("notes") private var notes = String()
 
     var body: some View {
-        NavigationStack {
-            Form {
-                TextEditor(text: $notes)
-                    .padding()
-                
-                TextField("Enter your text", text: $notes, axis: .vertical)
-                    .textFieldStyle(.roundedBorder)
-                    .navigationTitle("Notes")
-                    .padding()
-            }
-        }
+        Text("Hello")
     }
 }
 
