@@ -43,7 +43,13 @@ Tout en retraçant brièvement les prémices de la société des eaux.
     let fourtyTwoCursus = ["Bases du langage C, C++, Python et Django", "Utilisation de Git, Github et Docker"]
     
     
-/* ----- CONTENT VIEW ----- */
+/* ----- MAIN VIEW ----- */
+    /*Languages */
     let languages = ["C", "Cpp", "Swift", "Python", "Django"]
+    
+    /* HardSkills */
     let hardSkills = ["Git", "Github", "Docker"]
+    
+    /* Projects */
+    let projects = ["GuessTheFlag", "TVShowAppV2"]
 }

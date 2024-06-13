@@ -56,7 +56,7 @@ Octobre 2024
                 }
                 
                 Section("Projets") {
-                    Projects()
+                    Projects(data: data)
                 }
             }
             .navigationTitle("C.V.")

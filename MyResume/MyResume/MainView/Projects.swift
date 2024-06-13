@@ -8,20 +8,24 @@
 import SwiftUI
 
 struct Projects: View {
+    var data: Data
     let columns = [GridItem(.adaptive(minimum: 150))]
 
     var body: some View {
         LazyVGrid(columns: columns) {
-            Link(destination: URL(string: "https://github.com/M0dzie/Mobile-Apps/tree/main/GuessTheFlag")!) {
-                ZStack {
-                    RoundedRectangle(cornerRadius: 25)
-                        .fill(Color.secondary.opacity(0.5))
-                    
-                    Image("GuessTheFlag")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(height: 100)
-                        .padding()
+            ForEach(data.projects, id: \.self) { project in
+                Link(destination: URL(string: "https://github.com/M0dzie/Mobile-Apps/tree/main/\(project)")!) {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 25)
+                            .fill(Color.secondary.opacity(0.5))
+                            .frame(width: 125, height: 125)
+                        
+                        Image("\(project)")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(height: 100)
+                            .padding()
+                    }
                 }
             }
         }
@@ -29,5 +33,5 @@ struct Projects: View {
 }
 
 #Preview {
-    Projects()
+    Projects(data: Data())
 }
