@@ -37,9 +37,9 @@ Octobre 2024
                     }
                 }
                 
-                Section {
+                Section("Compétences") {
                     NavigationLink {
-                        //
+                        HardSkills(data: data)
                     } label: {
                         ContactDetailsLabel(logo: "keyboard.fill", label: "Hard skills")
                     }
@@ -49,6 +49,14 @@ Octobre 2024
                     } label: {
                         ContactDetailsLabel(logo: "laptopcomputer", label: "Langages informatiques")
                     }
+                }
+                
+                Section("Expériences professionnelles") {
+                    
+                }
+                
+                Section("Projets") {
+                    Projects()
                 }
             }
             .navigationTitle("C.V.")
