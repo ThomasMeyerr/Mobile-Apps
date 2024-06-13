@@ -36,6 +36,8 @@ struct FourtyTwo: View {
                 }
             }
         }
+        .navigationTitle("Cursus 42")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

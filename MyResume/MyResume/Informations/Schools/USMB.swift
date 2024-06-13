@@ -11,7 +11,15 @@ struct USMB: View {
     var data: Data
 
     var body: some View {
-        Text(data.USMBCursus)
+        Form {
+            Section {
+                ForEach(data.USMBCursus, id: \.self) {
+                    Text($0)
+                }
+            }
+        }
+        .navigationTitle("Cursus USMB")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
