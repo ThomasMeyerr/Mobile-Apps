@@ -8,13 +8,22 @@
 import SwiftUI
 
 struct Projects: View {
+    let columns = [GridItem(.adaptive(minimum: 150))]
+
     var body: some View {
-        Link(destination: URL(string: "https://github.com/M0dzie/Mobile-Apps/tree/main/GuessTheFlag")!) {
-            Image("GuessTheFlag")
-                .resizable()
-                .scaledToFit()
-                .frame(height: 100)
-                .padding()
+        LazyVGrid(columns: columns) {
+            Link(destination: URL(string: "https://github.com/M0dzie/Mobile-Apps/tree/main/GuessTheFlag")!) {
+                ZStack {
+                    RoundedRectangle(cornerRadius: 25)
+                        .fill(Color.secondary.opacity(0.5))
+                    
+                    Image("GuessTheFlag")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 100)
+                        .padding()
+                }
+            }
         }
     }
 }
