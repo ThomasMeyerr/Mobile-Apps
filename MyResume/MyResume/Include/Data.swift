@@ -33,6 +33,7 @@ class Data {
     
 /* ----- SCHOOLS ----- */
     /* USMB */
+    let works = ["dudu"]
     
     /* 42 */
     let fourtyTwoCursus = ["Bases du langage C, C++, Python et Django", "Utilisation de Git, Github et Docker"]

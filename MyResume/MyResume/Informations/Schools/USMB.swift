@@ -12,9 +12,15 @@ struct USMB: View {
 
     var body: some View {
         Form {
-            Section {
+            Section("Cursus suivis") {
                 DisplayTextsInForm(text1: "Licence Histoire", text2: "2011-2014")
                 DisplayTextsInForm(text1: "Master Métiers du Patrimoine", text2: "2016-2018")
+            }
+            
+            Section("Travaux") {
+                ForEach(data.works, id: \.self) {
+                    Text($0)
+                }
             }
         }
         .navigationTitle("Cursus USMB")
