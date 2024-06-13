@@ -51,8 +51,12 @@ Octobre 2024
                     }
                 }
                 
-                Section("Expériences professionnelles") {
-                    
+                Section {
+                    NavigationLink {
+                        ExperiencePro(data: data)
+                    } label: {
+                        ContactDetailsLabel(logo: "briefcase.fill", label: "Expériences profesionnelles")
+                    }
                 }
                 
                 Section("Projets") {

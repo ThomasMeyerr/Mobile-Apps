@@ -20,6 +20,7 @@
 		164F3CD92C19AA9B00A6D241 /* SchoolCurriculum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164F3CD82C19AA9B00A6D241 /* SchoolCurriculum.swift */; };
 		166547792C1B20E4004086ED /* HardSkills.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166547782C1B20E4004086ED /* HardSkills.swift */; };
 		1665477B2C1B2703004086ED /* Projects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1665477A2C1B2703004086ED /* Projects.swift */; };
+		1665477D2C1B3E8F004086ED /* ExperiencePro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1665477C2C1B3E8F004086ED /* ExperiencePro.swift */; };
 		16E01B592C19FE57003F3FD8 /* Hobbies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E01B582C19FE57003F3FD8 /* Hobbies.swift */; };
 		16E01B5C2C1A0046003F3FD8 /* USMB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E01B5B2C1A0046003F3FD8 /* USMB.swift */; };
 		16E01B602C1A00DB003F3FD8 /* FourtyTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E01B5F2C1A00DB003F3FD8 /* FourtyTwo.swift */; };
@@ -40,6 +41,7 @@
 		164F3CD82C19AA9B00A6D241 /* SchoolCurriculum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolCurriculum.swift; sourceTree = "<group>"; };
 		166547782C1B20E4004086ED /* HardSkills.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HardSkills.swift; sourceTree = "<group>"; };
 		1665477A2C1B2703004086ED /* Projects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Projects.swift; sourceTree = "<group>"; };
+		1665477C2C1B3E8F004086ED /* ExperiencePro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperiencePro.swift; sourceTree = "<group>"; };
 		16E01B582C19FE57003F3FD8 /* Hobbies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hobbies.swift; sourceTree = "<group>"; };
 		16E01B5B2C1A0046003F3FD8 /* USMB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = USMB.swift; sourceTree = "<group>"; };
 		16E01B5F2C1A00DB003F3FD8 /* FourtyTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourtyTwo.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				164F3CD62C19A56C00A6D241 /* Languages.swift */,
 				166547782C1B20E4004086ED /* HardSkills.swift */,
 				1665477A2C1B2703004086ED /* Projects.swift */,
+				1665477C2C1B3E8F004086ED /* ExperiencePro.swift */,
 			);
 			path = MainView;
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 				164F3CD92C19AA9B00A6D241 /* SchoolCurriculum.swift in Sources */,
 				164F3CCD2C19909D00A6D241 /* Informations.swift in Sources */,
 				16E01B602C1A00DB003F3FD8 /* FourtyTwo.swift in Sources */,
+				1665477D2C1B3E8F004086ED /* ExperiencePro.swift in Sources */,
 				164F3CCB2C198F1800A6D241 /* Data.swift in Sources */,
 				1665477B2C1B2703004086ED /* Projects.swift in Sources */,
 				164F3CBD2C19887900A6D241 /* MyResumeApp.swift in Sources */,
