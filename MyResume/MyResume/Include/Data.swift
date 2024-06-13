@@ -53,7 +53,15 @@ class Data {
     /* ExperiencePro */
     let jobName = ["Vendeur polyvalent", "Stagiaire - Chargé de mission", "Téléconseiller immobilier"]
     let jobPlace = ["Bio C'Bon - Aix-les-Bains", "CAUE de la Savoie - Chambéry", "Scorimmo - Les Sables-d'Olonne"]
-    let jobDate = ["Février 2016 - Décembre 2017"]
+    let jobDate = [
+    """
+    Février 2016 - août 2016
+    Mars 2017
+    Juillet 2017 - Décembre 2017
+    """,
+    "Janvier 2018 - Juillet 2018",
+    "Octobre 2020 - Juillet 2021"
+    ]
     let jobDescription = [
     """
     Connaissances des DLC/DLUO, gestion des stocks, suivi du magasin, des règles d’hygiène alimentaire, ouverture et fermeture du magasin, caisse
