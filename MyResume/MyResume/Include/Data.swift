@@ -33,7 +33,11 @@ class Data {
     
 /* ----- SCHOOLS ----- */
     /* USMB */
-    let works = ["dudu"]
+    let memoryName = "Évian, une ville de marque"
+    let USMBWork = """
+Le but était de mettre en avant les enjeux croisés de la marque d'eau minérale evian et de la ville dont elle tire le nom : Évian-les-Bains.
+Tout en retraçant brièvement les prémices de la société des eaux.
+"""
     
     /* 42 */
     let fourtyTwoCursus = ["Bases du langage C, C++, Python et Django", "Utilisation de Git, Github et Docker"]

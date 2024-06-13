@@ -17,10 +17,10 @@ struct USMB: View {
                 DisplayTextsInForm(text1: "Master Métiers du Patrimoine", text2: "2016-2018")
             }
             
-            Section("Travaux") {
-                ForEach(data.works, id: \.self) {
-                    Text($0)
-                }
+            Section("Mémoire de fin d'étude") {
+                Text(data.memoryName)
+                    .font(.title3.italic())
+                Text(data.USMBWork)
             }
         }
         .navigationTitle("Cursus USMB")
