@@ -16,6 +16,8 @@ struct Hobbies: View {
                 Text($0)
             }
         }
+        .navigationTitle("Centres d'intérêt")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

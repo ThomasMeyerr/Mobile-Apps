@@ -16,7 +16,7 @@ struct SoftSkills: View {
                 Text($0)
             }
         }
-        .navigationTitle("Compétences")
+        .navigationTitle("Soft skills")
         .navigationBarTitleDisplayMode(.inline)
     }
 }

@@ -39,6 +39,12 @@ Octobre 2024
                 
                 Section {
                     NavigationLink {
+                        //
+                    } label: {
+                        ContactDetailsLabel(logo: "keyboard.fill", label: "Hard skills")
+                    }
+                    
+                    NavigationLink {
                         Languages(data: data)
                     } label: {
                         ContactDetailsLabel(logo: "laptopcomputer", label: "Langages informatiques")
