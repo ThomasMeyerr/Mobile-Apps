@@ -18,7 +18,9 @@ struct Projects: View {
                     Text(project)
                         .italic()
                     
-                    Link(destination: URL(string: "https://github.com/M0dzie/Mobile-Apps/tree/main/\(project)/\(project)")!) {
+                    let urlString = "https://github.com/M0dzie/Mobile-Apps/tree/main/\(project)/\(project)"
+                    
+                    Link(destination: URL(string: urlString)!) {
                         ZStack {
                             RoundedRectangle(cornerRadius: 25)
                                 .fill(Color.secondary.opacity(0.5))
