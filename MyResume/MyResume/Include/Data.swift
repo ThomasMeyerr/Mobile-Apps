@@ -33,7 +33,6 @@ class Data {
     
 /* ----- SCHOOLS ----- */
     /* USMB */
-    let USMBCursus = ["Licence Histoire 2011 - 2014", "Master Métiers du Patrimoine 2016-2018"]
     
     /* 42 */
     let fourtyTwoCursus = ["Bases du langage C, C++, Python et Django", "Utilisation de Git, Github et Docker"]

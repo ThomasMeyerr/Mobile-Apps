@@ -13,9 +13,8 @@ struct USMB: View {
     var body: some View {
         Form {
             Section {
-                ForEach(data.USMBCursus, id: \.self) {
-                    Text($0)
-                }
+                DisplayTextsInForm(text1: "Licence Histoire", text2: "2011-2014")
+                DisplayTextsInForm(text1: "Master Métiers du Patrimoine", text2: "2016-2018")
             }
         }
         .navigationTitle("Cursus USMB")
