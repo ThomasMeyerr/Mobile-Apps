@@ -20,6 +20,7 @@ class Student {
 }
 
 struct ContentView: View {
+    @Query var students: [Student]
 
     var body: some View {
         Text("Hello")
