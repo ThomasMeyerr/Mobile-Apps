@@ -19,9 +19,9 @@ class Data {
     let dateOfBirth = "13 novembre 1993"
     let phone = "06 25 62 64 24"
     let address = """
-79 Rue du canal des usiniers
-73000 Chambéry
-"""
+    79 Rue du canal des usiniers
+    73000 Chambéry
+    """
     let drivingLicense = "B - Véhiculé"
     
     /* SoftSkills */
@@ -35,9 +35,9 @@ class Data {
     /* USMB */
     let memoryName = "Évian, une ville de marque"
     let USMBWork = """
-Le but était de mettre en avant les enjeux croisés de la marque d'eau minérale evian et de la ville dont elle tire le nom : Évian-les-Bains.
-Tout en retraçant brièvement les prémices de la société des eaux.
-"""
+    Le but était de mettre en avant les enjeux croisés de la marque d'eau minérale evian et de la ville dont elle tire le nom : Évian-les-Bains.
+    Tout en retraçant brièvement les prémices de la société des eaux.
+    """
     
     /* 42 */
     let fourtyTwoCursus = ["Bases du langage C, C++, Python et Django", "Utilisation de Git, Github et Docker"]
@@ -49,6 +49,24 @@ Tout en retraçant brièvement les prémices de la société des eaux.
     
     /* HardSkills */
     let hardSkills = ["Git", "Github", "Docker"]
+    
+    /* ExperiencePro */
+    let jobName = ["Vendeur polyvalent", "Stagiaire - Chargé de mission", "Téléconseiller immobilier"]
+    let jobPlace = ["Bio C'Bon - Aix-les-Bains", "CAUE de la Savoie - Chambéry", "Scorimmo - Les Sables-d'Olonne"]
+    let jobDate = ["Février 2016 - Décembre 2017"]
+    let jobDescription = [
+    """
+    Connaissances des DLC/DLUO, gestion des stocks, suivi du magasin, des règles d’hygiène alimentaire, ouverture et fermeture du magasin, caisse
+    Management d’une équipe de 4 personnes
+    """,
+    """
+    Mettre au point une méthodologie d’inventaire des chalets d’alpage à destination des communes, et écrire un document de vulgarisation à destination du public
+    Participation à la Commission des Sites en charge des permis de construire relatif aux bâtis d’alpage
+    """,
+    """
+    Renseigner les clients sur les caractéristiques d’un bien immobilier
+    Assurer le suivi des erreurs informatiques rencontrés par les équipes et les transmettre au service informatique
+    """]
     
     /* Projects */
     let projects = ["GuessTheFlag", "TVShowAppV2"]
