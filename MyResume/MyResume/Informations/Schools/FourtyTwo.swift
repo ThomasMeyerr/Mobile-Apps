@@ -27,11 +27,15 @@ struct FourtyTwo: View {
                 
                 if showingGit {
                     Link(destination: URL(string: "https://github.com/M0dzie")!) {
-                        Image(data.isDarkMode ? "GithubWhite" : "Github")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 250)
-                            .padding()
+                        HStack {
+                            Spacer()
+                            Image(data.isDarkMode ? "GithubWhite" : "Github")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 225)
+                                .padding()
+                            Spacer()
+                        }
                     }
                 }
             }
