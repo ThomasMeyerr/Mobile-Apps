@@ -5,8 +5,8 @@
 //  Created by Thomas Meyer on 13/06/2024.
 //
 
-import SwiftUI
 import SwiftData
+import SwiftUI
 
 @Model
 class Student {
