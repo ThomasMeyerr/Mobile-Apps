@@ -14,7 +14,7 @@ struct RatingView: View {
     
     var maximumRating = 5
     
-    var offImage: Image?
+    var offImage = Image(systemName: "star")
     var onImage = Image(systemName: "star.fill")
     
     var offColor = Color.gray
@@ -40,7 +40,7 @@ struct RatingView: View {
     
     func image(for number: Int) -> Image {
         if number > rating {
-            offImage ?? onImage
+            offImage
         } else {
             onImage
         }
