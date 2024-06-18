@@ -10,6 +10,10 @@ import SwiftData
 
 struct DetailView: View {
     let book: Book
+    
+    @Environment(\.modelContext) var modelContext
+    @Environment(\.dismiss) var dismiss
+    @State private var showingDeleteAlert = false
 
     var body: some View {
         ScrollView {
@@ -41,6 +45,11 @@ struct DetailView: View {
         .navigationTitle(book.title)
         .navigationBarTitleDisplayMode(.inline)
         .scrollBounceBehavior(.basedOnSize)
+    }
+    
+    func deleteBook() {
+        modelContext.delete(book)
+        dismiss()
     }
 }
 
