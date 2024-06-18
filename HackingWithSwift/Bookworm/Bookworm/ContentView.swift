@@ -37,6 +37,7 @@ struct ContentView: View {
                         DetailView(book: book)
                     }
                 }
+                .onDelete(perform: deleteBooks)
             }
             .navigationTitle("Bookworm")
             .toolbar {
@@ -44,6 +45,10 @@ struct ContentView: View {
                     Button("Add Book", systemImage: "plus") {
                         showingAddScreen.toggle()
                     }
+                }
+                
+                ToolbarItem(placement: .topBarLeading) {
+                    EditButton()
                 }
             }
             .sheet(isPresented: $showingAddScreen) {
