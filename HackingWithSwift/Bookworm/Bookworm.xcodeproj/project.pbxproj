@@ -13,6 +13,7 @@
 		164B42142C1ADE0A00B12A48 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 164B42132C1ADE0A00B12A48 /* Preview Assets.xcassets */; };
 		166AE87A2C1C4D3400F61FCF /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166AE8792C1C4D3400F61FCF /* Book.swift */; };
 		166AE87C2C1C4E0200F61FCF /* AddBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166AE87B2C1C4E0200F61FCF /* AddBookView.swift */; };
+		1687D11E2C21AA9800B12109 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1687D11D2C21AA9800B12109 /* DetailView.swift */; };
 		16DFEE962C2014AD00C118C4 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DFEE952C2014AD00C118C4 /* RatingView.swift */; };
 		16DFEE982C20185B00C118C4 /* EmojiRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DFEE972C20185B00C118C4 /* EmojiRatingView.swift */; };
 /* End PBXBuildFile section */
@@ -25,6 +26,7 @@
 		164B42132C1ADE0A00B12A48 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		166AE8792C1C4D3400F61FCF /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		166AE87B2C1C4E0200F61FCF /* AddBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookView.swift; sourceTree = "<group>"; };
+		1687D11D2C21AA9800B12109 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		16DFEE952C2014AD00C118C4 /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 		16DFEE972C20185B00C118C4 /* EmojiRatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiRatingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -61,6 +63,7 @@
 			children = (
 				164B420C2C1ADE0700B12A48 /* BookwormApp.swift */,
 				164B420E2C1ADE0700B12A48 /* ContentView.swift */,
+				1687D11D2C21AA9800B12109 /* DetailView.swift */,
 				16DFEE972C20185B00C118C4 /* EmojiRatingView.swift */,
 				16DFEE952C2014AD00C118C4 /* RatingView.swift */,
 				166AE87B2C1C4E0200F61FCF /* AddBookView.swift */,
@@ -152,6 +155,7 @@
 				164B420F2C1ADE0700B12A48 /* ContentView.swift in Sources */,
 				164B420D2C1ADE0700B12A48 /* BookwormApp.swift in Sources */,
 				166AE87A2C1C4D3400F61FCF /* Book.swift in Sources */,
+				1687D11E2C21AA9800B12109 /* DetailView.swift in Sources */,
 				16DFEE962C2014AD00C118C4 /* RatingView.swift in Sources */,
 				16DFEE982C20185B00C118C4 /* EmojiRatingView.swift in Sources */,
 				166AE87C2C1C4E0200F61FCF /* AddBookView.swift in Sources */,
