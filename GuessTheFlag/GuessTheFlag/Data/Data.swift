@@ -6,8 +6,27 @@
 //
 
 import SwiftUI
+import SwiftData
 
-/* ------- LEADERBOARD ------- */
+
+/* ------- USER ------- */
+@Model
+class User {
+    var name: String
+    var password: String
+    var mail: String
+    
+    var score: Int
+    
+    init(name: String, password: String, mail: String, score: Int) {
+        self.name = name
+        self.password = password
+        self.mail = mail
+        self.score = score
+    }
+}
+
+/* ------- FAKE LEADERBOARD ------- */
 var leaderboard = [
     "Thomas": 64,
     "Zoé": 39,

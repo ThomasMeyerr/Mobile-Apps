@@ -9,7 +9,6 @@ import SwiftUI
 
 struct Leaderboard: View {
     @State private var index = 0
-    @FetchRequest(entity: User.entity(), sortDescriptors: []) var users: FetchedResults<User>
         
     var body: some View {
         ZStack {
