@@ -68,8 +68,8 @@
 		161DEB942B57BE4200573732 /* GuessTheFlag */ = {
 			isa = PBXGroup;
 			children = (
-				161DEB952B57BE4200573732 /* GuessTheFlagApp.swift */,
 				16D5ECAF2B5FBA7200CAA7F1 /* Ideas.md */,
+				161DEB952B57BE4200573732 /* GuessTheFlagApp.swift */,
 				1685CA172B5E96A700A5371A /* ContentView.swift */,
 				16B7ABA92B6C361A009351D9 /* Data */,
 				16D5ECB02B5FBB6300CAA7F1 /* Training & Game */,

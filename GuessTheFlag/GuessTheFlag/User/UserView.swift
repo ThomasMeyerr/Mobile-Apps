@@ -19,7 +19,7 @@ struct UserView: View {
             VStack {
                 Spacer()
 
-                TitleText(title: "Max Score : \(UserDefaults.standard.integer(forKey: "MaxScore"))")
+                TitleText(title: "Max Score : 0")
     
                 Spacer()
                 
@@ -57,6 +57,6 @@ struct UserView: View {
     }
 }
 
-#Preview {
-    UserView()
-}
+//#Preview {
+//    UserView()
+//}

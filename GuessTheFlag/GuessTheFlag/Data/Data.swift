@@ -16,13 +16,13 @@ class User {
     var password: String
     var mail: String
     
-    var score: Int
+    var maxScore: Int
     
-    init(name: String, password: String, mail: String, score: Int) {
+    init(name: String, password: String, mail: String, maxScore: Int) {
         self.name = name
         self.password = password
         self.mail = mail
-        self.score = score
+        self.maxScore = maxScore
     }
 }
 
