@@ -16,6 +16,13 @@ struct AddBookView: View {
     @State private var genre = "Fantasy"
     @State private var review = String()
     
+    var save: Bool {
+        if title.isEmpty || author.isEmpty || review.isEmpty {
+            return false
+        }
+        return true
+    }
+    
     let genres = ["Fantasy", "Horror", "Kids", "Mystery", "Poetry", "Romance", "Thriller"]
     
     var body: some View {
@@ -43,6 +50,7 @@ struct AddBookView: View {
                         modelContext.insert(newBook)
                         dismiss()
                     }
+                    .disabled(save == false)
                 }
             }
             .navigationTitle("Add Book")
