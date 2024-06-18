@@ -51,6 +51,15 @@ struct ContentView: View {
             }
         }
     }
+    
+    func deleteBooks(at offsets: IndexSet) {
+        for offset in offsets {
+            // find this book in our query
+            let book = books[offset]
+            
+            modelContext.delete(book)
+        }
+    }
 }
 
 #Preview {
