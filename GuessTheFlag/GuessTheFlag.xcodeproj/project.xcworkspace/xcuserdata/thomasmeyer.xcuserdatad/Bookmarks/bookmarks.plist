@@ -12,13 +12,13 @@
 					<key>EndingColumnNumber</key>
 					<string>0</string>
 					<key>EndingLineNumber</key>
-					<string>19</string>
+					<string>16</string>
 					<key>StartingColumnNumber</key>
 					<string>0</string>
 					<key>StartingLineNumber</key>
-					<string>18</string>
+					<string>15</string>
 					<key>Timestamp</key>
-					<string>728758807.911284</string>
+					<string>740413018.570254</string>
 				</dict>
 				<key>rebasable-url</key>
 				<dict>
@@ -34,16 +34,16 @@
 			<key>text-context</key>
 			<dict>
 				<key>focused</key>
-				<string>                NavigationLink(destination: Game(countries: World, title: "WORLD"), isActive: self.$showingGame) {
+				<string>
 </string>
 				<key>leading</key>
-				<string>                    .ignoresSafeArea()
-                
+				<string>                LinearGradient(colors: [Color(red: 52/255, green: 103/255, blue: 51/255), .black], startPoint: .top, endPoint: .bottom)
+                    .ignoresSafeArea()
 </string>
 				<key>trailing</key>
-				<string>                    EmptyView()
-                }
-                
+				<string>                NavigationLink {
+                    Game(countries: World, title: "WORLD")
+                } label : {
 </string>
 			</dict>
 			<key>title</key>
