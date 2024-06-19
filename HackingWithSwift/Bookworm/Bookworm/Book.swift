@@ -15,7 +15,7 @@ class Book {
     var genre: String
     var review: String
     var rating: Int
-    var date: Date
+    var date: Date?
     
     init(title: String, author: String, genre: String, review: String, rating: Int, date: Date) {
         self.title = title
@@ -27,6 +27,9 @@ class Book {
     }
     
     func showDate() -> String {
-        self.date.formatted(date: .abbreviated, time: .shortened)
+        if let dateFormatted = self.date?.formatted(date: .abbreviated, time: .shortened) {
+            return dateFormatted
+        }
+        return "N/A"
     }
 }
