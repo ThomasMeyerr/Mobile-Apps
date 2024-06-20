@@ -7,20 +7,6 @@
 
 import SwiftUI
 
-struct EditUserView: View {
-    @Bindable var user: User
-    
-    var body: some View {
-        Form {
-            TextField("Name", text: $user.name)
-            TextField("City", text: $user.city)
-            DatePicker("Join Datre", selection: $user.joinDate)
-        }
-        .navigationTitle("EditUser")
-        .navigationBarTitleDisplayMode(.inline)
-    }
-}
-
 struct ContentView: View {
     var body: some View {
         VStack {
