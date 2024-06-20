@@ -24,6 +24,13 @@ struct ContentView: View {
             .navigationDestination(for: User.self) { user in
                 EditUserView(user: user)
             }
+            .toolbar {
+                Button("Add User", systemImage: "plus") {
+                    let user = User(name: String(), city: String(), joinDate: .now)
+                    modelContext.insert(user)
+                    path = [user]
+                }
+            }
         }
     }
 }
