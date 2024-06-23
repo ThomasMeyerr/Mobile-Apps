@@ -25,6 +25,19 @@ struct ContentView: View {
             UsersView(minimumJoinDate: showingUpcommingOnly ? .now : .distantPast, sortOrder: sortOrder)
             .navigationTitle("Users")
             .toolbar {
+                Picker("Sort", selection: $sortOrder) {
+                    Text("Sort by name")
+                        .tag([
+                            SortDescriptor(\User.name),
+                            SortDescriptor(\User.joinDate),
+                        ])
+                    Text("Sort by Join Date")
+                        .tag([
+                            SortDescriptor(\User.joinDate),
+                            SortDescriptor(\User.name),
+                        ])
+                }
+                
                 Button(showingUpcommingOnly ? "Show Everyone" : "Show Upcoming") {
                     showingUpcommingOnly.toggle()
                 }
