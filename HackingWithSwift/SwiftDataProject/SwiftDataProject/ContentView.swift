@@ -15,10 +15,14 @@ struct ContentView: View {
         user.city == "London"
     }, sort: \User.name) var users: [User]
     @State private var showingUpcommingOnly = false
+    @State private var sortOrder = [
+        SortDescriptor(\User.name),
+        SortDescriptor(\User.joinDate),
+    ]
     
     var body: some View {
         NavigationStack {
-            UsersView(minimumJoinDate: showingUpcommingOnly ? .now : .distantPast)
+            UsersView(minimumJoinDate: showingUpcommingOnly ? .now : .distantPast, sortOrder: sortOrder)
             .navigationTitle("Users")
             .toolbar {
                 Button(showingUpcommingOnly ? "Show Everyone" : "Show Upcoming") {
