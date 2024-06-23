@@ -14,12 +14,11 @@ struct ContentView: View {
         user.name.localizedStandardContains("R") &&
         user.city == "London"
     }, sort: \User.name) var users: [User]
+    @State private var showingUpcommingOnly = false
     
     var body: some View {
         NavigationStack {
-            List(users) { user in
-                Text(user.name)
-            }
+            UsersView(minimumJoinDate: showingUpcommingOnly ? .now : .distantPast)
             .navigationTitle("Users")
             .toolbar {
                 Button("Add Samples", systemImage: "plus") {
