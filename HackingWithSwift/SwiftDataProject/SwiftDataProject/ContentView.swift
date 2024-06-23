@@ -14,9 +14,7 @@ struct ContentView: View {
         user.name.localizedStandardContains("R") &&
         user.city == "London"
     }, sort: \User.name) var users: [User]
-    @State private var searchStr = String()
-    let title = "Users"
-
+    
     var body: some View {
         NavigationStack {
             List(users) { user in
@@ -37,7 +35,6 @@ struct ContentView: View {
                     modelContext.insert(fourth)
                 }
             }
-            .searchable(text: $searchStr, placement: .navigationBarDrawer(displayMode: .always), prompt: "Rechercher dans \(title)")
         }
     }
 }
