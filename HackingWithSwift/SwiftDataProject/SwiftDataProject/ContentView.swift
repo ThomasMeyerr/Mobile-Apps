@@ -21,6 +21,10 @@ struct ContentView: View {
             UsersView(minimumJoinDate: showingUpcommingOnly ? .now : .distantPast)
             .navigationTitle("Users")
             .toolbar {
+                Button(showingUpcommingOnly ? "Show Everyone" : "Show Upcoming") {
+                    showingUpcommingOnly.toggle()
+                }
+                
                 Button("Add Samples", systemImage: "plus") {
                     try? modelContext.delete(model: User.self)
                     let first = User(name: "Ed Sheeran", city: "London", joinDate: .now.addingTimeInterval(86400 * -10))
