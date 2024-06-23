@@ -16,9 +16,15 @@ struct UsersView: View {
             Text(user.name)
         }
     }
+    
+    init(minimumJoinDate: Date) {
+        _users = Query(filter: #Predicate<User> { user in
+            user.joinDate >= minimumJoinDate
+        }, sort: \User.name)
+    }
 }
 
 #Preview {
-    UsersView()
+    UsersView(minimumJoinDate: .now)
         .modelContainer(for: User.self)
 }
