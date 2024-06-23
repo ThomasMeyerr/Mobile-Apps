@@ -14,6 +14,7 @@
 		1673A3F12C24366A0089FC25 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1673A3F02C24366A0089FC25 /* User.swift */; };
 		1673A3F32C2439CF0089FC25 /* EditUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1673A3F22C2439CF0089FC25 /* EditUserView.swift */; };
 		16D785D32C283E3900304902 /* UsersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D785D22C283E3900304902 /* UsersView.swift */; };
+		16D785D52C2845D500304902 /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D785D42C2845D500304902 /* Job.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		1673A3F02C24366A0089FC25 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1673A3F22C2439CF0089FC25 /* EditUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserView.swift; sourceTree = "<group>"; };
 		16D785D22C283E3900304902 /* UsersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersView.swift; sourceTree = "<group>"; };
+		16D785D42C2845D500304902 /* Job.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				1673A3F22C2439CF0089FC25 /* EditUserView.swift */,
 				16D785D22C283E3900304902 /* UsersView.swift */,
 				1673A3F02C24366A0089FC25 /* User.swift */,
+				16D785D42C2845D500304902 /* Job.swift */,
 				1673A3E62C2421970089FC25 /* Assets.xcassets */,
 				1673A3E82C2421970089FC25 /* Preview Content */,
 			);
@@ -147,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				16D785D32C283E3900304902 /* UsersView.swift in Sources */,
+				16D785D52C2845D500304902 /* Job.swift in Sources */,
 				1673A3E52C2421940089FC25 /* ContentView.swift in Sources */,
 				1673A3F32C2439CF0089FC25 /* EditUserView.swift in Sources */,
 				1673A3E32C2421940089FC25 /* SwiftDataProjectApp.swift in Sources */,
