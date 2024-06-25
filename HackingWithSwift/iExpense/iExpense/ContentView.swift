@@ -19,6 +19,7 @@ struct DisplayItem: View {
             }
             
             Spacer()
+            
             Text(item.amount, format: .currency(code: Locale.current.currencyCode ?? "USD"))
                 .font(item.amount < 10 ? .subheadline : item.amount < 100 ? .title3 : .title2)
         }
