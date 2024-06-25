@@ -15,10 +15,11 @@ struct ContentView: View {
         SortDescriptor(\ExpenseItem.name),
         SortDescriptor(\ExpenseItem.amount),
     ]
+    @State private var showingMenu = "All"
     
     var body: some View {
         NavigationStack {
-            ExpensesView(sortOrder: sortOrder)
+            ExpensesView(sortOrder: sortOrder, showingMenu: showingMenu)
             .navigationTitle("iExpense")
             .toolbar {
                 Menu("Switch sort", systemImage: "arrow.up.arrow.down") {
@@ -33,6 +34,19 @@ struct ContentView: View {
                                 SortDescriptor(\ExpenseItem.amount),
                                 SortDescriptor(\ExpenseItem.name),
                             ])
+                    }
+                }
+                
+                Menu("Switch menu", systemImage: "filemenu.and.cursorarrow") {
+                    Picker("Sort menu", selection: $showingMenu) {
+                        Text("All")
+                            .tag("All")
+                        
+                        Text("Personal")
+                            .tag("Personal")
+                        
+                        Text("Business")
+                            .tag("Business")
                     }
                 }
                 

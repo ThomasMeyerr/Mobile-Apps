@@ -41,12 +41,14 @@ struct ExpensesView: View {
         }
     }
         
-    init(sortOrder: [SortDescriptor<ExpenseItem>]) {
-        _expenses = Query(sort: sortOrder)
+    init(sortOrder: [SortDescriptor<ExpenseItem>], showingMenu: String) {
+        _expenses = Query(filter: #Predicate<ExpenseItem> { expense in
+            expense.type != "All" ? expense.type == showingMenu : true
+        } ,sort: sortOrder)
     }
 }
 
 #Preview {
-    ExpensesView(sortOrder: [SortDescriptor(\ExpenseItem.name)])
+    ExpensesView(sortOrder: [SortDescriptor(\ExpenseItem.name)], showingMenu: "All")
         .modelContainer(for: ExpenseItem.self)
 }
