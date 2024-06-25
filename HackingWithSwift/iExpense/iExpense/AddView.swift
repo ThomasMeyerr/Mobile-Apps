@@ -13,9 +13,9 @@ struct AddView: View {
     @State private var amount = 0.0
     @State private var title = "Add new expense"
     @Environment(\.dismiss) var dismiss
+    @Environment(\.modelContext) var modelContext
     
     let types = ["Business", "Personal"]
-    var expenses: Expenses
     
     var body: some View {
         NavigationStack {
@@ -28,7 +28,7 @@ struct AddView: View {
                     }
                 }
                 
-                TextField("Amount", value: $amount, format: .currency(code: "USD"))
+                TextField("Amount", value: $amount, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
                     .keyboardType(.decimalPad)
             }
             .navigationTitle($title)
@@ -37,7 +37,7 @@ struct AddView: View {
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Save") {
                         let item = ExpenseItem(name: name, type: type, amount: amount)
-                        expenses.items.append(item)
+                        modelContext.insert(item)
                         dismiss()
                     }
                 }
@@ -53,5 +53,5 @@ struct AddView: View {
 }
 
 #Preview {
-    AddView(expenses: Expenses())
+    AddView()
 }

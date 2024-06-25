@@ -5,6 +5,7 @@
 //  Created by Thomas Meyer on 22/05/2024.
 //
 
+import SwiftData
 import SwiftUI
 
 struct DisplayItem: View {
@@ -20,20 +21,21 @@ struct DisplayItem: View {
             
             Spacer()
             
-            Text(item.amount, format: .currency(code: Locale.current.currencyCode ?? "USD"))
+            Text(item.amount, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
                 .font(item.amount < 10 ? .subheadline : item.amount < 100 ? .title3 : .title2)
         }
     }
 }
 
 struct ContentView: View {
-    @State private var expenses = Expenses()
+    @Environment(\.modelContext) var modelContext
+    @Query(sort: \ExpenseItem.name) var expenses: [ExpenseItem]
     
     var body: some View {
         NavigationStack {
             List {
                 Section("Personal") {
-                    ForEach(expenses.items) { item in
+                    ForEach(expenses) { item in
                         if item.type == "Personal" {
                             DisplayItem(item: item)
                         }
@@ -42,7 +44,7 @@ struct ContentView: View {
                 }
                 
                 Section("Business") {
-                    ForEach(expenses.items) { item in
+                    ForEach(expenses) { item in
                         if item.type == "Business" {
                             DisplayItem(item: item)
                         }
@@ -53,7 +55,7 @@ struct ContentView: View {
             .navigationTitle("iExpense")
             .toolbar {
                 NavigationLink("Add Expense") {
-                    AddView(expenses: expenses)
+                    AddView()
                         .navigationBarBackButtonHidden()
                 }
             }
@@ -61,7 +63,10 @@ struct ContentView: View {
     }
     
     func removeItems(at offsets: IndexSet) {
-        expenses.items.remove(atOffsets: offsets)
+        for offset in offsets {
+            let item = expenses[offset]
+            modelContext.delete(item)
+        }
     }
 }
 
