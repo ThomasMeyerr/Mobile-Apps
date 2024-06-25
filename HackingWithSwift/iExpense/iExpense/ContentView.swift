@@ -15,7 +15,7 @@ struct ContentView: View {
         SortDescriptor(\ExpenseItem.name),
         SortDescriptor(\ExpenseItem.amount),
     ]
-    @State private var showingMenu = "All"
+    @State private var showingMenu = String()
     
     var body: some View {
         NavigationStack {
@@ -40,7 +40,7 @@ struct ContentView: View {
                 Menu("Switch menu", systemImage: "filemenu.and.cursorarrow") {
                     Picker("Sort menu", selection: $showingMenu) {
                         Text("All")
-                            .tag("All")
+                            .tag(String())
                         
                         Text("Personal")
                             .tag("Personal")

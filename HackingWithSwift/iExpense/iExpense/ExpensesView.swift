@@ -42,9 +42,13 @@ struct ExpensesView: View {
     }
         
     init(sortOrder: [SortDescriptor<ExpenseItem>], showingMenu: String) {
-        _expenses = Query(filter: #Predicate<ExpenseItem> { expense in
-            expense.type != "All" ? expense.type == showingMenu : true
-        } ,sort: sortOrder)
+        if showingMenu.count < 1 {
+            _expenses = Query(sort: sortOrder)
+        } else {
+            _expenses = Query(filter: #Predicate<ExpenseItem> { expense in
+                expense.type.contains(showingMenu)
+            } ,sort: sortOrder)
+        }
     }
 }
 
