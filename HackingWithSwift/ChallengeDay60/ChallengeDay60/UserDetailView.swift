@@ -18,32 +18,37 @@ struct UserDetailView: View {
                 .frame(width: 100)
                 .foregroundStyle(user.isActive ? .green.opacity(0.6) : .red.opacity(0.6))
             
-            Text(user.name)
-                .font(.title.bold())
-            
             Text("\(user.age) years")
             
             Text("Registered : \(user.registered)")
                 .font(.caption)
-        }
-        
-        Form {
-            Section {
-                Text(user.address)
-                Text(user.email)
-                Text(user.company)
-            }
             
-            Section("About Me") {
-                Text(user.about)
-            }
-            
-            Section("Friends") {
-                List(user.friends) { friend in
-                    Text(friend.name)
+            Form {
+                Section {
+                    Text(user.address)
+                    Text(user.email)
+                    Text(user.company)
+                }
+                
+                Section("About Me") {
+                    Text(user.about)
+                }
+                
+                Section("Tags") {
+                    List(user.tags, id: \.self) {
+                        Text($0)
+                    }
+                }
+                
+                Section("Friends") {
+                    List(user.friends) { friend in
+                        Text(friend.name)
+                    }
                 }
             }
         }
+        .navigationTitle(user.name)
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
