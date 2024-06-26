@@ -5,17 +5,29 @@
 //  Created by Thomas Meyer on 26/06/2024.
 //
 
+import SwiftData
 import SwiftUI
 
 struct ContentView: View {
+    @Environment(\.modelContext) var modelContext
+    @Query var users: [User]
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack {
+            List(users) { user in
+                Text(user.name)
+            }
+            .navigationTitle("List of Users")
+            .onAppear {
+                fetchData()
+            }
         }
-        .padding()
+    }
+    
+    func fetchData() {
+        guard users.isEmpty else { return }
+        
+        print("hello")
     }
 }
 
