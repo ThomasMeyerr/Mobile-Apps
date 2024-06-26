@@ -8,28 +8,46 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var users: [User]
+    @State private var users = [User]()
 
     var body: some View {
         NavigationStack {
-            List(users) { user in
-                Text(user.name)
+            List(users, id: \.id) { user in
+                HStack {
+                    Text(user.name)
+                        .font(.headline)
+                    
+                    Spacer()
+                    
+                    Image(systemImage: user.isActive ? "checkmark.seal.fill" : "xmark.seal.fill")
+                        .foregroundStyle(user.isActive ? .green : .red)
+                }
             }
             .navigationTitle("List of Users")
-            .onAppear {
-                fetchData()
+            .task {
+                await fetchData()
             }
         }
     }
     
-    func fetchData() {
+    func fetchData() async {
         guard users.isEmpty else { return }
-        
-        let config =
-        let url = URLSession(configuration: <#T##URLSessionConfiguration#>)
+        guard let url = URL(string: "https://www.hackingwithswift.com/samples/friendface.json") else {
+            print("Invalid url")
+            return
+        }
+                
+        do {
+            let (data, _) = try await URLSession.shared.data(from: url)
+            if let decodedData = try? JSONDecoder().decode(Users.self, from: data) {
+                users = decodedData.array
+            }
+        } catch {
+            print("Invalid data")
+        }
     }
 }
 
 #Preview {
-    ContentView(users: [User]())
+    ContentView()
 }
