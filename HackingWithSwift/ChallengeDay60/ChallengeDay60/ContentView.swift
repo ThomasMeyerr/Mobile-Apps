@@ -12,7 +12,7 @@ struct ContentView: View {
 
     var body: some View {
         NavigationStack {
-            List(users, id: \.id) { user in
+            List(users) { user in
                 NavigationLink {
                     UserDetailView(user: user)
                 } label: {
