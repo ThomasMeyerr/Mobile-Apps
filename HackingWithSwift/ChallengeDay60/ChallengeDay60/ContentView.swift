@@ -5,12 +5,10 @@
 //  Created by Thomas Meyer on 26/06/2024.
 //
 
-import SwiftData
 import SwiftUI
 
 struct ContentView: View {
-    @Environment(\.modelContext) var modelContext
-    @Query var users: [User]
+    @State private var users: [User]
 
     var body: some View {
         NavigationStack {
@@ -27,10 +25,11 @@ struct ContentView: View {
     func fetchData() {
         guard users.isEmpty else { return }
         
-        print("hello")
+        let config =
+        let url = URLSession(configuration: <#T##URLSessionConfiguration#>)
     }
 }
 
 #Preview {
-    ContentView()
+    ContentView(users: [User]())
 }

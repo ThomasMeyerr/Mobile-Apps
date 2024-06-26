@@ -6,15 +6,8 @@
 //
 
 import Foundation
-import SwiftData
 
-@Model
-class Friend {
+struct Friend: Codable, Identifiable {
     var id: UUID
     var name: String
-    
-    init(id: UUID, name: String) {
-        self.id = id
-        self.name = name
-    }
 }
