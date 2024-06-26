@@ -13,6 +13,7 @@
 		16E4D0852C2C1E9800A8912C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16E4D0842C2C1E9800A8912C /* Preview Assets.xcassets */; };
 		16E4D08C2C2C232400A8912C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E4D08B2C2C232400A8912C /* User.swift */; };
 		16E4D08E2C2C232F00A8912C /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E4D08D2C2C232F00A8912C /* Friend.swift */; };
+		16E4D0902C2C57E500A8912C /* UserDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E4D08F2C2C57E500A8912C /* UserDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		16E4D0842C2C1E9800A8912C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		16E4D08B2C2C232400A8912C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		16E4D08D2C2C232F00A8912C /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
+		16E4D08F2C2C57E500A8912C /* UserDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 			children = (
 				16E4D07D2C2C1E9400A8912C /* ChallengeDay60App.swift */,
 				16E4D07F2C2C1E9400A8912C /* ContentView.swift */,
+				16E4D08F2C2C57E500A8912C /* UserDetailView.swift */,
 				16E4D08B2C2C232400A8912C /* User.swift */,
 				16E4D08D2C2C232F00A8912C /* Friend.swift */,
 				16E4D0812C2C1E9800A8912C /* Assets.xcassets */,
@@ -146,6 +149,7 @@
 				16E4D0802C2C1E9400A8912C /* ContentView.swift in Sources */,
 				16E4D07E2C2C1E9400A8912C /* ChallengeDay60App.swift in Sources */,
 				16E4D08C2C2C232400A8912C /* User.swift in Sources */,
+				16E4D0902C2C57E500A8912C /* UserDetailView.swift in Sources */,
 				16E4D08E2C2C232F00A8912C /* Friend.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

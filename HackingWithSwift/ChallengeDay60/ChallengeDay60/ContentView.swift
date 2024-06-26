@@ -13,14 +13,18 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             List(users, id: \.id) { user in
-                HStack {
-                    Text(user.name)
-                        .font(.headline)
-                    
-                    Spacer()
-                    
-                    Image(systemName: user.isActive ? "checkmark.seal.fill" : "xmark.seal.fill")
-                        .foregroundStyle(user.isActive ? .green : .red)
+                NavigationLink {
+                    UserDetailView(user: user)
+                } label: {
+                    HStack {
+                        Text(user.name)
+                            .font(.headline)
+                        
+                        Spacer()
+                        
+                        Image(systemName: user.isActive ? "checkmark.seal.fill" : "xmark.seal.fill")
+                            .foregroundStyle(user.isActive ? .green : .red)
+                    }
                 }
             }
             .navigationTitle("List of Users")
