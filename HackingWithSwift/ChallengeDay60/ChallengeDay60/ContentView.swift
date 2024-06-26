@@ -19,7 +19,7 @@ struct ContentView: View {
                     
                     Spacer()
                     
-                    Image(systemImage: user.isActive ? "checkmark.seal.fill" : "xmark.seal.fill")
+                    Image(systemName: user.isActive ? "checkmark.seal.fill" : "xmark.seal.fill")
                         .foregroundStyle(user.isActive ? .green : .red)
                 }
             }
