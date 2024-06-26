@@ -7,10 +7,6 @@
 
 import Foundation
 
-struct Users: Codable {
-    var array: [User]
-}
-
 struct User: Codable, Identifiable {
     var id: UUID
     var isActive: Bool

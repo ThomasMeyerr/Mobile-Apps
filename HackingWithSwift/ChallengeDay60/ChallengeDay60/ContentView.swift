@@ -39,8 +39,8 @@ struct ContentView: View {
                 
         do {
             let (data, _) = try await URLSession.shared.data(from: url)
-            if let decodedData = try? JSONDecoder().decode(Users.self, from: data) {
-                users = decodedData.array
+            if let decodedData = try? JSONDecoder().decode([User].self, from: data) {
+                users = decodedData
             }
         } catch {
             print("Invalid data")
