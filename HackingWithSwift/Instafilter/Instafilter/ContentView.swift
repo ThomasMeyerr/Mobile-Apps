@@ -8,11 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var blurAmount = Double() {
-        didSet {
-            print("New value is \(blurAmount)")
-        }
-    }
+    @State private var blurAmount = Double()
 
     var body: some View {
         VStack {
@@ -21,6 +17,9 @@ struct ContentView: View {
             
             Slider(value: $blurAmount, in: 0...20)
                 .padding()
+                .onChange(of: blurAmount) { oldValue, newValue in
+                    print("New value is \(newValue)")
+                }
         }
     }
 }
