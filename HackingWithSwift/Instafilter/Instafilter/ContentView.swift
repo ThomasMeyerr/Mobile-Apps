@@ -8,19 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var blurAmount = Double()
+    @State private var showingConfirmation = false
+    @State private var backgroundColor = Color.white
 
     var body: some View {
-        VStack {
-            Text("Hello, Wolrd!")
-                .blur(radius: blurAmount)
-            
-            Slider(value: $blurAmount, in: 0...20)
-                .padding()
-                .onChange(of: blurAmount) { oldValue, newValue in
-                    print("New value is \(newValue)")
-                }
+        Button("Hello, World!") {
+            showingConfirmation = true
         }
+        .frame(width: 300, height: 300)
+        .background(backgroundColor)
     }
 }
 
