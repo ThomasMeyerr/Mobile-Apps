@@ -21,10 +21,6 @@ struct ContentView: View {
             
             Slider(value: $blurAmount, in: 0...20)
                 .padding()
-            
-            Button("Random Blur") {
-                blurAmount = Double.random(in: 0...20)
-            }
         }
     }
 }
