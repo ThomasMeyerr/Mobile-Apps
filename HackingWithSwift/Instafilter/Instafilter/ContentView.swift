@@ -18,7 +18,16 @@ struct ContentView: View {
                 .resizable()
                 .scaledToFit()
             
-            ContentUnavailableView("No Snippets", systemImage: "swift", description: Text("You don't have any snippets yet."))
+            ContentUnavailableView {
+                Label("No Snippets", systemImage: "swift")
+            } description: {
+                Text("You don't have any snippets yet.")
+            } actions: {
+                Button("Create snippet") {
+                    
+                }
+                .buttonStyle(.borderedProminent)
+            }
         }
         .onAppear(perform: loadImage)
     }
