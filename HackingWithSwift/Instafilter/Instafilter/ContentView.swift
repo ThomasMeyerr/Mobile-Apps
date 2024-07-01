@@ -26,9 +26,9 @@ struct ContentView: View {
         let beginImage = CIImage(image: inputImage)
         
         let context = CIContext()
-        let currentFilter = CIFilter.sepiaTone()
+        let currentFilter = CIFilter.pixellate()
         currentFilter.inputImage = beginImage
-        currentFilter.intensity = 1
+        currentFilter.scale = 100
         
         // Get a CIImage from our filter or exit if that fails
         guard let outputImage = currentFilter.outputImage else { return }
