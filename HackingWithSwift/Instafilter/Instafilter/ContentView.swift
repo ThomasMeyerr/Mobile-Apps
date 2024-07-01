@@ -17,6 +17,8 @@ struct ContentView: View {
             image?
                 .resizable()
                 .scaledToFit()
+            
+            ContentUnavailableView("No Snippets", systemImage: "swift")
         }
         .onAppear(perform: loadImage)
     }
