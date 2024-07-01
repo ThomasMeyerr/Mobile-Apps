@@ -5,6 +5,8 @@
 //  Created by Thomas Meyer on 28/06/2024.
 //
 
+import CoreImage
+import CoreImage.CIFilterBuiltins
 import SwiftUI
 
 struct ContentView: View {
@@ -22,6 +24,11 @@ struct ContentView: View {
     func loadImage() {
         let inputImage = UIImage(resource: .example)
         let beginImage = CIImage(image: inputImage)
+        
+        let context = CIContext()
+        let currentFilter = CIFilter.sepiaTone()
+        currentFilter.inputImage = beginImage
+        currentFilter.intensity = 1
     }
 }
 
