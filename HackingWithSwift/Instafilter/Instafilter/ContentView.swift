@@ -20,7 +20,8 @@ struct ContentView: View {
     }
     
     func loadImage() {
-        image = Image(.example)
+        let inputImage = UIImage(resource: .example)
+        let beginImage = CIImage(image: inputImage)
     }
 }
 
