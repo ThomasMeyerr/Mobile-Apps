@@ -9,10 +9,11 @@ import PhotosUI
 import SwiftUI
 
 struct ContentView: View {
+    let example = Image(.example)
 
     var body: some View {
-        ShareLink(item: URL(string: "https://www.hackingwithswift.com")!) {
-            Label("Spread the word about SwiftUI", systemImage: "swift")
+        ShareLink(item: example, preview: SharePreview("Lyon drawing", image: example)) {
+            Label("Click to share", systemImage: "airplane")
         }
     }
 }
