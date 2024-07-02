@@ -14,7 +14,16 @@ struct ContentView: View {
 
     var body: some View {
         VStack {
+            selectedImage?
+                .resizable()
+                .scaledToFit()
+        
             PhotosPicker("Select a picture", selection: $pickerItem, matching: .images)
+        }
+        .onChange(of: pickerItem) {
+            Task {
+                selectedImage = try await pickerItem?.loadTransferable(type: Image.self)
+            }
         }
     }
 }
