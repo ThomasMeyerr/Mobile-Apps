@@ -22,7 +22,9 @@ struct ContentView: View {
                 }
             }
         
-            PhotosPicker("Select images", selection: $pickerItem, matching: .images)
+            PhotosPicker(selection: $pickerItem, maxSelectionCount: 3, matching: .any(of: [.images, .not(.screenshots)])) {
+                Label("Select images", systemImage: "photo")
+            }
         }
         .onChange(of: pickerItem) {
             Task {
