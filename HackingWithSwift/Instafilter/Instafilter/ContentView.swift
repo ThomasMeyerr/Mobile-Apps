@@ -6,14 +6,22 @@
 //
 
 import PhotosUI
+import StoreKit
 import SwiftUI
 
 struct ContentView: View {
+    @Environment(\.requestReview) var requestReview
     let example = Image(.example)
 
     var body: some View {
-        ShareLink(item: example, preview: SharePreview("Lyon drawing", image: example)) {
-            Label("Click to share", systemImage: "airplane")
+        VStack {
+            ShareLink(item: example, preview: SharePreview("Lyon drawing", image: example)) {
+                Label("Click to share", systemImage: "airplane")
+            }
+            
+            Button("Leave a review") {
+                requestReview()
+            }
         }
     }
 }
