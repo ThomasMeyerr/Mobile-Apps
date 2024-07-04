@@ -5,14 +5,17 @@
 //  Created by Thomas Meyer on 28/06/2024.
 //
 
+import CoreImage
+import CoreImage.CIFilterBuiltins
 import PhotosUI
-import StoreKit
 import SwiftUI
 
 struct ContentView: View {
     @State private var processedImage: Image?
     @State private var selectedItem: PhotosPickerItem?
     @State private var filterIntensity = 0.5
+    @State private var currentFilter = CIFilter.sepiaTone()
+    let context = CIContext()
 
     var body: some View {
         NavigationStack {
