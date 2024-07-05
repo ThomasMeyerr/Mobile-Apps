@@ -10,6 +10,19 @@ import CoreImage.CIFilterBuiltins
 import PhotosUI
 import SwiftUI
 
+struct ColorButton: ButtonStyle {
+    let background: Color
+    let foreground: Color
+
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .padding()
+            .background(background)
+            .foregroundStyle(foreground)
+            .clipShape(Capsule())
+    }
+}
+
 struct ContentView: View {
     @State private var processedImage: Image?
     @State private var selectedItem: PhotosPickerItem?
@@ -47,10 +60,14 @@ struct ContentView: View {
                 
                 HStack {
                     Button("Change filter", action: changeFilter)
+                        .buttonStyle(ColorButton(background: .blue, foreground: .white))
                     
                     Spacer()
                     
-                    // share the picture
+                    if let processedImage {
+                        ShareLink(item: processedImage, preview: SharePreview("Instafilter image", image: processedImage))
+                            .buttonStyle(ColorButton(background: .green, foreground: .white))
+                    }
                 }
             }
             .padding([.horizontal, .bottom])
