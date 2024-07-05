@@ -16,6 +16,7 @@ struct ContentView: View {
     @State private var filterIntensity = 0.5
     @State private var currentFilter: CIFilter = CIFilter.sepiaTone()
     @State private var showingFilters = false
+    @State private var beginImage: CIImage?
     let context = CIContext()
 
     var body: some View {
@@ -74,7 +75,7 @@ struct ContentView: View {
             guard let imageData = try await selectedItem?.loadTransferable(type: Data.self) else { return }
             guard let inputImage = UIImage(data: imageData) else { return }
             
-            let beginImage = CIImage(image: inputImage)
+            beginImage = CIImage(image: inputImage)!
             currentFilter.setValue(beginImage, forKey: kCIInputImageKey)
             applyProcessing()
         }
