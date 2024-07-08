@@ -11,19 +11,6 @@ import PhotosUI
 import StoreKit
 import SwiftUI
 
-struct ColorButton: ButtonStyle {
-    let background: Color
-    let foreground: Color
-
-    func makeBody(configuration: Configuration) -> some View {
-        configuration.label
-            .padding()
-            .background(background)
-            .foregroundStyle(foreground)
-            .clipShape(Capsule())
-    }
-}
-
 struct ContentView: View {
     @AppStorage("filterCount") var filterCount = Int()
     @Environment(\.requestReview) var requestReview
@@ -58,18 +45,18 @@ struct ContentView: View {
                     Text("Intensity")
                     Slider(value: $filterIntensity)
                         .onChange(of: filterIntensity, applyProcessing)
+                        .disabled(processedImage != nil ? false : true)
                 }
                 .padding(.vertical)
                 
                 HStack {
                     Button("Change filter", action: changeFilter)
-                        .buttonStyle(ColorButton(background: .blue, foreground: .white))
+                        .disabled(processedImage != nil ? false : true)
                     
                     Spacer()
                     
                     if let processedImage {
                         ShareLink(item: processedImage, preview: SharePreview("Instafilter image", image: processedImage))
-                            .buttonStyle(ColorButton(background: .green, foreground: .white))
                     }
                 }
             }
