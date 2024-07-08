@@ -42,10 +42,22 @@ struct ContentView: View {
                 Spacer()
                 
                 HStack {
-                    Text("Intensity")
-                    Slider(value: $filterIntensity)
-                        .onChange(of: filterIntensity, applyProcessing)
-                        .disabled(processedImage != nil ? false : true)
+                    if currentFilter.inputKeys.contains(kCIInputIntensityKey) {
+                        Text("Intensity")
+                        Slider(value: $filterIntensity)
+                            .onChange(of: filterIntensity, applyProcessing)
+                            .disabled(processedImage != nil ? false : true)
+                    } else if currentFilter.inputKeys.contains(kCIInputRadiusKey) {
+                        Text("Radius")
+                            Slider(value: $filterIntensity)
+                                .onChange(of: filterIntensity, applyProcessing)
+                                .disabled(processedImage != nil ? false : true)
+                    } else {
+                        Text("Scale")
+                        Slider(value: $filterIntensity)
+                            .onChange(of: filterIntensity, applyProcessing)
+                            .disabled(processedImage != nil ? false : true)
+                    }
                 }
                 .padding(.vertical)
                 
@@ -70,6 +82,7 @@ struct ContentView: View {
                 Button("Sepia Tone") { setFilter(CIFilter.sepiaTone()) }
                 Button("Unsharp Mask") { setFilter(CIFilter.unsharpMask()) }
                 Button("Vignette") { setFilter(CIFilter.vignette()) }
+                Button("Affine Tile") { setFilter(CIFilter.affineTile()) }
                 Button("Cancel", role: .cancel) {}
             }
         }
