@@ -52,11 +52,13 @@ struct ContentView: View {
                             Slider(value: $filterIntensity)
                                 .onChange(of: filterIntensity, applyProcessing)
                                 .disabled(processedImage != nil ? false : true)
-                    } else {
+                    } else if currentFilter.inputKeys.contains(kCIInputScaleKey) {
                         Text("Scale")
                         Slider(value: $filterIntensity)
                             .onChange(of: filterIntensity, applyProcessing)
                             .disabled(processedImage != nil ? false : true)
+                    } else {
+                        Text("Slider disabled for this filter.")
                     }
                 }
                 .padding(.vertical)
@@ -79,10 +81,12 @@ struct ContentView: View {
                 Button("Edges") { setFilter(CIFilter.edges()) }
                 Button("Gaussian Blur") { setFilter(CIFilter.gaussianBlur()) }
                 Button("Pixellate") { setFilter(CIFilter.pixellate()) }
+                Button("Pointillize") { setFilter(CIFilter.pointillize()) }
                 Button("Sepia Tone") { setFilter(CIFilter.sepiaTone()) }
                 Button("Unsharp Mask") { setFilter(CIFilter.unsharpMask()) }
                 Button("Vignette") { setFilter(CIFilter.vignette()) }
                 Button("Bloom") { setFilter(CIFilter.bloom()) }
+                Button("Color Invert") { setFilter(CIFilter.colorInvert()) }
                 Button("Cancel", role: .cancel) {}
             }
         }
