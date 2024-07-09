@@ -33,11 +33,12 @@ struct ContentView: View {
     @State private var loadingState = LoadingState.loading
     
     var body: some View {
-        if loadingState == .loading {
+        switch loadingState {
+        case .loading:
             LoadingView()
-        } else if loadingState == .success {
+        case .success:
             SuccessView()
-        } else if loadingState == .failed {
+        case .failed:
             FailedView()
         }
     }
