@@ -19,6 +19,9 @@ struct ContentView: View {
     var body: some View {
         Map(initialPosition: startPosition)
             .mapStyle(.hybrid(elevation: .realistic))
+            .onTapGesture { position in
+                print("Tapped at \(position)")
+            }
     }
 }
 
