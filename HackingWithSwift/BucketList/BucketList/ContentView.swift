@@ -21,18 +21,27 @@ struct ContentView: View {
     ]
     
     var body: some View {
-        Map {
-            ForEach(locations) { location in
-                Annotation(location.name, coordinate: location.coordinate) {
-                    Text(location.name)
-                        .font(.headline)
-                        .padding()
-                        .background(.blue)
-                        .foregroundStyle(.white)
-                        .clipShape(.capsule)
+//        Map {
+//            ForEach(locations) { location in
+//                Annotation(location.name, coordinate: location.coordinate) {
+//                    Text(location.name)
+//                        .font(.headline)
+//                        .padding()
+//                        .background(.blue)
+//                        .foregroundStyle(.white)
+//                        .clipShape(.capsule)
+//                }
+//                .annotationTitles(.hidden)
+//            }
+//        }
+        
+        MapReader { proxy in
+            Map()
+                .onTapGesture { position in
+                    if let coordinate = proxy.convert(position, from: .local) {
+                        print(coordinate)
+                    }
                 }
-                .annotationTitles(.hidden)
-            }
         }
     }
 }
