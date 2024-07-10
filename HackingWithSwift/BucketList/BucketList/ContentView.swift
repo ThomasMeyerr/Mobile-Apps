@@ -11,7 +11,7 @@ import SwiftUI
 struct ContentView: View {
     
     var body: some View {
-        Map(interactionModes: [.zoom, .rotate])
+        Map(interactionModes: [])
             .mapStyle(.hybrid(elevation: .realistic))
     }
 }
