@@ -17,8 +17,30 @@ struct ContentView: View {
     )
     
     var body: some View {
-        Map(position: $position)
-            .mapStyle(.hybrid(elevation: .realistic))
+        VStack {
+            Map(position: $position)
+                .mapStyle(.hybrid(elevation: .realistic))
+            
+            HStack(spacing: 50) {
+                Button("Paris") {
+                    position = MapCameraPosition.region(
+                        MKCoordinateRegion(
+                            center: CLLocationCoordinate2D(latitude: 48.8566, longitude: 2.3522),
+                            span: MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1)
+                        )
+                    )
+                }
+                
+                Button("Tokyo") {
+                    position = MapCameraPosition.region(
+                        MKCoordinateRegion(
+                            center: CLLocationCoordinate2D(latitude: 35.6897, longitude: 139.6922),
+                            span: MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1)
+                        )
+                    )
+                }
+            }
+        }
     }
 }
 
