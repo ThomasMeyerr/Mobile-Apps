@@ -9,6 +9,7 @@ import LocalAuthentication
 import SwiftUI
 
 struct ContentView: View {
+    @State private var isUnlocked = false
     
     var body: some View {
         VStack {
@@ -27,7 +28,7 @@ struct ContentView: View {
             context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, authenticationError in
                 // authentication has now completed
                 if success {
-                    // authenticated successfully
+                    isUnlocked = true
                 } else {
                     // there was a problem
                 }
