@@ -12,7 +12,7 @@ struct ContentView: View {
     
     var body: some View {
         Map()
-            .mapStyle(.imagery)
+            .mapStyle(.hybrid(elevation: .realistic))
     }
 }
 
