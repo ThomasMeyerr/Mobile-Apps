@@ -10,6 +10,7 @@ import SwiftUI
 struct EditView: View {
     @Environment(\.dismiss) var dismiss
     var location: Location
+    var onSave: (Location) -> Void
     
     @State private var name: String
     @State private var description: String
@@ -30,8 +31,9 @@ struct EditView: View {
         }
     }
     
-    init(location: Location) {
+    init(location: Location, onSave: @escaping (Location) -> Void) {
         self.location = location
+        self.onSave = onSave
         
         _name = State(initialValue: location.name)
         _description = State(initialValue: location.description)
