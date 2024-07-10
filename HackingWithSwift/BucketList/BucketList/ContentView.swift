@@ -13,8 +13,13 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            
+            if isUnlocked {
+                Text("Unlocked")
+            } else {
+                Text("Locked")
+            }
         }
+        .onAppear(perform: authenticate)
     }
     
     func authenticate() {
