@@ -26,6 +26,7 @@ struct EditView: View {
             .toolbar {
                 Button("Save") {
                     var newLocation = location
+                    newLocation.id = UUID()
                     newLocation.name = name
                     newLocation.description = description
                     
