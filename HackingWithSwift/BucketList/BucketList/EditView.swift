@@ -46,5 +46,5 @@ struct EditView: View {
 }
 
 #Preview {
-    EditView(location: .example)
+    EditView(location: .example) { _ in }
 }
