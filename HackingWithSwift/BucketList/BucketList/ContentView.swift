@@ -8,6 +8,12 @@
 import MapKit
 import SwiftUI
 
+struct Location: Identifiable {
+    let id = UUID()
+    var name: String
+    var coordinate: CLLocationCoordinate2D
+}
+
 struct ContentView: View {
     @State private var position = MapCameraPosition.region(
         MKCoordinateRegion(
