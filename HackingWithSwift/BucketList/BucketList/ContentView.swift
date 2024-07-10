@@ -20,7 +20,11 @@ struct ContentView: View {
     
     var body: some View {
         MapReader { proxy in
-            Map(initialPosition: startPosition)
+            Map(initialPosition: startPosition) {
+                ForEach(locations) { location in
+                    Marker(location.name, coordinate: CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude))
+                }
+            }
                 .mapStyle(.hybrid(elevation: .realistic))
                 .onTapGesture { position in
                     if let coordinate = proxy.convert(position, from: .local) {
