@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		161F52412C3ED861005FED82 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161F52402C3ED861005FED82 /* Location.swift */; };
+		161F52432C3EDFFC005FED82 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161F52422C3EDFFC005FED82 /* EditView.swift */; };
 		1643DFBB2C3D425F009A579A /* BucketListApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1643DFBA2C3D425F009A579A /* BucketListApp.swift */; };
 		1643DFBD2C3D425F009A579A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1643DFBC2C3D425F009A579A /* ContentView.swift */; };
 		1643DFBF2C3D4262009A579A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1643DFBE2C3D4262009A579A /* Assets.xcassets */; };
@@ -16,6 +17,7 @@
 
 /* Begin PBXFileReference section */
 		161F52402C3ED861005FED82 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		161F52422C3EDFFC005FED82 /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
 		1643DFB72C3D425F009A579A /* BucketList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BucketList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1643DFBA2C3D425F009A579A /* BucketListApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketListApp.swift; sourceTree = "<group>"; };
 		1643DFBC2C3D425F009A579A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -55,6 +57,7 @@
 			children = (
 				1643DFBA2C3D425F009A579A /* BucketListApp.swift */,
 				1643DFBC2C3D425F009A579A /* ContentView.swift */,
+				161F52422C3EDFFC005FED82 /* EditView.swift */,
 				161F52402C3ED861005FED82 /* Location.swift */,
 				1643DFBE2C3D4262009A579A /* Assets.xcassets */,
 				1643DFC02C3D4262009A579A /* Preview Content */,
@@ -142,6 +145,7 @@
 			files = (
 				1643DFBD2C3D425F009A579A /* ContentView.swift in Sources */,
 				161F52412C3ED861005FED82 /* Location.swift in Sources */,
+				161F52432C3EDFFC005FED82 /* EditView.swift in Sources */,
 				1643DFBB2C3D425F009A579A /* BucketListApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
