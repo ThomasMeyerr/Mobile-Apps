@@ -17,11 +17,15 @@ struct ContentView: View {
     )
     
     var body: some View {
-        Map(initialPosition: startPosition)
-            .mapStyle(.hybrid(elevation: .realistic))
-            .onTapGesture { position in
-                print("Tapped at \(position)")
-            }
+        MapReader { proxy in
+            Map(initialPosition: startPosition)
+                .mapStyle(.hybrid(elevation: .realistic))
+                .onTapGesture { position in
+                    if let coordinate = proxy.convert(position, from: .local) {
+                        print("Tapped at \(coordinate)")
+                    }
+                }
+        }
     }
 }
 
