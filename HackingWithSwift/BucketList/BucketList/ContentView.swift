@@ -19,7 +19,7 @@ struct ContentView: View {
     var body: some View {
         VStack {
             Map(position: $position)
-                .onMapCameraChange { context in
+                .onMapCameraChange(frequency: .continuous) { context in
                     print(context.region)
                 }
             
