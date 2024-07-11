@@ -13,6 +13,7 @@
 		1643DFBD2C3D425F009A579A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1643DFBC2C3D425F009A579A /* ContentView.swift */; };
 		1643DFBF2C3D4262009A579A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1643DFBE2C3D4262009A579A /* Assets.xcassets */; };
 		1643DFC22C3D4262009A579A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1643DFC12C3D4262009A579A /* Preview Assets.xcassets */; };
+		1645E4A42C3FACF400C0B404 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1645E4A32C3FACF400C0B404 /* Result.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		1643DFBC2C3D425F009A579A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1643DFBE2C3D4262009A579A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1643DFC12C3D4262009A579A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1645E4A32C3FACF400C0B404 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 			children = (
 				1643DFBA2C3D425F009A579A /* BucketListApp.swift */,
 				1643DFBC2C3D425F009A579A /* ContentView.swift */,
+				1645E4A32C3FACF400C0B404 /* Result.swift */,
 				161F52422C3EDFFC005FED82 /* EditView.swift */,
 				161F52402C3ED861005FED82 /* Location.swift */,
 				1643DFBE2C3D4262009A579A /* Assets.xcassets */,
@@ -144,6 +147,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1643DFBD2C3D425F009A579A /* ContentView.swift in Sources */,
+				1645E4A42C3FACF400C0B404 /* Result.swift in Sources */,
 				161F52412C3ED861005FED82 /* Location.swift in Sources */,
 				161F52432C3EDFFC005FED82 /* EditView.swift in Sources */,
 				1643DFBB2C3D425F009A579A /* BucketListApp.swift in Sources */,
