@@ -28,6 +28,23 @@ struct EditView: View {
                     TextField("Place name", text: $name)
                     TextField("Description", text: $description)
                 }
+                
+                Section("Nearby...") {
+                    switch loadingState {
+                    case .loading:
+                        Text("Loading...")
+                    case .loaded:
+                        ForEach(pages, id: \.pageid) { page in
+                            Text(page.title)
+                                .font(.headline)
+                            + Text(": ") +
+                            Text("Page description here")
+                                .italic()
+                        }
+                    case .failed:
+                        Text("Please try again later.")
+                    }
+                }
             }
             .navigationTitle("Place details")
             .toolbar {
