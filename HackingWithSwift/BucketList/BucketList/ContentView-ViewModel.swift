@@ -15,6 +15,8 @@ extension ContentView {
         private(set) var locations = [Location]()
         var selectedPlace: Location?
         
+        let savePath = URL.documentsDirectory.appending(path: "SavedPlaces")
+        
         func addLocation(at point: CLLocationCoordinate2D) {
             let newLocation = Location(id: UUID(), name: "New Location", description: "", latitude: point.latitude, longitude: point.longitude)
             locations.append(newLocation)
@@ -25,6 +27,15 @@ extension ContentView {
             
             if let index = locations.firstIndex(of: selectedPlace) {
                 locations[index] = location
+            }
+        }
+        
+        init() {
+            do {
+                let data = try Data(contentsOf: savePath)
+                locations = try JSONDecoder().decode([Location].self, from: data)
+            } catch {
+                locations = []
             }
         }
     }
