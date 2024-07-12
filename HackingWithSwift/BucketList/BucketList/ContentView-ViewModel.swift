@@ -6,6 +6,7 @@
 //
 
 import CoreLocation
+import LocalAuthentication
 import Foundation
 import MapKit
 
@@ -14,6 +15,7 @@ extension ContentView {
     class ViewModel {
         private(set) var locations: [Location]
         var selectedPlace: Location?
+        var isUnlocked = false
         
         let savePath = URL.documentsDirectory.appending(path: "SavedPlaces")
         
