@@ -49,7 +49,11 @@ struct ContentView: View {
                 }
             }
         } else {
-            // button here
+            Button("Unlock Places", action: viewModel.authenticate)
+                .padding()
+                .background(.blue)
+                .foregroundStyle(.white)
+                .clipShape(.capsule)
         }
     }
 }
