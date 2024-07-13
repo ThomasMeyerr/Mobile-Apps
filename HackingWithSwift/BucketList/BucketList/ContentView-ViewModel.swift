@@ -15,7 +15,9 @@ extension ContentView {
     class ViewModel {
         private(set) var locations: [Location]
         var selectedPlace: Location?
-        var isUnlocked = true
+        var isUnlocked = false
+        var isError = false
+        var alertMessage = ""
         
         let savePath = URL.documentsDirectory.appending(path: "SavedPlaces")
         
@@ -54,11 +56,13 @@ extension ContentView {
                     if success {
                         self.isUnlocked = true
                     } else {
-                        // error
+                        self.isError = true
+                        self.alertMessage = "Biometric authenticate failed."
                     }
                 }
             } else {
-                // no biometrics
+                self.isError = true
+                self.alertMessage = "There is no biometric authenticate on this phone."
             }
         }
         
