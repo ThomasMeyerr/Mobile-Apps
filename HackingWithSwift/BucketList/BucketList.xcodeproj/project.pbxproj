@@ -15,6 +15,7 @@
 		1643DFBF2C3D4262009A579A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1643DFBE2C3D4262009A579A /* Assets.xcassets */; };
 		1643DFC22C3D4262009A579A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1643DFC12C3D4262009A579A /* Preview Assets.xcassets */; };
 		1645E4A42C3FACF400C0B404 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1645E4A32C3FACF400C0B404 /* Result.swift */; };
+		16B651072C42B01E00189C9D /* EditView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B651062C42B01E00189C9D /* EditView-ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		1643DFBE2C3D4262009A579A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1643DFC12C3D4262009A579A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1645E4A32C3FACF400C0B404 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		16B651062C42B01E00189C9D /* EditView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditView-ViewModel.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				162321092C4121A800A44A49 /* ContentView-ViewModel.swift */,
 				1645E4A32C3FACF400C0B404 /* Result.swift */,
 				161F52422C3EDFFC005FED82 /* EditView.swift */,
+				16B651062C42B01E00189C9D /* EditView-ViewModel.swift */,
 				161F52402C3ED861005FED82 /* Location.swift */,
 				1643DFBE2C3D4262009A579A /* Assets.xcassets */,
 				1643DFC02C3D4262009A579A /* Preview Content */,
@@ -152,6 +155,7 @@
 				1643DFBD2C3D425F009A579A /* ContentView.swift in Sources */,
 				1623210A2C4121A800A44A49 /* ContentView-ViewModel.swift in Sources */,
 				1645E4A42C3FACF400C0B404 /* Result.swift in Sources */,
+				16B651072C42B01E00189C9D /* EditView-ViewModel.swift in Sources */,
 				161F52412C3ED861005FED82 /* Location.swift in Sources */,
 				161F52432C3EDFFC005FED82 /* EditView.swift in Sources */,
 				1643DFBB2C3D425F009A579A /* BucketListApp.swift in Sources */,
