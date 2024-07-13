@@ -58,7 +58,7 @@ struct ContentView: View {
                         .frame(width: 30, height: 30)
                         .foregroundStyle(isHybridMode ? .white : .black)
                 }
-                    .offset(x: 140, y: -400)
+                    .offset(x: 140, y: -350)
             }
         } else {
             Button("Unlock Places", action: viewModel.authenticate)
