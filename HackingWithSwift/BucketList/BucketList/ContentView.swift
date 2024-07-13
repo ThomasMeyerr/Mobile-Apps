@@ -56,7 +56,7 @@ struct ContentView: View {
                     Image(systemName: isHybridMode ? "map.fill" : "globe.europe.africa")
                         .resizable()
                         .frame(width: 30, height: 30)
-                        .foregroundStyle(isHybridMode ? .white : .black)
+                        .foregroundStyle(.white)
                 }
                     .offset(x: 140, y: -350)
             }
