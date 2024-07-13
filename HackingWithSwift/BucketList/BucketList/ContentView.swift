@@ -17,6 +17,7 @@ struct ContentView: View {
     )
     
     @State private var viewModel = ViewModel()
+    @State private var mapStyle: MapStyle = .hybrid(elevation: .realistic)
     
     var body: some View {
         if viewModel.isUnlocked {
@@ -36,7 +37,7 @@ struct ContentView: View {
                         }
                     }
                 }
-                .mapStyle(.hybrid(elevation: .realistic))
+                .mapStyle(mapStyle)
                 .onTapGesture { position in
                     if let coordinate = proxy.convert(position, from: .local) {
                         viewModel.addLocation(at: coordinate)
