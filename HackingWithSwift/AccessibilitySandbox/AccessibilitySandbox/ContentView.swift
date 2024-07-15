@@ -14,6 +14,12 @@ struct ContentView: View {
         "kevin-horstmann-141705",
         "nicolas-tissot-335096"
     ]
+    let labels = [
+        "Tulips",
+        "Frozen tree buds",
+        "Sunflowers",
+        "Fireworks"
+    ]
     
     @State private var selectedPicture = Int.random(in: 0...3)
     
@@ -24,6 +30,7 @@ struct ContentView: View {
             .onTapGesture {
                 selectedPicture = Int.random(in: 0...3)
             }
+            .accessibilityLabel(labels[selectedPicture])
     }
 }
 
