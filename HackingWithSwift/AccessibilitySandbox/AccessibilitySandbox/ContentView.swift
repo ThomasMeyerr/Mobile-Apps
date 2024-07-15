@@ -24,15 +24,14 @@ struct ContentView: View {
     @State private var selectedPicture = Int.random(in: 0...3)
     
     var body: some View {
-        Image(pictures[selectedPicture])
-            .resizable()
-            .scaledToFit()
-            .onTapGesture {
-                selectedPicture = Int.random(in: 0...3)
-            }
-            .accessibilityLabel(labels[selectedPicture])
-            .accessibilityAddTraits(.isButton)
-            .accessibilityRemoveTraits(.isImage)
+        Button {
+            selectedPicture = Int.random(in: 0...3)
+        } label: {
+            Image(pictures[selectedPicture])
+                .resizable()
+                .scaledToFit()
+        }
+        .accessibilityLabel(labels[selectedPicture])
     }
 }
 
