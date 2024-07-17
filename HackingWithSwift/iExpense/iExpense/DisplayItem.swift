@@ -24,5 +24,8 @@ struct DisplayItem: View {
             Text(item.amount, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
                 .font(item.amount < 10 ? .subheadline : item.amount < 100 ? .title3 : .title2)
         }
+        .accessibilityElement()
+        .accessibilityLabel("\(item.name) \(item.amount)")
+        .accessibilityHint(item.type)
     }
 }
