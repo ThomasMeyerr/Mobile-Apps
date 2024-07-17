@@ -51,6 +51,10 @@ struct ScrollingCrew: View {
                             }
                         }
                         .padding(.horizontal)
+                        .accessibilityElement()
+                        .accessibilityLabel(crewMember.astronaut.name)
+                        .accessibilityHint(crewMember.role)
+                        .accessibility(addTraits: .isButton)
                     }
                 }
             }
