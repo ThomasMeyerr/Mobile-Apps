@@ -65,30 +65,39 @@ struct MissionView: View {
     var body: some View {
         ScrollView {
             VStack {
-                Image(mission.image)
-                    .resizable()
-                    .scaledToFit()
-                    .containerRelativeFrame(.horizontal) { width, axis in
-                        width * 0.6
-                    }
-                
-                Text(mission.formattedLaunchDate)
-                    .foregroundStyle(.white.opacity(0.5))
+                Group {
+                    Image(mission.image)
+                        .resizable()
+                        .scaledToFit()
+                        .containerRelativeFrame(.horizontal) { width, axis in
+                            width * 0.6
+                        }
+                    
+                    Text(mission.formattedLaunchDate)
+                        .foregroundStyle(.white.opacity(0.5))
+                }
+                .accessibilityHidden(true)
 
                 VStack(alignment: .leading) {
-                    RectangleSeparator()
-
-                    Text("Mission Highlights")
-                        .font(.title.bold())
-                        .padding(.bottom, 5)
+                    Group {
+                        RectangleSeparator()
+                        
+                        Text("Mission Highlights")
+                            .font(.title.bold())
+                            .padding(.bottom, 5)
+                    }
+                    .accessibilityHidden(true)
 
                     Text(mission.description)
 
-                    RectangleSeparator()
-
-                    Text("Crew")
-                        .font(.title.bold())
-                        .padding(.bottom, 5)
+                    Group {
+                        RectangleSeparator()
+                        
+                        Text("Crew")
+                            .font(.title.bold())
+                            .padding(.bottom, 5)
+                    }
+                    .accessibilityHidden(true)
                 }
                 .padding(.horizontal)
 
