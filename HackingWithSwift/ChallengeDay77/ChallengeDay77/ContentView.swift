@@ -7,15 +7,38 @@
 
 import SwiftUI
 
+struct Photo: Identifiable {
+    let id = UUID()
+    var name: String
+    var description: String
+}
+
+
 struct ContentView: View {
+    @State private var photos = [Photo]()
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack {
+            List(photos) { photo in
+                VStack {
+                    Image(photo.name)
+                        .resizable()
+                        .scaledToFit()
+                    Text(photo.name)
+                        .font(.subheadline)
+                }
+            }
+            .navigationTitle("Photo saver")
+            .toolbar {
+                Button(action: addPhoto, label: {
+                    Image(systemName: "plus")
+                })
+            }
         }
-        .padding()
+    }
+                       
+    func addPhoto() {
+                
     }
 }
 
