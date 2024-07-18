@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SoftSkills: View {
-    var data: Data
+    @Bindable var data: Data
 
     var body: some View {
         Form {
@@ -18,7 +18,7 @@ struct SoftSkills: View {
         }
         .navigationTitle("Soft skills")
         .navigationBarTitleDisplayMode(.inline)
-        .modifier(DarkModeToolbarModifier())
+        .modifier(DarkModeToolbarModifier(isDarkMode: $data.isDarkMode))
     }
 }
 

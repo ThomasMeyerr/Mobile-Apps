@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct Languages: View {
-    var data: Data
+    @Bindable var data: Data
 
     var body: some View {
         Form {
@@ -35,7 +35,7 @@ struct Languages: View {
         }
         .navigationTitle("Langages informatiques")
         .navigationBarTitleDisplayMode(.inline)
-        .modifier(DarkModeToolbarModifier())
+        .modifier(DarkModeToolbarModifier(isDarkMode: $data.isDarkMode))
     }
 }
 

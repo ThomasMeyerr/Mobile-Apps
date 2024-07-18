@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ExperiencePro: View {
-    var data: Data
+    @Bindable var data: Data
 
     var body: some View {
         Form {
@@ -22,7 +22,7 @@ struct ExperiencePro: View {
         }
         .navigationTitle("Expériences professionnelles")
         .navigationBarTitleDisplayMode(.inline)
-        .modifier(DarkModeToolbarModifier())
+        .modifier(DarkModeToolbarModifier(isDarkMode: $data.isDarkMode))
     }
 }
 

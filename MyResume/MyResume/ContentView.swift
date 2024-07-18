@@ -64,7 +64,7 @@ Octobre 2024
                 }
             }
             .navigationTitle("C.V.")
-            .modifier(DarkModeToolbarModifier())
+            .modifier(DarkModeToolbarModifier(isDarkMode: $data.isDarkMode))
         }
     }
 }

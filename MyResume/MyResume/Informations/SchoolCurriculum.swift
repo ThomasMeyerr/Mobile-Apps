@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SchoolCurriculum: View {
-    var data: Data
+    @Bindable var data: Data
 
     var body: some View {
         Form {
@@ -42,7 +42,7 @@ struct SchoolCurriculum: View {
         }
         .navigationTitle("Parcours scolare")
         .navigationBarTitleDisplayMode(.inline)
-        .modifier(DarkModeToolbarModifier())
+        .modifier(DarkModeToolbarModifier(isDarkMode: $data.isDarkMode))
     }
 }
 

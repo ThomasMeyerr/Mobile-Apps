@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct USMB: View {
-    var data: Data
+    @Bindable var data: Data
 
     var body: some View {
         Form {
@@ -25,7 +25,7 @@ struct USMB: View {
         }
         .navigationTitle("Cursus USMB")
         .navigationBarTitleDisplayMode(.inline)
-        .modifier(DarkModeToolbarModifier())
+        .modifier(DarkModeToolbarModifier(isDarkMode: $data.isDarkMode))
     }
 }
 

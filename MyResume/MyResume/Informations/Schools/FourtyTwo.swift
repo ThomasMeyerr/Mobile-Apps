@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FourtyTwo: View {
-    var data: Data
+    @Bindable var data: Data
     
     @State private var showingGit = false
 
@@ -42,7 +42,7 @@ struct FourtyTwo: View {
         }
         .navigationTitle("Cursus 42")
         .navigationBarTitleDisplayMode(.inline)
-        .modifier(DarkModeToolbarModifier())
+        .modifier(DarkModeToolbarModifier(isDarkMode: $data.isDarkMode))
     }
 }
 

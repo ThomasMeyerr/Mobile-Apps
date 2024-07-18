@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct Hobbies: View {
-    var data: Data
+    @Bindable var data: Data
 
     var body: some View {
         Form {
@@ -18,7 +18,7 @@ struct Hobbies: View {
         }
         .navigationTitle("Centres d'intérêt")
         .navigationBarTitleDisplayMode(.inline)
-        .modifier(DarkModeToolbarModifier())
+        .modifier(DarkModeToolbarModifier(isDarkMode: $data.isDarkMode))
     }
 }
 

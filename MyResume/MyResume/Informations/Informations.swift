@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct Informations: View {
-    var data: Data
+    @Bindable var data: Data
 
     var body: some View {
         VStack {
@@ -52,7 +52,7 @@ struct Informations: View {
         }
         .navigationTitle("Informations globales")
         .navigationBarTitleDisplayMode(.inline)
-        .modifier(DarkModeToolbarModifier())
+        .modifier(DarkModeToolbarModifier(isDarkMode: $data.isDarkMode))
     }
 }
 
