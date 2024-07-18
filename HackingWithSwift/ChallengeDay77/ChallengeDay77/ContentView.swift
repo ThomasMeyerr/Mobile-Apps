@@ -32,6 +32,9 @@ struct Photos {
         do {
             let data = try Data(contentsOf: savePath)
             array = try JSONDecoder().decode([Photo].self, from: data)
+            array.sort {
+                $0.name > $1.name
+            }
         } catch {
             array = []
         }
