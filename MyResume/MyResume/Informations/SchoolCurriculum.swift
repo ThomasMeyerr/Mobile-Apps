@@ -42,6 +42,7 @@ struct SchoolCurriculum: View {
         }
         .navigationTitle("Parcours scolare")
         .navigationBarTitleDisplayMode(.inline)
+        .modifier(DarkModeToolbarModifier())
     }
 }
 

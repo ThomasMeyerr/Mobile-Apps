@@ -52,6 +52,7 @@ struct Informations: View {
         }
         .navigationTitle("Informations globales")
         .navigationBarTitleDisplayMode(.inline)
+        .modifier(DarkModeToolbarModifier())
     }
 }
 

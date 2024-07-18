@@ -25,6 +25,7 @@ struct USMB: View {
         }
         .navigationTitle("Cursus USMB")
         .navigationBarTitleDisplayMode(.inline)
+        .modifier(DarkModeToolbarModifier())
     }
 }
 

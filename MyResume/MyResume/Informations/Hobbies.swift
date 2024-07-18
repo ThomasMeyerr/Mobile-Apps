@@ -18,6 +18,7 @@ struct Hobbies: View {
         }
         .navigationTitle("Centres d'intérêt")
         .navigationBarTitleDisplayMode(.inline)
+        .modifier(DarkModeToolbarModifier())
     }
 }
 

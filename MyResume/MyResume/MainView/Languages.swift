@@ -35,6 +35,7 @@ struct Languages: View {
         }
         .navigationTitle("Langages informatiques")
         .navigationBarTitleDisplayMode(.inline)
+        .modifier(DarkModeToolbarModifier())
     }
 }
 

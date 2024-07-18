@@ -28,6 +28,7 @@ struct PersonalInfo: View {
         }
         .navigationTitle("Informations personnelles")
         .navigationBarTitleDisplayMode(.inline)
+        .modifier(DarkModeToolbarModifier())
     }
 }
 

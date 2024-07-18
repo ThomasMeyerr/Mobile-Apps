@@ -18,6 +18,7 @@ struct SoftSkills: View {
         }
         .navigationTitle("Soft skills")
         .navigationBarTitleDisplayMode(.inline)
+        .modifier(DarkModeToolbarModifier())
     }
 }
 

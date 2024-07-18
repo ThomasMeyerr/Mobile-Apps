@@ -19,6 +19,7 @@ struct HardSkills: View {
         }
         .navigationTitle("Hard skills")
         .navigationBarTitleDisplayMode(.inline)
+        .modifier(DarkModeToolbarModifier())
     }
 }
 

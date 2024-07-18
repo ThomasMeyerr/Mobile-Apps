@@ -22,6 +22,7 @@ struct ExperiencePro: View {
         }
         .navigationTitle("Expériences professionnelles")
         .navigationBarTitleDisplayMode(.inline)
+        .modifier(DarkModeToolbarModifier())
     }
 }
 
