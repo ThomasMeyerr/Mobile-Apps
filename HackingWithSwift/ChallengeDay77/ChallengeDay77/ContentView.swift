@@ -23,10 +23,28 @@ struct Photo: Identifiable, Codable, Comparable {
     }
 }
 
+struct DetailView: View {
+    let photo: Photo
+
+    var body: some View {
+        VStack {
+            photo.image
+                .resizable()
+                .scaledToFit()
+            
+            Text(photo.name)
+                .font(.title)
+            
+            Text(photo.description)
+                .font(.headline)
+        }
+    }
+}
+
 struct ContentView: View {
     let savePath = URL.documentsDirectory.appending(path: "PhotoSaver")
     
-    @State private var photos: [Photo]
+    @State private var photos = [Photo]()
     @State private var isSelected = false
     
     init() {
@@ -43,12 +61,13 @@ struct ContentView: View {
             List {
                 ForEach(photos) { photo in
                     NavigationLink {
-                        // detail view
+                        DetailView(photo: photo)
                     } label: {
                         VStack {
-                            Image(photo.name)
+                            photo.image
                                 .resizable()
                                 .scaledToFit()
+                                .frame(width: 250)
                             Text(photo.name)
                                 .font(.subheadline)
                         }
@@ -65,7 +84,7 @@ struct ContentView: View {
                 }
             }
             .sheet(isPresented: $isSelected) {
-                
+                //
             }
         }
     }
