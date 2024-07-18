@@ -12,30 +12,16 @@ struct Photo: Identifiable, Codable, Comparable {
     let id = UUID()
     var name: String
     var description: String
-    var image: Image?
-    
-    init() {
-        do {
-            data =
-            decoded = try JSONDecoder().decode(Photo.self, from: data)
-        } catch {
-            print(error.localizedDescription)
-        }
-    }
+    var image: Image
     
     static func <(lhs: Photo, rhs: Photo) -> Bool {
         lhs.name < rhs.name
     }
 }
 
-struct AddPhoto: View {
-    var body: some View {
-        /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Hello, world!@*/Text("Hello, world!")/*@END_MENU_TOKEN@*/
-    }
-}
-
 struct ContentView: View {
-    @State private var photos = [Photo]()
+    let savePath = URL.documentsDirectory.appending(path: "PhotoSaver")
+    @State private var photos: [Photo]
     @State private var isSelected = false
 
     var body: some View {
@@ -58,8 +44,26 @@ struct ContentView: View {
                 }
             }
             .sheet(isPresented: $isSelected) {
-                AddPhoto()
+                
             }
+        }
+    }
+    
+    init() {
+        do {
+            let data = try Data(contentsOf: savePath)
+            photos = try JSONDecoder().decode([Photo].self, from: data)
+        } catch {
+            photos = []
+        }
+    }
+    
+    func save() {
+        do {
+            let data = try JSONEncoder().encode(photos)
+            try data.write(to: savePath, options: [.atomic, .completeFileProtection])
+        } catch {
+            print("Unable to save data")
         }
     }
 }
