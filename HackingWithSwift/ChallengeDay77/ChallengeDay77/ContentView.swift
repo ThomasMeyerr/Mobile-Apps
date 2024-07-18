@@ -9,7 +9,7 @@ import PhotosUI
 import SwiftUI
 
 struct Photo: Identifiable, Codable, Comparable {
-    let id: UUID
+    var id: UUID
     var name: String
     var description: String
     var imageData: Data
@@ -45,9 +45,13 @@ struct ContentView: View {
     let savePath = URL.documentsDirectory.appending(path: "PhotoSaver")
     
     @State private var photos = [Photo]()
-    @State private var selectedImage: PhotosPickerItem?
     @State private var isSelected = false
     
+    @State private var selectedImage: PhotosPickerItem?
+    @State private var image: Image?
+    @State private var name = String()
+    @State private var description = String()
+        
     init() {
         do {
             let data = try Data(contentsOf: savePath)
@@ -68,7 +72,7 @@ struct ContentView: View {
                             photo.image
                                 .resizable()
                                 .scaledToFit()
-                                .frame(width: 50)
+                                .frame(width: 75)
                             Spacer()
                             Text(photo.name)
                                 .font(.subheadline)
@@ -87,15 +91,33 @@ struct ContentView: View {
                 }
             }
             .sheet(isPresented: $isSelected) {
-                PhotosPicker(selection: $selectedImage, label: {
-                    ContentUnavailableView {
-                        Label("Upload an image", systemImage: "photo.on.rectangle.fill")
-                    } description: {
-                        Text("Drag and drop")
+                Form {
+                    PhotosPicker(selection: $selectedImage) {
+                        ContentUnavailableView("Upload an image", systemImage: "photo.badge.plus", description: Text("Tap to import a photo"))
                     }
-                })
+                    .buttonStyle(.plain)
+                    
+                    Section {
+                        TextField("Name", text: $name)
+                        TextField("Description", text: $description)
+                    }
+                    
+                    Button("Save", action: update)
+                        .disabled(name.isEmpty && description.isEmpty ? true : false)
+                }
             }
         }
+    }
+    
+    func update() {
+        Task {
+            guard let imageData = try await selectedImage?.loadTransferable(type: Data.self) else { return }
+            
+            let photo = Photo(id: UUID(), name: name, description: description, imageData: imageData)
+            photos.append(photo)
+        }
+        save()
+        isSelected = false
     }
     
     func save() {
