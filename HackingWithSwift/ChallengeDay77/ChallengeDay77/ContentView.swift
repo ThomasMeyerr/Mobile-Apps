@@ -66,7 +66,7 @@ struct ContentView: View {
     @State private var isSelected = false
     
     @State private var selectedImage: PhotosPickerItem?
-    @State private var image: Image?
+    @State private var displayedImage: Image?
     @State private var name = String()
     @State private var description = String()
 
@@ -101,10 +101,24 @@ struct ContentView: View {
             }
             .sheet(isPresented: $isSelected) {
                 Form {
-                    PhotosPicker(selection: $selectedImage) {
-                        ContentUnavailableView("Upload an image", systemImage: "photo.badge.plus", description: Text("Tap to import a photo"))
+                    if let displayedImage {
+                        displayedImage
+                            .resizable()
+                            .scaledToFit()
+                            .clipShape(RoundedRectangle(cornerRadius: 25.0))
+                    } else {
+                        PhotosPicker(selection: $selectedImage, matching: .images) {
+                            ContentUnavailableView("Upload an image", systemImage: "photo.badge.plus", description: Text("Tap to import a photo"))
+                        }
+                        .buttonStyle(.plain)
+                        .onChange(of: selectedImage) { newValue in
+                            Task {
+                                if let data = try? await newValue?.loadTransferable(type: Data.self), let uiImage = UIImage(data: data) {
+                                    displayedImage = Image(uiImage: uiImage)
+                                }
+                            }
+                        }
                     }
-                    .buttonStyle(.plain)
                     
                     Section {
                         TextField("Name", text: $name)
@@ -112,7 +126,7 @@ struct ContentView: View {
                     }
                     
                     Button("Save", action: update)
-                        .disabled(name.isEmpty || description.isEmpty ? true : false)
+                        .disabled(name.isEmpty || description.isEmpty || displayedImage == nil ? true : false)
                 }
             }
         }
