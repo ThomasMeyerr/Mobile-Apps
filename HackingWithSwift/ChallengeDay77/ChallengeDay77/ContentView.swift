@@ -23,6 +23,21 @@ struct Photo: Identifiable, Codable, Comparable {
     }
 }
 
+struct Photos {
+    let savePath = URL.documentsDirectory.appending(path: "PhotoSaver")
+
+    var array: [Photo]
+    
+    init() {
+        do {
+            let data = try Data(contentsOf: savePath)
+            array = try JSONDecoder().decode([Photo].self, from: data)
+        } catch {
+            array = []
+        }
+    }
+}
+
 struct DetailView: View {
     let photo: Photo
 
@@ -44,27 +59,18 @@ struct DetailView: View {
 struct ContentView: View {
     let savePath = URL.documentsDirectory.appending(path: "PhotoSaver")
     
-    @State private var photos = [Photo]()
+    @State private var photos = Photos()
     @State private var isSelected = false
     
     @State private var selectedImage: PhotosPickerItem?
     @State private var image: Image?
     @State private var name = String()
     @State private var description = String()
-        
-    init() {
-        do {
-            let data = try Data(contentsOf: savePath)
-            photos = try JSONDecoder().decode([Photo].self, from: data)
-        } catch {
-            photos = []
-        }
-    }
 
     var body: some View {
         NavigationStack {
             List {
-                ForEach(photos) { photo in
+                ForEach(photos.array) { photo in
                     NavigationLink {
                         DetailView(photo: photo)
                     } label: {
@@ -103,7 +109,7 @@ struct ContentView: View {
                     }
                     
                     Button("Save", action: update)
-                        .disabled(name.isEmpty && description.isEmpty ? true : false)
+                        .disabled(name.isEmpty || description.isEmpty ? true : false)
                 }
             }
         }
@@ -114,15 +120,15 @@ struct ContentView: View {
             guard let imageData = try await selectedImage?.loadTransferable(type: Data.self) else { return }
             
             let photo = Photo(id: UUID(), name: name, description: description, imageData: imageData)
-            photos.append(photo)
+            photos.array.append(photo)
+            save()
         }
-        save()
         isSelected = false
     }
     
     func save() {
         do {
-            let data = try JSONEncoder().encode(photos)
+            let data = try JSONEncoder().encode(photos.array)
             try data.write(to: savePath, options: [.atomic, .completeFileProtection])
         } catch {
             print("Unable to save data")
@@ -130,7 +136,7 @@ struct ContentView: View {
     }
     
     func deletePhoto(at offsets: IndexSet) {
-        photos.remove(atOffsets: offsets)
+        photos.array.remove(atOffsets: offsets)
         save()
     }
 }
