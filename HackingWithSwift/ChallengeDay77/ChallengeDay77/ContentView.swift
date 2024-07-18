@@ -9,10 +9,14 @@ import PhotosUI
 import SwiftUI
 
 struct Photo: Identifiable, Codable, Comparable {
-    let id = UUID()
+    let id: UUID
     var name: String
     var description: String
-    var image: Image
+    var imageData: Data
+    
+    var image: Image {
+        Image(uiImage: UIImage(data: imageData) ?? UIImage())
+    }
     
     static func <(lhs: Photo, rhs: Photo) -> Bool {
         lhs.name < rhs.name
@@ -21,19 +25,36 @@ struct Photo: Identifiable, Codable, Comparable {
 
 struct ContentView: View {
     let savePath = URL.documentsDirectory.appending(path: "PhotoSaver")
+    
     @State private var photos: [Photo]
     @State private var isSelected = false
+    
+    init() {
+        do {
+            let data = try Data(contentsOf: savePath)
+            photos = try JSONDecoder().decode([Photo].self, from: data)
+        } catch {
+            photos = []
+        }
+    }
 
     var body: some View {
         NavigationStack {
-            List(photos) { photo in
-                VStack {
-                    Image(photo.name)
-                        .resizable()
-                        .scaledToFit()
-                    Text(photo.name)
-                        .font(.subheadline)
+            List {
+                ForEach(photos) { photo in
+                    NavigationLink {
+                        // detail view
+                    } label: {
+                        VStack {
+                            Image(photo.name)
+                                .resizable()
+                                .scaledToFit()
+                            Text(photo.name)
+                                .font(.subheadline)
+                        }
+                    }
                 }
+                .onDelete(perform: deletePhoto)
             }
             .navigationTitle("Photo saver")
             .toolbar {
@@ -49,15 +70,6 @@ struct ContentView: View {
         }
     }
     
-    init() {
-        do {
-            let data = try Data(contentsOf: savePath)
-            photos = try JSONDecoder().decode([Photo].self, from: data)
-        } catch {
-            photos = []
-        }
-    }
-    
     func save() {
         do {
             let data = try JSONEncoder().encode(photos)
@@ -65,6 +77,11 @@ struct ContentView: View {
         } catch {
             print("Unable to save data")
         }
+    }
+    
+    func deletePhoto(at offsets: IndexSet) {
+        photos.remove(atOffsets: offsets)
+        save()
     }
 }
 
