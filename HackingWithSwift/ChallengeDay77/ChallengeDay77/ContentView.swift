@@ -45,6 +45,7 @@ struct ContentView: View {
     let savePath = URL.documentsDirectory.appending(path: "PhotoSaver")
     
     @State private var photos = [Photo]()
+    @State private var selectedImage: PhotosPickerItem?
     @State private var isSelected = false
     
     init() {
@@ -67,7 +68,7 @@ struct ContentView: View {
                             photo.image
                                 .resizable()
                                 .scaledToFit()
-                                .frame(width: 250)
+                                .frame(width: 100)
                             Text(photo.name)
                                 .font(.subheadline)
                         }
@@ -84,7 +85,13 @@ struct ContentView: View {
                 }
             }
             .sheet(isPresented: $isSelected) {
-                //
+                PhotosPicker(selection: $selectedImage, label: {
+                    ContentUnavailableView {
+                        Label("Upload an image", systemImage: "photo.on.rectangle.fill")
+                    } description: {
+                        Text("Drag and drop")
+                    }
+                })
             }
         }
     }
