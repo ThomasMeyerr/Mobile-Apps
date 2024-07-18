@@ -64,14 +64,16 @@ struct ContentView: View {
                     NavigationLink {
                         DetailView(photo: photo)
                     } label: {
-                        VStack {
+                        HStack {
                             photo.image
                                 .resizable()
                                 .scaledToFit()
-                                .frame(width: 100)
+                                .frame(width: 50)
+                            Spacer()
                             Text(photo.name)
                                 .font(.subheadline)
                         }
+                        .padding()
                     }
                 }
                 .onDelete(perform: deletePhoto)
