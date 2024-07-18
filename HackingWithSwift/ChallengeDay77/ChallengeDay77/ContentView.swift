@@ -139,7 +139,15 @@ struct ContentView: View {
             let photo = Photo(id: UUID(), name: name, description: description, imageData: imageData)
             photos.array.append(photo)
             save()
+            resetForm()
         }
+    }
+    
+    func resetForm() {
+        name = ""
+        description = ""
+        selectedImage = nil
+        displayedImage = nil
         isSelected = false
     }
     
