@@ -8,7 +8,7 @@
 import Foundation
 
 @Observable
-class Data {
+class Data: ObservableObject{
     var isDarkMode = true
     
     

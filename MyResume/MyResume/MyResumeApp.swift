@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct MyResumeApp: App {
+    @StateObject private var data = Data()
+
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(data)
         }
     }
 }
