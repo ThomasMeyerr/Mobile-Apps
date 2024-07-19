@@ -5,6 +5,7 @@
 //  Created by Thomas Meyer on 19/07/2024.
 //
 
+import CoreLocation
 import SwiftUI
 
 struct Photo: Identifiable, Codable, Comparable {
@@ -12,6 +13,7 @@ struct Photo: Identifiable, Codable, Comparable {
     var name: String
     var description: String
     var imageData: Data
+    var location: CLLocationCoordinate2D?
     
     var image: Image {
         Image(uiImage: UIImage(data: imageData) ?? UIImage())
@@ -22,7 +24,7 @@ struct Photo: Identifiable, Codable, Comparable {
     }
     
     #if DEBUG
-    static let exemple = Photo(id: UUID(), name: "Random photo", description: "Just a regular random photo", imageData: Data())
+    static let exemple = Photo(id: UUID(), name: "Random photo", description: "Just a regular random photo", imageData: Data(), location: CLLocationCoordinate2D(latitude: 53, longitude: 53))
     #endif
 }
 

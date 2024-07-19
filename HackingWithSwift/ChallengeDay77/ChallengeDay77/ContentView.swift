@@ -10,6 +10,7 @@ import SwiftUI
 
 struct ContentView: View {
     let savePath = URL.documentsDirectory.appending(path: "PhotoSaver")
+    let locationFetcher = LocationFetcher()
     
     @State private var photos = Photos()
     @State private var isSelected = false
@@ -85,7 +86,9 @@ struct ContentView: View {
         Task {
             guard let imageData = try await selectedImage?.loadTransferable(type: Data.self) else { return }
             
-            let photo = Photo(id: UUID(), name: name, description: description, imageData: imageData)
+            locationFetcher.start()
+            let location = locationFetcher.lastKnownLocation ?? nil
+            let photo = Photo(id: UUID(), name: name, description: description, imageData: imageData, location: location)
             photos.array.append(photo)
             save()
             resetForm()
