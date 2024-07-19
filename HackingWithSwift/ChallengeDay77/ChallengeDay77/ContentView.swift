@@ -8,57 +8,6 @@
 import PhotosUI
 import SwiftUI
 
-struct Photo: Identifiable, Codable, Comparable {
-    var id: UUID
-    var name: String
-    var description: String
-    var imageData: Data
-    
-    var image: Image {
-        Image(uiImage: UIImage(data: imageData) ?? UIImage())
-    }
-    
-    static func <(lhs: Photo, rhs: Photo) -> Bool {
-        lhs.name < rhs.name
-    }
-}
-
-struct Photos {
-    let savePath = URL.documentsDirectory.appending(path: "PhotoSaver")
-
-    var array: [Photo]
-    
-    init() {
-        do {
-            let data = try Data(contentsOf: savePath)
-            array = try JSONDecoder().decode([Photo].self, from: data)
-            array.sort {
-                $0.name > $1.name
-            }
-        } catch {
-            array = []
-        }
-    }
-}
-
-struct DetailView: View {
-    let photo: Photo
-
-    var body: some View {
-        VStack {
-            photo.image
-                .resizable()
-                .scaledToFit()
-            
-            Text(photo.name)
-                .font(.title)
-            
-            Text(photo.description)
-                .font(.headline)
-        }
-    }
-}
-
 struct ContentView: View {
     let savePath = URL.documentsDirectory.appending(path: "PhotoSaver")
     
