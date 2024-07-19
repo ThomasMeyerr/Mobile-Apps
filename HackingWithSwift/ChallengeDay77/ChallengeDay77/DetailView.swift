@@ -11,13 +11,29 @@ import SwiftUI
 struct DetailView: View {
     let photo: Photo
     
+    @State private var isMapShow = false
+    
     var body: some View {
-        VStack {
-            ScrollView(.horizontal) {
-                photo.image
-                    .resizable()
-                    .scaledToFit()
+        VStack(alignment: .leading) {
+            photo.image
+                .resizable()
+                .scaledToFit()
+
+            Section {
+                Text(photo.name)
+                    .font(.title)
                 
+                Text(photo.description)
+                    .font(.subheadline)
+            }
+            .padding(.leading)
+            
+            Toggle(isOn: $isMapShow) {
+                Text("Show map ?")
+            }
+            .padding()
+            
+            if isMapShow {
                 if let location = photo.location {
                     Map(initialPosition: MapCameraPosition.region(
                         MKCoordinateRegion(
@@ -28,14 +44,6 @@ struct DetailView: View {
                         Marker(photo.name, coordinate: location)
                     }
                 }
-            }
-
-            Section {
-                Text(photo.name)
-                    .font(.title)
-                
-                Text(photo.description)
-                    .font(.subheadline)
             }
         }
     }
