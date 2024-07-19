@@ -16,11 +16,13 @@ struct DetailView: View {
                 .resizable()
                 .scaledToFit()
             
-            Text(photo.name)
-                .font(.title)
-            
-            Text(photo.description)
-                .font(.headline)
+            Section {
+                Text(photo.name)
+                    .font(.title)
+                
+                Text(photo.description)
+                    .font(.subheadline)
+            }
         }
     }
 }
