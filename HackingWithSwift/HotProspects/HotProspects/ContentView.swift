@@ -12,7 +12,14 @@ struct ContentView: View {
     var body: some View {
         TabView {
             Text("1")
+                .tabItem {
+                    Label("One", systemImage: "star")
+                }
+            
             Text("2")
+                .tabItem {
+                    Label("Two", systemImage: "circle")
+                }
         }
     }
 }
