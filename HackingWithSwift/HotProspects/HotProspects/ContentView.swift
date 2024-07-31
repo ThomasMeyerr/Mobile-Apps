@@ -19,6 +19,8 @@ struct ContentView: View {
         if !selection.isEmpty {
             Text("You selected \(selection.formatted())")
         }
+        
+        EditButton()
     }
 }
 
