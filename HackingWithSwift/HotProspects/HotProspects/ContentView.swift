@@ -8,24 +8,23 @@
 import SwiftUI
 
 struct ContentView: View {
-    
-    @State private var selectedTab = "One"
+    @State private var output = ""
     
     var body: some View {
-        TabView(selection: $selectedTab) {
-            Button("Show Tab 2") {
-                selectedTab = "Two"
+        Text(output)
+            .task {
+                await fetchReadings()
             }
-            .tabItem {
-                Label("One", systemImage: "star")
-            }
-            .tag("One")
-
-            Text("Tab 2")
-                .tabItem {
-                    Label("Two", systemImage: "circle")
-                }
-                .tag("Two")
+    }
+    
+    func fetchReadings() async {
+        do {
+            let url = URL(string: "https://hws.dev/readings.json")!
+            let (data, _) = try await URLSession.shared.data(from: url)
+            let readings = try JSONDecoder().decode([Double].self, from: data)
+            output = "Found \(readings.count) readings"
+        } catch {
+            print("Download error")
         }
     }
 }
