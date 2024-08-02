@@ -13,9 +13,15 @@ struct ContentView: View {
         List {
             Text("Taylor Swift")
                 .swipeActions {
-                    Button("Send message", systemImage: "message") {
-                        print("Hi")
+                    Button("Delete", systemImage: "minus.circle", role: .destructive) {
+                        print("Deleting")
                     }
+                }
+                .swipeActions(edge: .leading) {
+                    Button("Pin", systemImage: "pin") {
+                        print("Pinning")
+                    }
+                    .tint(.orange)
                 }
         }
     }
