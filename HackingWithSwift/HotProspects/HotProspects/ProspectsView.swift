@@ -42,14 +42,15 @@ struct ProspectsView: View {
 
     var body: some View {
         NavigationStack {
-            Text("People: \(prospects.count)")
-                .navigationTitle(title)
-                .toolbar {
-                    Button("Scan", systemImage: "qrcode.viewfinder") {
-                        let prospect = Prospect(name: "Paul Hudson", emailAddress: "paul@hackingwithswift.com", isContacted: false)
-                        modelContext.insert(prospect)
-                    }
+            List(prospects) { prospect in
+                VStack(alignment: .leading) {
+                    Text(prospect.name)
+                        .font(.headline)
+                    
+                    Text(prospect.emailAddress)
+                        .foregroundStyle(.secondary)
                 }
+            }
         }
     }
 }
