@@ -27,6 +27,18 @@ struct ProspectsView: View {
             "Uncontacted people"
         }
     }
+    
+    init(filter: FilterType) {
+        self.filter = filter
+        
+        if filter != .none {
+            let showContactOnly = filter == .contacted
+            
+            _prospects = Query(filter: #Predicate {
+                $0.isContacted == showContactOnly
+            }, sort: [SortDescriptor(\Prospect.name)])
+        }
+    }
 
     var body: some View {
         NavigationStack {
