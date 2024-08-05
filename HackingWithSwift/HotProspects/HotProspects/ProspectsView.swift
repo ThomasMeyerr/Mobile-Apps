@@ -5,6 +5,7 @@
 //  Created by Thomas Meyer on 04/08/2024.
 //
 
+import CodeScanner
 import SwiftData
 import SwiftUI
 
@@ -59,6 +60,10 @@ struct ProspectsView: View {
                 }
             }
         }
+    }
+    
+    func handleScan(result: Result<ScanResult, ScanError>) {
+        isShowingScanner = false
     }
 }
 
