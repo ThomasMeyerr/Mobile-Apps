@@ -5,9 +5,13 @@
 //  Created by Thomas Meyer on 04/08/2024.
 //
 
+import CoreImage.CIFilterBuiltins
 import SwiftUI
 
 struct MeView: View {
+    let context = CIContext()
+    let filter = CIFilter.qrCodeGenerator()
+    
     @AppStorage("name") private var name = "Anonymous"
     @AppStorage("emailAddress") private var emailAddress = "you@yoursite.com"
     
