@@ -19,6 +19,7 @@ struct ProspectsView: View {
     @State private var isShowingScanner = false
     @State private var isShowingAlert = false
     @State private var alertMessage = ""
+    @State private var selectedProspects = Set<Prospect>()
     
     let filter: FilterType
     var title: String {
@@ -46,7 +47,7 @@ struct ProspectsView: View {
 
     var body: some View {
         NavigationStack {
-            List(prospects) { prospect in
+            List(prospects, selection: $selectedProspects) { prospect in
                 VStack(alignment: .leading) {
                     Text(prospect.name)
                         .font(.headline)
@@ -71,6 +72,7 @@ struct ProspectsView: View {
                         .tint(.green)
                     }
                 }
+                .tag(prospect)
             }
             .navigationTitle(title)
             .toolbar {
