@@ -17,6 +17,8 @@ struct ProspectsView: View {
     @Query(sort: \Prospect.name) var prospects: [Prospect]
     @Environment(\.modelContext) var modelContext
     @State private var isShowingScanner = false
+    @State private var isShowingAlert = false
+    @State private var alertMessage = ""
     
     let filter: FilterType
     var title: String {
@@ -62,11 +64,26 @@ struct ProspectsView: View {
             .sheet(isPresented: $isShowingScanner) {
                 CodeScannerView(codeTypes: [.qr], simulatedData: "Paul Hudson\npaul@hackingwithswift.com", completion: handleScan)
             }
+            .alert(alertMessage, isPresented: $isShowingAlert) {
+                Button("Got it", role: .cancel) {}
+            }
         }
     }
     
     func handleScan(result: Result<ScanResult, ScanError>) {
         isShowingScanner = false
+        
+        switch result {
+        case.success(let result):
+            let details = result.string.components(separatedBy: "\n")
+            guard details.count == 2 else { return }
+            
+            let person = Prospect(name: details[0], emailAddress: details[1], isContacted: false)
+            modelContext.insert(person)
+        case .failure:
+            alertMessage = "QR code scan has failed."
+            isShowingAlert = true
+        }
     }
 }
 
