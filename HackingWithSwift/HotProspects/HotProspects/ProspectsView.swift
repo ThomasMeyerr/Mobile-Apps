@@ -55,6 +55,10 @@ struct ProspectsView: View {
                         .foregroundStyle(.secondary)
                 }
                 .swipeActions {
+                    Button("Delete", systemImage: "trash", role: .destructive) {
+                        modelContext.delete(prospect)
+                    }
+                    
                     if prospect.isContacted {
                         Button("Mark Uncontacted", systemImage: "person.crop.circle.badge.xmark") {
                             prospect.isContacted.toggle()
