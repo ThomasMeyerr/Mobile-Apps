@@ -76,8 +76,20 @@ struct ProspectsView: View {
             }
             .navigationTitle(title)
             .toolbar {
-                Button("Scan", systemImage: "qrcode.viewfinder") {
-                    isShowingScanner = true
+                ToolbarItem {
+                    Button("Scan", systemImage: "qrcode.viewfinder") {
+                        isShowingScanner = true
+                    }
+                }
+                
+                ToolbarItem(placement: .topBarLeading) {
+                    EditButton()
+                }
+                
+                if !selectedProspects.isEmpty {
+                    ToolbarItem(placement: .bottomBar) {
+                        Button("Delete Selected", action: delete)
+                    }
                 }
             }
             .sheet(isPresented: $isShowingScanner) {
@@ -102,6 +114,12 @@ struct ProspectsView: View {
         case .failure:
             alertMessage = "QR code scan has failed."
             isShowingAlert = true
+        }
+    }
+    
+    func delete() {
+        for prospect in selectedProspects {
+            modelContext.delete(prospect)
         }
     }
 }
