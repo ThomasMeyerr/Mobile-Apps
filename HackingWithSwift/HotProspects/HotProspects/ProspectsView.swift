@@ -46,7 +46,7 @@ struct ProspectsView: View {
                 VStack(alignment: .leading) {
                     Text(prospect.name)
                         .font(.headline)
-                    
+
                     Text(prospect.emailAddress)
                         .foregroundStyle(.secondary)
                 }
