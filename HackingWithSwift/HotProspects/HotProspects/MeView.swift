@@ -31,6 +31,11 @@ struct MeView: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 200)
+                    .contextMenu {
+                        let image = generateQRCode(from: "\(name)\n\(emailAddress)")
+                        
+                        ShareLink(item: Image(uiImage: image), preview: SharePreview("My QR Code", image: Image(uiImage: image)))
+                    }
             }
             .navigationTitle("Your code")
         }
