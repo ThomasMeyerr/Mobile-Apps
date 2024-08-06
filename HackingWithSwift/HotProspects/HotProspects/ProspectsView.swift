@@ -141,6 +141,21 @@ struct ProspectsView: View {
             let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
             center.add(request)
         }
+        
+        center.getNotificationSettings { settings in
+            if settings.authorizationStatus == .authorized {
+                addRequest()
+            } else {
+                center.requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+                    if success {
+                        addRequest()
+                    } else if let error {
+                        alertMessage = "Request authorization for notifications failed."
+                        isShowingAlert = true
+                    }
+                }
+            }
+        }
     }
 }
 
