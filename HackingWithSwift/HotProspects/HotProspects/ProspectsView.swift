@@ -49,23 +49,27 @@ struct ProspectsView: View {
     var body: some View {
         NavigationStack {
             List(prospects, selection: $selectedProspects) { prospect in
-                HStack {
-                    if filter == .none {
-                        if prospect.isContacted {
-                            Image(systemName: "person.crop.circle.fill.badge.checkmark")
-                                .foregroundStyle(.green)
-                        } else {
-                            Image(systemName: "person.crop.circle.badge.xmark")
-                                .foregroundStyle(.blue)
+                NavigationLink {
+                    EditView(prospect: prospect)
+                } label: {
+                    HStack {
+                        if filter == .none {
+                            if prospect.isContacted {
+                                Image(systemName: "person.crop.circle.fill.badge.checkmark")
+                                    .foregroundStyle(.green)
+                            } else {
+                                Image(systemName: "person.crop.circle.badge.xmark")
+                                    .foregroundStyle(.blue)
+                            }
                         }
-                    }
-                    
-                    VStack(alignment: .leading) {
-                        Text(prospect.name)
-                            .font(.headline)
                         
-                        Text(prospect.emailAddress)
-                            .foregroundStyle(.secondary)
+                        VStack(alignment: .leading) {
+                            Text(prospect.name)
+                                .font(.headline)
+                            
+                            Text(prospect.emailAddress)
+                                .foregroundStyle(.secondary)
+                        }
                     }
                 }
                 .swipeActions {
@@ -165,7 +169,7 @@ struct ProspectsView: View {
                 center.requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
                     if success {
                         addRequest()
-                    } else if let error {
+                    } else {
                         alertMessage = "Request authorization for notifications failed."
                         isShowingAlert = true
                     }
