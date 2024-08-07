@@ -15,7 +15,7 @@ struct ProspectsView: View {
         case none, contacted, uncontacted
     }
     
-    @Query(sort: \Prospect.name) var prospects: [Prospect]
+    @Query var prospects: [Prospect]
     @Environment(\.modelContext) var modelContext
     @State private var isShowingScanner = false
     @State private var isShowingAlert = false
@@ -34,8 +34,9 @@ struct ProspectsView: View {
         }
     }
     
-    init(filter: FilterType) {
+    init(filter: FilterType, sort: SortDescriptor<Prospect>) {
         self.filter = filter
+        _prospects = Query(sort: [sort])
         
         if filter != .none {
             let showContactOnly = filter == .contacted
@@ -180,6 +181,6 @@ struct ProspectsView: View {
 }
 
 #Preview {
-    ProspectsView(filter: .none)
+    ProspectsView(filter: .none, sort: SortDescriptor(\Prospect.name))
         .modelContainer(for: Prospect.self)
 }
