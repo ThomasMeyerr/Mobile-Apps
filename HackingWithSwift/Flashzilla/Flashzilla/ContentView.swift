@@ -8,14 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
-    @Environment(\.accessibilityReduceTransparency) var reduceTransparency
     
     var body: some View {
-        Text("Hello, world!")
-            .padding()
-            .background(reduceTransparency ? .black : .black.opacity(0.5))
-            .foregroundStyle(.white)
-            .clipShape(.capsule)
+        Text("Hello, world!")=
     }
 }
 
