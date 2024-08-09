@@ -8,17 +8,10 @@
 import SwiftUI
 
 struct ContentView: View {
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     var body: some View {
-        VStack {
-            Text("Hello")
-            Spacer().frame(height: 100)
-            Text("World")
-        }
-        .contentShape(.rect)
-        .onTapGesture {
-            print("VStack tapped!")
-        }
+        
     }
 }
 
