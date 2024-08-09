@@ -8,20 +8,20 @@
 import SwiftUI
 
 struct ContentView: View {
-    @Environment(\.accessibilityDifferentiateWithoutColor) var differentiateWithoutColor
+    @Environment(\.accessibilityReduceMotion) var reduceMotion
+    @State private var scale = 1.0
     
     var body: some View {
-        HStack {
-            if differentiateWithoutColor {
-                Image(systemName: "checkmark.circle")
+        Button("Hello, world!") {
+            if reduceMotion {
+                scale *= 1.5
+            } else {
+                withAnimation {
+                    scale *= 1.5
+                }
             }
-            
-            Text("Success")
         }
-        .padding()
-        .background(differentiateWithoutColor ? .black : .green)
-        .foregroundStyle(.white)
-        .clipShape(.capsule)
+        .scaleEffect(scale)
     }
 }
 
