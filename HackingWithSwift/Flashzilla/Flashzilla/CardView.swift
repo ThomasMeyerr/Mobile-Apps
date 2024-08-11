@@ -11,6 +11,7 @@ struct CardView: View {
     let card: Card
     
     @State private var isShowingAnswer = false
+    @State private var offset = CGSize.zero
 
     var body: some View {
         ZStack {
@@ -33,6 +34,9 @@ struct CardView: View {
             .multilineTextAlignment(.center)
         }
         .frame(width: 450, height: 250)
+        .rotationEffect(.degrees(offset.width / 5.0))
+        .offset(x: offset.width * 5)
+        .opacity(2 - Double(abs(offset.width / 50)))
         .onTapGesture {
             isShowingAnswer.toggle()
         }
