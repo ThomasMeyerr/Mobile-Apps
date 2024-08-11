@@ -16,6 +16,7 @@ extension View {
 
 struct ContentView: View {
     @State private var cards = Array<Card>(repeating: .example, count: 10)
+    @State private var offset = CGSize.zero
     
     var body: some View {
         ZStack {
