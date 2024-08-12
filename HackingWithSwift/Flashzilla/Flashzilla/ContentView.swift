@@ -15,11 +15,14 @@ extension View {
 }
 
 struct ContentView: View {
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+
     @Environment(\.accessibilityDifferentiateWithoutColor) var accessibilityDifferentiateWithoutColor
+    @Environment(\.scenePhase) var scenePhase
     @State private var cards = Array<Card>(repeating: .example, count: 10)
     @State private var timeRemaining = 100
-    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-    
+    @State private var isActive = true
+
     var body: some View {
         ZStack {
             Image(.background)
@@ -69,8 +72,17 @@ struct ContentView: View {
             }
         }
         .onReceive(timer) { time in
+            guard isActive else { return }
+            
             if timeRemaining > 0 {
                 timeRemaining -= 1
+            }
+        }
+        .onChange(of: scenePhase) {
+            if scenePhase == .active {
+                isActive = true
+            } else {
+                isActive = false
             }
         }
     }
