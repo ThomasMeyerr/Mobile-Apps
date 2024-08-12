@@ -89,7 +89,9 @@ struct ContentView: View {
         }
         .onChange(of: scenePhase) {
             if scenePhase == .active {
-                isActive = true
+                if !cards.isEmpty {
+                    isActive = true
+                }
             } else {
                 isActive = false
             }
