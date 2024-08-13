@@ -1,5 +1,5 @@
 //
-//  EditCard.swift
+//  EditCards.swift
 //  Flashzilla
 //
 //  Created by Thomas Meyer on 13/08/2024.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct EditCard: View {
+struct EditCards: View {
     @Environment(\.dismiss) var dismiss
     @State private var cards = [Card]()
     @State private var newPrompt = ""
@@ -77,5 +77,5 @@ struct EditCard: View {
 }
 
 #Preview {
-    EditCard()
+    EditCards()
 }

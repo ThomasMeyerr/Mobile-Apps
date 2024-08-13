@@ -137,6 +137,9 @@ struct ContentView: View {
                 isActive = false
             }
         }
+        .sheet(isPresented: $showingEditScreen, onDismiss: resetCards) {
+            EditCards()
+        }
     }
     
     func removeCard(at index: Int) {
