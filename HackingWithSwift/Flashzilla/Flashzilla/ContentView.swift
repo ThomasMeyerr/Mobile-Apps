@@ -23,6 +23,7 @@ struct ContentView: View {
     @State private var cards = Array<Card>(repeating: .example, count: 10)
     @State private var timeRemaining = 100
     @State private var isActive = true
+    @State private var showingEditScreen = false
 
     var body: some View {
         ZStack {
@@ -61,6 +62,25 @@ struct ContentView: View {
                     }
                 }
             }
+            
+            VStack {
+                HStack {
+                    Spacer()
+                    
+                    Button {
+                        showingEditScreen = true
+                    } label: {
+                        Image(systemName: "plus.circle")
+                            .padding()
+                            .background(.black.opacity(0.7))
+                            .clipShape(.circle)
+                    }
+                }
+                Spacer()
+            }
+            .foregroundStyle(.white)
+            .font(.largeTitle)
+            .padding()
             
             if accessibilityDifferentiateWithoutColor || accessibilityVoiceOverEnabled {
                 VStack {
