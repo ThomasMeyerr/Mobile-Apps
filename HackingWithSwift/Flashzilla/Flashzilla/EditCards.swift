@@ -5,11 +5,13 @@
 //  Created by Thomas Meyer on 13/08/2024.
 //
 
+import SwiftData
 import SwiftUI
 
 struct EditCards: View {
     @Environment(\.dismiss) var dismiss
-    @State private var cards = [Card]()
+    @Environment(\.modelContext) var modelContext
+    @Query var cards: [Card]
     @State private var newPrompt = ""
     @State private var newAnswer = ""
 
@@ -23,7 +25,7 @@ struct EditCards: View {
                 }
                 
                 Section {
-                    ForEach(0..<cards.count, id: \.self) { index in
+                    ForEach(cards.indices, id: \.self) { index in
                         VStack(alignment: .leading) {
                             Text(cards[index].prompt)
                                 .font(.headline)
@@ -38,26 +40,11 @@ struct EditCards: View {
             .toolbar {
                 Button("Done", action: done)
             }
-            .onAppear(perform: loadData)
         }
     }
     
     func done() {
         dismiss()
-    }
-    
-    func loadData() {
-        if let data = UserDefaults.standard.data(forKey: "Cards") {
-            if let decoded = try? JSONDecoder().decode([Card].self, from: data) {
-                cards = decoded
-            }
-        }
-    }
-    
-    func saveData() {
-        if let data = try? JSONEncoder().encode(cards) {
-            UserDefaults.standard.set(data, forKey: "Cards")
-        }
     }
     
     func addCard() {
@@ -66,15 +53,18 @@ struct EditCards: View {
         guard !trimmedPrompt.isEmpty && !trimmedAnser.isEmpty else { return }
         
         let card = Card(prompt: trimmedPrompt, answer: trimmedAnser)
-        cards.insert(card, at: 0)
-        saveData()
+        modelContext.insert(card)
         newPrompt = ""
         newAnswer = ""
     }
     
     func removeCards(at offsets: IndexSet) {
-        cards.remove(atOffsets: offsets)
-        saveData()
+        for offset in offsets {
+            // find the right card
+            let card = cards[offset]
+            
+            modelContext.delete(card)
+        }
     }
 }
 

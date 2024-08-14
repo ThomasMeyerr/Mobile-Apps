@@ -5,6 +5,7 @@
 //  Created by Thomas Meyer on 08/08/2024.
 //
 
+import SwiftData
 import SwiftUI
 
 extension View {
@@ -20,7 +21,8 @@ struct ContentView: View {
     @Environment(\.accessibilityDifferentiateWithoutColor) var accessibilityDifferentiateWithoutColor
     @Environment(\.accessibilityVoiceOverEnabled) var accessibilityVoiceOverEnabled
     @Environment(\.scenePhase) var scenePhase
-    @State private var cards = [Card]()
+    @Environment(\.modelContext) var modelContext
+    @Query var cards: [Card]
     @State private var timeRemaining = 100
     @State private var isActive = true
     @State private var showingEditScreen = false
@@ -41,7 +43,7 @@ struct ContentView: View {
                     .clipShape(.capsule)
                 
                 ZStack {
-                    ForEach(0..<cards.count, id: \.self) { index in
+                    ForEach(cards.indices, id: \.self) { index in
                         CardView(card: cards[index]) {
                             withAnimation {
                                 removeCard(at: index)
@@ -144,7 +146,8 @@ struct ContentView: View {
     func removeCard(at index: Int) {
         guard index >= 0 else { return }
         
-        cards.remove(at: index)
+        let card = cards[index]
+        modelContext.delete(card)
         
         if cards.isEmpty {
             isActive = false
@@ -154,15 +157,6 @@ struct ContentView: View {
     func resetCards() {
         timeRemaining = 100
         isActive = true
-        loadData()
-    }
-    
-    func loadData() {
-        if let data = UserDefaults.standard.data(forKey: "Cards") {
-            if let decoded = try? JSONDecoder().decode([Card].self, from: data) {
-                cards = decoded
-            }
-        }
     }
 }
 
