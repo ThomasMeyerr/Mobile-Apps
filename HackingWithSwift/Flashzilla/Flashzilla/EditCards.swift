@@ -68,6 +68,8 @@ struct EditCards: View {
         let card = Card(prompt: trimmedPrompt, answer: trimmedAnser)
         cards.insert(card, at: 0)
         saveData()
+        newPrompt = ""
+        newAnswer = ""
     }
     
     func removeCards(at offsets: IndexSet) {
