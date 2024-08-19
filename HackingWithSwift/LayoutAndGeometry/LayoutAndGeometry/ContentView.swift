@@ -9,9 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .background(.red)
-            .padding(20)
+        Color.red
     }
 }
 
