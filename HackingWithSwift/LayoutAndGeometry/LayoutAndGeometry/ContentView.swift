@@ -9,9 +9,12 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .background(.red)
-            .offset(x: 100, y: 100)
+        GeometryReader { proxy in
+            Image(.example)
+                .resizable()
+                .scaledToFit()
+                .frame(width: proxy.size.width * 0.8)
+        }
     }
 }
 
