@@ -9,11 +9,17 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        GeometryReader { proxy in
+        HStack {
+            Text("IMPORTANT")
+                .frame(width: 200)
+                .background(.blue)
+            
             Image(.example)
                 .resizable()
                 .scaledToFit()
-                .frame(width: proxy.size.width * 0.8)
+                .containerRelativeFrame(.horizontal) { size, axis in
+                    size * 0.8
+                }
         }
     }
 }
