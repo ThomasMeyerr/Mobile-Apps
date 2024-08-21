@@ -17,7 +17,7 @@ struct ContentView: View {
                     GeometryReader { proxy in
                         Text("Row #\(index)")
                             .font(.title)
-                            .frame(maxWidth: .infinity)
+                            .frame(maxWidth: .infinity, minHeight: max(0.5, proxy.frame(in: .global).minY / 10))
                             .background(colors[index % 7].opacity(proxy.frame(in: .global).minY / 200.0))
                             .rotation3DEffect(.degrees(proxy.frame(in: .global).minY - fullView.size.height / 2) / 5, axis: (x: 0, y: 1, z: 0))
                     }
