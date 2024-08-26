@@ -18,11 +18,13 @@ class PreviousDice {
 }
 
 struct ContentView: View {
+    @Environment(\.modelContext) var modelContext
+    @Query var previousDices: [PreviousDice]
     @State private var diceNumber = 0
     @State private var diceType = 0
     @State private var diceTotal = 0
-    @Environment(\.modelContext) var modelContext
-    @Query var previousDices: [PreviousDice]
+    @State private var message = String()
+    @State private var done = false
     
     var body: some View {
         if !previousDices.isEmpty {
@@ -39,12 +41,12 @@ struct ContentView: View {
         
         Form {
             Section("Combien de dés ?") {
-                TextField("Dice number", value: $diceNumber, formatter: NumberFormatter())
+                TextField("1, 2, 5, 10", value: $diceNumber, formatter: NumberFormatter())
                     .keyboardType(.decimalPad)
             }
             
             Section("Quel type de dé ? 2, 3, 4 faces ou plus ?") {
-                TextField("Quel type de dé ? 2, 3, 4 faces ou plus ?", value: $diceType, formatter: NumberFormatter())
+                TextField("2, 3, 20, 100", value: $diceType, formatter: NumberFormatter())
                     .keyboardType(.decimalPad)
             }
         }
@@ -58,23 +60,37 @@ struct ContentView: View {
             .clipShape(.capsule)
             .disabled(diceNumber > 0 && diceType > 1 ? false : true)
             .sensoryFeedback(.impact, trigger: diceTotal)
+            .animation(.easeInOut, value: 1)
         
         if diceTotal != 0 {
-            Text("Total des dés : \(diceTotal)")
+            Text(message)
                 .font(.largeTitle)
             
-            Button("Save", action: saveData)
+            if done {
+                Button("Save", action: saveData)
+                    .buttonStyle(.borderedProminent)
+            }
         }
     }
     
     func rollDices() {
         var dices = [Int]()
-        
-        for _ in 0..<diceNumber {
-            dices.append(Int.random(in: 1...diceType))
+    
+        for i in 0..<4 {
+            DispatchQueue.main.asyncAfter(deadline: .now() + Double(i)) {
+                dices.removeAll()
+                for _ in 0..<diceNumber {
+                    dices.append(Int.random(in: 1...diceType))
+                }
+                diceTotal = dices.reduce(0, +)
+                message = String(diceTotal)
+                
+                if i == 3 {
+                    done = true
+                    message = "Total des dés : \(diceTotal)"
+                }
+            }
         }
-        
-        diceTotal = dices.reduce(0, +)
     }
     
     func saveData() {
@@ -87,6 +103,7 @@ struct ContentView: View {
         diceNumber = 0
         diceType = 0
         diceTotal = 0
+        done = false
     }
 }
 
