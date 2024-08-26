@@ -26,7 +26,15 @@ struct ContentView: View {
     
     var body: some View {
         if !previousDices.isEmpty {
-            // code here
+            HStack {
+                Text("Jets précédent : ")
+                    .font(.headline)
+                
+                ForEach(previousDices, id: \.self) { dice in
+                    Text("\(dice.total)")
+                        .padding(.horizontal, 4)
+                }
+            }
         }
         
         Form {
@@ -48,6 +56,7 @@ struct ContentView: View {
             .background(.blue)
             .foregroundStyle(.white)
             .clipShape(.capsule)
+            .disabled(diceNumber > 0 && diceType > 1 ? false : true)
         
         if diceTotal != 0 {
             Text("Total des dés : \(diceTotal)")
