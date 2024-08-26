@@ -57,6 +57,7 @@ struct ContentView: View {
             .foregroundStyle(.white)
             .clipShape(.capsule)
             .disabled(diceNumber > 0 && diceType > 1 ? false : true)
+            .sensoryFeedback(.impact, trigger: diceTotal)
         
         if diceTotal != 0 {
             Text("Total des dés : \(diceTotal)")
