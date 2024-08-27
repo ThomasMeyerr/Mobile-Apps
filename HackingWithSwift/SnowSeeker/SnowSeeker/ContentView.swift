@@ -19,9 +19,22 @@ struct UserView: View {
 }
 
 struct ContentView: View {
+    @State private var layoutVertically = false
     
     var body: some View {
-        
+        Button {
+            layoutVertically.toggle()
+        } label: {
+            if layoutVertically {
+                VStack {
+                    UserView()
+                }
+            } else {
+                HStack {
+                    UserView()
+                }
+            }
+        }
     }
 }
 
