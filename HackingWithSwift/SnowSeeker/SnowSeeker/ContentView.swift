@@ -9,13 +9,15 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        NavigationSplitView {
+        NavigationSplitView(columnVisibility: .constant(.all)) {
             NavigationLink("Primary") {
                 Text("New View")
             }
         } detail: {
             Text("Content")
+                .navigationTitle("Content View")
         }
+        .navigationSplitViewStyle(.balanced)
     }
 }
 
