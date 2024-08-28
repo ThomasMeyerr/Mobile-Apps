@@ -8,10 +8,14 @@
 import SwiftUI
 
 struct ResortDetailsView: View {
-    var size: String {
-        ["Small", "Average", "Large"][resort.size - 1]
-    }
     let resort: Resort
+    var size: String {
+        switch resort.size {
+        case 1: "Small"
+        case 2: "Average"
+        default: "Large"
+        }
+    }
 
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
