@@ -13,6 +13,7 @@
 		165EDC942C7DB40E00D122B4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 165EDC932C7DB40E00D122B4 /* Preview Assets.xcassets */; };
 		16812F7B2C7F089E000E70CB /* resorts.json in Resources */ = {isa = PBXBuildFile; fileRef = 16812F7A2C7F089E000E70CB /* resorts.json */; };
 		16812F7D2C7F092F000E70CB /* Resort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16812F7C2C7F092F000E70CB /* Resort.swift */; };
+		16812F7F2C7F0DB5000E70CB /* Bundle-decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16812F7E2C7F0DB5000E70CB /* Bundle-decodable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		165EDC932C7DB40E00D122B4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		16812F7A2C7F089E000E70CB /* resorts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = resorts.json; sourceTree = "<group>"; };
 		16812F7C2C7F092F000E70CB /* Resort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resort.swift; sourceTree = "<group>"; };
+		16812F7E2C7F0DB5000E70CB /* Bundle-decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-decodable.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				165EDC8C2C7DB40A00D122B4 /* SnowSeekerApp.swift */,
 				165EDC8E2C7DB40A00D122B4 /* ContentView.swift */,
 				16812F7C2C7F092F000E70CB /* Resort.swift */,
+				16812F7E2C7F0DB5000E70CB /* Bundle-decodable.swift */,
 				165EDC902C7DB40E00D122B4 /* Assets.xcassets */,
 				165EDC922C7DB40E00D122B4 /* Preview Content */,
 			);
@@ -147,6 +150,7 @@
 				165EDC8F2C7DB40A00D122B4 /* ContentView.swift in Sources */,
 				16812F7D2C7F092F000E70CB /* Resort.swift in Sources */,
 				165EDC8D2C7DB40A00D122B4 /* SnowSeekerApp.swift in Sources */,
+				16812F7F2C7F0DB5000E70CB /* Bundle-decodable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
