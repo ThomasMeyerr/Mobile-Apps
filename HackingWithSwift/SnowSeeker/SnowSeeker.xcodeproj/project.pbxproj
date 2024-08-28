@@ -15,6 +15,7 @@
 		16812F7D2C7F092F000E70CB /* Resort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16812F7C2C7F092F000E70CB /* Resort.swift */; };
 		16812F7F2C7F0DB5000E70CB /* Bundle-decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16812F7E2C7F0DB5000E70CB /* Bundle-decodable.swift */; };
 		16812F812C7F11D6000E70CB /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16812F802C7F11D6000E70CB /* WelcomeView.swift */; };
+		16812F832C7F17D5000E70CB /* ResortView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16812F822C7F17D5000E70CB /* ResortView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		16812F7C2C7F092F000E70CB /* Resort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resort.swift; sourceTree = "<group>"; };
 		16812F7E2C7F0DB5000E70CB /* Bundle-decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-decodable.swift"; sourceTree = "<group>"; };
 		16812F802C7F11D6000E70CB /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		16812F822C7F17D5000E70CB /* ResortView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResortView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				16812F7A2C7F089E000E70CB /* resorts.json */,
 				165EDC8C2C7DB40A00D122B4 /* SnowSeekerApp.swift */,
 				165EDC8E2C7DB40A00D122B4 /* ContentView.swift */,
+				16812F822C7F17D5000E70CB /* ResortView.swift */,
 				16812F802C7F11D6000E70CB /* WelcomeView.swift */,
 				16812F7C2C7F092F000E70CB /* Resort.swift */,
 				16812F7E2C7F0DB5000E70CB /* Bundle-decodable.swift */,
@@ -153,6 +156,7 @@
 				165EDC8F2C7DB40A00D122B4 /* ContentView.swift in Sources */,
 				16812F7D2C7F092F000E70CB /* Resort.swift in Sources */,
 				165EDC8D2C7DB40A00D122B4 /* SnowSeekerApp.swift in Sources */,
+				16812F832C7F17D5000E70CB /* ResortView.swift in Sources */,
 				16812F812C7F11D6000E70CB /* WelcomeView.swift in Sources */,
 				16812F7F2C7F0DB5000E70CB /* Bundle-decodable.swift in Sources */,
 			);
