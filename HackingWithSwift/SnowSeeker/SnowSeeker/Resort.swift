@@ -19,4 +19,8 @@ struct Resort: Codable, Hashable, Identifiable {
     var elevation: Int
     var runs: Int
     var facilities: [String]
+    
+    #if DEBUG
+    static let example = (Bundle.main.decode("resorts.json") as [Resort])[0]
+    #endif
 }
