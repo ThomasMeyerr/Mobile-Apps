@@ -19,6 +19,7 @@ struct ContentView: View {
     }
     
     @State private var searchText = ""
+    @State private var favorites = Favorites()
     
     var body: some View {
         NavigationSplitView {
@@ -54,6 +55,7 @@ struct ContentView: View {
         } detail: {
             WelcomeView()
         }
+        .environment(favorites)
     }
 }
 
