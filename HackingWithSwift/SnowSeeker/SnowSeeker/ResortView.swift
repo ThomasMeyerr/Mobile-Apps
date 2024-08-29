@@ -12,6 +12,7 @@ struct ResortView: View {
     
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     @Environment(\.dynamicTypeSize) var dynamicTypeSize
+    @Environment(Favorites.self) var favorites
     @State private var selectedFacility: Facility?
     @State private var showingFacility = false
 
@@ -69,4 +70,5 @@ struct ResortView: View {
 
 #Preview {
     ResortView(resort: .example)
+        .environment(Favorites())
 }
