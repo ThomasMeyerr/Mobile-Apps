@@ -20,12 +20,8 @@ struct Facility: Identifiable {
     ]
     
     var icon: some View {
-        if let iconName = icons[name] {
-            Image(systemName: iconName)
-                .accessibilityLabel(name)
-                .foregroundStyle(.secondary)
-        } else {
-            fatalError("Unknown facility type: \(name)")
-        }
+        Image(systemName: icons[name] ?? "questionmark.circle")
+            .accessibilityLabel(name)
+            .foregroundStyle(.secondary)
     }
 }
