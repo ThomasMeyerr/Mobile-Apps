@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct ImageOverlay: View {
+    var credit: String
+
     var body: some View {
         VStack {
-            Text("Credit: Unsplash.fr")
+            Text("Credit: \(credit)")
                 .font(.caption)
                 .padding(6)
                 .foregroundStyle(.white)
@@ -37,7 +39,7 @@ struct ResortView: View {
                 Image(decorative: resort.id)
                     .resizable()
                     .scaledToFit()
-                    .overlay(ImageOverlay(), alignment: .bottomTrailing)
+                    .overlay(ImageOverlay(credit: resort.imageCredit), alignment: .bottomTrailing)
                 
                 HStack {
                     if horizontalSizeClass == .compact && dynamicTypeSize > .large {
