@@ -7,6 +7,21 @@
 
 import SwiftUI
 
+struct ImageOverlay: View {
+    var body: some View {
+        VStack {
+            Text("Credit: Unsplash.fr")
+                .font(.caption)
+                .padding(6)
+                .foregroundStyle(.white)
+        }
+        .background(.black)
+        .opacity(0.8)
+        .cornerRadius(10)
+        .padding(6)
+    }
+}
+
 struct ResortView: View {
     let resort: Resort
     
@@ -22,6 +37,7 @@ struct ResortView: View {
                 Image(decorative: resort.id)
                     .resizable()
                     .scaledToFit()
+                    .overlay(ImageOverlay(), alignment: .bottomTrailing)
                 
                 HStack {
                     if horizontalSizeClass == .compact && dynamicTypeSize > .large {
