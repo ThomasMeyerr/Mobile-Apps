@@ -45,7 +45,7 @@ class Data: ObservableObject{
     
 /* ----- MAIN VIEW ----- */
     /*Languages */
-    let languages = ["C", "Cpp", "Swift", "Python", "Django"]
+    let languages = ["C", "Cpp", "Swift", "Python", "Django", "Html", "Css", "Js"]
     
     /* HardSkills */
     let hardSkills = ["Git", "Github", "Docker"]
