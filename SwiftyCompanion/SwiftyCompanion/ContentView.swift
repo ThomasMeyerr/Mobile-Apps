@@ -16,13 +16,12 @@ struct ContentView: View {
                 Image("42_logo")
                 
                 Button() {
+                    // action
                 } label: {
                     ZStack {
-                        Rectangle()
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(Color(red: 0/255, green: 188/255, blue: 154/255))
                             .frame(width: geometry.size.width * 0.8, height: geometry.size.height * 0.1)
-                            .foregroundStyle(Color(red: 0, green: 188, blue: 154))
-                            .clipShape(.rect(cornerRadius: 10))
-                            .padding()
                         
                         Text("SIGN IN")
                             .foregroundStyle(.white)
@@ -30,11 +29,17 @@ struct ContentView: View {
                             .font(.title)
                     }
                 }
-                .padding()
+                .padding(.top, 20)
                 
                 Spacer()
             }
-            .background(Image("42_background").scaledToFit())
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(
+                Image("42_background")
+                    .resizable()
+                    .scaledToFill()
+                    .ignoresSafeArea()
+            )
         }
     }
 }
