@@ -29,7 +29,10 @@ struct ContentView: View {
                             .font(.title)
                     }
                 }
-                .padding(.top, 20)
+                .padding()
+                
+                Text("This is the main menu of the app")
+                    .foregroundStyle(.gray)
                 
                 Spacer()
             }
