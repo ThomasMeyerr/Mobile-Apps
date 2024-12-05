@@ -9,13 +9,31 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        GeometryReader { geometry in
+            VStack {
+                Spacer()
+                
+                Image("42_logo")
+                
+                Button() {
+                } label: {
+                    ZStack {
+                        Rectangle()
+                            .frame(width: geometry.size.width * 0.8, height: geometry.size.height * 0.1)
+                            .foregroundStyle(Color(red: 0, green: 188, blue: 154))
+                            .padding()
+                        Text("SIGN IN")
+                            .foregroundStyle(.white)
+                            .bold()
+                            .font(.title)
+                    }
+                }
+                .padding()
+                
+                Spacer()
+            }
+            .background(Image("42_background").scaledToFit())
         }
-        .padding()
     }
 }
 
