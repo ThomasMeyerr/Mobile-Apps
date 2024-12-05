@@ -21,7 +21,9 @@ struct ContentView: View {
                         Rectangle()
                             .frame(width: geometry.size.width * 0.8, height: geometry.size.height * 0.1)
                             .foregroundStyle(Color(red: 0, green: 188, blue: 154))
+                            .clipShape(.rect(cornerRadius: 10))
                             .padding()
+                        
                         Text("SIGN IN")
                             .foregroundStyle(.white)
                             .bold()
