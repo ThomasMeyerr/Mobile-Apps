@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var isSheet = false
+    
     var body: some View {
         GeometryReader { geometry in
             VStack {
@@ -16,7 +18,7 @@ struct ContentView: View {
                 Image("42_logo")
                 
                 Button() {
-                    // action
+                    isSheet = true
                 } label: {
                     ZStack {
                         RoundedRectangle(cornerRadius: 10)
@@ -43,6 +45,9 @@ struct ContentView: View {
                     .scaledToFill()
                     .ignoresSafeArea()
             )
+        }
+        .sheet(isPresented: $isSheet) {
+            _42View()
         }
     }
 }
