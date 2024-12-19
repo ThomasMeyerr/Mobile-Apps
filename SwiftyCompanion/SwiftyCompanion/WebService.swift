@@ -17,6 +17,14 @@ enum NetworkError: Error {
 }
 
 
+struct Data: Identifiable, Codable {
+    let userId: Int
+    let id: Int
+    let title: String
+    let body: String
+}
+
+
 func downloadData<T: Codable>(fromUrl: String) async -> T? {
     do {
         guard let url = URL(string: fromUrl) else { throw NetworkError.badUrl }
@@ -39,3 +47,4 @@ func downloadData<T: Codable>(fromUrl: String) async -> T? {
         
     return nil
 }
+

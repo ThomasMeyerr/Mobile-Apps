@@ -7,6 +7,17 @@
 
 import SwiftUI
 
+
+@MainActor class ContentViewModel: ObservableObject {
+    @Published var data = [Data]()
+    
+    func fetchData() async {
+        guard let downloadedData: [Data] = await downloadData(fromUrl: "https://jsonplaceholder.typicode.com/posts") else { return }
+        data = downloadedData
+    }
+}
+
+
 struct ContentView: View {
     var body: some View {
         GeometryReader { geometry in
