@@ -19,6 +19,8 @@ import SwiftUI
 
 
 struct ContentView: View {
+    @StateObject var vm = ContentViewModel()
+
     var body: some View {
         GeometryReader { geometry in
             VStack {
@@ -27,7 +29,9 @@ struct ContentView: View {
                 Image("42_logo")
                 
                 Button() {
-                    //
+                    Task {
+                        await vm.fetchData()
+                    }
                 } label: {
                     ZStack {
                         RoundedRectangle(cornerRadius: 10)
