@@ -12,7 +12,7 @@ import SwiftUI
     @Published var data = [Data]()
     
     func fetchData() async {
-        guard let downloadedData: [Data] = await downloadData(fromUrl: "https://jsonplaceholder.typicode.com/posts") else { return }
+        guard let downloadedData: [Data] = await WebService().downloadData(fromUrl: "https://jsonplaceholder.typicode.com/posts") else { return }
         data = downloadedData
     }
 }
