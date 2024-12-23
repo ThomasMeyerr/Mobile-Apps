@@ -14,10 +14,6 @@
 				<string>swiftycompanion</string>
 			</array>
 		</dict>
-		<dict>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
-		</dict>
 	</array>
 </dict>
 </plist>
