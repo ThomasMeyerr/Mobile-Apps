@@ -17,7 +17,7 @@ enum NetworkError: Error {
 }
 
 
-struct Data: Identifiable, Codable {
+struct User: Codable {
     let id: Int
     let email: String
     let login: String
@@ -44,7 +44,7 @@ class WebService {
     private let clientID = "u-s4t2ud-0641e8121d22316b7f963f6a3d5b39c86a4316f814cfd097b912781e356ad05d"
     private let clientSecret = "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"
     private let tokenURL = "https://api.intra.42.fr/oauth/token"
-    
+        
     private func getAccessToken() async throws {
         guard let url = URL(string: tokenURL) else { throw NetworkError.badUrl }
         

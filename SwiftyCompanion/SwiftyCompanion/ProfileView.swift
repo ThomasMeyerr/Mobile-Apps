@@ -18,7 +18,7 @@ struct ProfileView: View {
     var body: some View {
         Form {
             Section {
-                Text("omg")
+                Text(contentVM.user?.login ?? "")
             }
             
             Section {

@@ -11,7 +11,7 @@ import SwiftUI
 @MainActor class ContentViewModel: ObservableObject {
     @Published var isSheet = false
     @Published var isLogged = false
-    @Published var data = [Data]()
+    @Published var user: User?
 }
 
 

@@ -19,8 +19,8 @@ import SwiftUI
     
     func fetchData() async {
         let instance = WebService()
-        if let downloadedData: [Data] = await instance.downloadData(fromUrl: "https://jsonplaceholder.typicode.com/posts") {
-            contentVM.data = downloadedData
+        if let downloadedData: User = await instance.downloadData(fromUrl: "https://api.intra.42.fr/v2/me") {
+            contentVM.user = downloadedData
             contentVM.isLogged = true
             contentVM.isSheet = false
         } else {
