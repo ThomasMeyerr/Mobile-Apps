@@ -12,13 +12,18 @@ import SwiftUI
     @Published var data = [Data]()
     @Published var isAlert = false
     @Published var alertString = ""
-    @StateObject var contentVM = ContentViewModel()
+    @ObservedObject var contentVM: ContentViewModel
+    
+    init(contentVM: ContentViewModel) {
+        self.contentVM = contentVM
+    }
     
     func fetchData() async {
         let instance = WebService()
         if let downloadedData: [Data] = await instance.downloadData(fromUrl: "https://jsonplaceholder.typicode.com/posts") {
             data = downloadedData
             contentVM.isLogged = true
+            contentVM.isSheet = false
         } else {
             isAlert = true
             alertString = instance.alertString
@@ -28,7 +33,13 @@ import SwiftUI
 
 
 struct LoginView: View {
-    @StateObject var vm = LoginViewModel()
+    @StateObject var vm: LoginViewModel
+    @ObservedObject var contentVM: ContentViewModel
+    
+    init(contentVM: ContentViewModel) {
+        self._contentVM = ObservedObject(wrappedValue: contentVM)
+        self._vm = StateObject(wrappedValue: LoginViewModel(contentVM: contentVM))
+    }
     
     var body: some View {
         GeometryReader { geometry in
@@ -75,5 +86,5 @@ struct LoginView: View {
 }
 
 #Preview {
-    LoginView()
+    LoginView(contentVM: ContentViewModel())
 }

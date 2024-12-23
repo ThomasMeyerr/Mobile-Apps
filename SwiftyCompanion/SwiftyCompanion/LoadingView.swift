@@ -9,7 +9,11 @@ import SwiftUI
 
 
 struct LoadingView: View {
-    @StateObject var contentVM = ContentViewModel()
+    @StateObject var contentVM: ContentViewModel
+    
+    init(contentVM: ContentViewModel) {
+        self._contentVM = StateObject(wrappedValue: contentVM)
+    }
 
     var body: some View {
         VStack {
@@ -28,5 +32,5 @@ struct LoadingView: View {
 }
 
 #Preview {
-    LoadingView()
+    LoadingView(contentVM: ContentViewModel())
 }

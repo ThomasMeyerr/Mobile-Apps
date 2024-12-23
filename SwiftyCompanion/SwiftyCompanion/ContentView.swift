@@ -20,14 +20,14 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             if !vm.isLogged {
-                LoadingView()
+                LoadingView(contentVM: vm)
             } else {
                 Text("You're logged")
             }
         }
         .onAppear() { vm.isSheet = true }
         .sheet(isPresented: $vm.isSheet, content: {
-            LoginView()
+            LoginView(contentVM: vm)
         })
     }
 }
