@@ -65,7 +65,7 @@ struct LoginView: View {
                 }
                 .padding()
                 
-                Text("This is the main menu of the app")
+                Text("Swifty Companion")
                     .foregroundStyle(.gray)
                 
                 Spacer()

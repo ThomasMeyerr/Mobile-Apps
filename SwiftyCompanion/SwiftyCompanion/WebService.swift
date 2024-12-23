@@ -48,7 +48,28 @@ class WebService {
     private func getAccessToken() async throws {
         guard let url = URL(string: tokenURL) else { throw NetworkError.badUrl }
         
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         
+        let parameters = [
+            "grant_type": "client_credentials",
+            "client_id": clientID,
+            "client_secret": clientSecret
+        ]
+        
+        request.httpBody = parameters
+            .map { "\($0.key)=\($0.value)" }
+            .joined(separator: "&")
+            .data(using: .utf8)
+        
+        let (data, response) = try await URLSession.shared.data(for: request)
+        guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+            throw NetworkError.badStatus
+        }
+        
+        let tokenResponse = try JSONDecoder().decode(TokenResponse.self, from: data)
+        self.accessToken = tokenResponse.access_token
     }
 
     func downloadData<T: Codable>(fromUrl: String) async -> T? {
