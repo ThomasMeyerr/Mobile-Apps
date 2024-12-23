@@ -22,7 +22,7 @@ struct ContentView: View {
             if !vm.isLogged {
                 LoadingView(contentVM: vm)
             } else {
-                Text("You're logged")
+                ProfileView()
             }
         }
         .onAppear() { vm.isSheet = true }
