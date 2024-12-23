@@ -67,7 +67,7 @@ class WebService {
         guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
             throw NetworkError.badStatus
         }
-        
+                
         let tokenResponse = try JSONDecoder().decode(TokenResponse.self, from: data)
         self.accessToken = tokenResponse.access_token
     }
