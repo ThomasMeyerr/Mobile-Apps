@@ -74,8 +74,16 @@ class WebService {
 
     func downloadData<T: Codable>(fromUrl: String) async -> T? {
         do {
+            if accessToken.isEmpty {
+                try await getAccessToken()
+            }
+            
             guard let url = URL(string: fromUrl) else { throw NetworkError.badUrl }
-            let (data, response) = try await URLSession.shared.data(from: url)
+            
+            var request = URLRequest(url: url)
+            request.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
+            
+            let (data, response) = try await URLSession.shared.data(for: request)
             guard let response = response as? HTTPURLResponse else { throw NetworkError.badResponse }
             guard response.statusCode >= 200 && response.statusCode < 300 else { throw NetworkError.badStatus }
             guard let decodedResponse = try? JSONDecoder().decode(T.self, from: data) else { throw NetworkError.failedToDecodeResponse }
