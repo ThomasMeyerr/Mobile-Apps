@@ -15,6 +15,7 @@ struct LoadingView: View {
         VStack {
             ProgressView()
                 .scaleEffect(3)
+                .padding(.bottom, 30)
             
             Text("Please log yourself")
                 .foregroundStyle(.gray)

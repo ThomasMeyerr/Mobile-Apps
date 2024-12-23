@@ -18,10 +18,12 @@ struct ContentView: View {
     @StateObject var vm = ContentViewModel()
 
     var body: some View {
-        if !vm.isLogged {
-            LoadingView()
-        } else {
-            Text("You're logged")
+        ZStack {
+            if !vm.isLogged {
+                LoadingView()
+            } else {
+                Text("You're logged")
+            }
         }
         .onAppear() { vm.isSheet = true }
         .sheet(isPresented: $vm.isSheet, content: {
