@@ -16,14 +16,18 @@ struct ProfileView: View {
     }
     
     var body: some View {
-        VStack {
-            Text("Here we are")
-            
-            Button("Log out") {
-                contentVM.isLogged = false
-                contentVM.isSheet = true
+        Form {
+            Section {
+                Text("Here we are")
             }
-            .foregroundStyle(.red)
+            
+            Section {
+                Button("Sign out") {
+                    contentVM.isLogged = false
+                    contentVM.isSheet = true
+                }
+                .foregroundStyle(.red)
+            }
         }
     }
 }
