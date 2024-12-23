@@ -9,11 +9,25 @@ import SwiftUI
 
 
 struct ProfileView: View {
+    @StateObject var contentVM: ContentViewModel
+    
+    init(contentVM: ContentViewModel) {
+        self._contentVM = StateObject(wrappedValue: contentVM)
+    }
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text("Here we are")
+            
+            Button("Log out") {
+                contentVM.isLogged = false
+                contentVM.isSheet = true
+            }
+            .foregroundStyle(.red)
+        }
     }
 }
 
 #Preview {
-    ProfileView()
+    ProfileView(contentVM: ContentViewModel())
 }

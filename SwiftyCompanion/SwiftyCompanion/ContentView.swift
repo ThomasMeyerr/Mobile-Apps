@@ -22,10 +22,12 @@ struct ContentView: View {
             if !vm.isLogged {
                 LoadingView(contentVM: vm)
             } else {
-                ProfileView()
+                ProfileView(contentVM: vm)
             }
         }
-        .onAppear() { vm.isSheet = true }
+        .onAppear() {
+            vm.isSheet = true
+        }
         .sheet(isPresented: $vm.isSheet, content: {
             LoginView(contentVM: vm)
         })
