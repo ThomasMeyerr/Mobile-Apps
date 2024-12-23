@@ -18,7 +18,9 @@ struct ProfileView: View {
     var body: some View {
         Form {
             Section {
-                Text("Here we are")
+                List(contentVM.data) { element in
+                    Text(element.title)
+                }
             }
             
             Section {

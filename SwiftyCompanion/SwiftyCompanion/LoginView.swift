@@ -9,7 +9,6 @@ import SwiftUI
 
 
 @MainActor class LoginViewModel: ObservableObject {
-    @Published var data = [Data]()
     @Published var isAlert = false
     @Published var alertString = ""
     @ObservedObject var contentVM: ContentViewModel
@@ -21,7 +20,7 @@ import SwiftUI
     func fetchData() async {
         let instance = WebService()
         if let downloadedData: [Data] = await instance.downloadData(fromUrl: "https://jsonplaceholder.typicode.com/posts") {
-            data = downloadedData
+            contentVM.data = downloadedData
             contentVM.isLogged = true
             contentVM.isSheet = false
         } else {
