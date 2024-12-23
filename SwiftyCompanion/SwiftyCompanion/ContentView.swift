@@ -10,10 +10,14 @@ import SwiftUI
 
 @MainActor class ContentViewModel: ObservableObject {
     @Published var data = [Data]()
+    @Published var isAlert = false
     
     func fetchData() async {
-        guard let downloadedData: [Data] = await WebService().downloadData(fromUrl: "https://jsonplaceholder.typicode.com/posts") else { return }
-        data = downloadedData
+        if let downloadedData: [Data] = await WebService().downloadData(fromUrl: "https://jsonplaceholder.typicode.com/posts") {
+            data = downloadedData
+        } else {
+            isAlert = true
+        }
     }
 }
 
@@ -49,6 +53,11 @@ struct ContentView: View {
                 Text("This is the main menu of the app")
                     .foregroundStyle(.gray)
                 
+//                if !vm.errorString.isEmpty {
+//                    Text(vm.errorString)
+//                        .foregroundStyle(.red)
+//                }
+                
                 Spacer()
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -58,6 +67,9 @@ struct ContentView: View {
                     .scaledToFill()
                     .ignoresSafeArea()
             )
+            .alert(isPresented: $vm.isAlert) {
+                Alert(title: Text("Test"))
+            }
         }
     }
 }

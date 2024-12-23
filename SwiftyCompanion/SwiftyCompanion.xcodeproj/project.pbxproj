@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		161CBD6D2D147F8100B20189 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161CBD6C2D147F8100B20189 /* WebService.swift */; };
+		16568D062D15A1B600314D72 /* DataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16568D052D15A1B600314D72 /* DataView.swift */; };
 		166816062D020F6900C60BF8 /* SwiftyCompanionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166816052D020F6900C60BF8 /* SwiftyCompanionApp.swift */; };
 		166816082D020F6900C60BF8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166816072D020F6900C60BF8 /* ContentView.swift */; };
 		1668160A2D020F6C00C60BF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 166816092D020F6C00C60BF8 /* Assets.xcassets */; };
@@ -17,6 +18,7 @@
 
 /* Begin PBXFileReference section */
 		161CBD6C2D147F8100B20189 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
+		16568D052D15A1B600314D72 /* DataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataView.swift; sourceTree = "<group>"; };
 		166816022D020F6900C60BF8 /* SwiftyCompanion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyCompanion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		166816052D020F6900C60BF8 /* SwiftyCompanionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyCompanionApp.swift; sourceTree = "<group>"; };
 		166816072D020F6900C60BF8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 			children = (
 				166816052D020F6900C60BF8 /* SwiftyCompanionApp.swift */,
 				166816072D020F6900C60BF8 /* ContentView.swift */,
+				16568D052D15A1B600314D72 /* DataView.swift */,
 				161CBD6C2D147F8100B20189 /* WebService.swift */,
 				166816092D020F6C00C60BF8 /* Assets.xcassets */,
 				1668160B2D020F6C00C60BF8 /* Preview Content */,
@@ -146,6 +149,7 @@
 			files = (
 				166816082D020F6900C60BF8 /* ContentView.swift in Sources */,
 				161CBD6D2D147F8100B20189 /* WebService.swift in Sources */,
+				16568D062D15A1B600314D72 /* DataView.swift in Sources */,
 				166816062D020F6900C60BF8 /* SwiftyCompanionApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
