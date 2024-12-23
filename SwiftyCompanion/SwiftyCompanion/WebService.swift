@@ -24,7 +24,10 @@ struct Data: Identifiable, Codable {
     let body: String
 }
 
+
 class WebService {
+    var alertString = ""
+
     func downloadData<T: Codable>(fromUrl: String) async -> T? {
         do {
             guard let url = URL(string: fromUrl) else { throw NetworkError.badUrl }
@@ -35,15 +38,15 @@ class WebService {
             
             return decodedResponse
         } catch NetworkError.badUrl {
-            print("There was an error creating the URL")
+            alertString = "There was an error creating the URL"
         } catch NetworkError.badResponse {
-            print("Did not get a valid response")
+            alertString = "Did not get a valid response"
         } catch NetworkError.badStatus {
-            print("Did not get a 2xx status code from the response")
+            alertString = "Did not get a 2xx status code from the response"
         } catch NetworkError.failedToDecodeResponse {
-            print("Failed to decode response into the given type")
+            alertString = "Failed to decode response into the given type"
         } catch {
-            print("An error has occured downloading the data")
+            alertString = "An error has occured downloading the data"
         }
         
         return nil
