@@ -26,7 +26,19 @@ import SwiftUI
         }
     }
     
-    func fetchData() async {
+    func manageCallback(url: URL) async {
+        if let queryItems = URLComponents(string: url.absoluteString)?.queryItems {
+            if let code = queryItems.first(where: { $0.name == "code" })?.value {
+                print("\(code)")
+                await fetchData(code: code)
+            } else if let error = queryItems.first(where: { $0.name == "error" })?.value {
+                alertString = "\(error)"
+                isAlert = true
+            }
+        }
+    }
+    
+    func fetchData(code: String) async {
         let instance = WebService()
         if let downloadedData: User = await instance.downloadData(fromUrl: "https://api.intra.42.fr/v2/me") {
             contentVM.user = downloadedData
@@ -88,13 +100,8 @@ struct LoginView: View {
                 Alert(title: Text(vm.alertString))
             }
             .onOpenURL { url in
-                if let queryItems = URLComponents(string: url.absoluteString)?.queryItems {
-                    if let code = queryItems.first(where: { $0.name == "code" })?.value {
-                        print("\(code)")
-                    } else if let error = queryItems.first(where: { $0.name == "error" })?.value {
-                        vm.alertString = "\(error)"
-                        vm.isAlert = true
-                    }
+                Task {
+                    await vm.manageCallback(url: url)
                 }
             }
         }
