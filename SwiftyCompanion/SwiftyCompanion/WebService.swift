@@ -41,10 +41,12 @@ class WebService {
     var alertString = ""
     
     // Configuration 42 API
-    private let clientID = "u-s4t2ud-f4010b1ce4c0ef5510945c3e4c5bfdc7ad3dc45a811d1b6b3178c31458c63e08"
+    let clientID = "u-s4t2ud-f4010b1ce4c0ef5510945c3e4c5bfdc7ad3dc45a811d1b6b3178c31458c63e08"
     private let clientSecret = "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"
+    let redirectUri = "swiftycompanion://callback"
+    let encodedRedirectUri = "swiftycompanion://callback".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
     private let tokenURL = "https://api.intra.42.fr/oauth/token"
-        
+    
     private func getAccessToken() async throws {
         guard let url = URL(string: tokenURL) else { throw NetworkError.badUrl }
         
@@ -67,7 +69,7 @@ class WebService {
         guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
             throw NetworkError.badStatus
         }
-                
+                            
         let tokenResponse = try JSONDecoder().decode(TokenResponse.self, from: data)
         self.accessToken = tokenResponse.access_token
     }
@@ -82,7 +84,7 @@ class WebService {
             
             var request = URLRequest(url: url)
             request.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
-            
+
             let (data, response) = try await URLSession.shared.data(for: request)
             guard let response = response as? HTTPURLResponse else { throw NetworkError.badResponse }
             guard response.statusCode >= 200 && response.statusCode < 300 else { throw NetworkError.badStatus }

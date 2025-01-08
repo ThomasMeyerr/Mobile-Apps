@@ -17,6 +17,15 @@ import SwiftUI
         self.contentVM = contentVM
     }
     
+    func connnectVia42() {
+        let instance = WebService()
+        let oauthURL = "https://api.intra.42.fr/oauth/authorize?client_id=\(instance.clientID)&redirect_uri=\(instance.encodedRedirectUri)&response_type=code"
+        
+        if let url = URL(string: oauthURL) {
+            UIApplication.shared.open(url)
+        }
+    }
+    
     func fetchData() async {
         let instance = WebService()
         if let downloadedData: User = await instance.downloadData(fromUrl: "https://api.intra.42.fr/v2/me") {
@@ -48,9 +57,7 @@ struct LoginView: View {
                 Image("42_logo")
                 
                 Button() {
-                    Task {
-                        await vm.fetchData()
-                    }
+                    vm.connnectVia42()
                 } label: {
                     ZStack {
                         RoundedRectangle(cornerRadius: 10)
@@ -79,6 +86,16 @@ struct LoginView: View {
             )
             .alert(isPresented: $vm.isAlert) {
                 Alert(title: Text(vm.alertString))
+            }
+            .onOpenURL { url in
+                if let queryItems = URLComponents(string: url.absoluteString)?.queryItems {
+                    if let code = queryItems.first(where: { $0.name == "code" })?.value {
+                        print("\(code)")
+                    } else if let error = queryItems.first(where: { $0.name == "error" })?.value {
+                        vm.alertString = "\(error)"
+                        vm.isAlert = true
+                    }
+                }
             }
         }
     }
