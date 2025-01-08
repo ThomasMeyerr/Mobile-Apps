@@ -47,7 +47,7 @@ class WebService {
     let encodedRedirectUri = "swiftycompanion://callback".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
     private let tokenURL = "https://api.intra.42.fr/oauth/token"
     
-    private func getAccessToken() async throws {
+    private func getAccessToken(code: String) async throws {
         guard let url = URL(string: tokenURL) else { throw NetworkError.badUrl }
         
         var request = URLRequest(url: url)
@@ -55,9 +55,11 @@ class WebService {
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         
         let parameters = [
-            "grant_type": "client_credentials",
+            "grant_type": "authorizaton_code",
             "client_id": clientID,
-            "client_secret": clientSecret
+            "client_secret": clientSecret,
+            "code": code,
+            "redirect_uri": redirectUri
         ]
         
         request.httpBody = parameters
@@ -74,10 +76,10 @@ class WebService {
         self.accessToken = tokenResponse.access_token
     }
 
-    func downloadData<T: Codable>(fromUrl: String) async -> T? {
+    func downloadData<T: Codable>(fromUrl: String, code: String) async -> T? {
         do {
             if accessToken.isEmpty {
-                try await getAccessToken()
+                try await getAccessToken(code: code)
             }
             
             guard let url = URL(string: fromUrl) else { throw NetworkError.badUrl }
