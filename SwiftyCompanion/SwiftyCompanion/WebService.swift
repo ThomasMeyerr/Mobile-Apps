@@ -61,7 +61,7 @@ class WebService {
             "code": code,
             "redirect_uri": redirectUri
         ]
-        
+                
         request.httpBody = parameters
             .map { "\($0.key)=\($0.value)" }
             .joined(separator: "&")
@@ -71,7 +71,7 @@ class WebService {
         guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
             throw NetworkError.badStatus
         }
-                            
+        
         let tokenResponse = try JSONDecoder().decode(TokenResponse.self, from: data)
         self.accessToken = tokenResponse.access_token
     }

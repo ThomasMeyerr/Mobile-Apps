@@ -29,10 +29,10 @@ import SwiftUI
     func manageCallback(url: URL) async {
         if let queryItems = URLComponents(string: url.absoluteString)?.queryItems {
             if let code = queryItems.first(where: { $0.name == "code" })?.value {
-                print("\(code)")
-                await fetchData(code: code)
+                let cleanCode = code.trimmingCharacters(in: .whitespacesAndNewlines)
+                await fetchData(code: cleanCode)
             } else if let error = queryItems.first(where: { $0.name == "error" })?.value {
-                alertString = "\(error)"
+                alertString = "Access denied"
                 isAlert = true
             }
         }
