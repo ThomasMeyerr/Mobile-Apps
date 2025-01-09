@@ -19,11 +19,23 @@ enum NetworkError: Error {
 
 struct User: Codable {
     let id: Int
-    let login: String
-    let first_name: String
-    let last_name: String
     let email: String
+    let login: String
+    let firstName: String
+    let lastName: String
     let image: UserImage
+    let correctionPoint: Int
+    let wallet: Int
+    let location: String?
+    let active: Bool
+    
+    enum CodingKeys: String, CodingKey {
+        case id, email, login, wallet, location, active
+        case firstName = "first_name"
+        case lastName = "last_name"
+        case correctionPoint = "correction_point"
+        case image
+    }
 }
 
 

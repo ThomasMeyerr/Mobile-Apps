@@ -10,7 +10,7 @@ import SwiftUI
 
 struct ProfileView: View {
     @StateObject var contentVM: ContentViewModel
-    let example = User(id: 1, login: "thmeyer", first_name: "Thomas", last_name: "Meyer", email: "omg@gmail.com", image: UserImage(link: "www.caexisteap.com"))
+    let example = User(id: 1, email: "omg@gmail.com", login: "thmeyer", firstName: "Thomas", lastName: "Meyer", image: UserImage(link: "www.caexistepas.com"), correctionPoint: 3, wallet: 1064, location: nil, active: true)
     
     init(contentVM: ContentViewModel) {
         self._contentVM = StateObject(wrappedValue: contentVM)
