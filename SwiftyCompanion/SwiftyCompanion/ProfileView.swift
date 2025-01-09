@@ -15,6 +15,7 @@ import SwiftUI
     
     init(contentVM: ContentViewModel) {
         self.contentVM = contentVM
+        
         #if DEBUG
         self.user = User(id: 1, email: "omg@gmail.com", login: "thmeyer", firstName: "Thomas", lastName: "Meyer", image: UserImage(link: "www.caexistepas.com"), correctionPoint: 3, wallet: 1064, location: nil, active: true)
         #else
@@ -34,51 +35,53 @@ struct ProfileView: View {
     }
     
     var body: some View {
-        VStack {
-            AsyncImage(url: URL(string: vm.user.image.link)) { image in
-                image
-                    .resizable()
-                    .scaledToFill()
-                    .clipShape(Circle())
-            } placeholder: {
-                ProgressView()
-                    .scaleEffect(5)
-                    .tint(.white)
-            }
-            .frame(width: 250, height: 250)
-            .background(
-                Image("Water")
-                    .resizable()
-                    .scaledToFill()
-                    .ignoresSafeArea()
-            )
-            
-            ZStack {
-                RoundedRectangle(cornerRadius: 10)
-                    .fill(.secondary.opacity(0.8))
+        NavigationView {
+            VStack {
+                AsyncImage(url: URL(string: vm.user.image.link)) { image in
+                    image
+                        .resizable()
+                        .scaledToFill()
+                        .clipShape(Circle())
+                } placeholder: {
+                    ProgressView()
+                        .scaleEffect(5)
+                }
+                .frame(width: 250, height: 250)
                 
-                VStack {
-                    HStack {
-                        Text("₳ \(vm.user.wallet)")
-                            .font(.title)
-                        Text(vm.user.login)
-                            .font(.title2.bold())
+                ZStack {
+                    RoundedRectangle(cornerRadius: 10)
+                        .fill(.secondary.opacity(0.8))
+                        .frame(width: 200, height: 75)
+                    
+                    VStack {
+                        HStack {
+                            Text("₳ \(vm.user.wallet)")
+                                .font(.title)
+                            Text(vm.user.login)
+                                .font(.title2.bold())
+                        }
+                        .foregroundStyle(.white)
+                        
+                        HStack {
+                            Text(vm.user.firstName)
+                            Text(vm.user.lastName)
+                        }
+                        .foregroundStyle(.secondary)
                     }
-                    .foregroundStyle(.white)
-                                        
-                    HStack {
-                        Text(vm.user.firstName)
-                        Text(vm.user.lastName)
-                    }
-                    .foregroundStyle(.secondary)
                 }
             }
-                
-            Button {
-                vm.isAlert = true
-            } label: {
-                Image(systemName: "person.crop.circle.badge.xmark.fill")
-                    .tint(.red)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        vm.isAlert = true
+                    } label: {
+                        Image(systemName: "person.crop.circle.badge.xmark.fill")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 50)
+                            .tint(.red)
+                    }
+                }
             }
         }
         .alert("Are you sure?", isPresented: $vm.isAlert) {

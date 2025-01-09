@@ -30,11 +30,12 @@ struct User: Codable {
     let active: Bool
     
     enum CodingKeys: String, CodingKey {
-        case id, email, login, wallet, location, active
+        case id, email, login
         case firstName = "first_name"
         case lastName = "last_name"
-        case correctionPoint = "correction_point"
         case image
+        case correctionPoint = "correction_point"
+        case wallet, location, active
     }
 }
 
