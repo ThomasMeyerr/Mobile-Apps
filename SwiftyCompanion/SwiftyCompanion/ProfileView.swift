@@ -17,19 +17,38 @@ struct ProfileView: View {
     }
     
     var body: some View {
-        Form {
-            Section {
-                Text(example.login)
+        VStack {
+            AsyncImage(url: URL(string: example.image.link)) { image in
+                image
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+            } placeholder: {
+                ProgressView()
+                    .scaleEffect(5)
+                    .tint(.white)
             }
+            .frame(width: 250, height: 250)
             
-            Section {
-                Button("Sign out") {
-                    contentVM.isLogged = false
-                    contentVM.isSheet = true
+            Form {
+                Section {
+                    Text(example.login)
                 }
-                .foregroundStyle(.red)
+                
+                Section {
+                    Button("Sign out") {
+                        contentVM.isLogged = false
+                        contentVM.isSheet = true
+                    }
+                    .foregroundStyle(.red)
+                }
             }
         }
+        .background(
+            Image("Water")
+                .resizable()
+                .scaledToFill()
+                .ignoresSafeArea()
+        )
     }
 }
 

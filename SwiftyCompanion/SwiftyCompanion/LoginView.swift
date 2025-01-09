@@ -32,7 +32,7 @@ import SwiftUI
                 let cleanCode = code.trimmingCharacters(in: .whitespacesAndNewlines)
                 await fetchData(code: cleanCode)
             } else if let error = queryItems.first(where: { $0.name == "error" })?.value {
-                alertString = "Access denied"
+                alertString = "\(error)"
                 isAlert = true
             }
         }
