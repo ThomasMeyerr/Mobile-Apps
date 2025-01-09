@@ -10,6 +10,7 @@ import SwiftUI
 
 struct ProfileView: View {
     @StateObject var contentVM: ContentViewModel
+    let example = User(id: 1, login: "thmeyer", first_name: "Thomas", last_name: "Meyer", email: "omg@gmail.com", image: UserImage(link: "www.caexisteap.com"))
     
     init(contentVM: ContentViewModel) {
         self._contentVM = StateObject(wrappedValue: contentVM)
@@ -18,7 +19,7 @@ struct ProfileView: View {
     var body: some View {
         Form {
             Section {
-                Text(contentVM.user?.login ?? "")
+                Text(example.login)
             }
             
             Section {
