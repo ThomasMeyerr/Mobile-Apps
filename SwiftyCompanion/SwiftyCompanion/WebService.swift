@@ -19,13 +19,16 @@ enum NetworkError: Error {
 
 struct User: Codable {
     let id: Int
-    let email: String
     let login: String
-    let displayname: String
-    let image_url: String
-    let correction_point: Int
-    let wallet: Int
-    let location: String?
+    let first_name: String
+    let last_name: String
+    let email: String
+    let image: UserImage
+}
+
+
+struct UserImage: Codable {
+    let link: String
 }
 
 
@@ -55,7 +58,7 @@ class WebService {
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         
         let parameters = [
-            "grant_type": "authorizaton_code",
+            "grant_type": "authorization_code",
             "client_id": clientID,
             "client_secret": clientSecret,
             "code": code,
