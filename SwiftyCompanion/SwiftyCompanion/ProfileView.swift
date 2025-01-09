@@ -10,22 +10,32 @@ import SwiftUI
 
 @MainActor class ProfileViewModel: ObservableObject {
     @Published var isAlert = false
+    @Published var user: User
+    @ObservedObject var contentVM: ContentViewModel
+    
+    init(contentVM: ContentViewModel) {
+        self.contentVM = contentVM
+        #if DEBUG
+        self.user = User(id: 1, email: "omg@gmail.com", login: "thmeyer", firstName: "Thomas", lastName: "Meyer", image: UserImage(link: "www.caexistepas.com"), correctionPoint: 3, wallet: 1064, location: nil, active: true)
+        #else
+        self.user = contentVM.user
+        #endif
+    }
 }
 
 
 struct ProfileView: View {
     @ObservedObject var contentVM: ContentViewModel
-    @StateObject var vm = ProfileViewModel()
-    
-    let example = User(id: 1, email: "omg@gmail.com", login: "thmeyer", firstName: "Thomas", lastName: "Meyer", image: UserImage(link: "www.caexistepas.com"), correctionPoint: 3, wallet: 1064, location: nil, active: true)
+    @StateObject var vm: ProfileViewModel
     
     init(contentVM: ContentViewModel) {
         self._contentVM = ObservedObject(wrappedValue: contentVM)
+        self._vm = StateObject(wrappedValue: ProfileViewModel(contentVM: contentVM))
     }
     
     var body: some View {
         VStack {
-            AsyncImage(url: URL(string: example.image.link)) { image in
+            AsyncImage(url: URL(string: vm.user.image.link)) { image in
                 image
                     .resizable()
                     .scaledToFill()
@@ -43,17 +53,25 @@ struct ProfileView: View {
                     .ignoresSafeArea()
             )
             
-            HStack {
-                Text("₳ \(example.wallet)")
+            ZStack {
+                RoundedRectangle(cornerRadius: 10)
+                    .fill(.secondary.opacity(0.8))
                 
-                Text(example.login)
-                    .bold()
-                
-                Group {
-                    Text(example.firstName)
-                    Text(example.lastName)
+                VStack {
+                    HStack {
+                        Text("₳ \(vm.user.wallet)")
+                            .font(.title)
+                        Text(vm.user.login)
+                            .font(.title2.bold())
+                    }
+                    .foregroundStyle(.white)
+                                        
+                    HStack {
+                        Text(vm.user.firstName)
+                        Text(vm.user.lastName)
+                    }
+                    .foregroundStyle(.secondary)
                 }
-                .foregroundStyle(.secondary)
             }
                 
             Button {
