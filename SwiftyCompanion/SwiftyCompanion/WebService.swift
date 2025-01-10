@@ -98,9 +98,7 @@ class WebService {
             if accessToken.isEmpty {
                 try await getAccessToken(code: code)
             }
-            
-            print(accessToken)
-            
+                        
             guard let url = URL(string: fromUrl) else { throw NetworkError.badUrl }
             
             var request = URLRequest(url: url)

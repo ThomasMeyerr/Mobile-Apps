@@ -31,7 +31,7 @@ struct ProfileView: View {
     
     var body: some View {
         NavigationView {
-            VStack {
+            ScrollView(.vertical) {
                 ZStack(alignment: .bottomTrailing) {
                     AsyncImage(url: URL(string: vm.user.image.link)) { image in
                         image
@@ -95,7 +95,7 @@ struct ProfileView: View {
                     RoundedRectangle(cornerRadius: 10)
                         .fill(.green)
                         .frame(width: 180, height: 28)
-                        .offset(x: 2)
+                        .offset(x: 1)
                 }
             }
             .toolbar {
