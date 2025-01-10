@@ -45,8 +45,13 @@ struct ProfileView: View {
                     .frame(width: 250, height: 250)
                     
                     Image(systemName: vm.user.active ?? false ? "checkmark.seal.fill" : "xmark.seal.fill")
-                        .font(.system(size: 40))
+                        .font(.system(size: 50))
                         .foregroundStyle(vm.user.active ?? false ? .green : .red)
+                        .background(
+                            Circle()
+                                .fill(Color.white)
+                                .frame(width: 60, height: 60)
+                        )
                 }
                 
                 ZStack {
