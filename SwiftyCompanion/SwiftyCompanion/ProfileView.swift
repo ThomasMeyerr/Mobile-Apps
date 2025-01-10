@@ -15,7 +15,12 @@ import SwiftUI
     
     init(contentVM: ContentViewModel) {
         self.contentVM = contentVM
-        self.user = contentVM.user ?? User(id: 1, email: "omg@gmail.com", login: "thmeyer", firstName: "Thomas", lastName: "Meyer", kind: "student", image: UserImage(link: "https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"), correctionPoint: 31, location: nil, wallet: 1064, active: true)
+        let cursusUsers = [CursusUser(id: 1, grade: "Learner", level: 10.97), CursusUser(id: 1, grade: "Member", level: 10.97)]
+        self.user = contentVM.user ?? User(id: 1, email: "omg@gmail.com", login: "thmeyer", firstName: "Thomas", lastName: "Meyer", kind: "student", image: UserImage(link: "https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"), correctionPoint: 31, location: nil, wallet: 1064, cursusUsers: cursusUsers)
+    }
+    
+    func isCursusExists() -> Bool {
+        user.cursusUsers.indices.contains(2)
     }
 }
 
@@ -44,9 +49,9 @@ struct ProfileView: View {
                     }
                     .frame(width: 250, height: 250)
                     
-                    Image(systemName: vm.user.active ?? false ? "checkmark.seal.fill" : "xmark.seal.fill")
+                    Image(systemName: vm.user.location != nil ? "checkmark.seal.fill" : "xmark.seal.fill")
                         .font(.system(size: 50))
-                        .foregroundStyle(vm.user.active ?? false ? .green : .red)
+                        .foregroundStyle(vm.user.location != nil ? .green : .red)
                         .background(
                             Circle()
                                 .fill(.background)
@@ -88,14 +93,21 @@ struct ProfileView: View {
                     }
                 }
                 
-                ZStack(alignment: .leading) {
-                    RoundedRectangle(cornerRadius: 10)
-                        .strokeBorder(style: StrokeStyle())
-                        .frame(width: 360, height: 30)
-                    RoundedRectangle(cornerRadius: 10)
-                        .fill(.green)
-                        .frame(width: 180, height: 28)
-                        .offset(x: 1)
+                VStack {
+                    Text(vm.isCursusExists() ? vm.user.cursusUsers[2].grade! : vm.user.cursusUsers[1].grade ?? "Unknown")
+                        .font(.title2.italic())
+                    
+                    Text(String(format: "%.2f", vm.isCursusExists() ? vm.user.cursusUsers[2].level : vm.user.cursusUsers[1].level))
+                    
+                    ZStack(alignment: .leading) {
+                        RoundedRectangle(cornerRadius: 10)
+                            .strokeBorder(style: StrokeStyle())
+                            .frame(width: 360, height: 30)
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(.green)
+                            .frame(width: 180, height: 28)
+                            .offset(x: 1)
+                    }
                 }
             }
             .toolbar {

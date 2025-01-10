@@ -28,7 +28,7 @@ struct User: Codable {
     let correctionPoint: Int
     let location: String?
     let wallet: Int
-    let active: Bool?
+    let cursusUsers: [CursusUser]
     
     enum CodingKeys: String, CodingKey {
         case id, email, login
@@ -36,13 +36,25 @@ struct User: Codable {
         case lastName = "last_name"
         case kind, image
         case correctionPoint = "correction_point"
-        case location, wallet, active
+        case location, wallet
+        case cursusUsers = "cursus_users"
     }
 }
 
 
 struct UserImage: Codable {
     let link: String
+}
+
+
+struct CursusUser: Codable {
+    let id: Int
+    let grade: String?
+    let level: Double
+    
+    enum CodingKeys: String, CodingKey {
+        case id, grade, level
+    }
 }
 
 
