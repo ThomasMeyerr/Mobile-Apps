@@ -32,16 +32,22 @@ struct ProfileView: View {
     var body: some View {
         NavigationView {
             VStack {
-                AsyncImage(url: URL(string: vm.user.image.link)) { image in
-                    image
-                        .resizable()
-                        .scaledToFill()
-                        .clipShape(Circle())
-                } placeholder: {
-                    ProgressView()
-                        .scaleEffect(5)
+                ZStack(alignment: .bottomTrailing) {
+                    AsyncImage(url: URL(string: vm.user.image.link)) { image in
+                        image
+                            .resizable()
+                            .scaledToFill()
+                            .clipShape(Circle())
+                    } placeholder: {
+                        ProgressView()
+                            .scaleEffect(5)
+                    }
+                    .frame(width: 250, height: 250)
+                    
+                    Image(systemName: vm.user.active ?? false ? "checkmark.seal.fill" : "xmark.seal.fill")
+                        .font(.system(size: 40))
+                        .foregroundStyle(vm.user.active ?? false ? .green : .red)
                 }
-                .frame(width: 250, height: 250)
                 
                 ZStack {
                     RoundedRectangle(cornerRadius: 10)
@@ -70,7 +76,7 @@ struct ProfileView: View {
                     Button {
                         vm.isAlert = true
                     } label: {
-                        Image(systemName: "person.crop.circle.badge.xmark.fill")
+                        Image(systemName: "power")
                             .resizable()
                             .scaledToFit()
                             .frame(width: 50)
