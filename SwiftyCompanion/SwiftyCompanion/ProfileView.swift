@@ -15,12 +15,7 @@ import SwiftUI
     
     init(contentVM: ContentViewModel) {
         self.contentVM = contentVM
-        
-        #if DEBUG
-        self.user = User(id: 1, email: "omg@gmail.com", login: "thmeyer", firstName: "Thomas", lastName: "Meyer", image: UserImage(link: "www.caexistepas.com"), correctionPoint: 3, wallet: 1064, location: nil, active: true)
-        #else
-        self.user = contentVM.user
-        #endif
+        self.user = contentVM.user ?? User(id: 1, email: "omg@gmail.com", login: "thmeyer", firstName: "Thomas", lastName: "Meyer", kind: "student", image: UserImage(link: "https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"), correctionPoint: 3, location: nil, wallet: 1064, active: true)
     }
 }
 
@@ -51,7 +46,7 @@ struct ProfileView: View {
                 ZStack {
                     RoundedRectangle(cornerRadius: 10)
                         .fill(.secondary.opacity(0.8))
-                        .frame(width: 200, height: 75)
+                        .frame(width: 250, height: 100)
                     
                     VStack {
                         HStack {
@@ -84,7 +79,7 @@ struct ProfileView: View {
                 }
             }
         }
-        .alert("Are you sure?", isPresented: $vm.isAlert) {
+        .alert("Log out?", isPresented: $vm.isAlert) {
             Button("Yes") {
                 contentVM.isLogged = false
                 contentVM.isSheet = true

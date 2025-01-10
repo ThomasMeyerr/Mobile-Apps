@@ -23,19 +23,20 @@ struct User: Codable {
     let login: String
     let firstName: String
     let lastName: String
+    let kind: String
     let image: UserImage
     let correctionPoint: Int
-    let wallet: Int
     let location: String?
-    let active: Bool
+    let wallet: Int
+    let active: Bool?
     
     enum CodingKeys: String, CodingKey {
         case id, email, login
         case firstName = "first_name"
         case lastName = "last_name"
-        case image
+        case kind, image
         case correctionPoint = "correction_point"
-        case wallet, location, active
+        case location, wallet, active
     }
 }
 
@@ -106,6 +107,11 @@ class WebService {
             let (data, response) = try await URLSession.shared.data(for: request)
             guard let response = response as? HTTPURLResponse else { throw NetworkError.badResponse }
             guard response.statusCode >= 200 && response.statusCode < 300 else { throw NetworkError.badStatus }
+            
+            if let json = String(data: data, encoding: .utf8) {
+                print(json.prefix(1500))
+            }
+            
             guard let decodedResponse = try? JSONDecoder().decode(T.self, from: data) else { throw NetworkError.failedToDecodeResponse }
             
             return decodedResponse
