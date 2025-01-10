@@ -49,7 +49,7 @@ struct ProfileView: View {
                         .foregroundStyle(vm.user.active ?? false ? .green : .red)
                         .background(
                             Circle()
-                                .fill(Color.white)
+                                .fill(.background)
                                 .frame(width: 60, height: 60)
                         )
                 }
@@ -88,7 +88,14 @@ struct ProfileView: View {
                     }
                 }
                 
-                Text("Level")
+                ZStack(alignment: .leading) {
+                    RoundedRectangle(cornerRadius: 10)
+                        .strokeBorder(style: StrokeStyle())
+                        .frame(width: 360, height: 30)
+                    RoundedRectangle(cornerRadius: 10)
+                        .fill(.green)
+                        .frame(width: 180, height: 28)
+                }
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
