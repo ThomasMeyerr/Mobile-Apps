@@ -15,7 +15,7 @@ import SwiftUI
     
     init(contentVM: ContentViewModel) {
         self.contentVM = contentVM
-        self.user = contentVM.user ?? User(id: 1, email: "omg@gmail.com", login: "thmeyer", firstName: "Thomas", lastName: "Meyer", kind: "student", image: UserImage(link: "https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"), correctionPoint: 3, location: nil, wallet: 1064, active: true)
+        self.user = contentVM.user ?? User(id: 1, email: "omg@gmail.com", login: "thmeyer", firstName: "Thomas", lastName: "Meyer", kind: "student", image: UserImage(link: "https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"), correctionPoint: 31, location: nil, wallet: 1064, active: true)
     }
 }
 
@@ -54,27 +54,41 @@ struct ProfileView: View {
                         )
                 }
                 
-                ZStack {
-                    RoundedRectangle(cornerRadius: 10)
-                        .fill(.secondary.opacity(0.8))
-                        .frame(width: 250, height: 100)
-                    
-                    VStack {
-                        HStack {
-                            Text("₳ \(vm.user.wallet)")
-                                .font(.title)
-                            Text(vm.user.login)
-                                .font(.title2.bold())
-                        }
-                        .foregroundStyle(.white)
+                HStack {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(.secondary.opacity(0.8))
+                            .frame(width: 250, height: 100)
                         
-                        HStack {
-                            Text(vm.user.firstName)
-                            Text(vm.user.lastName)
+                        VStack {
+                            HStack {
+                                Text("₳ \(vm.user.wallet)")
+                                    .font(.title)
+                                Text(vm.user.login)
+                                    .font(.title2.bold())
+                            }
+                            .foregroundStyle(.white)
+                            
+                            HStack {
+                                Text(vm.user.firstName)
+                                Text(vm.user.lastName)
+                            }
+                            .foregroundStyle(.secondary)
                         }
-                        .foregroundStyle(.secondary)
+                    }
+                    
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(.secondary.opacity(0.8))
+                            .frame(width: 100, height: 100)
+                        
+                        Text("\(vm.user.correctionPoint)")
+                            .font(.title)
+                            .foregroundStyle(.white)
                     }
                 }
+                
+                Text("Level")
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
