@@ -22,6 +22,12 @@ import SwiftUI
     func isCursusExists() -> Bool {
         user.cursusUsers.indices.contains(2)
     }
+    
+    func defineXPBar() -> CGFloat {
+        let xp = isCursusExists() ? user.cursusUsers[2].level : user.cursusUsers[1].level
+        let xpBar = (xp / 21) * 358
+        return xpBar > 358 ? 358 : xpBar
+    }
 }
 
 
@@ -94,10 +100,8 @@ struct ProfileView: View {
                 }
                 
                 VStack {
-                    Text(vm.isCursusExists() ? vm.user.cursusUsers[2].grade! : vm.user.cursusUsers[1].grade ?? "Unknown")
+                    Text("\(vm.isCursusExists() ? vm.user.cursusUsers[2].grade! : vm.user.cursusUsers[1].grade ?? "Unknown") (\(String(format: "%.2f", vm.isCursusExists() ? vm.user.cursusUsers[2].level : vm.user.cursusUsers[1].level)))")
                         .font(.title2.italic())
-                    
-                    Text(String(format: "%.2f", vm.isCursusExists() ? vm.user.cursusUsers[2].level : vm.user.cursusUsers[1].level))
                     
                     ZStack(alignment: .leading) {
                         RoundedRectangle(cornerRadius: 10)
@@ -105,7 +109,7 @@ struct ProfileView: View {
                             .frame(width: 360, height: 30)
                         RoundedRectangle(cornerRadius: 10)
                             .fill(.green)
-                            .frame(width: 180, height: 28)
+                            .frame(width: vm.defineXPBar(), height: 28)
                             .offset(x: 1)
                     }
                 }
