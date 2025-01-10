@@ -95,6 +95,7 @@ struct ProfileView: View {
                     RoundedRectangle(cornerRadius: 10)
                         .fill(.green)
                         .frame(width: 180, height: 28)
+                        .offset(x: 2)
                 }
             }
             .toolbar {
