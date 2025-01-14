@@ -42,88 +42,79 @@ struct ProfileView: View {
     
     var body: some View {
         NavigationView {
-            VStack {
-                ScrollView(.vertical) {
-                    ZStack(alignment: .bottomTrailing) {
-                        AsyncImage(url: URL(string: vm.user.image.link)) { image in
-                            image
-                                .resizable()
-                                .scaledToFill()
-                                .clipShape(Circle())
-                        } placeholder: {
-                            ProgressView()
-                                .scaleEffect(5)
-                        }
-                        .frame(width: 250, height: 250)
-                        
-                        Image(systemName: vm.user.location != nil ? "checkmark.seal.fill" : "xmark.seal.fill")
-                            .font(.system(size: 50))
-                            .foregroundStyle(vm.user.location != nil ? .green : .red)
-                            .background(
-                                Circle()
-                                    .fill(.background)
-                                    .frame(width: 60, height: 60)
-                            )
+            ScrollView(.vertical) {
+                ZStack(alignment: .bottomTrailing) {
+                    AsyncImage(url: URL(string: vm.user.image.link)) { image in
+                        image
+                            .resizable()
+                            .scaledToFill()
+                            .clipShape(Circle())
+                    } placeholder: {
+                        ProgressView()
+                            .scaleEffect(5)
                     }
+                    .frame(width: 250, height: 250)
                     
-                    HStack {
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 10)
-                                .fill(.secondary.opacity(0.8))
-                                .frame(width: 250, height: 100)
-                            
-                            VStack {
-                                HStack {
-                                    Text("₳\(vm.user.wallet)")
-                                        .font(.title)
-                                    Text(vm.user.login)
-                                        .font(.title2.bold())
-                                }
-                                .foregroundStyle(.white)
-                                
-                                HStack {
-                                    Text(vm.user.firstName)
-                                    Text(vm.user.lastName)
-                                }
-                                .foregroundStyle(.secondary)
-                            }
-                        }
-                        
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 10)
-                                .fill(.secondary.opacity(0.8))
-                                .frame(width: 100, height: 100)
-                            
-                            Text("\(vm.user.correctionPoint)")
-                                .font(.title)
-                                .foregroundStyle(.white)
-                        }
-                    }
-                    .padding(.top, 10)
-                    
-                    VStack {
-                        Text("\(vm.isCursusExists() ? vm.user.cursusUsers[2].grade! : vm.user.cursusUsers[1].grade ?? "Unknown") (\(String(format: "%.2f", vm.isCursusExists() ? vm.user.cursusUsers[2].level : vm.user.cursusUsers[1].level)))")
-                            .font(.title2.italic())
-                        
-                        ZStack(alignment: .leading) {
-                            RoundedRectangle(cornerRadius: 10)
-                                .strokeBorder(style: StrokeStyle())
-                                .frame(width: 360, height: 30)
-                            RoundedRectangle(cornerRadius: 10)
-                                .fill(.green)
-                                .frame(width: vm.defineXPBar(), height: 28)
-                                .offset(x: 1)
-                        }
-                    }
-                    .padding(.top, 10)
+                    Image(systemName: vm.user.location != nil ? "checkmark.seal.fill" : "xmark.seal.fill")
+                        .font(.system(size: 50))
+                        .foregroundStyle(vm.user.location != nil ? .green : .red)
+                        .background(
+                            Circle()
+                                .fill(.background)
+                                .frame(width: 60, height: 60)
+                        )
                 }
                 
-                Form {
-                    Section("Test") {
-                        Text("test")
+                HStack {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(.secondary.opacity(0.8))
+                            .frame(width: 250, height: 100)
+                        
+                        VStack {
+                            HStack {
+                                Text("₳\(vm.user.wallet)")
+                                    .font(.title)
+                                Text(vm.user.login)
+                                    .font(.title2.bold())
+                            }
+                            .foregroundStyle(.white)
+                            
+                            HStack {
+                                Text(vm.user.firstName)
+                                Text(vm.user.lastName)
+                            }
+                            .foregroundStyle(.secondary)
+                        }
+                    }
+                    
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(.secondary.opacity(0.8))
+                            .frame(width: 100, height: 100)
+                        
+                        Text("\(vm.user.correctionPoint)")
+                            .font(.title)
+                            .foregroundStyle(.white)
                     }
                 }
-                .frame(height: 200)
+                .padding(.top, 10)
+                
+                VStack {
+                    Text("\(vm.isCursusExists() ? vm.user.cursusUsers[2].grade! : vm.user.cursusUsers[1].grade ?? "Unknown") (\(String(format: "%.2f", vm.isCursusExists() ? vm.user.cursusUsers[2].level : vm.user.cursusUsers[1].level)))")
+                        .font(.title2.italic())
+                    
+                    ZStack(alignment: .leading) {
+                        RoundedRectangle(cornerRadius: 10)
+                            .strokeBorder(style: StrokeStyle())
+                            .frame(width: 360, height: 30)
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(.green)
+                            .frame(width: vm.defineXPBar(), height: 28)
+                            .offset(x: 1)
+                    }
+                }
+                .padding(.top, 10)
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
