@@ -98,7 +98,7 @@ struct ProfileView: View {
                             .foregroundStyle(.white)
                     }
                 }
-                .padding(.top, 10)
+                .padding(.top, 20)
                 
                 VStack {
                     Text("\(vm.isCursusExists() ? vm.user.cursusUsers[2].grade! : vm.user.cursusUsers[1].grade ?? "Unknown") (\(String(format: "%.2f", vm.isCursusExists() ? vm.user.cursusUsers[2].level : vm.user.cursusUsers[1].level)))")
@@ -114,7 +114,14 @@ struct ProfileView: View {
                             .offset(x: 1)
                     }
                 }
-                .padding(.top, 10)
+                .padding(.top, 20)
+                
+                VStack {
+                    ForEach(["name1", "name2"], id: \.self) {
+                        Text($0)
+                    }
+                }
+                .padding(.top, 20)
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
