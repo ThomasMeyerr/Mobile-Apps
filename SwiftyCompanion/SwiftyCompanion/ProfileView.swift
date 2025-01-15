@@ -131,7 +131,9 @@ struct ProfileView: View {
                 .padding(.top, 20)
                 
                 VStack {
-                    vm.displayProjects(projectsUsers: vm.user.projectsUsers)
+                    vm.displayProjects(projectsUsers: vm.user.projectsUsers.filter { $0.validated == nil })
+
+                    vm.displayProjects(projectsUsers: vm.user.projectsUsers.filter { $0.validated != nil })
                 }
                 .padding(.top, 20)
             }
