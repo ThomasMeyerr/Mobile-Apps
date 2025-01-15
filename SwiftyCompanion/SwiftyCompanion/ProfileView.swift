@@ -12,7 +12,7 @@ import SwiftUI
     @Published var isAlert = false
     @Published var user: User
     @ObservedObject var contentVM: ContentViewModel
-    
+
     init(contentVM: ContentViewModel) {
         self.contentVM = contentVM
         let cursusUsers = [CursusUser(id: 1, grade: "Learner", level: 10.97), CursusUser(id: 1, grade: "Member", level: 10.97)]
@@ -27,6 +27,20 @@ import SwiftUI
         let xp = isCursusExists() ? user.cursusUsers[2].level : user.cursusUsers[1].level
         let xpBar = (xp / 21) * 358
         return xpBar > 358 ? 358 : xpBar
+    }
+    
+    func displayProjects(projectsUsers: [ProjectsUser]) -> some View {
+        ForEach(projectsUsers) { projectUser in
+            HStack {
+                Text(projectUser.project.name)
+                
+                Spacer()
+                
+                Text("\(projectUser.finalMark ?? 0)")
+                    .foregroundStyle(projectUser.validated ?? false ? .green : .red)
+            }
+            .padding([.leading, .trailing], 20)
+        }
     }
 }
 
@@ -117,14 +131,7 @@ struct ProfileView: View {
                 .padding(.top, 20)
                 
                 VStack {
-                    ForEach(vm.user.projectsUsers) { projectUser in
-                        HStack {
-                            Text(projectUser.project.name)
-                            Spacer()
-                            Text("\(projectUser.finalMark ?? 0)")
-                        }
-                        .padding([.leading, .trailing], 20)
-                    }
+                    vm.displayProjects(projectsUsers: vm.user.projectsUsers)
                 }
                 .padding(.top, 20)
             }
