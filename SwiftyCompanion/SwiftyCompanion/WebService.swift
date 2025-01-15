@@ -71,7 +71,7 @@ struct ProjectsUser: Codable {
     let project: Project
     
     #if DEBUG
-    static let example = ProjectsUser(id: 1, final_mark: 125, validated: true, project: Project.example)
+    static let example = [ProjectsUser(id: 1, final_mark: 125, validated: true, project: Project.example), ProjectsUser(id: 2, final_mark: nil, validated: nil, project: Project.example)]
     #endif
 }
 

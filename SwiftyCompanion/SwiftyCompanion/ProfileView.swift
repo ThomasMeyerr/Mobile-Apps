@@ -16,7 +16,7 @@ import SwiftUI
     init(contentVM: ContentViewModel) {
         self.contentVM = contentVM
         let cursusUsers = [CursusUser(id: 1, grade: "Learner", level: 10.97), CursusUser(id: 1, grade: "Member", level: 10.97)]
-        self.user = contentVM.user ?? User(id: 1, email: "omg@gmail.com", login: "thmeyer", firstName: "Thomas", lastName: "Meyer", kind: "student", image: UserImage.example, correctionPoint: 31, location: nil, wallet: 1064, cursusUsers: cursusUsers)
+        self.user = contentVM.user ?? User(id: 1, email: "omg@gmail.com", login: "thmeyer", firstName: "Thomas", lastName: "Meyer", kind: "student", image: UserImage.example, correctionPoint: 31, location: nil, wallet: 1064, cursusUsers: cursusUsers, projectsUsers: ProjectsUser.example)
     }
     
     func isCursusExists() -> Bool {
