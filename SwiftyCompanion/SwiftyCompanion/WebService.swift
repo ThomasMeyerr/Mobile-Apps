@@ -64,14 +64,20 @@ struct CursusUser: Codable {
 }
 
 
-struct ProjectsUser: Codable {
+struct ProjectsUser: Codable, Identifiable {
     let id: Int
-    let final_mark: Int?
+    let finalMark: Int?
     let validated: Bool?
     let project: Project
     
+    enum CodingKeys: String, CodingKey {
+        case id
+        case finalMark = "final_mark"
+        case validated, project
+    }
+    
     #if DEBUG
-    static let example = [ProjectsUser(id: 1, final_mark: 125, validated: true, project: Project.example), ProjectsUser(id: 2, final_mark: nil, validated: nil, project: Project.example)]
+    static let example = [ProjectsUser(id: 1, finalMark: 125, validated: true, project: Project.example), ProjectsUser(id: 2, finalMark: nil, validated: nil, project: Project.example)]
     #endif
 }
 

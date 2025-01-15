@@ -117,11 +117,11 @@ struct ProfileView: View {
                 .padding(.top, 20)
                 
                 VStack {
-                    ForEach(["name1", "name2"], id: \.self) { item in
+                    ForEach(vm.user.projectsUsers) { projectUser in
                         HStack {
-                            Text(item)
+                            Text(projectUser.project.name)
                             Spacer()
-                            Text("aled")
+                            Text("\(projectUser.finalMark ?? 0)")
                         }
                         .padding([.leading, .trailing], 20)
                     }
