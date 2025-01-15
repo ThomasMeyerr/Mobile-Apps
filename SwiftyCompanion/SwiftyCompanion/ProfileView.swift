@@ -117,8 +117,13 @@ struct ProfileView: View {
                 .padding(.top, 20)
                 
                 VStack {
-                    ForEach(["name1", "name2"], id: \.self) {
-                        Text($0)
+                    ForEach(["name1", "name2"], id: \.self) { item in
+                        HStack {
+                            Text(item)
+                            Spacer()
+                            Text("aled")
+                        }
+                        .padding([.leading, .trailing], 20)
                     }
                 }
                 .padding(.top, 20)
