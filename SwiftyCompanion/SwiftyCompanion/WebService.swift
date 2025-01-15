@@ -29,6 +29,7 @@ struct User: Codable {
     let location: String?
     let wallet: Int
     let cursusUsers: [CursusUser]
+    let projectsUsers: [ProjectsUser]
     
     enum CodingKeys: String, CodingKey {
         case id, email, login
@@ -38,6 +39,7 @@ struct User: Codable {
         case correctionPoint = "correction_point"
         case location, wallet
         case cursusUsers = "cursus_users"
+        case projectsUsers = "projects_users"
     }
 }
 
@@ -59,6 +61,28 @@ struct CursusUser: Codable {
     enum CodingKeys: String, CodingKey {
         case id, grade, level
     }
+}
+
+
+struct ProjectsUser: Codable {
+    let id: Int
+    let final_mark: Int?
+    let validated: Bool?
+    let project: Project
+    
+    #if DEBUG
+    static let example = ProjectsUser(id: 1, final_mark: 125, validated: true, project: Project.example)
+    #endif
+}
+
+
+struct Project: Codable {
+    let id: Int
+    let name: String
+    
+    #if DEBUG
+    static let example = Project(id: 1, name: "ft_transcendence")
+    #endif
 }
 
 
