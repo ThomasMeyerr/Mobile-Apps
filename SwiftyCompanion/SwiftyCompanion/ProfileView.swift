@@ -131,8 +131,16 @@ struct ProfileView: View {
                 .padding(.top, 20)
                 
                 VStack {
+                    Text("Ongoing projects")
+                        .foregroundStyle(.secondary.opacity(0.8))
+                    
                     vm.displayProjects(projectsUsers: vm.user.projectsUsers.filter { $0.validated == nil })
-
+                    
+                    Spacer(minLength: 50)
+                    
+                    Text("Finished projects")
+                        .foregroundStyle(.secondary.opacity(0.8))
+                    
                     vm.displayProjects(projectsUsers: vm.user.projectsUsers.filter { $0.validated != nil })
                 }
                 .padding(.top, 20)
