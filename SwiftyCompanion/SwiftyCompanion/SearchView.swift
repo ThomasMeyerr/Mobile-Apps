@@ -9,13 +9,24 @@ import SwiftUI
 
 
 @MainActor class SearchViewModel: ObservableObject {
+    @ObservedObject var contentVM: ContentViewModel
     @Published var prompt = ""
+    
+    init(contentVM: ContentViewModel) {
+        self.contentVM = contentVM
+    }
 }
 
 
 struct SearchView: View {
-    @StateObject var vm = SearchViewModel()
+    @ObservedObject var contentVM: ContentViewModel
+    @StateObject var vm: SearchViewModel
     @Environment(\.dismiss) var dismiss
+    
+    init(contentVM: ContentViewModel) {
+        self._contentVM = ObservedObject(wrappedValue: contentVM)
+        self._vm = StateObject(wrappedValue: SearchViewModel(contentVM: contentVM))
+    }
     
     var body: some View {
         NavigationStack {
@@ -26,5 +37,5 @@ struct SearchView: View {
 }
 
 #Preview {
-    SearchView()
+    SearchView(contentVM: ContentViewModel())
 }

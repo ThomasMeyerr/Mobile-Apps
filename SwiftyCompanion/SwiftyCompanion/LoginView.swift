@@ -40,6 +40,7 @@ import SwiftUI
     
     func fetchData(code: String) async {
         let instance = WebService()
+        instance.code = code
         
         if let downloadedData: User = await instance.downloadData(fromUrl: "https://api.intra.42.fr/v2/me", code: code) {
             contentVM.user = downloadedData

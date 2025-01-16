@@ -188,7 +188,7 @@ struct ProfileView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     NavigationLink {
-                        SearchView()
+                        SearchView(contentVM: contentVM)
                     } label: {
                         Image(systemName: "magnifyingglass")
                     }
