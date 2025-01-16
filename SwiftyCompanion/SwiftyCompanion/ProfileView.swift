@@ -9,15 +9,18 @@ import SwiftUI
 
 
 @MainActor class ProfileViewModel: ObservableObject {
+    @ObservedObject var contentVM: ContentViewModel
     @Published var isAlert = false
     @Published var user: User
     @Published var coalitions: Coalitions
-    @ObservedObject var contentVM: ContentViewModel
+    @Published var color: Color
 
     init(contentVM: ContentViewModel) {
         self.contentVM = contentVM
         self.user = contentVM.user ?? User.example
-        self.coalitions = contentVM.coalitions ?? Coalitions([Coalition(id: 1, name: "Water", color: "#326C9C"), Coalition(id: 1, name: "The Worms", color: "#326C9C")])
+        let coalitions = contentVM.coalitions ?? Coalitions([Coalition(id: 1, name: "Water", color: "#326C9C"), Coalition(id: 1, name: "The Worms", color: "#326C9C")])
+        self.coalitions = coalitions
+        self.color = Color(hex: coalitions[0].color)
     }
     
     func isCursusExists() -> Bool {
@@ -59,7 +62,7 @@ import SwiftUI
                     HStack {
                         HStack {
                             Text(projectUser.project.name)
-                                .foregroundStyle(Color(red: 0/255, green: 188/255, blue: 154/255))
+                                .foregroundStyle(self.color)
                                 .bold()
                             
                             Text(self.displayDate(isoDate: projectUser.updatedAt))
@@ -92,7 +95,6 @@ struct ProfileView: View {
     
     var body: some View {
         NavigationStack {
-            Text(vm.coalitions[0].name)
             ScrollView(.vertical) {
                 ZStack(alignment: .bottomTrailing) {
                     AsyncImage(url: URL(string: vm.user.image.link)) { image in
@@ -119,7 +121,7 @@ struct ProfileView: View {
                 HStack {
                     ZStack {
                         RoundedRectangle(cornerRadius: 10)
-                            .fill(Color(red: 0/255, green: 188/255, blue: 154/255))
+                            .fill(vm.color)
                             .frame(width: 250, height: 100)
                         
                         VStack {
@@ -141,7 +143,7 @@ struct ProfileView: View {
                     
                     ZStack {
                         RoundedRectangle(cornerRadius: 10)
-                            .fill(Color(red: 0/255, green: 188/255, blue: 154/255))
+                            .fill(vm.color)
                             .frame(width: 100, height: 100)
                         
                         Text("\(vm.user.correctionPoint)")
@@ -154,7 +156,7 @@ struct ProfileView: View {
                 VStack {
                     Text("\(vm.isCursusExists() ? vm.user.cursusUsers[2].grade! : vm.user.cursusUsers[1].grade ?? "Unknown") (\(String(format: "%.2f", vm.isCursusExists() ? vm.user.cursusUsers[2].level : vm.user.cursusUsers[1].level)))")
                         .font(.title2.italic().bold())
-                        .foregroundStyle(Color(red: 0/255, green: 188/255, blue: 154/255))
+                        .foregroundStyle(vm.color)
                     
                     ZStack(alignment: .leading) {
                         RoundedRectangle(cornerRadius: 10)
