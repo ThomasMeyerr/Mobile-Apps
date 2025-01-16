@@ -116,9 +116,11 @@ typealias Coalitions = [Coalition]
 
 
 class WebService {
-    private var accessToken = ""
-    var alertString = ""
+    // globale var
+    static var accessToken = ""
     static var code = ""
+    
+    var alertString = ""
     
     // Configuration 42 API
     let clientID = "u-s4t2ud-f4010b1ce4c0ef5510945c3e4c5bfdc7ad3dc45a811d1b6b3178c31458c63e08"
@@ -153,19 +155,19 @@ class WebService {
         }
         
         let tokenResponse = try JSONDecoder().decode(TokenResponse.self, from: data)
-        self.accessToken = tokenResponse.access_token
+        WebService.accessToken = tokenResponse.access_token
     }
 
     func downloadData<T: Codable>(fromUrl: String, code: String) async -> T? {
         do {
-            if accessToken.isEmpty {
+            if WebService.accessToken.isEmpty {
                 try await getAccessToken(code: code)
             }
                         
             guard let url = URL(string: fromUrl) else { throw NetworkError.badUrl }
             
             var request = URLRequest(url: url)
-            request.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
+            request.setValue("Bearer \(WebService.accessToken)", forHTTPHeaderField: "Authorization")
 
             let (data, response) = try await URLSession.shared.data(for: request)
             guard let response = response as? HTTPURLResponse else { throw NetworkError.badResponse }

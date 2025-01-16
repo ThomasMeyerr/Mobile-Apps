@@ -21,7 +21,7 @@ import SwiftUI
     func fetchData() async {
         let instance = WebService()
         
-        if let downloadedData: User = await instance.downloadData(fromUrl: "https://api.intra.42.fr/v2/me", code: WebService.code) {
+        if let downloadedData: User = await instance.downloadData(fromUrl: "https://api.intra.42.fr/users/\(prompt)", code: WebService.code) {
             contentVM.user = downloadedData
             if let downloadedCoalitions: Coalitions = await instance.downloadData(fromUrl: "https://api.intra.42.fr/v2/users/\(downloadedData.id)/coalitions", code: WebService.code) {
                 contentVM.coalitions = downloadedCoalitions
