@@ -118,7 +118,7 @@ typealias Coalitions = [Coalition]
 class WebService {
     private var accessToken = ""
     var alertString = ""
-    var code = ""
+    static var code = ""
     
     // Configuration 42 API
     let clientID = "u-s4t2ud-f4010b1ce4c0ef5510945c3e4c5bfdc7ad3dc45a811d1b6b3178c31458c63e08"
