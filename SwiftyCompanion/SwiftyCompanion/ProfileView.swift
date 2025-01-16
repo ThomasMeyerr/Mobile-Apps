@@ -30,20 +30,30 @@ import SwiftUI
     }
     
     func displayProjects(projectsUsers: [ProjectsUser]) -> some View {
-        ForEach(projectsUsers) { projectUser in
-            HStack {
-                Text(projectUser.project.name)
-                    .foregroundStyle(Color(red: 0/255, green: 188/255, blue: 154/255))
-                    .bold()
-                
-                Spacer()
-                
-                Text("\(projectUser.validated ?? false ? "✓" : "✘") \(projectUser.finalMark ?? 0)")
-                    .foregroundStyle(projectUser.validated ?? false ? .green : .red)
-                    .bold()
+        VStack {
+            if projectsUsers.isEmpty {
+                HStack {
+                    Text("No ongoing projects")
+                        .foregroundStyle(.secondary.opacity(0.8))
+                    Spacer()
+                }
+            } else {
+                ForEach(projectsUsers) { projectUser in
+                    HStack {
+                        Text(projectUser.project.name)
+                            .foregroundStyle(Color(red: 0/255, green: 188/255, blue: 154/255))
+                            .bold()
+                        
+                        Spacer()
+                        
+                        Text("\(projectUser.validated ?? false ? "✓" : "✘") \(projectUser.finalMark ?? 0)")
+                            .foregroundStyle(projectUser.validated ?? false ? .green : .red)
+                            .bold()
+                    }
+                }
             }
-            .padding([.leading, .trailing], 20)
         }
+        .padding([.leading, .trailing], 20)
     }
 }
 
