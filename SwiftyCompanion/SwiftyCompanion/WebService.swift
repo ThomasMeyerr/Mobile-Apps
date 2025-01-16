@@ -69,15 +69,18 @@ struct ProjectsUser: Codable, Identifiable {
     let finalMark: Int?
     let validated: Bool?
     let project: Project
+    let updatedAt: String
     
     enum CodingKeys: String, CodingKey {
         case id
         case finalMark = "final_mark"
-        case validated, project
+        case validated = "validated?"
+        case project
+        case updatedAt = "updated_at"
     }
     
     #if DEBUG
-    static let example = [ProjectsUser(id: 1, finalMark: 125, validated: true, project: Project.example), ProjectsUser(id: 2, finalMark: nil, validated: nil, project: Project.example)]
+    static let example = [ProjectsUser(id: 1, finalMark: 125, validated: true, project: Project.example, updatedAt: "2024-12-05T08:46:54.908Z"), ProjectsUser(id: 2, finalMark: nil, validated: nil, project: Project.example, updatedAt: "2024-12-05T08:46:54.908Z"), ProjectsUser(id: 2, finalMark: nil, validated: nil, project: Project.example, updatedAt: "2023-12-07T15:01:22.295Z")]
     #endif
 }
 

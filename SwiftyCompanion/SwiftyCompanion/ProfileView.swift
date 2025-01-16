@@ -29,6 +29,21 @@ import SwiftUI
         return xpBar > 358 ? 358 : xpBar
     }
     
+    func displayDate(isoDate: String) -> String {
+        let dateFormatter = ISO8601DateFormatter()
+        dateFormatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+        
+        let displayFormatter = DateFormatter()
+        displayFormatter.dateStyle = .medium
+        displayFormatter.timeStyle = .none
+        
+        if let date = dateFormatter.date(from: isoDate) {
+            return displayFormatter.string(from: date)
+        } else {
+            return "Invalid date"
+        }
+    }
+    
     func displayProjects(projectsUsers: [ProjectsUser]) -> some View {
         VStack {
             if projectsUsers.isEmpty {
@@ -37,12 +52,18 @@ import SwiftUI
                         .foregroundStyle(.secondary.opacity(0.8))
                     Spacer()
                 }
+                .padding(.top, 5)
             } else {
                 ForEach(projectsUsers) { projectUser in
                     HStack {
-                        Text(projectUser.project.name)
-                            .foregroundStyle(Color(red: 0/255, green: 188/255, blue: 154/255))
-                            .bold()
+                        HStack {
+                            Text(projectUser.project.name)
+                                .foregroundStyle(Color(red: 0/255, green: 188/255, blue: 154/255))
+                                .bold()
+                            
+                            Text(self.displayDate(isoDate: projectUser.updatedAt))
+                                .font(.subheadline)
+                        }
                         
                         Spacer()
                         
@@ -50,6 +71,7 @@ import SwiftUI
                             .foregroundStyle(projectUser.validated ?? false ? .green : .red)
                             .bold()
                     }
+                    .padding(.top, 5)
                 }
             }
         }
@@ -167,7 +189,6 @@ struct ProfileView: View {
                         Image(systemName: "power")
                             .resizable()
                             .scaledToFit()
-                            .frame(width: 50)
                             .tint(.red)
                     }
                 }
