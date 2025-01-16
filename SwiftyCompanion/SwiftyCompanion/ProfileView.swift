@@ -90,7 +90,7 @@ struct ProfileView: View {
     }
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ScrollView(.vertical) {
                 ZStack(alignment: .bottomTrailing) {
                     AsyncImage(url: URL(string: vm.user.image.link)) { image in

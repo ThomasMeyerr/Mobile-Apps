@@ -7,11 +7,21 @@
 
 import SwiftUI
 
+
+@MainActor class SearchViewModel: ObservableObject {
+    @Published var prompt = ""
+}
+
+
 struct SearchView: View {
+    @StateObject var vm = SearchViewModel()
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
-        Button("Go back", action: { self.dismiss() })
+        NavigationStack {
+            Button("Go back", action: { self.dismiss() })
+        }
+        .searchable(text: $vm.prompt)
     }
 }
 
