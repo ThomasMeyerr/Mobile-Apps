@@ -11,12 +11,13 @@ import SwiftUI
 @MainActor class ProfileViewModel: ObservableObject {
     @Published var isAlert = false
     @Published var user: User
+    @Published var coalitions: Coalitions
     @ObservedObject var contentVM: ContentViewModel
 
     init(contentVM: ContentViewModel) {
         self.contentVM = contentVM
-        let cursusUsers = [CursusUser(id: 1, grade: "Learner", level: 10.97), CursusUser(id: 1, grade: "Member", level: 10.97)]
-        self.user = contentVM.user ?? User(id: 1, email: "omg@gmail.com", login: "thmeyer", firstName: "Thomas", lastName: "Meyer", kind: "student", image: UserImage.example, correctionPoint: 31, location: nil, wallet: 1064, cursusUsers: cursusUsers, projectsUsers: ProjectsUser.example)
+        self.user = contentVM.user ?? User.example
+        self.coalitions = contentVM.coalitions ?? Coalitions([Coalition(id: 1, name: "water", color: "#434342"), Coalition(id: 1, name: "water", color: "#434342")])
     }
     
     func isCursusExists() -> Bool {
@@ -91,6 +92,7 @@ struct ProfileView: View {
     
     var body: some View {
         NavigationStack {
+            Text(vm.coalitions[0].name)
             ScrollView(.vertical) {
                 ZStack(alignment: .bottomTrailing) {
                     AsyncImage(url: URL(string: vm.user.image.link)) { image in

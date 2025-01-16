@@ -12,6 +12,7 @@ import SwiftUI
     @Published var isSheet = false
     @Published var isLogged = false
     @Published var user: User?
+    @Published var coalitions: Coalitions?
 }
 
 

@@ -42,6 +42,15 @@ import SwiftUI
         let instance = WebService()
         if let downloadedData: User = await instance.downloadData(fromUrl: "https://api.intra.42.fr/v2/me", code: code) {
             contentVM.user = downloadedData
+            
+            if let downloadedCoalitions: Coalitions = await instance.downloadData(fromUrl: "https://api.intra.42.fr/v2/users/\(downloadedData.id)/coalitions", code: code) {
+                contentVM.coalitions = downloadedCoalitions
+            } else {
+                isAlert = true
+                alertString = instance.alertString
+                return
+            }
+            
             contentVM.isLogged = true
             contentVM.isSheet = false
         } else {

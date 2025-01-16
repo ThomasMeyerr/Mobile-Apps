@@ -17,6 +17,13 @@ enum NetworkError: Error {
 }
 
 
+struct TokenResponse: Codable {
+    let access_token: String
+    let token_type: String
+    let expires_in: Int
+}
+
+
 struct User: Codable {
     let id: Int
     let email: String
@@ -41,6 +48,11 @@ struct User: Codable {
         case cursusUsers = "cursus_users"
         case projectsUsers = "projects_users"
     }
+    
+    #if DEBUG
+    static let cursusUsers = [CursusUser(id: 1, grade: "Learner", level: 10.97), CursusUser(id: 1, grade: "Member", level: 10.97)]
+    static let example = User(id: 1, email: "omg@gmail.com", login: "thmeyer", firstName: "Thomas", lastName: "Meyer", kind: "student", image: UserImage.example, correctionPoint: 31, location: nil, wallet: 1064, cursusUsers: cursusUsers, projectsUsers: ProjectsUser.example)
+    #endif
 }
 
 
@@ -95,11 +107,12 @@ struct Project: Codable {
 }
 
 
-struct TokenResponse: Codable {
-    let access_token: String
-    let token_type: String
-    let expires_in: Int
+struct Coalition: Codable {
+    let id: Int
+    let name: String
+    let color: String
 }
+typealias Coalitions = [Coalition]
 
 
 class WebService {
@@ -156,6 +169,11 @@ class WebService {
             let (data, response) = try await URLSession.shared.data(for: request)
             guard let response = response as? HTTPURLResponse else { throw NetworkError.badResponse }
             guard response.statusCode >= 200 && response.statusCode < 300 else { throw NetworkError.badStatus }
+            
+            if let json = String(data: data, encoding: .utf8) {
+                print(json)
+            }
+            
             guard let decodedResponse = try? JSONDecoder().decode(T.self, from: data) else { throw NetworkError.failedToDecodeResponse }
             
             return decodedResponse
