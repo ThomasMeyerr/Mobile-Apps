@@ -33,11 +33,13 @@ import SwiftUI
         ForEach(projectsUsers) { projectUser in
             HStack {
                 Text(projectUser.project.name)
+                    .bold()
                 
                 Spacer()
                 
-                Text("\(projectUser.finalMark ?? 0)")
+                Text("\(projectUser.validated ?? false ? "✓" : "✘") \(projectUser.finalMark ?? 0)")
                     .foregroundStyle(projectUser.validated ?? false ? .green : .red)
+                    .bold()
             }
             .padding([.leading, .trailing], 20)
         }
