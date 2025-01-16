@@ -33,6 +33,7 @@ import SwiftUI
         ForEach(projectsUsers) { projectUser in
             HStack {
                 Text(projectUser.project.name)
+                    .foregroundStyle(Color(red: 0/255, green: 188/255, blue: 154/255))
                     .bold()
                 
                 Spacer()
@@ -84,7 +85,7 @@ struct ProfileView: View {
                 HStack {
                     ZStack {
                         RoundedRectangle(cornerRadius: 10)
-                            .fill(.secondary.opacity(0.8))
+                            .fill(Color(red: 0/255, green: 188/255, blue: 154/255))
                             .frame(width: 250, height: 100)
                         
                         VStack {
@@ -96,17 +97,17 @@ struct ProfileView: View {
                             }
                             .foregroundStyle(.white)
                             
-                            HStack {
+                            HStack(spacing: 5) {
                                 Text(vm.user.firstName)
                                 Text(vm.user.lastName)
                             }
-                            .foregroundStyle(.secondary)
+                            .foregroundStyle(.white)
                         }
                     }
                     
                     ZStack {
                         RoundedRectangle(cornerRadius: 10)
-                            .fill(.secondary.opacity(0.8))
+                            .fill(Color(red: 0/255, green: 188/255, blue: 154/255))
                             .frame(width: 100, height: 100)
                         
                         Text("\(vm.user.correctionPoint)")
@@ -118,7 +119,8 @@ struct ProfileView: View {
                 
                 VStack {
                     Text("\(vm.isCursusExists() ? vm.user.cursusUsers[2].grade! : vm.user.cursusUsers[1].grade ?? "Unknown") (\(String(format: "%.2f", vm.isCursusExists() ? vm.user.cursusUsers[2].level : vm.user.cursusUsers[1].level)))")
-                        .font(.title2.italic())
+                        .font(.title2.italic().bold())
+                        .foregroundStyle(Color(red: 0/255, green: 188/255, blue: 154/255))
                     
                     ZStack(alignment: .leading) {
                         RoundedRectangle(cornerRadius: 10)
