@@ -17,7 +17,7 @@ import SwiftUI
     init(contentVM: ContentViewModel) {
         self.contentVM = contentVM
         self.user = contentVM.user ?? User.example
-        self.coalitions = contentVM.coalitions ?? Coalitions([Coalition(id: 1, name: "water", color: "#434342"), Coalition(id: 1, name: "water", color: "#434342")])
+        self.coalitions = contentVM.coalitions ?? Coalitions([Coalition(id: 1, name: "Water", color: "#326C9C"), Coalition(id: 1, name: "The Worms", color: "#326C9C")])
     }
     
     func isCursusExists() -> Bool {

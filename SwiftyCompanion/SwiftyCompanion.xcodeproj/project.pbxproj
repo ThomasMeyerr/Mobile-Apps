@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		161CBD6D2D147F8100B20189 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161CBD6C2D147F8100B20189 /* WebService.swift */; };
 		163C6D6B2D39506C004FBFEC /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163C6D6A2D39506C004FBFEC /* SearchView.swift */; };
+		163C6D6D2D395B67004FBFEC /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163C6D6C2D395B67004FBFEC /* Extensions.swift */; };
 		16568D082D1972AD00314D72 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16568D072D1972AD00314D72 /* LoginView.swift */; };
 		16568D0A2D1975B400314D72 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16568D092D1975B400314D72 /* LoadingView.swift */; };
 		16568D0C2D1987DC00314D72 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16568D0B2D1987DC00314D72 /* ProfileView.swift */; };
@@ -21,6 +22,7 @@
 /* Begin PBXFileReference section */
 		161CBD6C2D147F8100B20189 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		163C6D6A2D39506C004FBFEC /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		163C6D6C2D395B67004FBFEC /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		16568D072D1972AD00314D72 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		16568D092D1975B400314D72 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		16568D0B2D1987DC00314D72 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				166816052D020F6900C60BF8 /* SwiftyCompanionApp.swift */,
 				166816072D020F6900C60BF8 /* ContentView.swift */,
 				16568D0B2D1987DC00314D72 /* ProfileView.swift */,
+				163C6D6C2D395B67004FBFEC /* Extensions.swift */,
 				163C6D6A2D39506C004FBFEC /* SearchView.swift */,
 				16568D092D1975B400314D72 /* LoadingView.swift */,
 				16568D072D1972AD00314D72 /* LoginView.swift */,
@@ -157,6 +160,7 @@
 				166816082D020F6900C60BF8 /* ContentView.swift in Sources */,
 				161CBD6D2D147F8100B20189 /* WebService.swift in Sources */,
 				16568D082D1972AD00314D72 /* LoginView.swift in Sources */,
+				163C6D6D2D395B67004FBFEC /* Extensions.swift in Sources */,
 				163C6D6B2D39506C004FBFEC /* SearchView.swift in Sources */,
 				16568D0A2D1975B400314D72 /* LoadingView.swift in Sources */,
 				16568D0C2D1987DC00314D72 /* ProfileView.swift in Sources */,
