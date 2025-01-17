@@ -73,10 +73,14 @@ import SwiftUI
                         
                         Spacer()
                         
-                        
-                        Text("\(projectUser.validated ?? false ? "✓" : "✘") \(projectUser.finalMark ?? 0)")
-                            .foregroundStyle(projectUser.validated ?? false ? .green : .red)
-                            .bold()
+                        if projectUser.validated == nil {
+                            Image(systemName: "clock")
+                                .foregroundStyle(.orange)
+                        } else {
+                            Text("\(projectUser.validated ?? false ? "✓" : "✘") \(projectUser.finalMark ?? 0)")
+                                .foregroundStyle(projectUser.validated ?? false ? .green : .red)
+                                .bold()
+                        }
                     }
                     .padding(.top, 5)
                 }
