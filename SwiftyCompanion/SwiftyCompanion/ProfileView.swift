@@ -14,13 +14,15 @@ import SwiftUI
     @Published var user: User
     @Published var coalitions: Coalitions
     @Published var color: Color
+    @Published var isSearched: Bool
 
-    init(contentVM: ContentViewModel) {
+    init(contentVM: ContentViewModel, isSearched: Bool) {
         self.contentVM = contentVM
         self.user = contentVM.user ?? User.example
         let coalitions = contentVM.coalitions ?? Coalitions([Coalition(id: 1, name: "Water", color: "#326C9C"), Coalition(id: 1, name: "The Worms", color: "#326C9C")])
         self.coalitions = coalitions
         self.color = Color(hex: coalitions[0].color)
+        self.isSearched = isSearched
     }
     
     func isCursusExists() -> Bool {
@@ -88,9 +90,9 @@ struct ProfileView: View {
     @ObservedObject var contentVM: ContentViewModel
     @StateObject var vm: ProfileViewModel
     
-    init(contentVM: ContentViewModel) {
+    init(contentVM: ContentViewModel, isSearched: Bool) {
         self._contentVM = ObservedObject(wrappedValue: contentVM)
-        self._vm = StateObject(wrappedValue: ProfileViewModel(contentVM: contentVM))
+        self._vm = StateObject(wrappedValue: ProfileViewModel(contentVM: contentVM, isSearched: isSearched))
     }
     
     var body: some View {
@@ -186,20 +188,22 @@ struct ProfileView: View {
                 .padding(.top, 20)
             }
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink(destination: SearchView(contentVM: contentVM)) {
-                        Image(systemName: "magnifyingglass")
+                if !vm.isSearched {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        NavigationLink(destination: SearchView(contentVM: contentVM)) {
+                            Image(systemName: "magnifyingglass")
+                        }
                     }
-                }
-                
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
-                        vm.isAlert = true
-                    } label: {
-                        Image(systemName: "power")
-                            .resizable()
-                            .scaledToFit()
-                            .tint(.red)
+                    
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button {
+                            vm.isAlert = true
+                        } label: {
+                            Image(systemName: "power")
+                                .resizable()
+                                .scaledToFit()
+                                .tint(.red)
+                        }
                     }
                 }
             }
@@ -215,5 +219,5 @@ struct ProfileView: View {
 }
 
 #Preview {
-    ProfileView(contentVM: ContentViewModel())
+    ProfileView(contentVM: ContentViewModel(), isSearched: false)
 }

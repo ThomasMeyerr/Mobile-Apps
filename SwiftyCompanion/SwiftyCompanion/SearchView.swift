@@ -13,6 +13,8 @@ import SwiftUI
     @Published var prompt = ""
     @Published var isAlert = false
     @Published var alertString = ""
+    @Published var navigateToProfile = false
+    @Published var isSearching = false
     
     init(contentVM: ContentViewModel) {
         self.contentVM = contentVM
@@ -20,14 +22,13 @@ import SwiftUI
     
     func fetchData() async {
         let instance = WebService()
+        let promptTrimmed = prompt.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
         
-        if let downloadedData: User = await instance.downloadData(fromUrl: "https://api.intra.42.fr/users/\(prompt)", code: WebService.code) {
+        if let downloadedData: User = await instance.downloadData(fromUrl: "https://api.intra.42.fr/v2/users/\(promptTrimmed)", code: WebService.code) {
             contentVM.user = downloadedData
             if let downloadedCoalitions: Coalitions = await instance.downloadData(fromUrl: "https://api.intra.42.fr/v2/users/\(downloadedData.id)/coalitions", code: WebService.code) {
                 contentVM.coalitions = downloadedCoalitions
             }
-            contentVM.isLogged = true
-            contentVM.isSheet = false
         } else {
             isAlert = true
             alertString = instance.alertString
@@ -38,8 +39,8 @@ import SwiftUI
 
 struct SearchView: View {
     @ObservedObject var contentVM: ContentViewModel
-    @StateObject var vm: SearchViewModel
     @Environment(\.dismiss) var dismiss
+    @StateObject var vm: SearchViewModel
     
     init(contentVM: ContentViewModel) {
         self._contentVM = ObservedObject(wrappedValue: contentVM)
@@ -47,21 +48,34 @@ struct SearchView: View {
     }
     
     var body: some View {
-        VStack {
-            Text("Find other students in searchbar")
-                .foregroundStyle(.secondary.opacity(0.8))
-        }
-        .searchable(text: $vm.prompt)
-        .onSubmit(of: .search) {
-            Task {
-                await vm.fetchData()
-                if !vm.isAlert {
-                    dismiss()
+        NavigationStack {
+            VStack {
+                if vm.isSearching {
+                    ProgressView()
+                        .scaleEffect(5)
+                } else {
+                    Text("Find other students in searchbar")
+                        .foregroundStyle(.secondary.opacity(0.8))
                 }
             }
-        }
-        .alert(isPresented: $vm.isAlert) {
-            Alert(title: Text(vm.alertString))
+            .searchable(text: $vm.prompt)
+            .onSubmit(of: .search) {
+                Task {
+                    vm.isSearching = true
+                    await vm.fetchData()
+                    if !vm.isAlert {
+                        vm.navigateToProfile = true
+                    } else {
+                        vm.isSearching = false
+                    }
+                }
+            }
+            .alert(isPresented: $vm.isAlert) {
+                Alert(title: Text(vm.alertString))
+            }
+            .sheet(isPresented: $vm.navigateToProfile, content: {
+                ProfileView(contentVM: contentVM, isSearched: true)
+            })
         }
     }
 }

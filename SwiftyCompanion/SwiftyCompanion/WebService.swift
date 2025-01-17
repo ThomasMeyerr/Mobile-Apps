@@ -116,7 +116,7 @@ typealias Coalitions = [Coalition]
 
 
 class WebService {
-    // globale var
+    // Globale var
     static var accessToken = ""
     static var code = ""
     

@@ -24,7 +24,7 @@ struct ContentView: View {
             if !vm.isLogged {
                 LoadingView(contentVM: vm)
             } else {
-                ProfileView(contentVM: vm)
+                ProfileView(contentVM: vm, isSearched: false)
             }
         }
         .onAppear() {
