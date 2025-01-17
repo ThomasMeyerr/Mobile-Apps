@@ -73,6 +73,7 @@ import SwiftUI
                         
                         Spacer()
                         
+                        
                         Text("\(projectUser.validated ?? false ? "✓" : "✘") \(projectUser.finalMark ?? 0)")
                             .foregroundStyle(projectUser.validated ?? false ? .green : .red)
                             .bold()

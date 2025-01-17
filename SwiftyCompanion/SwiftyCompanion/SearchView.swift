@@ -76,6 +76,12 @@ struct SearchView: View {
             .sheet(isPresented: $vm.navigateToProfile, content: {
                 ProfileView(contentVM: contentVM, isSearched: true)
             })
+            .onChange(of: vm.navigateToProfile) {
+                if !vm.navigateToProfile {
+                    vm.isSearching = false
+                    vm.prompt = ""
+                }
+            }
         }
     }
 }
