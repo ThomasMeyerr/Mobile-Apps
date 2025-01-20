@@ -124,7 +124,7 @@ class WebService {
     
     // Configuration 42 API
     let clientID = "u-s4t2ud-f4010b1ce4c0ef5510945c3e4c5bfdc7ad3dc45a811d1b6b3178c31458c63e08"
-    private let clientSecret = "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"
+    private let clientSecret = "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"
     let redirectUri = "swiftycompanion://callback"
     let encodedRedirectUri = "swiftycompanion://callback".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
     private let tokenURL = "https://api.intra.42.fr/oauth/token"
