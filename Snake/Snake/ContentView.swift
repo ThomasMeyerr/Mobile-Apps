@@ -9,26 +9,23 @@ import SwiftUI
 import SpriteKit
 
 
-struct ContentView: View {
-    @State private var direction: CGVector = .zero
-    
-    var scene: SKScene {
-        let scene = GameScene(size: CGSize(width: 300, height: 600))
-        scene.scaleMode = .resizeFill
-        return scene
+@MainActor class ContentViewModel: ObservableObject {
+    enum direction {
+        case up, down, left, right
     }
     
+    let minX = UIScreen.main.bounds.minX
+    let maxX = UIScreen.main.bounds.maxX
+    let minY = UIScreen.main.bounds.minY
+    let maxY = UIScreen.main.bounds.maxY
+}
+
+
+struct ContentView: View {
+    @StateObject var vm = ContentViewModel()
+    
     var body: some View {
-        SpriteView(scene: scene)
-            .frame(width: 300, height: 600)
-            .gesture(
-                DragGesture()
-                    .onChanged { value in
-                        let dragDirection = value.translation
-                        self.direction = CGVector(dx: dragDirection.width, dy: dragDirection.height)
-                    }
-            )
-            .edgesIgnoringSafeArea(.all)
+        Text("Snake")
     }
 }
 

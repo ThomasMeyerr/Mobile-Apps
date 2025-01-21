@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		16353E8E2D3FF85D00CD71C3 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16353E8D2D3FF85D00CD71C3 /* GameScene.swift */; };
 		166E75742D3FEC730050DD8F /* SnakeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166E75732D3FEC730050DD8F /* SnakeApp.swift */; };
 		166E75762D3FEC730050DD8F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166E75752D3FEC730050DD8F /* ContentView.swift */; };
 		166E75782D3FEC750050DD8F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 166E75772D3FEC750050DD8F /* Assets.xcassets */; };
@@ -15,7 +14,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		16353E8D2D3FF85D00CD71C3 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		166E75702D3FEC730050DD8F /* Snake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Snake.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		166E75732D3FEC730050DD8F /* SnakeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnakeApp.swift; sourceTree = "<group>"; };
 		166E75752D3FEC730050DD8F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -55,7 +53,6 @@
 			children = (
 				166E75732D3FEC730050DD8F /* SnakeApp.swift */,
 				166E75752D3FEC730050DD8F /* ContentView.swift */,
-				16353E8D2D3FF85D00CD71C3 /* GameScene.swift */,
 				166E75772D3FEC750050DD8F /* Assets.xcassets */,
 				166E75792D3FEC750050DD8F /* Preview Content */,
 			);
@@ -140,7 +137,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16353E8E2D3FF85D00CD71C3 /* GameScene.swift in Sources */,
 				166E75762D3FEC730050DD8F /* ContentView.swift in Sources */,
 				166E75742D3FEC730050DD8F /* SnakeApp.swift in Sources */,
 			);
