@@ -12,7 +12,7 @@ class GameScene: SKScene {
     var snake: SKSpriteNode!
     
     override func didMove(to view: SKView) {
-        backgroundColor = .black
+        backgroundColor = .lightGray
         
         // Create a basic snake
         snake = SKSpriteNode(color: .green, size: CGSize(width: 20, height: 20))
