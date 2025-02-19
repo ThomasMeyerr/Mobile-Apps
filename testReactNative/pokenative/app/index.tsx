@@ -1,3 +1,4 @@
+import { Card } from "@/components/Card";
 import { ThemedText } from "@/components/ThemedText";
 import { useThemeColors } from "@/hooks/useThemeColors";
 import { Link } from "expo-router";
@@ -9,7 +10,9 @@ export default function Index() {
 	
 	return (
 		<SafeAreaView style={[styles.container, {backgroundColor: colors.tint}]}>
-			<ThemedText variant="headline" color="grayWhite">Pokédex</ThemedText>
+			<Card>
+				<ThemedText variant="headline" color="grayDark">Pokédex</ThemedText>
+			</Card>
 		</SafeAreaView>
 	);
 }
