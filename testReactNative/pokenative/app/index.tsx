@@ -1,4 +1,4 @@
-import { Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 
 
 export default function Index() {
@@ -10,9 +10,9 @@ export default function Index() {
 }
 
 
-const styles = {
+const styles = StyleSheet.create({
 	container: {
 		backgroundColor: '#FF0000',
 		padding: 24,
 	}
-}
+})
